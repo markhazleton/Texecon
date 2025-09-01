@@ -12,15 +12,12 @@ const footerLinks = {
     { label: 'Economic Reports', href: '#' },
     { label: 'Data Downloads', href: '#' },
     { label: 'Research Papers', href: '#' },
-    { label: 'Contact Us', href: '#' },
+    { label: 'Contact Mark Hazleton', href: 'https://www.linkedin.com/in/markhazleton/', external: true },
   ],
 };
 
 const socialLinks = [
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Youtube, href: '#', label: 'YouTube' },
-  { icon: Rss, href: '#', label: 'RSS Feed' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/markhazleton/', label: 'Mark Hazleton LinkedIn' },
 ];
 
 export default function Footer() {
@@ -77,6 +74,8 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
+                    target={(link as any).external ? "_blank" : undefined}
+                    rel={(link as any).external ? "noopener noreferrer" : undefined}
                     className="text-muted-foreground hover:text-primary transition-colors"
                     data-testid={`resource-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                   >
