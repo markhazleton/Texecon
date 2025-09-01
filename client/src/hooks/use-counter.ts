@@ -8,7 +8,7 @@ export function useCounter(
 ) {
   const [count, setCount] = useState(start);
   const [isVisible, setIsVisible] = useState(false);
-  const countRef = useRef<HTMLElement>(null);
+  const countRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
