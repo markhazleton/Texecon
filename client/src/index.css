@@ -110,4 +110,27 @@
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
   }
+
+  /* Dropdown menu animations */
+  .dropdown-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .dropdown-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms ease-out, transform 200ms ease-out;
+  }
+  
+  .dropdown-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .dropdown-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 200ms ease-in, transform 200ms ease-in;
+  }
 }

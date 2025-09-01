@@ -1,35 +1,26 @@
 import { useState } from 'react';
 import { Star, Menu, X } from 'lucide-react';
-import { useScrollspy, useScrollToSection } from '@/hooks/use-scroll';
 import { Button } from '@/components/ui/button';
-import { navigationItems as realNavItems } from '@/lib/data';
+import { getNavigationItems, MenuItem } from '@/lib/menu-utils';
+import DropdownMenuItem from './dropdown-menu-item';
 
-const navigationItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'insights', label: 'Insights' },
-  { id: 'analysis', label: 'Analysis' },
-  { id: 'contact', label: 'Contact' },
-];
+interface NavigationProps {
+  onMenuItemSelect?: (item: MenuItem) => void;
+}
 
-// Merge real navigation with default sections
-const mergedNavigation = [
-  ...navigationItems.slice(0, 2), // Home and About
-  ...realNavItems.slice(0, 2).map(item => ({
-    id: item.id.includes('/') ? item.id.split('/')[1] || item.id : item.id,
-    label: item.label.includes('/') ? item.label.split('/')[1] || item.label : item.label
-  })),
-  ...navigationItems.slice(2) // Rest of default items
-].slice(0, 5);
-
-export default function Navigation() {
+export default function Navigation({ onMenuItemSelect }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const activeSection = useScrollspy(mergedNavigation.map(item => item.id));
-  const scrollToSection = useScrollToSection();
+  const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
+  const menuItems = getNavigationItems();
 
-  const handleNavClick = (sectionId: string) => {
-    scrollToSection(sectionId);
+  const handleMenuItemClick = (item: MenuItem) => {
+    setActiveMenuItem(item.argument || item.id.toString());
     setIsMobileMenuOpen(false);
+    
+    // Call the parent callback to display content
+    if (onMenuItemSelect) {
+      onMenuItemSelect(item);
+    }
   };
 
   return (
@@ -47,20 +38,14 @@ export default function Navigation() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {mergedNavigation.map((item) => (
-              <button
+          <div className="hidden md:flex items-center space-x-6">
+            {menuItems.map((item) => (
+              <DropdownMenuItem
                 key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`transition-colors ${
-                  activeSection === item.id
-                    ? 'text-primary font-medium'
-                    : 'text-muted-foreground hover:text-primary'
-                }`}
-                data-testid={`nav-link-${item.id}`}
-              >
-                {item.label}
-              </button>
+                item={item}
+                onItemClick={handleMenuItemClick}
+                isActive={activeMenuItem === (item.argument || item.id.toString())}
+              />
             ))}
           </div>
           
@@ -82,21 +67,16 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border" data-testid="mobile-menu">
-            <div className="flex flex-col space-y-2">
-              {mergedNavigation.map((item) => (
-                <button
+          <div className="md:hidden border-t border-border" data-testid="mobile-menu">
+            <div className="py-2">
+              {menuItems.map((item) => (
+                <DropdownMenuItem
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`text-left px-4 py-2 rounded-md transition-colors ${
-                    activeSection === item.id
-                      ? 'text-primary font-medium bg-muted'
-                      : 'text-muted-foreground hover:text-primary hover:bg-muted'
-                  }`}
-                  data-testid={`mobile-nav-link-${item.id}`}
-                >
-                  {item.label}
-                </button>
+                  item={item}
+                  onItemClick={handleMenuItemClick}
+                  isActive={activeMenuItem === (item.argument || item.id.toString())}
+                  isMobile={true}
+                />
               ))}
             </div>
           </div>
