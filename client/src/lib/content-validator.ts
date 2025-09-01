@@ -171,24 +171,27 @@ class ContentValidator {
     // Check for empty content
     if (data.navigation) {
       data.navigation.forEach((item: any, index: number) => {
-        if (!item.title || item.title.trim() === '') {
-          errors.push(`Navigation item ${index + 1} has empty title`);
+        if (!item.label || item.label.trim() === '') {
+          errors.push(`Navigation item ${index + 1} has empty label`);
         }
-        if (!item.content || item.content.trim() === '') {
-          warnings.push(`Navigation item ${index + 1} has no content`);
+        if (!item.description || item.description.trim() === '') {
+          warnings.push(`Navigation item ${index + 1} has no description`);
+        }
+        if (!item.href) {
+          warnings.push(`Navigation item ${index + 1} has no href`);
         }
       });
     }
 
-    // Check for broken HTML in content
+    // Check navigation item structure
     if (data.navigation) {
       data.navigation.forEach((item: any, index: number) => {
-        if (item.content && typeof item.content === 'string') {
-          const openTags = (item.content.match(/<[^/][^>]*>/g) || []).length;
-          const closeTags = (item.content.match(/<\/[^>]*>/g) || []).length;
+        if (item.description && typeof item.description === 'string') {
+          const openTags = (item.description.match(/<[^/][^>]*>/g) || []).length;
+          const closeTags = (item.description.match(/<\/[^>]*>/g) || []).length;
           
           if (openTags !== closeTags) {
-            warnings.push(`Navigation item ${index + 1} may have unmatched HTML tags`);
+            warnings.push(`Navigation item ${index + 1} may have unmatched HTML tags in description`);
           }
         }
       });
