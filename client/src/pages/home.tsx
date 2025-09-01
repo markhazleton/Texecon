@@ -65,7 +65,8 @@ export default function Home() {
       
       <Navigation onMenuItemSelect={handleMenuItemSelect} />
       <main>
-        <Hero />
+        {/* Show Hero only on home page (no content selected) */}
+        {!selectedContent && <Hero />}
         
         {/* Dynamic Content Area */}
         {selectedContent && (
@@ -80,10 +81,16 @@ export default function Home() {
           </section>
         )}
         
-        <Mission />
-        <Team />
-        <Insights />
-        <Dashboard />
+        {/* Show default sections only when no specific content is selected */}
+        {!selectedContent && (
+          <>
+            <Mission />
+            <Team />
+            <Insights />
+            <Dashboard />
+          </>
+        )}
+        
         <Newsletter />
       </main>
       <Footer />
