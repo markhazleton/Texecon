@@ -77,9 +77,9 @@ export default function Team() {
                           <Github className="w-5 h-5" />
                         </a>
                       )}
-                      {member.social.website && (
+                      {(member.social as any).website && (
                         <a 
-                          href={member.social.website}
+                          href={(member.social as any).website}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-primary transition-colors"

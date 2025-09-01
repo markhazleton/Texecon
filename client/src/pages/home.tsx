@@ -8,11 +8,14 @@ import Dashboard from '@/components/dashboard';
 import Newsletter from '@/components/newsletter';
 import Footer from '@/components/footer';
 import ContentDisplay from '@/components/content-display';
+import SEOHead from '@/components/seo-head';
+import StructuredData from '@/components/structured-data';
+import PerformanceMonitor from '@/components/performance-monitor';
 import { MenuItem } from '@/lib/menu-utils';
+import { teamMembers } from '@/lib/data';
 
 export default function Home() {
   const [selectedContent, setSelectedContent] = useState<MenuItem | null>(null);
-  
   const handleMenuItemSelect = (item: MenuItem) => {
     setSelectedContent(item);
     // Scroll to content area
@@ -22,8 +25,40 @@ export default function Home() {
     }
   };
 
+  // Convert team members to structured data format
+  const structuredPeople = teamMembers.map((member: any) => ({
+    name: member.name,
+    jobTitle: member.title,
+    description: member.description,
+    image: member.image,
+    url: member.social.website,
+    sameAs: [
+      member.social.linkedin,
+      member.social.github,
+      member.social.twitter
+    ].filter(Boolean)
+  }));
+
   return (
     <div className="min-h-screen">
+      <SEOHead 
+        title="TexEcon - Texas Economic Analysis & Insights"
+        description="Leading Texas economic analysis and commentary. Expert insights on Texas economy trends, data analysis, and economic forecasting from experienced economists and data analysts."
+        keywords={['Texas economy', 'economic analysis', 'Texas economic trends', 'economic forecasting', 'Texas business', 'economic data', 'economic commentary', 'Texas economics', 'economic dashboard', 'Texas GDP']}
+        image="https://texecon.com/assets/texecon-og-image.jpg"
+        url="https://texecon.com"
+        type="website"
+      />
+      
+      <StructuredData 
+        people={structuredPeople}
+        breadcrumbs={[
+          { name: 'Home', url: 'https://texecon.com' }
+        ]}
+      />
+      
+      <PerformanceMonitor />
+      
       <Navigation onMenuItemSelect={handleMenuItemSelect} />
       <main>
         <Hero />

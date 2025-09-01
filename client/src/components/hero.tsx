@@ -7,9 +7,10 @@ export default function Hero() {
   const scrollToSection = useScrollToSection();
 
   return (
-    <section 
+    <header 
       id="home" 
       className="gradient-texas hero-pattern pt-24 pb-16 lg:pb-20"
+      role="banner"
       data-testid="hero-section"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,8 +47,9 @@ export default function Hero() {
           <div className="relative">
             <img 
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Modern office building representing Texas economic growth" 
+              alt="Modern Texas office building skyline representing economic growth and business development in the Lone Star State" 
               className="rounded-xl shadow-2xl animate-float w-full h-auto"
+              loading="eager"
               data-testid="hero-image"
             />
             <div className="absolute -bottom-6 -left-6 bg-card p-4 rounded-lg shadow-lg">
@@ -64,6 +66,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </section>
+    </header>
   );
 }

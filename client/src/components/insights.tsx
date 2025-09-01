@@ -31,8 +31,9 @@ export default function Insights() {
             >
               <img 
                 src={insight.image}
-                alt={insight.title}
+                alt={`Economic insight: ${insight.title} - ${insight.category} analysis`}
                 className="w-full h-48 object-cover"
+                loading="lazy"
                 data-testid={`img-${insight.id}`}
               />
               <CardContent className="p-6">
