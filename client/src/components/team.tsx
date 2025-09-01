@@ -34,9 +34,14 @@ export default function Team() {
                     <h3 className="text-2xl font-bold text-card-foreground mb-2">
                       {member.name}
                     </h3>
-                    <p className="text-primary font-semibold mb-3">
+                    <p className="text-primary font-semibold mb-1">
                       {member.title}
                     </p>
+                    {(member as any).subtitle && (
+                      <p className="text-secondary font-medium text-sm mb-3">
+                        {(member as any).subtitle}
+                      </p>
+                    )}
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       {member.description}
                     </p>
@@ -75,6 +80,26 @@ export default function Team() {
                           title="GitHub Profile"
                         >
                           <Github className="w-5 h-5" />
+                        </a>
+                      )}
+                      {(member.social as any).website && (
+                        <a 
+                          href={(member.social as any).website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                          data-testid={`link-${member.id}-website`}
+                          title="Personal Website"
+                        >
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9" />
+                          </svg>
                         </a>
                       )}
                       {(member.social as any).website && (

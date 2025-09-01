@@ -1,6 +1,7 @@
 // Real data from WebSpark CMS cached at build time
 // This data is fetched from the live API and cached for static site generation
 import cachedContent from '../data/texecon-content.json';
+import teamData from '../data/team-data.json';
 
 const content = cachedContent;
 
@@ -11,7 +12,7 @@ export const siteMetadata = {
   lastUpdated: content.metadata.lastUpdated,
 };
 
-export const teamMembers = content.team;
+export const teamMembers = teamData.teamMembers;
 
 export const insights = content.insights;
 
