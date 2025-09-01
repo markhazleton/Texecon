@@ -44,8 +44,11 @@ export default function Team() {
                       {member.social.linkedin && (
                         <a 
                           href={member.social.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-primary transition-colors"
                           data-testid={`link-${member.id}-linkedin`}
+                          title="LinkedIn Profile"
                         >
                           <Linkedin className="w-5 h-5" />
                         </a>
@@ -53,8 +56,11 @@ export default function Team() {
                       {member.social.twitter && (
                         <a 
                           href={member.social.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-primary transition-colors"
                           data-testid={`link-${member.id}-twitter`}
+                          title="Twitter Profile"
                         >
                           <Twitter className="w-5 h-5" />
                         </a>
@@ -62,10 +68,27 @@ export default function Team() {
                       {member.social.github && (
                         <a 
                           href={member.social.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-primary transition-colors"
                           data-testid={`link-${member.id}-github`}
+                          title="GitHub Profile"
                         >
                           <Github className="w-5 h-5" />
+                        </a>
+                      )}
+                      {member.social.website && (
+                        <a 
+                          href={member.social.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                          data-testid={`link-${member.id}-website`}
+                          title="Personal Website"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"></path>
+                          </svg>
                         </a>
                       )}
                     </div>
