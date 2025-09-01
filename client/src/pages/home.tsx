@@ -11,6 +11,7 @@ import ContentDisplay from '@/components/content-display';
 import SEOHead from '@/components/seo-head';
 import StructuredData from '@/components/structured-data';
 import PerformanceMonitor from '@/components/performance-monitor';
+import AdminDashboard from '@/components/admin-dashboard';
 import { MenuItem } from '@/lib/menu-utils';
 import { teamMembers } from '@/lib/data';
 
@@ -58,6 +59,9 @@ export default function Home() {
       />
       
       <PerformanceMonitor />
+      
+      {/* Admin Dashboard - Only in development */}
+      {process.env.NODE_ENV === 'development' && <AdminDashboard />}
       
       <Navigation onMenuItemSelect={handleMenuItemSelect} />
       <main>
