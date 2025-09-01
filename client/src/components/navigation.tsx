@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Star, Menu, X } from 'lucide-react';
 import { useScrollspy, useScrollToSection } from '@/hooks/use-scroll';
 import { Button } from '@/components/ui/button';
+import { navigationItems as realNavItems } from '@/lib/data';
 
 const navigationItems = [
   { id: 'home', label: 'Home' },
@@ -11,9 +12,19 @@ const navigationItems = [
   { id: 'contact', label: 'Contact' },
 ];
 
+// Merge real navigation with default sections
+const mergedNavigation = [
+  ...navigationItems.slice(0, 2), // Home and About
+  ...realNavItems.slice(0, 2).map(item => ({
+    id: item.id.includes('/') ? item.id.split('/')[1] || item.id : item.id,
+    label: item.label.includes('/') ? item.label.split('/')[1] || item.label : item.label
+  })),
+  ...navigationItems.slice(2) // Rest of default items
+].slice(0, 5);
+
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const activeSection = useScrollspy(navigationItems.map(item => item.id));
+  const activeSection = useScrollspy(mergedNavigation.map(item => item.id));
   const scrollToSection = useScrollToSection();
 
   const handleNavClick = (sectionId: string) => {
@@ -37,7 +48,7 @@ export default function Navigation() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigationItems.map((item) => (
+            {mergedNavigation.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
@@ -73,7 +84,7 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border" data-testid="mobile-menu">
             <div className="flex flex-col space-y-2">
-              {navigationItems.map((item) => (
+              {mergedNavigation.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => handleNavClick(item.id)}

@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollToSection } from '@/hooks/use-scroll';
+import { heroContent } from '@/lib/data';
 
 export default function Hero() {
   const scrollToSection = useScrollToSection();
@@ -15,11 +16,11 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-              Texas Economic
+              {heroContent.title}
               <span className="block text-secondary">Analysis & Insights</span>
             </h1>
             <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-              Providing expert analysis and commentary on the Texas economy. Our mission is to educate and inform about the current state and future prospects of Texas economic growth.
+              {heroContent.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
