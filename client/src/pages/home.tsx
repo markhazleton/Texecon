@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from '@/components/navigation';
 import Hero from '@/components/hero';
 import Mission from '@/components/mission';
@@ -13,7 +13,7 @@ import StructuredData from '@/components/structured-data';
 import PerformanceMonitor from '@/components/performance-monitor';
 import AdminDashboard from '@/components/admin-dashboard';
 import { MenuItem } from '@/lib/menu-utils';
-import { teamMembers } from '@/lib/data';
+import { teamMembers, realContent } from '@/lib/data';
 
 export default function Home() {
   const [selectedContent, setSelectedContent] = useState<MenuItem | null>(null);
@@ -25,6 +25,37 @@ export default function Home() {
       contentSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  // Handle navigation from footer links
+  useEffect(() => {
+    const handleFooterNavigation = (event: CustomEvent) => {
+      const { pageId } = event.detail;
+      // Find the corresponding navigation item from raw data
+      const rawNavItem = realContent.navigation?.find((item: any) => item.id === pageId);
+      if (rawNavItem) {
+        // Convert to MenuItem format expected by handleMenuItemSelect
+        const menuItem: MenuItem = {
+          id: parseInt(rawNavItem.id) || 0,
+          title: rawNavItem.label || rawNavItem.description,
+          description: rawNavItem.description,
+          url: rawNavItem.href,
+          argument: null,
+          icon: 'document',
+          order: 0,
+          content: rawNavItem.description,
+          display_navigation: true,
+          isHomePage: false,
+          parent_page: null,
+          parent_title: '',
+          children: []
+        };
+        handleMenuItemSelect(menuItem);
+      }
+    };
+
+    window.addEventListener('navigateToPage', handleFooterNavigation as EventListener);
+    return () => window.removeEventListener('navigateToPage', handleFooterNavigation as EventListener);
+  }, []);
 
   // Convert team members to structured data format
   const structuredPeople = teamMembers.map((member: any) => ({

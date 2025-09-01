@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import ContentValidatorUI from './content-validator-ui';
 import ErrorMonitor from './error-monitor';
+import FooterLinkTest from './footer-link-test';
 import { useContentMonitoring } from '@/hooks/use-content-monitoring';
 
 export default function AdminDashboard() {
@@ -243,53 +244,57 @@ export default function AdminDashboard() {
             </TabsContent>
 
             <TabsContent value="testing" className="space-y-4">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Automated Testing Suite</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="text-center py-4">
-                      <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
-                      <h3 className="text-lg font-semibold mb-2">Comprehensive Testing</h3>
-                      <p className="text-muted-foreground mb-4">
-                        Automated tests for content validation, SEO compliance, and data integrity.
-                      </p>
-                    </div>
-                    
-                    {/* Test Categories */}
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="p-3 bg-muted rounded-lg">
-                        <div className="font-medium text-sm">Content Tests</div>
-                        <div className="text-xs text-muted-foreground">API data, navigation, team profiles</div>
+              <div className="grid gap-4">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Automated Testing Suite</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="text-center py-4">
+                        <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
+                        <h3 className="text-lg font-semibold mb-2">Comprehensive Testing</h3>
+                        <p className="text-muted-foreground mb-4">
+                          Automated tests for content validation, SEO compliance, and data integrity.
+                        </p>
                       </div>
-                      <div className="p-3 bg-muted rounded-lg">
-                        <div className="font-medium text-sm">SEO Tests</div>
-                        <div className="text-xs text-muted-foreground">Meta tags, structured data, performance</div>
+                      
+                      {/* Test Categories */}
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="p-3 bg-muted rounded-lg">
+                          <div className="font-medium text-sm">Content Tests</div>
+                          <div className="text-xs text-muted-foreground">API data, navigation, team profiles</div>
+                        </div>
+                        <div className="p-3 bg-muted rounded-lg">
+                          <div className="font-medium text-sm">SEO Tests</div>
+                          <div className="text-xs text-muted-foreground">Meta tags, structured data, performance</div>
+                        </div>
                       </div>
+                      
+                      <Button
+                        onClick={runValidation}
+                        disabled={isValidating}
+                        className="w-full"
+                        data-testid="button-run-full-tests"
+                      >
+                        {isValidating ? (
+                          <>
+                            <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
+                            Running Tests...
+                          </>
+                        ) : (
+                          <>
+                            <Zap className="w-4 h-4 mr-2" />
+                            Run All Tests
+                          </>
+                        )}
+                      </Button>
                     </div>
-                    
-                    <Button
-                      onClick={runValidation}
-                      disabled={isValidating}
-                      className="w-full"
-                      data-testid="button-run-full-tests"
-                    >
-                      {isValidating ? (
-                        <>
-                          <RefreshCw className="w-4 h-4 mr-2 animate-spin" />
-                          Running Tests...
-                        </>
-                      ) : (
-                        <>
-                          <Zap className="w-4 h-4 mr-2" />
-                          Run All Tests
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+                
+                <FooterLinkTest />
+              </div>
             </TabsContent>
           </Tabs>
         </div>

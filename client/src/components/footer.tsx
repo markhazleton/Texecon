@@ -1,19 +1,24 @@
-import { Star, Twitter, Linkedin, Youtube, Rss } from 'lucide-react';
+import { Star, Linkedin } from 'lucide-react';
 import { useScrollToSection } from '@/hooks/use-scroll';
+import { realContent } from '@/lib/data';
 
-const footerLinks = {
-  quickLinks: [
-    { label: 'Home', section: 'home' },
-    { label: 'About', section: 'about' },
-    { label: 'Insights', section: 'insights' },
-    { label: 'Analysis', section: 'analysis' },
-  ],
-  resources: [
-    { label: 'Economic Reports', href: '#' },
-    { label: 'Data Downloads', href: '#' },
-    { label: 'Research Papers', href: '#' },
-    { label: 'Contact Mark Hazleton', href: 'https://www.linkedin.com/in/markhazleton/', external: true },
-  ],
+// Get actual pages from navigation data
+const getFooterLinks = () => {
+  const navItems = realContent.navigation || [];
+  
+  return {
+    quickLinks: [
+      { label: 'Home', section: 'home' },
+      { label: 'Texas Economy', href: '#texas', pageId: 'texas' },
+      { label: 'Economic Team', href: '#texecon', pageId: 'texecon' },
+      { label: 'About Mark Hazleton', href: '#texecon/mark-hazleton', pageId: 'texecon/mark-hazleton' },
+    ],
+    resources: [
+      { label: 'Dr. Jared Hazleton', href: '#texecon/jared-hazleton', pageId: 'texecon/jared-hazleton' },
+      { label: 'Regional Analysis', href: '#kansas/wichita', pageId: 'kansas/wichita' },
+      { label: 'Contact Mark Hazleton', href: 'https://www.linkedin.com/in/markhazleton/', external: true },
+    ],
+  };
 };
 
 const socialLinks = [
@@ -22,6 +27,21 @@ const socialLinks = [
 
 export default function Footer() {
   const scrollToSection = useScrollToSection();
+  const footerLinks = getFooterLinks();
+  
+  // Function to handle link clicks for navigation items
+  const handleNavClick = (pageId: string, href: string) => {
+    if (pageId && window.dispatchEvent) {
+      // Dispatch custom event for page navigation
+      const event = new CustomEvent('navigateToPage', { 
+        detail: { pageId } 
+      });
+      window.dispatchEvent(event);
+    } else {
+      // Fallback to href
+      window.location.hash = href;
+    }
+  };
 
   return (
     <footer className="bg-card border-t border-border py-12" data-testid="footer">
@@ -53,15 +73,25 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-card-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {footerLinks.quickLinks.map((link) => (
-                <li key={link.section}>
-                  <button
-                    onClick={() => scrollToSection(link.section)}
-                    className="text-muted-foreground hover:text-primary transition-colors text-left"
-                    data-testid={`footer-link-${link.section}`}
-                  >
-                    {link.label}
-                  </button>
+              {footerLinks.quickLinks.map((link, index) => (
+                <li key={link.section || (link as any).pageId || index}>
+                  {link.section ? (
+                    <button
+                      onClick={() => scrollToSection(link.section)}
+                      className="text-muted-foreground hover:text-primary transition-colors text-left"
+                      data-testid={`footer-link-${link.section}`}
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => handleNavClick((link as any).pageId, (link as any).href)}
+                      className="text-muted-foreground hover:text-primary transition-colors text-left"
+                      data-testid={`footer-link-${(link as any).pageId}`}
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -70,17 +100,27 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-card-foreground mb-4">Resources</h4>
             <ul className="space-y-2">
-              {footerLinks.resources.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target={(link as any).external ? "_blank" : undefined}
-                    rel={(link as any).external ? "noopener noreferrer" : undefined}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                    data-testid={`resource-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    {link.label}
-                  </a>
+              {footerLinks.resources.map((link, index) => (
+                <li key={link.label || index}>
+                  {(link as any).external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                      data-testid={`resource-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <button
+                      onClick={() => handleNavClick((link as any).pageId, link.href)}
+                      className="text-muted-foreground hover:text-primary transition-colors text-left"
+                      data-testid={`resource-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
