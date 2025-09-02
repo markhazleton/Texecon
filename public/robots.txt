@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Important pages
+Allow: /
+Allow: /about
+Allow: /team
+Allow: /insights
+Allow: /contact
+
+# Sitemap location
+Sitemap: https://texecon.com/sitemap.xml
+
+# Crawl delay for politeness
+Crawl-delay: 1
