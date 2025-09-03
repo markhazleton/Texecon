@@ -12,6 +12,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  # Set your custom domain for GitHub Pages
+  CUSTOM_DOMAIN: texecon.com
+
 permissions:
   contents: read
 
@@ -33,13 +37,20 @@ jobs:
           cache: "npm"
           cache-dependency-path: package-lock.json
 
-      - name: Determine Vite base path for GitHub Pages
+      - name: Determine Vite base path and site URL
         shell: bash
         run: |
-          # If a CNAME exists, we assume a custom domain and base path '/'
-          if [ -f client/public/CNAME ]; then
+          # Prefer explicit CUSTOM_DOMAIN when provided
+          if [ -n "${CUSTOM_DOMAIN}" ]; then
+            echo "Using CUSTOM_DOMAIN=$CUSTOM_DOMAIN"
             echo "VITE_BASE_PATH=/" >> "$GITHUB_ENV"
-            DOMAIN=$(cat client/public/CNAME | tr -d '\n\r')
+            echo "SITE_BASE_URL=https://${CUSTOM_DOMAIN}" >> "$GITHUB_ENV"
+            # Ensure CNAME exists for Pages to register the custom domain
+            echo "${CUSTOM_DOMAIN}" > client/public/CNAME
+          elif [ -f client/public/CNAME ]; then
+            echo "Detected CNAME file"
+            echo "VITE_BASE_PATH=/" >> "$GITHUB_ENV"
+            DOMAIN=$(tr -d '\n\r' < client/public/CNAME)
             echo "SITE_BASE_URL=https://$DOMAIN" >> "$GITHUB_ENV"
           else
             # Project pages default to '/<repo>/'
