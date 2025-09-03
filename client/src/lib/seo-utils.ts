@@ -43,7 +43,20 @@ export function generateCanonicalUrl(
   baseUrl: string = "https://texecon.com"
 ): string {
   const path = generateSEOPath(item);
-  return `${baseUrl}${path}`;
+  // Ensure baseUrl doesn't end with slash to avoid double slashes
+  const cleanBaseUrl = baseUrl.replace(/\/$/, "");
+  return `${cleanBaseUrl}${path}`;
+}
+
+// Generate canonical URL for any path
+export function generateCanonicalUrlForPath(
+  path: string,
+  baseUrl: string = "https://texecon.com"
+): string {
+  // Ensure baseUrl doesn't end with slash and path starts with slash
+  const cleanBaseUrl = baseUrl.replace(/\/$/, "");
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${cleanBaseUrl}${cleanPath}`;
 }
 
 // Generate dynamic sitemap entries from menu items

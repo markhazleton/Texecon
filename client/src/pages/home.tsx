@@ -13,7 +13,7 @@ import PerformanceMonitor from '@/components/performance-monitor';
 import AdminDashboard from '@/components/admin-dashboard';
 import RouteDebugger from '@/components/route-debugger';
 import { MenuItem, findMenuItem, buildMenuHierarchy } from '@/lib/menu-utils';
-import { generateSEOPath, generateMetaDescription, extractKeywords } from '@/lib/seo-utils';
+import { generateSEOPath, generateMetaDescription, extractKeywords, generateCanonicalUrlForPath } from '@/lib/seo-utils';
 import { teamMembers } from '@/lib/data';
 
 export default function Home() {
@@ -126,14 +126,13 @@ export default function Home() {
   // Generate dynamic SEO data based on selected content - memoize to prevent recalculation
   const seoData = useMemo(() => {
     if (selectedContent) {
-      const baseUrl = (typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com') + (import.meta.env.BASE_URL || '/');
       const currentPath = generateSEOPath(selectedContent);
       
       return {
         title: `${selectedContent.title} - TexEcon`,
         description: generateMetaDescription(selectedContent),
         keywords: extractKeywords(selectedContent),
-        url: `${baseUrl.replace(/\/$/, '')}${currentPath}`,
+        url: generateCanonicalUrlForPath(currentPath),
         type: 'article' as const
       };
     }
@@ -142,7 +141,7 @@ export default function Home() {
       title: 'TexEcon - Texas Economic Analysis & Insights',
       description: 'Leading Texas economic analysis and commentary. Expert insights on Texas economy trends, data analysis, and economic forecasting from experienced economists and data analysts.',
       keywords: ['Texas economy', 'economic analysis', 'Texas economic trends', 'economic forecasting', 'Texas business', 'economic data', 'economic commentary', 'Texas economics', 'economic dashboard', 'Texas GDP'],
-      url: (typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com') + (import.meta.env.BASE_URL || '/'),
+      url: 'https://texecon.com',
       type: 'website' as const
     };
   }, [selectedContent]);
@@ -164,7 +163,8 @@ export default function Home() {
 
   // Generate breadcrumbs for selected content - memoize based on selectedContent
   const breadcrumbs = useMemo(() => {
-    const siteBase = (typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com') + (import.meta.env.BASE_URL || '/');
+    // Use canonical domain for breadcrumbs to match SEO data
+    const siteBase = 'https://texecon.com/';
     const breadcrumbs = [
       { name: 'Home', url: siteBase }
     ];
@@ -172,7 +172,7 @@ export default function Home() {
     if (selectedContent) {
       breadcrumbs.push({
         name: selectedContent.title,
-        url: `${siteBase.replace(/\/$/, '')}${generateSEOPath(selectedContent)}`
+        url: generateCanonicalUrlForPath(generateSEOPath(selectedContent))
       });
     }
     
@@ -185,7 +185,7 @@ export default function Home() {
         title={seoData.title}
         description={seoData.description}
         keywords={seoData.keywords}
-        image={`${(typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com') + (import.meta.env.BASE_URL || '/') }assets/texecon-og-image.jpg`}
+        image={`${(typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com')}${(import.meta.env.BASE_URL || '/')}assets/texecon-og-image.jpg`}
         url={seoData.url}
         type={seoData.type}
       />

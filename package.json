@@ -5,14 +5,15 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "npm run clean && npm run fetch:content && npm run generate:sitemap && vite build",
+    "build": "npm run clean && npm run fetch:content && npm run generate:sitemap && vite build && npm run generate:static-pages",
     "preview": "vite preview",
     "refresh:content": "node scripts/refresh-content.js",
     "fetch:content": "node scripts/fetch-content.js",
     "generate:sitemap": "node scripts/generate-sitemap.js",
+    "generate:static-pages": "node scripts/generate-static-pages.js",
     "type-check": "tsc --noEmit",
     "clean": "node scripts/clean.js",
-    "start": "npm run clean && npm run fetch:content && npm run generate:sitemap && vite build && vite preview"
+    "start": "npm run clean && npm run fetch:content && npm run generate:sitemap && vite build && npm run generate:static-pages && vite preview"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",

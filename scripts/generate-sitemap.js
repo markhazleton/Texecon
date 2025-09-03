@@ -20,25 +20,26 @@ function loadContentData() {
   }
 }
 
-// Generate SEO-friendly URL path for a menu item (matching the client-side logic)
+// Generate SEO-friendly URL path for PRIMARY routes only (avoiding duplicate content)
 function generateSEOPath(item) {
-  const slug = item.title
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-') // Replace multiple hyphens with single
-    .trim();
-
-  // Use different URL patterns based on content type (matching client-side logic)
-  if (item.parent_page) {
+  // Team members use /section/ as primary route
+  if (item.argument && item.argument.includes('hazleton')) {
+    const slug = item.title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
     return `/section/${slug}`;
-  } else if (item.argument) {
-    return `/topic/${item.argument}`;
-  } else if (item.url && item.url !== '/') {
-    return `/content/${slug}`;
-  } else {
-    return `/page/${item.id}`;
   }
+  
+  // All other content uses /content/ as primary route
+  if (item.argument && item.argument !== 'home') {
+    return `/content/${item.argument}`;
+  }
+  
+  // Default to homepage for home content
+  return '/';
 }
 
 function getBaseUrl() {
@@ -61,33 +62,42 @@ function generateSiteMapFromData() {
   // Generate dynamic pages from actual content data
   const dynamicPages = [];
   
+  // Add team member pages from /section/ routes
+  if (contentData.team && Array.isArray(contentData.team)) {
+    contentData.team.forEach(member => {
+      const slug = member.page_url?.replace('/section/', '') || 
+                  member.name?.toLowerCase().replace(/\s+/g, '-');
+      if (slug) {
+        const fullUrl = `${baseUrl}/section/${slug}`;
+        dynamicPages.push({
+          url: fullUrl,
+          priority: '0.8',
+          changefreq: 'monthly',
+          title: `${member.name} - TexEcon Team`,
+          lastModified: currentDate
+        });
+      }
+    });
+  }
+  
+  // Add content pages from /content/ routes  
   if (contentData.pages && contentData.pages.all) {
     contentData.pages.all
-      .filter(item => item.display_navigation) // Only include navigable pages
+      .filter(item => item.display_navigation && !item.isHomePage) // Only include navigable non-home pages
       .forEach(item => {
+        // Skip team member pages - they're handled above
+        if (item.argument && item.argument.includes('hazleton')) {
+          return;
+        }
+        
         const seoPath = generateSEOPath(item);
+        if (seoPath === '/') return; // Skip home page duplicates
+        
         const fullUrl = `${baseUrl}${seoPath}`;
         
-        // Set priority based on content type and importance
-        let priority = '0.7'; // default
+        // Set priority based on content type
+        let priority = '0.7'; // default for content pages
         let changefreq = 'weekly'; // default
-        
-        if (item.isHomePage) {
-          priority = '1.0';
-          changefreq = 'daily';
-        } else if (item.parent_page) {
-          // Section pages (like team member pages)
-          priority = '0.6';
-          changefreq = 'weekly';
-        } else if (item.argument) {
-          // Topic pages
-          priority = '0.7';
-          changefreq = 'weekly';
-        } else {
-          // Content pages
-          priority = '0.8';
-          changefreq = 'weekly';
-        }
         
         dynamicPages.push({
           url: fullUrl,
