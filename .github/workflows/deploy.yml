@@ -39,9 +39,14 @@ jobs:
           # If a CNAME exists, we assume a custom domain and base path '/'
           if [ -f client/public/CNAME ]; then
             echo "VITE_BASE_PATH=/" >> "$GITHUB_ENV"
+            DOMAIN=$(cat client/public/CNAME | tr -d '\n\r')
+            echo "SITE_BASE_URL=https://$DOMAIN" >> "$GITHUB_ENV"
           else
             # Project pages default to '/<repo>/'
             echo "VITE_BASE_PATH=/${GITHUB_REPOSITORY#*/}/" >> "$GITHUB_ENV"
+            OWNER=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f1)
+            REPO=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
+            echo "SITE_BASE_URL=https://$OWNER.github.io/$REPO" >> "$GITHUB_ENV"
           fi
 
       - name: Install dependencies (incl. dev)

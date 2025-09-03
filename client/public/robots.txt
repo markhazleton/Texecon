@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://texecon.com/sitemap.xml
+Sitemap: /sitemap.xml
 
 # Block development and admin routes
 Disallow: /admin/

@@ -1,18 +1,31 @@
 // Real data from WebSpark CMS cached at build time
 // This data is fetched from the live API and cached for static site generation
-import cachedContent from '../data/texecon-content.json';
-import teamData from '../data/team-data.json';
+import cachedContent from "../data/texecon-content.json";
+import teamData from "../data/team-data.json";
 
 const content = cachedContent;
 
 export const siteMetadata = {
   title: content.metadata.title + " - Texas Economic Analysis & Commentary",
-  description: content.metadata.description + " - Expert analysis and commentary on the Texas economy.",
-  url: "https://texecon.com",
+  description:
+    content.metadata.description +
+    " - Expert analysis and commentary on the Texas economy.",
+  // Build absolute site URL dynamically so GitHub Pages subpaths work
+  url:
+    (typeof window !== "undefined"
+      ? window.location.origin
+      : "https://texecon.com") + (import.meta.env.BASE_URL || "/"),
   lastUpdated: content.metadata.lastUpdated,
 };
 
-export const teamMembers = teamData.teamMembers;
+// Ensure team member images resolve under the configured base path (GitHub Pages subpaths)
+export const teamMembers = teamData.teamMembers.map((m: any) => ({
+  ...m,
+  image:
+    typeof m.image === "string" && !/^https?:\/\//.test(m.image)
+      ? `${import.meta.env.BASE_URL}${m.image.replace(/^\//, "")}`
+      : m.image,
+}));
 
 export const insights = content.insights;
 
@@ -68,9 +81,11 @@ export const heroContent = {
   description: content.hero.content,
 };
 
-export const navigationItems = content.navigation.slice(0, 5).map(item => ({
+export const navigationItems = content.navigation.slice(0, 5).map((item) => ({
   id: item.id,
-  label: item.label.includes('/') ? item.label.split('/')[1] || item.label : item.label,
+  label: item.label.includes("/")
+    ? item.label.split("/")[1] || item.label
+    : item.label,
 }));
 
 export const realContent = content;

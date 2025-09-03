@@ -11,8 +11,15 @@ const __dirname = path.dirname(__filename);
 // Since we can't import from client src directly in Node.js, we'll simulate the structure
 // In a real implementation, you'd load your actual content data
 
+function getBaseUrl() {
+  // Prefer explicit SITE_BASE_URL; fallback to production domain
+  const explicit = process.env.SITE_BASE_URL;
+  if (explicit) return explicit.replace(/\/$/, '');
+  return 'https://texecon.com';
+}
+
 function generateSiteMapFromData() {
-  const baseUrl = 'https://texecon.com';
+  const baseUrl = getBaseUrl();
   const currentDate = new Date().toISOString();
 
   // Static pages
@@ -51,11 +58,11 @@ ${allPages.map(page => `  <url>
   return sitemapXML;
 }
 
-function generateRobotsTxt() {
+function generateRobotsTxt(baseUrl) {
   return `User-agent: *
 Allow: /
 
-Sitemap: https://texecon.com/sitemap.xml
+Sitemap: ${baseUrl}/sitemap.xml
 
 # Block development and admin routes
 Disallow: /admin/
@@ -66,8 +73,9 @@ Disallow: /*.map$
 }
 
 // Generate sitemap and robots.txt
+const baseUrl = getBaseUrl();
 const sitemap = generateSiteMapFromData();
-const robotsTxt = generateRobotsTxt();
+const robotsTxt = generateRobotsTxt(baseUrl);
 
 // Write to public directory
 const publicDir = path.join(__dirname, '..', 'client', 'public');

@@ -128,14 +128,14 @@ export default function Home() {
   // Generate dynamic SEO data based on selected content - memoize to prevent recalculation
   const seoData = useMemo(() => {
     if (selectedContent) {
-      const baseUrl = 'https://texecon.com';
+      const baseUrl = (typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com') + (import.meta.env.BASE_URL || '/');
       const currentPath = generateSEOPath(selectedContent);
       
       return {
         title: `${selectedContent.title} - TexEcon`,
         description: generateMetaDescription(selectedContent),
         keywords: extractKeywords(selectedContent),
-        url: `${baseUrl}${currentPath}`,
+        url: `${baseUrl.replace(/\/$/, '')}${currentPath}`,
         type: 'article' as const
       };
     }
@@ -144,7 +144,7 @@ export default function Home() {
       title: 'TexEcon - Texas Economic Analysis & Insights',
       description: 'Leading Texas economic analysis and commentary. Expert insights on Texas economy trends, data analysis, and economic forecasting from experienced economists and data analysts.',
       keywords: ['Texas economy', 'economic analysis', 'Texas economic trends', 'economic forecasting', 'Texas business', 'economic data', 'economic commentary', 'Texas economics', 'economic dashboard', 'Texas GDP'],
-      url: 'https://texecon.com',
+      url: (typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com') + (import.meta.env.BASE_URL || '/'),
       type: 'website' as const
     };
   }, [selectedContent]);
@@ -166,14 +166,15 @@ export default function Home() {
 
   // Generate breadcrumbs for selected content - memoize based on selectedContent
   const breadcrumbs = useMemo(() => {
+    const siteBase = (typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com') + (import.meta.env.BASE_URL || '/');
     const breadcrumbs = [
-      { name: 'Home', url: 'https://texecon.com' }
+      { name: 'Home', url: siteBase }
     ];
     
     if (selectedContent) {
       breadcrumbs.push({
         name: selectedContent.title,
-        url: `https://texecon.com${generateSEOPath(selectedContent)}`
+        url: `${siteBase.replace(/\/$/, '')}${generateSEOPath(selectedContent)}`
       });
     }
     
@@ -186,7 +187,7 @@ export default function Home() {
         title={seoData.title}
         description={seoData.description}
         keywords={seoData.keywords}
-        image="https://texecon.com/assets/texecon-og-image.jpg"
+        image={`${(typeof window !== 'undefined' ? window.location.origin : 'https://texecon.com') + (import.meta.env.BASE_URL || '/') }assets/texecon-og-image.jpg`}
         url={seoData.url}
         type={seoData.type}
       />

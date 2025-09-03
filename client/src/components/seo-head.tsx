@@ -16,7 +16,7 @@ export default function SEOHead({
   title = 'TexEcon - Texas Economic Analysis & Insights',
   description = 'Leading Texas economic analysis and commentary. Expert insights on Texas economy trends, data analysis, and economic forecasting from experienced economists and data analysts.',
   keywords = ['Texas economy', 'economic analysis', 'Texas economic trends', 'economic forecasting', 'Texas business', 'economic data', 'economic commentary', 'Texas economics'],
-  image = '/assets/texecon-og-image.jpg',
+  image = `${import.meta.env.BASE_URL}assets/texecon-og-image.jpg`,
   url = 'https://texecon.com',
   type = 'website',
   author = 'TexEcon Team',
