@@ -4,7 +4,6 @@ import Navigation from '@/components/navigation';
 import Hero from '@/components/hero';
 import Mission from '@/components/mission';
 import Team from '@/components/team';
-import Dashboard from '@/components/dashboard';
 import Newsletter from '@/components/newsletter';
 import Footer from '@/components/footer';
 import ContentDisplay from '@/components/content-display';
@@ -227,7 +226,6 @@ export default function Home() {
           <>
             <Mission />
             <Team />
-            <Dashboard />
           </>
         )}
         
