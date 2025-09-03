@@ -16,11 +16,11 @@ export default function Hero() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <h1 className="text-4xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               {heroContent.title}
               <span className="block text-secondary">Analysis & Insights</span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="text-xl text-foreground/90 mb-8 leading-relaxed">
               {heroContent.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -35,7 +35,7 @@ export default function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
                 onClick={() => scrollToSection('about')}
                 data-testid="button-learn-more"
               >

@@ -34,7 +34,7 @@ export default function Navigation({ onMenuItemSelect }: NavigationProps) {
 
   return (
     <nav 
-      className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border"
+  className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-xs border-b border-border"
       data-testid="navigation"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
