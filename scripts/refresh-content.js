@@ -33,16 +33,11 @@ async function refreshContent() {
     };
     
     console.log('📡 Attempting to fetch fresh content from API...');
-    
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000); // 10 second timeout
-    
-    const response = await fetch(apiUrl, { 
-      headers, 
-      signal: controller.signal 
-    });
-    
-    clearTimeout(timeout);
+    // Use a simple timeout without AbortController to avoid a libuv assertion on Windows
+    const response = await Promise.race([
+      fetch(apiUrl, { headers }),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('Request timed out after 10s')), 10000))
+    ]);
     
     if (response.ok) {
       const data = await response.json();

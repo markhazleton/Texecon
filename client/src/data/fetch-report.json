@@ -1,0 +1,130 @@
+{
+  "timestamp": "2025-09-03T18:23:28.281Z",
+  "fetchTime": 1116,
+  "source": {
+    "url": "https://webspark.markhazleton.com/api/WebCMS/websites/1",
+    "success": true,
+    "totalPages": 13
+  },
+  "apiAnalysis": {
+    "success": true,
+    "totalPages": 13,
+    "navigationPages": 13,
+    "homePages": 1,
+    "pagesWithContent": 13,
+    "parentChildRelations": 9,
+    "averageContentLength": 4636,
+    "contentTypes": [
+      "arizona",
+      "texas/austin",
+      "texas/dallas",
+      "texas/houston",
+      "texecon/jared-hazleton",
+      "kansas",
+      "texas/keller",
+      "texecon/mark-hazleton",
+      "arizona/phoenix",
+      "texas/roanoke",
+      "texas",
+      "texecon",
+      "kansas/wichita"
+    ],
+    "dataSize": 67078
+  },
+  "navigation": {
+    "count": 6,
+    "items": [
+      {
+        "id": "kansas/wichita",
+        "label": "Kansas/wichita",
+        "description": "Wichita Kansas..."
+      },
+      {
+        "id": "texecon",
+        "label": "Texecon",
+        "description": "TexEcon..."
+      },
+      {
+        "id": "texecon/mark-hazleton",
+        "label": "Texecon/mark hazleton",
+        "description": "Mark Hazleton..."
+      },
+      {
+        "id": "texecon/jared-hazleton",
+        "label": "Texecon/jared hazleton",
+        "description": "Jared Hazleton..."
+      },
+      {
+        "id": "texas",
+        "label": "Texas",
+        "description": "Texas..."
+      },
+      {
+        "id": "texas/austin",
+        "label": "Texas/austin",
+        "description": "Austin..."
+      }
+    ]
+  },
+  "team": {
+    "count": 2,
+    "members": [
+      {
+        "name": "Dr. Jared Hazleton",
+        "title": "Lead Economist"
+      },
+      {
+        "name": "Mark Hazleton",
+        "title": "Technology Director"
+      }
+    ]
+  },
+  "insights": {
+    "count": 2,
+    "categories": [
+      "TECH"
+    ],
+    "latest": [
+      {
+        "title": "From the Grand Canyon to Grand Opportunities: Arizona's Economic Development Story",
+        "category": "TECH",
+        "date": "Today"
+      },
+      {
+        "title": "Phoenix, Arizona: A Growing Hub of Economic Activity",
+        "category": "TECH",
+        "date": "Today"
+      }
+    ]
+  },
+  "metrics": {
+    "count": 4,
+    "types": [
+      "gdpGrowth",
+      "unemployment",
+      "housingIndex",
+      "industrialProduction"
+    ]
+  },
+  "content": {
+    "totalCharacters": 60269,
+    "pagesWithContent": 13,
+    "displayNavigation": 13,
+    "homePage": "texecon",
+    "contentTypes": [
+      "arizona",
+      "texas/austin",
+      "texas/dallas",
+      "texas/houston",
+      "texecon/jared-hazleton",
+      "kansas",
+      "texas/keller",
+      "texecon/mark-hazleton",
+      "arizona/phoenix",
+      "texas/roanoke",
+      "texas",
+      "texecon",
+      "kansas/wichita"
+    ]
+  }
+}

@@ -1,24 +1,23 @@
 {
-  "timestamp": "2025-09-03T17:47:43.894Z",
+  "timestamp": "2025-09-03T18:16:28.168Z",
   "status": "success",
-  "fetchTime": 1114,
+  "fetchTime": 1141,
   "contentUpdated": true,
   "source": "webspark-api",
   "apiResponse": {
     "success": true,
     "hasData": true,
-    "menuCount": 14
+    "menuCount": 13
   },
   "contentCounts": {
-    "totalPages": 14,
-    "navigationPages": 14,
+    "totalPages": 13,
+    "navigationPages": 13,
     "homePages": 1,
     "pagesWithContent": 13,
-    "parentChildRelations": 10,
+    "parentChildRelations": 9,
     "contentTypes": {
       "arizona": 1,
       "texas/austin": 1,
-      "no-argument": 1,
       "texas/dallas": 1,
       "texas/houston": 1,
       "texecon/jared-hazleton": 1,
@@ -31,8 +30,8 @@
       "texecon": 1,
       "kansas/wichita": 1
     },
-    "averageContentLength": 4642,
-    "totalContentCharacters": 60346
+    "averageContentLength": 4636,
+    "totalContentCharacters": 60269
   },
-  "dataSize": 67609
+  "dataSize": 67078
 }

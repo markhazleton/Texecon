@@ -352,8 +352,8 @@ function generateContentReport(apiData, processedData, fetchTime) {
   return report;
 }
 
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
+// Run if called directly (normalize Windows paths)
+if (import.meta.url === `file:///${process.argv[1]?.replace(/\\/g, '/')}`) {
   fetchTexEconContent()
     .then(() => process.exit(0))
     .catch(error => {
