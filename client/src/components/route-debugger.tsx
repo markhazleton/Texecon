@@ -25,7 +25,7 @@ export default function RouteDebugger() {
   }
 
   return (
-    <Card className="fixed bottom-4 right-4 w-96 max-h-96 overflow-y-auto bg-background/95 backdrop-blur-sm border shadow-lg z-50">
+  <Card className="fixed bottom-4 right-4 w-96 max-h-96 overflow-y-auto bg-background/95 backdrop-blur-xs border shadow-lg z-50">
       <CardHeader className="pb-2">
         <CardTitle className="text-sm">Route Debugger</CardTitle>
       </CardHeader>

@@ -3,7 +3,7 @@ import { Linkedin } from 'lucide-react';
 
 export default function Newsletter() {
   return (
-    <section id="contact" className="py-16 bg-gradient-to-b from-muted to-background" data-testid="contact-section">
+  <section id="contact" className="py-16 bg-gradient-to-b from-muted to-background text-foreground" data-testid="contact-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">

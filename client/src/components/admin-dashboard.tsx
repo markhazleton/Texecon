@@ -77,7 +77,7 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="fixed inset-4 z-50 bg-background/95 backdrop-blur-sm rounded-lg shadow-2xl border overflow-hidden">
+  <div className="fixed inset-4 z-50 bg-background/95 backdrop-blur-xs rounded-lg shadow-2xl border overflow-hidden">
       <div className="h-full flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b bg-card">
