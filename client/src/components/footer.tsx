@@ -38,6 +38,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const base = (import.meta as any).env.BASE_URL as string;
   const scrollToSection = useScrollToSection();
   const footerLinks = getFooterLinks();
   
@@ -59,7 +60,7 @@ export default function Footer() {
           <div className="col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <img 
-                src="/favicon-32x32.png" 
+                src={`${base}favicon-32x32.png`} 
                 alt="TexEcon Logo" 
                 className="w-8 h-8" 
                 loading="lazy"

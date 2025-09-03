@@ -9,6 +9,7 @@ interface NavigationProps {
 }
 
 export default function Navigation({ onMenuItemSelect }: NavigationProps) {
+  const base = (import.meta as any).env.BASE_URL as string;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
   const menuItems = getNavigationItems();
@@ -46,7 +47,7 @@ export default function Navigation({ onMenuItemSelect }: NavigationProps) {
             type="button"
           >
             <img 
-              src="/favicon-96x96.png" 
+              src={`${base}favicon-96x96.png`} 
               alt="TexEcon Logo" 
               className="w-6 h-6" 
               data-testid="logo-icon"

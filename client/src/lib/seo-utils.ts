@@ -180,7 +180,7 @@ export function getStructuredData(item: MenuItem) {
       url: "https://texecon.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://texecon.com/favicon-192x192.png",
+        url: `${import.meta.env.BASE_URL}favicon-192x192.png`,
       },
     },
     datePublished: new Date().toISOString(),
