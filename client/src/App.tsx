@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router as WouterRouter } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -22,6 +22,9 @@ function Router() {
 }
 
 function App() {
+  // Use Vite's injected base path (e.g., '/Texecon/') and normalize for wouter
+  const rawBase = import.meta.env.BASE_URL as string;
+  const base = rawBase && rawBase !== "/" ? rawBase.replace(/\/$/, "") : "";
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -33,7 +36,9 @@ function App() {
           // TODO: Send to error reporting service in production
         }}>
           <Toaster />
-          <Router />
+          <WouterRouter base={base}>
+            <Router />
+          </WouterRouter>
         </ErrorBoundary>
       </TooltipProvider>
     </QueryClientProvider>
