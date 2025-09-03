@@ -2,27 +2,10 @@ import { useState, useEffect } from 'react';
 import { MenuItem } from '@/lib/menu-utils';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, User, Tag } from 'lucide-react';
+import { Calendar, Tag } from 'lucide-react';
 
 interface ContentDisplayProps {
   menuItem: MenuItem | null;
-}
-
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
-}
-
-function formatDate(dateString: string): string {
-  try {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  } catch {
-    return 'Recently updated';
-  }
 }
 
 export default function ContentDisplay({ menuItem }: ContentDisplayProps) {

@@ -1,6 +1,5 @@
 import { Linkedin } from 'lucide-react';
 import { useScrollToSection } from '@/hooks/use-scroll';
-import { realContent, teamMembers } from '@/lib/data';
 import { buildMenuHierarchy, MenuItem } from '@/lib/menu-utils';
 import { generateSEOPath } from '@/lib/seo-utils';
 
@@ -43,7 +42,7 @@ export default function Footer() {
   const footerLinks = getFooterLinks();
   
   // Function to handle link clicks for navigation items
-  const handleNavClick = (path: string, item?: MenuItem) => {
+  const handleNavClick = (_path: string, item?: MenuItem) => {
     // Dispatch custom event with menu item data for the home component
     if (item) {
       const event = new CustomEvent('navigateToPage', { 

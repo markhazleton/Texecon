@@ -57,18 +57,20 @@ class WebSparkApiClient {
   private async fetchFromAPI(endpoint: string): Promise<any> {
     const url = `${this.config.baseUrl}${endpoint}`;
     const headers: Record<string, string> = {
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${this.config.authToken}`,
+      Accept: "application/json",
+      Authorization: `Bearer ${this.config.authToken}`,
     };
 
     if (this.config.cookies) {
-      headers['Cookie'] = this.config.cookies;
+      headers["Cookie"] = this.config.cookies;
     }
 
     const response = await fetch(url, { headers });
-    
+
     if (!response.ok) {
-      throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+      throw new Error(
+        `API request failed: ${response.status} ${response.statusText}`
+      );
     }
 
     return response.json();
@@ -77,7 +79,7 @@ class WebSparkApiClient {
   async getWebsiteData(): Promise<WebSparkWebsiteData> {
     const endpoint = `/api/WebCMS/websites/${this.config.websiteId}`;
     const cacheKey = this.getCacheKey(endpoint);
-    
+
     // Check cache first
     const cached = this.cache.get(cacheKey);
     if (cached && this.isCacheValid(cached.timestamp)) {
@@ -86,17 +88,17 @@ class WebSparkApiClient {
 
     try {
       const data = await this.fetchFromAPI(endpoint);
-      
+
       // Cache the successful response
       this.cache.set(cacheKey, {
         data,
-        timestamp: Date.now()
+        timestamp: Date.now(),
       });
 
       return data;
     } catch (error) {
-      console.error('Failed to fetch from API, using fallback data:', error);
-      
+      console.error("Failed to fetch from API, using fallback data:", error);
+
       // Return fallback data if available in cache (even expired)
       if (cached) {
         return cached.data;
@@ -109,13 +111,13 @@ class WebSparkApiClient {
 
   private getFallbackData(): WebSparkWebsiteData {
     // Try to get cached data from localStorage (for static builds)
-    if (typeof window !== 'undefined') {
-      const cached = localStorage.getItem('texecon-cached-data');
+    if (typeof window !== "undefined") {
+      const cached = localStorage.getItem("texecon-cached-data");
       if (cached) {
         try {
           return JSON.parse(cached);
         } catch (e) {
-          console.warn('Failed to parse cached data from localStorage');
+          console.warn("Failed to parse cached data from localStorage");
         }
       }
     }
@@ -126,26 +128,25 @@ class WebSparkApiClient {
       data: {
         description: "TexEcon.com - Texas Economic Analysis",
         id: 1,
-        menu: []
-      }
+        menu: [],
+      },
     };
   }
 
   // Save data to localStorage for static site generation
   saveCachedData(data: WebSparkWebsiteData): void {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       try {
-        localStorage.setItem('texecon-cached-data', JSON.stringify(data));
-        localStorage.setItem('texecon-cache-timestamp', Date.now().toString());
+        localStorage.setItem("texecon-cached-data", JSON.stringify(data));
+        localStorage.setItem("texecon-cache-timestamp", Date.now().toString());
       } catch (e) {
-        console.warn('Failed to save data to localStorage:', e);
+        console.warn("Failed to save data to localStorage:", e);
       }
     }
   }
 
   // Clear expired cache entries
   clearExpiredCache(): void {
-    const now = Date.now();
     const entries = Array.from(this.cache.entries());
     for (const [key, value] of entries) {
       if (!this.isCacheValid(value.timestamp)) {
@@ -157,10 +158,11 @@ class WebSparkApiClient {
 
 // Create singleton instance
 const apiConfig: ApiClientConfig = {
-  baseUrl: 'https://webspark.markhazleton.com',
-  authToken: 'MARKHAZLETON-WEB',
+  baseUrl: "https://webspark.markhazleton.com",
+  authToken: "MARKHAZLETON-WEB",
   websiteId: 1,
-  cookies: '.AspNetCore.Antiforgery.DlpvxuBJxZo=CfDJ8C3wmONpH_FLphaqQtDLGRYuZc_a6WnqAFCJfLk5gXJrPIrBzDAeMRGaHM4nB5VvGscxdzWEpjSr7P-E-0av185InEN6AE2QazEDzVNGLwOv1YYKrBVcpf6eBMIlbj9VeHo13fpOQv8sQ8wfTdIPSVs; .AspNetCore.Antiforgery.tvaVAstoha0=CfDJ8Nbddi0GFelFlLbYOyee0tfWE9b5PkLjyFJg97tQfv-GWRusAl0d4PL5WAOjzXx995KePx9GIyNblQkMqphqPReqakafy-zTGGoKK0ElSDzofhH2vROOsgNY4bmQkupPlUEXTG8CCxs5Am0CjkGfjiA'
+  cookies:
+    ".AspNetCore.Antiforgery.DlpvxuBJxZo=CfDJ8C3wmONpH_FLphaqQtDLGRYuZc_a6WnqAFCJfLk5gXJrPIrBzDAeMRGaHM4nB5VvGscxdzWEpjSr7P-E-0av185InEN6AE2QazEDzVNGLwOv1YYKrBVcpf6eBMIlbj9VeHo13fpOQv8sQ8wfTdIPSVs; .AspNetCore.Antiforgery.tvaVAstoha0=CfDJ8Nbddi0GFelFlLbYOyee0tfWE9b5PkLjyFJg97tQfv-GWRusAl0d4PL5WAOjzXx995KePx9GIyNblQkMqphqPReqakafy-zTGGoKK0ElSDzofhH2vROOsgNY4bmQkupPlUEXTG8CCxs5Am0CjkGfjiA",
 };
 
 export const websparkClient = new WebSparkApiClient(apiConfig);
@@ -172,7 +174,7 @@ export async function fetchBuildTimeData(): Promise<WebSparkWebsiteData | null> 
     websparkClient.saveCachedData(data);
     return data;
   } catch (error) {
-    console.error('Build-time data fetch failed:', error);
+    console.error("Build-time data fetch failed:", error);
     return null;
   }
 }
@@ -184,31 +186,44 @@ export function transformWebSparkData(apiData: WebSparkWebsiteData) {
   }
 
   const pages = apiData.data.menu;
-  
+
   // Find pages with specific arguments/content types
-  const homePage = pages.find(page => page.isHomePage || page.argument === 'home');
-  const aboutPages = pages.filter(page => page.argument?.includes('about') || page.description?.toLowerCase().includes('team'));
-  const analysisPages = pages.filter(page => page.argument?.includes('analysis') || page.description?.toLowerCase().includes('economic'));
-  
+  const homePage = pages.find(
+    (page) => page.isHomePage || page.argument === "home"
+  );
+  const aboutPages = pages.filter(
+    (page) =>
+      page.argument?.includes("about") ||
+      page.description?.toLowerCase().includes("team")
+  );
+  const analysisPages = pages.filter(
+    (page) =>
+      page.argument?.includes("analysis") ||
+      page.description?.toLowerCase().includes("economic")
+  );
+
   return {
     siteInfo: {
       title: apiData.data.description,
-      description: homePage?.description || 'Texas Economic Analysis & Commentary'
+      description:
+        homePage?.description || "Texas Economic Analysis & Commentary",
     },
     navigation: pages
-      .filter(page => page.display_navigation)
+      .filter((page) => page.display_navigation)
       .sort((a, b) => a.order - b.order)
-      .map(page => ({
+      .map((page) => ({
         id: page.argument || page.id.toString(),
-        label: page.argument?.charAt(0).toUpperCase() + page.argument?.slice(1) || 'Page',
+        label:
+          page.argument?.charAt(0).toUpperCase() + page.argument?.slice(1) ||
+          "Page",
         description: page.description,
-        content: page.content
+        content: page.content,
       })),
     pages: {
       home: homePage,
       about: aboutPages,
       analysis: analysisPages,
-      all: pages
-    }
+      all: pages,
+    },
   };
 }

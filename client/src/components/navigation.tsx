@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getNavigationItems, getHomePage, MenuItem } from '@/lib/menu-utils';
+import { getNavigationItems, MenuItem } from '@/lib/menu-utils';
 import DropdownMenuItem from './dropdown-menu-item';
 
 interface NavigationProps {
@@ -12,7 +12,6 @@ export default function Navigation({ onMenuItemSelect }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
   const menuItems = getNavigationItems();
-  const homePage = getHomePage();
 
   const handleMenuItemClick = (item: MenuItem) => {
     setActiveMenuItem(item.argument || item.id.toString());

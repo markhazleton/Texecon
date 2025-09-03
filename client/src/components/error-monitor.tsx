@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { AlertTriangle, XCircle, RefreshCw, Clock } from 'lucide-react';
+import { AlertTriangle, XCircle, Clock } from 'lucide-react';
 
 interface ErrorReport {
   id: string;
@@ -17,7 +17,7 @@ interface ErrorReport {
 
 export default function ErrorMonitor() {
   const [errors, setErrors] = useState<ErrorReport[]>([]);
-  const [isMonitoring, setIsMonitoring] = useState(true);
+  const isMonitoring = true;
 
   useEffect(() => {
     if (!isMonitoring) return;
@@ -107,7 +107,6 @@ export default function ErrorMonitor() {
 
   const activeErrors = errors.filter(e => !e.resolved);
   const criticalErrors = activeErrors.filter(e => e.severity === 'critical');
-  const highErrors = activeErrors.filter(e => e.severity === 'high');
 
   return (
     <Card data-testid="error-monitor">

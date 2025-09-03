@@ -61,6 +61,9 @@ export default function PerformanceMonitor() {
         fidObserver.disconnect();
       };
     }
+    
+    // Return empty cleanup function if PerformanceObserver not supported
+    return () => {};
   }, []);
 
   return null; // This component doesn't render anything

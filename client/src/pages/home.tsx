@@ -16,7 +16,7 @@ import AdminDashboard from '@/components/admin-dashboard';
 import RouteDebugger from '@/components/route-debugger';
 import { MenuItem, findMenuItem, buildMenuHierarchy } from '@/lib/menu-utils';
 import { generateSEOPath, generateMetaDescription, extractKeywords } from '@/lib/seo-utils';
-import { teamMembers, realContent } from '@/lib/data';
+import { teamMembers } from '@/lib/data';
 
 export default function Home() {
   const [selectedContent, setSelectedContent] = useState<MenuItem | null>(null);
