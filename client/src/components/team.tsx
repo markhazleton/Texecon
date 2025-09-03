@@ -1,8 +1,39 @@
 import { Linkedin, Github } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { teamMembers } from '@/lib/data';
+import { buildMenuHierarchy } from '@/lib/menu-utils';
 
 export default function Team() {
+  // Handle team member profile navigation
+  const handleProfileClick = (pageUrl: string) => {
+    // Find the menu item for this section
+    const hierarchy = buildMenuHierarchy();
+    const sectionSlug = pageUrl.replace('/section/', '');
+    
+    // First try to find by title match (case-insensitive slug comparison)
+    let menuItem = Object.values(hierarchy.byId).find(item => {
+      const itemSlug = item.title.toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .trim();
+      return itemSlug === sectionSlug;
+    });
+    
+    // If not found by title, try by argument that ends with the slug
+    if (!menuItem) {
+      menuItem = Object.values(hierarchy.byId).find(item => 
+        item.argument && item.argument.endsWith(sectionSlug)
+      );
+    }
+    
+    if (menuItem) {
+      // Dispatch custom event for navigation
+      window.dispatchEvent(new CustomEvent('navigateToPage', {
+        detail: { menuItem }
+      }));
+    }
+  };
   return (
     <section id="about" className="py-16 bg-muted" data-testid="team-section">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,14 +64,14 @@ export default function Team() {
                   <div className="text-center md:text-left">
                     <h3 className="text-2xl font-bold text-card-foreground mb-2">
                       {(member as any).page_url ? (
-                        <a 
-                          href={(member as any).page_url}
-                          className="hover:text-primary transition-colors"
+                        <button 
+                          onClick={() => handleProfileClick((member as any).page_url)}
+                          className="hover:text-primary transition-colors text-left"
                           data-testid={`link-${member.id}-profile`}
                           title={`View ${member.name}'s Profile`}
                         >
                           {member.name}
-                        </a>
+                        </button>
                       ) : (
                         member.name
                       )}

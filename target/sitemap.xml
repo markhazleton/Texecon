@@ -2,32 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://texecon.com</loc>
-    <lastmod>2025-09-03T20:21:25.335Z</lastmod>
+    <lastmod>2025-09-03T20:33:00.432Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://texecon.com/content/texas-economy</loc>
-    <lastmod>2025-09-03T20:21:25.335Z</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://texecon.com/topic/texecon</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://texecon.com/content/economic-team</loc>
-    <lastmod>2025-09-03T20:21:25.335Z</lastmod>
+    <loc>https://texecon.com/topic/arizona</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://texecon.com/section/regional-analysis</loc>
-    <lastmod>2025-09-03T20:21:25.335Z</lastmod>
+    <loc>https://texecon.com/topic/kansas</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/topic/texas</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/section/austin</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://texecon.com/topic/economic-data</loc>
-    <lastmod>2025-09-03T20:21:25.335Z</lastmod>
+    <loc>https://texecon.com/section/dallas</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/section/houston</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/section/jared-hazleton</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/section/keller</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/section/mark-hazleton</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/section/phoenix</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/section/roanoke</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/section/wichita</loc>
+    <lastmod>2025-09-03T20:33:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
