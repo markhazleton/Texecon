@@ -1,49 +1,10 @@
-# TexEcon - Robots.txt
-# https://texecon.com/robots.txt
-
 User-agent: *
 Allow: /
 
-# Specific crawl directives for major search engines
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 2
-
-# Block common bot spam
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
-# Allow social media bots for rich cards
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# Sitemap location
 Sitemap: https://texecon.com/sitemap.xml
 
-# Cache and performance directives
-# Allow caching of static assets
-Allow: /assets/
-Allow: /images/
-Allow: /_next/static/
-Allow: /favicon.ico
-Allow: /apple-touch-icon.png
+# Block development and admin routes
+Disallow: /admin/
+Disallow: /_dev/
+Disallow: /*.json$
+Disallow: /*.map$

@@ -10,6 +10,11 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      {/* Dynamic routes for menu items */}
+      <Route path="/page/:pageId" component={Home} />
+      <Route path="/content/:contentSlug" component={Home} />
+      <Route path="/topic/:topicId" component={Home} />
+      <Route path="/section/:sectionSlug" component={Home} />
       <Route component={NotFound} />
     </Switch>
   );

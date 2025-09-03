@@ -1,21 +1,34 @@
-import { Star, Linkedin } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { useScrollToSection } from '@/hooks/use-scroll';
-import { realContent } from '@/lib/data';
+import { realContent, teamMembers } from '@/lib/data';
+import { buildMenuHierarchy, MenuItem } from '@/lib/menu-utils';
+import { generateSEOPath } from '@/lib/seo-utils';
 
-// Get actual pages from navigation data
+// Get actual pages from navigation data and generate SEO-friendly paths
 const getFooterLinks = () => {
-  const navItems = realContent.navigation || [];
+  const hierarchy = buildMenuHierarchy();
+  const menuItems = Object.values(hierarchy.byId);
+
+  // Find specific menu items for footer links
+  const findItemByTitle = (title: string) => 
+    menuItems.find(item => item.title.toLowerCase().includes(title.toLowerCase()));
+  
+  const texasItem = findItemByTitle('texas');
+  const teamItem = findItemByTitle('team') || findItemByTitle('texecon');
+  const markItem = findItemByTitle('mark');
+  const jaredItem = findItemByTitle('jared');
+  const regionalItem = findItemByTitle('regional') || findItemByTitle('wichita');
   
   return {
     quickLinks: [
       { label: 'Home', section: 'home' },
-      { label: 'Texas Economy', href: '#texas', pageId: 'texas' },
-      { label: 'Economic Team', href: '#texecon', pageId: 'texecon' },
-      { label: 'About Mark Hazleton', href: '#texecon/mark-hazleton', pageId: 'texecon/mark-hazleton' },
+      ...(texasItem ? [{ label: 'Texas Economy', path: generateSEOPath(texasItem), item: texasItem }] : []),
+      ...(teamItem ? [{ label: 'Economic Team', path: generateSEOPath(teamItem), item: teamItem }] : []),
+      ...(markItem ? [{ label: 'About Mark Hazleton', path: generateSEOPath(markItem), item: markItem }] : []),
     ],
     resources: [
-      { label: 'Dr. Jared Hazleton', href: '#texecon/jared-hazleton', pageId: 'texecon/jared-hazleton' },
-      { label: 'Regional Analysis', href: '#kansas/wichita', pageId: 'kansas/wichita' },
+      ...(jaredItem ? [{ label: 'Dr. Jared Hazleton', path: generateSEOPath(jaredItem), item: jaredItem }] : []),
+      ...(regionalItem ? [{ label: 'Regional Analysis', path: generateSEOPath(regionalItem), item: regionalItem }] : []),
       { label: 'Contact Mark Hazleton', href: 'https://www.linkedin.com/in/markhazleton/', external: true },
     ],
   };
@@ -30,16 +43,13 @@ export default function Footer() {
   const footerLinks = getFooterLinks();
   
   // Function to handle link clicks for navigation items
-  const handleNavClick = (pageId: string, href: string) => {
-    if (pageId && window.dispatchEvent) {
-      // Dispatch custom event for page navigation
+  const handleNavClick = (path: string, item?: MenuItem) => {
+    // Dispatch custom event with menu item data for the home component
+    if (item) {
       const event = new CustomEvent('navigateToPage', { 
-        detail: { pageId } 
+        detail: { menuItem: item } 
       });
       window.dispatchEvent(event);
-    } else {
-      // Fallback to href
-      window.location.hash = href;
     }
   };
 
@@ -49,7 +59,12 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Star className="text-primary text-2xl" />
+              <img 
+                src="/favicon-32x32.png" 
+                alt="TexEcon Logo" 
+                className="w-8 h-8" 
+                loading="lazy"
+              />
               <span className="text-xl font-bold text-primary">TexEcon</span>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-4">
@@ -74,7 +89,7 @@ export default function Footer() {
             <h4 className="font-semibold text-card-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {footerLinks.quickLinks.map((link, index) => (
-                <li key={link.section || (link as any).pageId || index}>
+                <li key={link.section || (link as any).path || index}>
                   {link.section ? (
                     <button
                       onClick={() => scrollToSection(link.section)}
@@ -85,9 +100,9 @@ export default function Footer() {
                     </button>
                   ) : (
                     <button
-                      onClick={() => handleNavClick((link as any).pageId, (link as any).href)}
+                      onClick={() => handleNavClick((link as any).path, (link as any).item)}
                       className="text-muted-foreground hover:text-primary transition-colors text-left"
-                      data-testid={`footer-link-${(link as any).pageId}`}
+                      data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.label}
                     </button>
@@ -114,7 +129,7 @@ export default function Footer() {
                     </a>
                   ) : (
                     <button
-                      onClick={() => handleNavClick((link as any).pageId, link.href)}
+                      onClick={() => handleNavClick((link as any).path, (link as any).item)}
                       className="text-muted-foreground hover:text-primary transition-colors text-left"
                       data-testid={`resource-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     >
@@ -129,7 +144,7 @@ export default function Footer() {
         
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2024 TexEcon.com. All rights reserved. Powered by expert economic analysis and cutting-edge technology.
+            © 2006-2025 TexEcon.com. All rights reserved. Powered by expert economic analysis and cutting-edge technology.
           </p>
         </div>
       </div>

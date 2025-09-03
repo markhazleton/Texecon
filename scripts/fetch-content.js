@@ -21,6 +21,7 @@ async function fetchTexEconContent() {
 
   try {
     console.log('🔄 Fetching TexEcon content from WebSpark API...');
+    const startTime = Date.now();
     
     const response = await fetch(apiUrl, { headers });
     
@@ -29,6 +30,7 @@ async function fetchTexEconContent() {
     }
 
     const data = await response.json();
+    const fetchTime = Date.now() - startTime;
     
     // Create cached data directory
     const cacheDir = path.join(__dirname, '..', 'client', 'src', 'data');
@@ -48,10 +50,29 @@ async function fetchTexEconContent() {
     // Create TypeScript interface file
     createTypesFile(cacheDir, data);
     
+    // Generate detailed report
+    const report = generateContentReport(data, processedData, fetchTime);
+    const reportPath = path.join(cacheDir, 'fetch-report.json');
+    fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+    
     console.log('✅ Content successfully fetched and cached');
-    console.log(`   Raw data: ${rawDataPath}`);
-    console.log(`   Processed data: ${processedDataPath}`);
-    console.log(`   Found ${data.data.menu.length} pages`);
+    console.log(`📊 Fetch Report:`);
+    console.log(`   ⏱️  Fetch time: ${fetchTime}ms`);
+    console.log(`   � API Response:`);
+    console.log(`      ✅ Success: ${data.success}`);
+    console.log(`      📄 Raw pages: ${data.data.menu.length}`);
+    console.log(`      💾 Data size: ${Math.round(JSON.stringify(data).length / 1024)} KB`);
+    console.log(`   📊 Processed Content:`);
+    console.log(`      🧭 Navigation items: ${report.navigation.count}`);
+    console.log(`      👥 Team members: ${report.team.count}`);
+    console.log(`      💡 Insights: ${report.insights.count}`);
+    console.log(`      📈 Economic metrics: ${report.metrics.count}`);
+    console.log(`      📝 Content analysis: ${report.content.pagesWithContent}/${report.content.totalCharacters} chars`);
+    console.log(`   💾 Files created:`);
+    console.log(`      - ${path.basename(rawDataPath)}`);
+    console.log(`      - ${path.basename(processedDataPath)}`);
+    console.log(`      - ${path.basename(reportPath)}`);
+    console.log(`      - content-types.ts`);
     
     return processedData;
     
@@ -264,6 +285,71 @@ export interface CachedContent {
 `;
   
   fs.writeFileSync(path.join(dir, 'content-types.ts'), typesContent);
+}
+
+function generateContentReport(apiData, processedData, fetchTime) {
+  const pages = apiData.data.menu;
+  
+  // Detailed API response analysis
+  const apiAnalysis = {
+    success: apiData.success,
+    totalPages: pages.length,
+    navigationPages: pages.filter(page => page.display_navigation).length,
+    homePages: pages.filter(page => page.isHomePage).length,
+    pagesWithContent: pages.filter(page => page.content && page.content.trim().length > 0).length,
+    parentChildRelations: pages.filter(page => page.parent_page !== null && page.parent_page !== undefined).length,
+    averageContentLength: pages.length > 0 ? Math.round(pages.reduce((total, page) => total + (page.content || '').length, 0) / pages.length) : 0,
+    contentTypes: [...new Set(pages.map(page => page.argument || 'no-argument'))],
+    dataSize: JSON.stringify(apiData).length
+  };
+  
+  const report = {
+    timestamp: new Date().toISOString(),
+    fetchTime: fetchTime,
+    source: {
+      url: 'https://webspark.markhazleton.com/api/WebCMS/websites/1',
+      success: apiData.success,
+      totalPages: pages.length
+    },
+    apiAnalysis,
+    navigation: {
+      count: processedData.navigation.length,
+      items: processedData.navigation.map(item => ({
+        id: item.id,
+        label: item.label,
+        description: item.description?.substring(0, 50) + '...'
+      }))
+    },
+    team: {
+      count: processedData.team.length,
+      members: processedData.team.map(member => ({
+        name: member.name,
+        title: member.title
+      }))
+    },
+    insights: {
+      count: processedData.insights.length,
+      categories: [...new Set(processedData.insights.map(insight => insight.category))],
+      latest: processedData.insights.slice(0, 3).map(insight => ({
+        title: insight.title,
+        category: insight.category,
+        date: insight.date
+      }))
+    },
+    metrics: {
+      count: Object.keys(processedData.economicMetrics).length,
+      types: Object.keys(processedData.economicMetrics)
+    },
+    content: {
+      totalCharacters: pages.reduce((total, page) => total + (page.content || '').length, 0),
+      pagesWithContent: pages.filter(page => page.content && page.content.trim().length > 0).length,
+      displayNavigation: pages.filter(page => page.display_navigation).length,
+      homePage: pages.find(page => page.isHomePage)?.argument || 'none',
+      contentTypes: apiAnalysis.contentTypes
+    }
+  };
+  
+  return report;
 }
 
 // Run if called directly

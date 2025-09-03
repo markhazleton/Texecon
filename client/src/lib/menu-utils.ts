@@ -1,6 +1,6 @@
 // Utility functions for building hierarchical menu structure from WebSpark API data
 
-import { realContent } from './data';
+import { realContent } from "./data";
 
 export interface MenuItem {
   id: number;
@@ -27,11 +27,11 @@ export interface MenuHierarchy {
 // Build hierarchical menu structure from flat API data
 export function buildMenuHierarchy(): MenuHierarchy {
   const rawMenuItems = realContent.pages.all;
-  
+
   // Convert to our MenuItem interface and sort by order
   const menuItems: MenuItem[] = rawMenuItems
-    .filter(item => item.display_navigation)
-    .map(item => ({
+    .filter((item) => item.display_navigation)
+    .map((item) => ({
       id: item.id,
       title: item.title,
       description: item.description,
@@ -44,7 +44,7 @@ export function buildMenuHierarchy(): MenuHierarchy {
       isHomePage: item.isHomePage,
       parent_page: item.parent_page,
       parent_title: item.parent_title,
-      children: []
+      children: [],
     }))
     .sort((a, b) => a.order - b.order);
 
@@ -53,9 +53,9 @@ export function buildMenuHierarchy(): MenuHierarchy {
   const byParent: Record<number, MenuItem[]> = {};
 
   // Build byId lookup and initialize byParent
-  menuItems.forEach(item => {
+  menuItems.forEach((item) => {
     byId[item.id] = item;
-    
+
     if (item.parent_page) {
       if (!byParent[item.parent_page]) {
         byParent[item.parent_page] = [];
@@ -65,28 +65,28 @@ export function buildMenuHierarchy(): MenuHierarchy {
   });
 
   // Populate children arrays
-  menuItems.forEach(item => {
+  menuItems.forEach((item) => {
     if (byParent[item.id]) {
       item.children = byParent[item.id].sort((a, b) => a.order - b.order);
     }
   });
 
   // Get top-level items (those without parents or whose parents aren't in the navigation)
-  const topLevel = menuItems.filter(item => 
-    !item.parent_page || !byId[item.parent_page]?.display_navigation
+  const topLevel = menuItems.filter(
+    (item) => !item.parent_page || !byId[item.parent_page]?.display_navigation
   );
 
   return {
     topLevel,
     byId,
-    byParent
+    byParent,
   };
 }
 
 // Get navigation items formatted for the navigation component
 export function getNavigationItems(): MenuItem[] {
   const hierarchy = buildMenuHierarchy();
-  
+
   // Return top-level items with their children
   return hierarchy.topLevel.slice(0, 6); // Limit to 6 top-level items for UI
 }
@@ -94,19 +94,19 @@ export function getNavigationItems(): MenuItem[] {
 // Find a menu item by URL or argument
 export function findMenuItem(urlOrArgument: string): MenuItem | null {
   const hierarchy = buildMenuHierarchy();
-  
+
   // Search by URL first
-  let found = Object.values(hierarchy.byId).find(item => 
-    item.url === urlOrArgument || item.url === `/${urlOrArgument}`
+  let found = Object.values(hierarchy.byId).find(
+    (item) => item.url === urlOrArgument || item.url === `/${urlOrArgument}`
   );
-  
+
   // If not found by URL, search by argument
   if (!found) {
-    found = Object.values(hierarchy.byId).find(item => 
-      item.argument === urlOrArgument
+    found = Object.values(hierarchy.byId).find(
+      (item) => item.argument === urlOrArgument
     );
   }
-  
+
   return found || null;
 }
 
@@ -115,7 +115,7 @@ export function getBreadcrumbs(itemId: number): MenuItem[] {
   const hierarchy = buildMenuHierarchy();
   const breadcrumbs: MenuItem[] = [];
   let currentItem = hierarchy.byId[itemId];
-  
+
   while (currentItem) {
     breadcrumbs.unshift(currentItem);
     if (currentItem.parent_page && hierarchy.byId[currentItem.parent_page]) {
@@ -124,7 +124,7 @@ export function getBreadcrumbs(itemId: number): MenuItem[] {
       break;
     }
   }
-  
+
   return breadcrumbs;
 }
 
@@ -137,12 +137,24 @@ export function getMenuItemsByParent(parentId: number): MenuItem[] {
 // Format menu item title for display (capitalize, clean up)
 export function formatMenuTitle(title: string): string {
   return title
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ');
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
 }
 
 // Check if a menu item has children
 export function hasChildren(item: MenuItem): boolean {
   return item.children && item.children.length > 0;
+}
+
+// Get the home page menu item
+export function getHomePage(): MenuItem | null {
+  const hierarchy = buildMenuHierarchy();
+
+  // Find the item marked as home page
+  const homePage = Object.values(hierarchy.byId).find(
+    (item) => item.isHomePage
+  );
+
+  return homePage || null;
 }

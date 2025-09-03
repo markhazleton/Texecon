@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { MenuItem, hasChildren, formatMenuTitle } from '@/lib/menu-utils';
 
@@ -16,7 +16,18 @@ export default function DropdownMenuItem({
   isMobile = false 
 }: DropdownMenuItemProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const hasSubItems = hasChildren(item);
+
+  // Clean up timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
+    };
+  }, [hoverTimeout]);
 
   const handleItemClick = (e: React.MouseEvent) => {
     if (hasSubItems) {
@@ -30,6 +41,22 @@ export default function DropdownMenuItem({
   const handleChildClick = (childItem: MenuItem) => {
     onItemClick(childItem);
     setIsOpen(false);
+  };
+
+  const handleMouseEnter = () => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    // Add a small delay before closing to prevent accidental closes
+    const timeout = setTimeout(() => {
+      setIsOpen(false);
+    }, 150);
+    setHoverTimeout(timeout);
   };
 
   if (isMobile) {
@@ -73,9 +100,10 @@ export default function DropdownMenuItem({
   // Desktop dropdown
   return (
     <div 
+      ref={dropdownRef}
       className="relative group"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <button
         onClick={handleItemClick}
@@ -93,7 +121,7 @@ export default function DropdownMenuItem({
       </button>
       
       {hasSubItems && isOpen && (
-        <div className="absolute top-full left-0 mt-2 min-w-48 bg-card border border-border rounded-md shadow-lg z-50">
+        <div className="absolute top-full left-0 mt-1 min-w-48 bg-card border border-border rounded-md shadow-lg z-50">
           <div className="py-2">
             {item.children.map((child) => (
               <button
