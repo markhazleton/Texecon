@@ -2,12 +2,27 @@
 
 ## Project Overview
 
-TexEcon is a modern, static React application showcasing Texas economic data and team information. The project is built with Vite, React 19, TypeScript, and Tailwind CSS, designed for optimal performance and SEO on GitHub Pages.
+TexEcon is a modern, static React application showcasing Texas economic data and team information. The project is built ### Environment Variables
+
+### Build-time Variables
+
+- `VITE_BASE_PATH`: Base path for GitHub Pages deployment (defaults to `/`)
+- `TARGET_DIR`: Output directory for build (defaults to `target/`)
+- `BUILD_ID`: Custom build identifier (defaults to git SHA or timestamp)
+- `NODE_ENV`: Environment mode (development/production)
+- `SITE_BASE_URL`: Base URL for sitemap generation
+- `CUSTOM_DOMAIN`: Custom domain for GitHub Pages (used in CI/CD)
+
+### Runtime Configuration
+
+- Content fetch timeout: 10 seconds
+- API endpoints: WebSpark CMS integration
+- Cache busting: Automatic asset versioningeact 19, TypeScript, and Tailwind CSS, designed for optimal performance and SEO on GitHub Pages.
 
 ## Primary Goals
 
 - **GitHub Pages Hosting**: Deliver a fast, static site optimized for GitHub Pages deployment
-- **Content Management**: Dynamic content fetching from WebSpark API with fallback to cached data
+- **Content Management**: Build-time content fetching from WebSpark API with fallback to cached data
 - **Performance First**: Minimal bundle size, optimal loading times, and excellent Core Web Vitals
 - **SEO Excellence**: Complete meta tags, structured data, sitemaps, and semantic HTML
 - **Developer Experience**: Type-safe development with comprehensive tooling and monitoring
@@ -16,51 +31,80 @@ TexEcon is a modern, static React application showcasing Texas economic data and
 
 ### Core Technologies
 
-- **Frontend**: React 19 + TypeScript + Vite
-- **Styling**: Tailwind CSS 3.4 + CSS Variables + Dark Mode
+- **Frontend**: React 19 + TypeScript + Vite 7.1
+- **Styling**: Tailwind CSS 4.1 + CSS Variables + Dark Mode
 - **Routing**: Wouter (lightweight React router)
-- **State Management**: TanStack Query (React Query)
 - **UI Components**: Radix UI primitives + shadcn/ui components
 - **Icons**: Lucide React
-- **Build Tool**: Vite 7.1 with optimized static output
+- **Build Tool**: Vite 7.1 with advanced static generation features
 
 ### Build Pipeline Architecture
 
 ```
-Source Code → Content Refresh → Sitemap Generation → Vite Build → GitHub Pages Deploy
+Source Code → Clean → Content Fetch → Sitemap Generation → Vite Build → Static Page Generation → GitHub Pages Deploy
 ```
 
 ## Build Pipeline Instructions
 
-### 1. Content Refresh Process (`npm run refresh:content`)
+### 1. Clean Process (`npm run clean`)
 
-- **Script**: `scripts/refresh-content.js`
-- **Purpose**: Fetch latest content from WebSpark API or use cached fallback
-- **Output**: Updates `client/src/data/webspark-raw.json` and generates refresh report
+- **Script**: `scripts/clean.js`
+- **Purpose**: Remove previous build artifacts from target directory
+- **Output Directory**: Configurable via `TARGET_DIR` environment variable (defaults to `target/`)
+- **Function**: Ensures clean slate for each build
+
+### 2. Content Fetch Process (`npm run fetch:content`)
+
+- **Script**: `scripts/fetch-content.js`
+- **Purpose**: Fetch latest content from WebSpark API during build time
+- **Output**: Updates `client/src/data/webspark-raw.json` and generates processed content files
 - **Error Handling**: Graceful fallback to cached content with detailed reporting
 - **API Integration**: Authenticated requests to WebSpark CMS with 10-second timeout
+- **Generated Files**:
+  - `webspark-raw.json` (raw API response)
+  - `texecon-content.json` (processed data)
+  - `content-types.ts` (TypeScript interfaces)
+  - `fetch-report.json` (detailed build report)
 
-### 2. Sitemap Generation (`npm run generate:sitemap`)
+### 3. Sitemap Generation (`npm run generate:sitemap`)
 
 - **Script**: `scripts/generate-sitemap.js`
-- **Purpose**: Generate SEO-optimized XML sitemap for dynamic routes
+- **Purpose**: Generate SEO-optimized XML sitemap using exact API URL structure
 - **Output**: Creates `client/public/sitemap.xml` and updates `robots.txt`
-- **Routes Covered**: Static pages, dynamic content routes, topic pages, section pages
+- **Routes Covered**: Static pages and dynamic content routes from API data
+- **SEO Features**: Priority settings, change frequency, last modified dates
 
-### 3. Vite Build Process (`vite build`)
+### 4. Vite Build Process (`vite build`)
 
 - **Entry Point**: `client/index.html`
-- **Output Directory**: `dist/`
+- **Output Directory**: `target/` (configurable via `TARGET_DIR`)
 - **Optimizations**: Tree shaking, code splitting, asset optimization
 - **Base Path**: Configurable via `VITE_BASE_PATH` environment variable
-- **Bundle Analysis**: Monitors bundle size and performance metrics
+- **Cache Busting**: Automatic versioning with build ID injection
+- **Features**:
+  - Build ID generation (git SHA or timestamp)
+  - Cache busting for static assets
+  - Automatic version.json generation
 
-### 4. GitHub Pages Deployment
+### 5. Static Page Generation (`npm run generate:static-pages`)
 
-- **Static Output**: All files in `dist/` directory
-- **Routing**: Client-side routing with 404.html fallback
-- **Assets**: Optimized images, fonts, and static resources
+- **Script**: `scripts/generate-static-pages.js`
+- **Purpose**: Generate static HTML files for dynamic routes using exact API URLs
+- **Output**: Creates indexed HTML files for each content page
+- **SEO Features**:
+  - Enhanced meta tags per page
+  - Structured data (JSON-LD) for articles and persons
+  - Breadcrumb navigation
+  - Content-specific keywords
+- **Benefits**: Improved SEO and direct page access
+
+### 6. GitHub Pages Deployment
+
+- **Static Output**: All files in `target/` directory
+- **Routing**: Client-side routing with 404.html fallback for SPA behavior
+- **Assets**: Optimized images, fonts, and static resources with cache busting
 - **Performance**: Gzipped assets, optimal caching headers
+- **Domain**: Custom domain support via CNAME file
 
 ## Development Guidelines
 
@@ -185,12 +229,16 @@ client/src/
 1. **Dependency Issues**: Run `npm install` to ensure all packages are installed
 2. **Content Fetch Errors**: Check WebSpark API connectivity and authentication
 3. **Bundle Size Warnings**: Analyze and optimize heavy dependencies
+4. **Cache Busting Issues**: Verify BUILD_ID generation and version.json creation
+5. **Static Page Generation**: Ensure webspark-raw.json exists before static page generation
 
 ### GitHub Pages Deployment
 
 1. **Routing Issues**: Ensure 404.html handles client-side routing
 2. **Asset Loading**: Verify base path configuration for subdirectory deployment
 3. **Performance**: Monitor and optimize bundle size and loading times
+4. **Custom Domain**: Verify CNAME file exists in target/ directory
+5. **Cache Issues**: Check cache busting parameters in generated HTML
 
 ## Monitoring and Analytics
 
@@ -207,6 +255,8 @@ client/src/
 - Bundle size monitoring
 - API availability and response times
 - Content freshness validation
+- Build process monitoring via GitHub Actions
+- Static page generation verification
 
 ## Best Practices for Copilot Assistance
 
