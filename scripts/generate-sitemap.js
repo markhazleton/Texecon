@@ -10,37 +10,20 @@ const __dirname = path.dirname(__filename);
 
 // Load the actual content data generated from the API
 function loadContentData() {
-  const contentPath = path.join(__dirname, '..', 'client', 'src', 'data', 'texecon-content.json');
+  const contentPath = path.join(__dirname, '..', 'client', 'src', 'data', 'webspark-raw.json');
   try {
     const rawData = fs.readFileSync(contentPath, 'utf8');
-    return JSON.parse(rawData);
+    const data = JSON.parse(rawData);
+    return data.data; // Return the data object containing the menu
   } catch (error) {
     console.warn('Could not load content data:', error.message);
-    return { pages: { all: [] } };
+    return { menu: [] };
   }
 }
 
-// Generate SEO-friendly URL path for PRIMARY routes only (avoiding duplicate content)
-// Using shortened URLs without section/content prefixes for better SEO
+// Use the exact URL from the API data
 function generateSEOPath(item) {
-  // Team members use /:slug as primary route (no 'section' prefix)
-  if (item.argument && item.argument.includes('hazleton')) {
-    const slug = item.title
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim();
-    return `/${slug}`;
-  }
-  
-  // All other content uses /:slug as primary route (no 'content' prefix)
-  if (item.argument && item.argument !== 'home') {
-    return `/${item.argument}`;
-  }
-  
-  // Default to homepage for home content
-  return '/';
+  return item.url || '/';
 }
 
 function getBaseUrl() {
@@ -63,42 +46,23 @@ function generateSiteMapFromData() {
   // Generate dynamic pages from actual content data
   const dynamicPages = [];
   
-  // Add team member pages from /:slug routes (no 'section' prefix)
-  if (contentData.team && Array.isArray(contentData.team)) {
-    contentData.team.forEach(member => {
-      const slug = member.page_url?.replace('/section/', '') || 
-                  member.name?.toLowerCase().replace(/\s+/g, '-');
-      if (slug) {
-        const fullUrl = `${baseUrl}/${slug}`;
-        dynamicPages.push({
-          url: fullUrl,
-          priority: '0.8',
-          changefreq: 'monthly',
-          title: `${member.name} - TexEcon Team`,
-          lastModified: currentDate
-        });
-      }
-    });
-  }
-  
-  // Add content pages from /:slug routes (no 'content' prefix)
-  if (contentData.pages && contentData.pages.all) {
-    contentData.pages.all
-      .filter(item => item.display_navigation && !item.isHomePage) // Only include navigable non-home pages
+  // Add dynamic pages from API menu data
+  if (contentData.menu && Array.isArray(contentData.menu)) {
+    contentData.menu
+      .filter(item => item.display_navigation && !item.isHomePage && item.url && item.url !== '/') // Only include navigable non-home pages with URLs
       .forEach(item => {
-        // Skip team member pages - they're handled above
-        if (item.argument && item.argument.includes('hazleton')) {
-          return;
-        }
-        
         const seoPath = generateSEOPath(item);
-        if (seoPath === '/') return; // Skip home page duplicates
-        
         const fullUrl = `${baseUrl}${seoPath}`;
         
         // Set priority based on content type
         let priority = '0.7'; // default for content pages
         let changefreq = 'weekly'; // default
+        
+        // Team member pages get higher priority
+        if (item.argument && item.argument.includes('hazleton')) {
+          priority = '0.8';
+          changefreq = 'monthly';
+        }
         
         dynamicPages.push({
           url: fullUrl,
@@ -155,9 +119,8 @@ const publicDir = path.join(__dirname, '..', 'client', 'public');
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXML);
 fs.writeFileSync(path.join(publicDir, 'robots.txt'), robotsTxt);
 
-console.log('Generated sitemap.xml and robots.txt for dynamic routing with shortened URLs');
-console.log(`Sitemap includes ${pageCount} total URLs (${dynamicPageCount} dynamic pages):`);
+console.log('Generated sitemap.xml and robots.txt using exact API URL structure');
+console.log(`Sitemap includes ${pageCount} total URLs (${dynamicPageCount} from API menu):`);
 console.log('  - Static pages (home)');
-console.log('  - Dynamic content pages (/:slug - no content prefix)');
-console.log('  - Team member pages (/:slug - no section prefix)');
+console.log('  - Dynamic pages using exact API URLs');
 console.log(`Base URL: ${baseUrl}`);

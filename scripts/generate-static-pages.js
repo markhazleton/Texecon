@@ -6,27 +6,24 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
- * Generate static HTML pages for PRIMARY dynamic routes only to avoid duplicate content
- * This creates actual HTML files that search engines can crawl for:
- * - /:sectionSlug (team members only - primary route, no 'section' prefix)
- * - /:contentSlug (main content pages only - primary route, no 'content' prefix)
- * 
- * We avoid generating /topic/ and /page/ routes to prevent duplicate content SEO issues
- * URLs are shortened by removing the first segment (section/content) for cleaner SEO
+ * Generate static HTML pages for dynamic routes using exact API URLs
+ * This creates actual HTML files that search engines can crawl using the 
+ * exact URL structure from the API data
  */
 async function generateStaticPages() {
-  console.log('🔧 Generating static pages with shortened URLs (no section/content prefix)...');
+  console.log('🔧 Generating static pages using API URL structure...');
   
   try {
     // Load the content data
-    const contentPath = path.join(__dirname, '..', 'client', 'src', 'data', 'texecon-content.json');
+    const contentPath = path.join(__dirname, '..', 'client', 'src', 'data', 'webspark-raw.json');
     
     if (!fs.existsSync(contentPath)) {
       console.error('❌ Content file not found:', contentPath);
       return;
     }
     
-    const content = JSON.parse(fs.readFileSync(contentPath, 'utf8'));
+    const rawData = JSON.parse(fs.readFileSync(contentPath, 'utf8'));
+    const content = rawData.data;
     const baseTemplate = fs.readFileSync(
       path.join(__dirname, '..', 'target', 'index.html'), 
       'utf8'
@@ -34,15 +31,30 @@ async function generateStaticPages() {
     
     let totalGenerated = 0;
     
-    // Generate /:sectionSlug pages (team members) - PRIMARY route without 'section' prefix
-    totalGenerated += await generateSectionPages(content, baseTemplate);
-    
-    // Generate /:contentSlug pages (main content) - PRIMARY route without 'content' prefix
-    totalGenerated += await generateContentPages(content, baseTemplate);
+    // Generate pages for all menu items that have URLs
+    if (content.menu && Array.isArray(content.menu)) {
+      for (const item of content.menu) {
+        if (!item.url || item.url === '/' || item.isHomePage) {
+          continue; // Skip home page and items without URLs
+        }
+        
+        const pageHtml = generatePageHTML(baseTemplate, item);
+        // Use the exact URL from API, removing leading slash for directory path
+        const urlPath = item.url.startsWith('/') ? item.url.slice(1) : item.url;
+        const pageDir = path.join(__dirname, '..', 'target', urlPath);
+        
+        if (!fs.existsSync(pageDir)) {
+          fs.mkdirSync(pageDir, { recursive: true });
+        }
+        
+        fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml);
+        console.log(`✅ Generated: ${item.url}/index.html`);
+        totalGenerated++;
+      }
+    }
     
     console.log(`🎉 Static page generation complete! Generated ${totalGenerated} pages total.`);
-    console.log('ℹ️  Skipped /topic/ and /page/ routes to avoid duplicate content issues.');
-    console.log('ℹ️  Using shortened URLs without section/content prefixes for better SEO.');
+    console.log('ℹ️  Using exact API URL structure for all pages.');
     
   } catch (error) {
     console.error('❌ Error generating static pages:', error);
@@ -51,251 +63,118 @@ async function generateStaticPages() {
 }
 
 /**
- * Generate /:sectionSlug pages for team members ONLY
- * This is the primary route for team member profiles (no 'section' prefix)
+ * Generate SEO-optimized HTML for any page using API data
  */
-async function generateSectionPages(content, baseTemplate) {
-  const targetDir = path.join(__dirname, '..', 'target');
-  
-  let count = 0;
-  
-  if (content.team && Array.isArray(content.team)) {
-    for (const member of content.team) {
-      const slug = member.page_url?.replace('/section/', '') || 
-                  member.name?.toLowerCase().replace(/\s+/g, '-');
-      
-      if (!slug) continue;
-      
-      const memberHtml = generateMemberHTML(baseTemplate, member);
-      const memberDir = path.join(targetDir, slug);
-      
-      if (!fs.existsSync(memberDir)) {
-        fs.mkdirSync(memberDir, { recursive: true });
-      }
-      
-      fs.writeFileSync(path.join(memberDir, 'index.html'), memberHtml);
-      console.log(`✅ Generated: /${slug}/index.html`);
-      count++;
-    }
-  }
-  
-  return count;
-}
-
-/**
- * Generate /:contentSlug pages for main content ONLY
- * This is the primary route for content pages (no 'content' prefix)
- */
-async function generateContentPages(content, baseTemplate) {
-  const targetDir = path.join(__dirname, '..', 'target');
-  
-  let count = 0;
-  
-  // Process analysis pages - these should use /:slug as primary route
-  if (content.pages?.analysis && Array.isArray(content.pages.analysis)) {
-    for (const page of content.pages.analysis) {
-      if (!page.argument) continue;
-      
-      const slug = page.argument;
-      const pageHtml = generateContentHTML(baseTemplate, page, 'analysis');
-      const pageDir = path.join(targetDir, slug);
-      
-      if (!fs.existsSync(pageDir)) {
-        fs.mkdirSync(pageDir, { recursive: true });
-      }
-      
-      fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml);
-      console.log(`✅ Generated: /${slug}/index.html`);
-      count++;
-    }
-  }
-  
-  // Process main content pages (excluding team member pages which use /:member)
-  if (content.pages?.all && Array.isArray(content.pages.all)) {
-    for (const page of content.pages.all) {
-      if (!page.argument || page.argument === 'home' || page.isHomePage) continue;
-      
-      // Skip if already processed in analysis
-      const alreadyProcessed = content.pages?.analysis?.some(
-        analysisPage => analysisPage.argument === page.argument
-      );
-      if (alreadyProcessed) continue;
-      
-      // Skip team member pages - they use /:member as primary route
-      const isTeamMemberPage = content.team?.some(member => 
-        page.argument === member.name?.toLowerCase().replace(/\s+/g, '-') ||
-        page.argument.includes('hazleton')
-      );
-      if (isTeamMemberPage) {
-        console.log(`⏭️  Skipped: /${page.argument}/ (team member uses /:member route)`);
-        continue;
-      }
-      
-      const slug = page.argument;
-      const pageHtml = generateContentHTML(baseTemplate, page, 'content');
-      const pageDir = path.join(targetDir, slug);
-      
-      if (!fs.existsSync(pageDir)) {
-        fs.mkdirSync(pageDir, { recursive: true });
-      }
-      
-      fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml);
-      console.log(`✅ Generated: /${slug}/index.html`);
-      count++;
-    }
-  }
-  
-  return count;
-}
-
-/**
- * Generate SEO-optimized HTML for team member pages
- */
-function generateMemberHTML(baseTemplate, member) {
-  const title = `${member.name} - ${member.title} | TexEcon Team`;
-  const description = member.description || `Learn about ${member.name}, ${member.title} at TexEcon providing expert Texas economic analysis and insights.`;
-  const canonicalUrl = `https://texecon.com/${member.page_url?.replace('/section/', '') || member.name?.toLowerCase().replace(/\s+/g, '-')}`;
-  
-  // Extract relevant keywords from member profile
-  const keywords = generateMemberKeywords(member);
-  
-  let html = updateMetaTags(baseTemplate, title, description, canonicalUrl, keywords);
-  
-  // Enhanced structured data for person with more SEO details
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": member.name,
-    "jobTitle": member.title,
-    "description": description,
-    "url": canonicalUrl,
-    "image": member.image,
-    "sameAs": Object.values(member.social || {}).filter(link => link !== '#'),
-    "worksFor": {
-      "@type": "Organization",
-      "name": "TexEcon",
-      "url": "https://texecon.com",
-      "description": "Texas Economic Analysis and Commentary Platform"
-    },
-    "memberOf": {
-      "@type": "Organization",
-      "name": "TexEcon"
-    },
-    "knowsAbout": [
-      "Texas Economy",
-      "Economic Analysis", 
-      "Economic Forecasting",
-      "Business Development",
-      "Economic Commentary"
-    ]
-  };
-  
-  return addStructuredData(html, structuredData);
-}
-
-/**
- * Generate relevant keywords for team member pages
- */
-function generateMemberKeywords(member) {
-  const baseKeywords = [
-    "Texas economist",
-    "economic analysis",
-    "Texas economy expert",
-    "economic forecasting",
-    "business analysis Texas"
-  ];
-  
-  // Add role-specific keywords
-  if (member.title?.toLowerCase().includes('economist')) {
-    baseKeywords.push("professional economist", "economic research", "economic trends");
-  }
-  
-  if (member.title?.toLowerCase().includes('technology')) {
-    baseKeywords.push("economic technology", "data analysis", "economic modeling");
-  }
-  
-  return baseKeywords.join(', ');
-}
-
-/**
- * Generate SEO-optimized HTML for content pages
- */
-function generateContentHTML(baseTemplate, page, type) {
-  const title = `${page.title || page.argument} - Economic Analysis | TexEcon`;
-  const description = page.description || `Expert analysis and insights on ${page.title || page.argument} from TexEcon's Texas economic experts.`;
-  const canonicalUrl = `https://texecon.com/${page.argument}`;
+function generatePageHTML(baseTemplate, item) {
+  const title = `${item.title || item.argument} - Economic Analysis | TexEcon`;
+  const description = item.description || `Expert analysis and insights on ${item.title || item.argument} from TexEcon's Texas economic experts.`;
+  const canonicalUrl = `https://texecon.com${item.url}`;
   
   // Generate content-specific keywords
-  const keywords = generateContentKeywords(page);
+  const keywords = generateContentKeywords(item);
   
   let html = updateMetaTags(baseTemplate, title, description, canonicalUrl, keywords);
   
-  // Enhanced structured data for article with rich SEO information
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": page.title || page.argument,
-    "description": description,
-    "url": canonicalUrl,
-    "datePublished": page.modified_w3c || new Date().toISOString(),
-    "dateModified": page.modified_w3c || new Date().toISOString(),
-    "author": {
-      "@type": "Organization",
-      "name": "TexEcon",
-      "url": "https://texecon.com"
-    },
-    "publisher": {
-      "@type": "Organization", 
-      "name": "TexEcon",
-      "url": "https://texecon.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://texecon.com/favicon-192x192.png"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": canonicalUrl
-    },
-    "articleSection": "Economic Analysis",
-    "keywords": keywords.split(', '),
-    "inLanguage": "en-US",
-    "isAccessibleForFree": true,
-    "about": {
-      "@type": "Thing",
-      "name": page.title || page.argument,
-      "description": description
-    }
-  };
+  // Determine content type for structured data
+  const isPersonPage = item.argument && item.argument.includes('hazleton');
   
-  // Add breadcrumb structured data for better navigation understanding
-  const breadcrumbData = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://texecon.com"
+  if (isPersonPage) {
+    // Enhanced structured data for person
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": item.title,
+      "jobTitle": item.description || "Economic Analysis Expert",
+      "description": description,
+      "url": canonicalUrl,
+      "worksFor": {
+        "@type": "Organization",
+        "name": "TexEcon",
+        "url": "https://texecon.com",
+        "description": "Texas Economic Analysis and Commentary Platform"
       },
-      {
-        "@type": "ListItem", 
-        "position": 2,
-        "name": "Economic Analysis",
-        "item": "https://texecon.com"
+      "memberOf": {
+        "@type": "Organization",
+        "name": "TexEcon"
       },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": page.title || page.argument,
-        "item": canonicalUrl
+      "knowsAbout": [
+        "Texas Economy",
+        "Economic Analysis",
+        "Economic Forecasting",
+        "Business Development",
+        "Economic Commentary"
+      ]
+    };
+    
+    html = addStructuredData(html, structuredData);
+  } else {
+    // Enhanced structured data for article/content
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": item.title || item.argument,
+      "description": description,
+      "url": canonicalUrl,
+      "datePublished": item.modified_w3c || new Date().toISOString(),
+      "dateModified": item.modified_w3c || new Date().toISOString(),
+      "author": {
+        "@type": "Organization",
+        "name": "TexEcon",
+        "url": "https://texecon.com"
+      },
+      "publisher": {
+        "@type": "Organization", 
+        "name": "TexEcon",
+        "url": "https://texecon.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://texecon.com/favicon-192x192.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      },
+      "articleSection": "Economic Analysis",
+      "keywords": keywords.split(', '),
+      "inLanguage": "en-US",
+      "isAccessibleForFree": true,
+      "about": {
+        "@type": "Thing",
+        "name": item.title || item.argument,
+        "description": description
       }
-    ]
-  };
-  
-  html = addStructuredData(html, structuredData);
-  html = addStructuredData(html, breadcrumbData);
+    };
+    
+    // Add breadcrumb structured data for better navigation understanding
+    const breadcrumbData = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://texecon.com"
+        },
+        {
+          "@type": "ListItem", 
+          "position": 2,
+          "name": "Economic Analysis",
+          "item": "https://texecon.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": item.title || item.argument,
+          "item": canonicalUrl
+        }
+      ]
+    };
+    
+    html = addStructuredData(html, structuredData);
+    html = addStructuredData(html, breadcrumbData);
+  }
   
   return html;
 }
@@ -303,7 +182,7 @@ function generateContentHTML(baseTemplate, page, type) {
 /**
  * Generate relevant keywords for content pages based on content analysis
  */
-function generateContentKeywords(page) {
+function generateContentKeywords(item) {
   const baseKeywords = [
     "economic analysis",
     "economic development", 
@@ -313,10 +192,10 @@ function generateContentKeywords(page) {
   ];
   
   // Extract location-based keywords
-  const locationKeywords = extractLocationKeywords(page.title || page.argument, page.content);
+  const locationKeywords = extractLocationKeywords(item.title || item.argument, item.content);
   
   // Extract industry-based keywords  
-  const industryKeywords = extractIndustryKeywords(page.content);
+  const industryKeywords = extractIndustryKeywords(item.content);
   
   return [...baseKeywords, ...locationKeywords, ...industryKeywords].join(', ');
 }
