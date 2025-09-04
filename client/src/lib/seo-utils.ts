@@ -18,23 +18,18 @@ export interface SitemapEntry {
 
 // Generate SEO-friendly URL path for a menu item
 export function generateSEOPath(item: MenuItem): string {
-  const slug = item.title
-    .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "") // Remove special characters
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/-+/g, "-") // Replace multiple hyphens with single
-    .trim();
-
-  // Use different URL patterns based on content type
-  if (item.parent_page) {
-    return `/section/${slug}`;
-  } else if (item.argument) {
-    return `/topic/${item.argument}`;
-  } else if (item.url && item.url !== "/") {
-    return `/content/${slug}`;
-  } else {
-    return `/page/${item.id}`;
+  // Use the URL directly from the data if available (already optimized)
+  if (item.url && item.url !== "/") {
+    return item.url;
   }
+
+  // Fallback to generating from argument if no URL
+  if (item.argument) {
+    return `/${item.argument}`;
+  }
+
+  // Final fallback to page ID
+  return `/page/${item.id}`;
 }
 
 // Generate canonical URL for a menu item

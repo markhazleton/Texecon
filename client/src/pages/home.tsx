@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useRoute, useLocation } from 'wouter';
 import Navigation from '@/components/navigation';
 import Hero from '@/components/hero';
-import Mission from '@/components/mission';
+import TexeconAbout from '@/components/texecon-about';
 import Team from '@/components/team';
 import Newsletter from '@/components/newsletter';
 import Footer from '@/components/footer';
@@ -25,6 +25,10 @@ export default function Home() {
   const [, contentParams] = useRoute('/content/:contentSlug');
   const [, topicParams] = useRoute('/topic/:topicId');
   const [, sectionParams] = useRoute('/section/:sectionSlug');
+  
+  // New shortened URL routes
+  const [, singleSlugParams] = useRoute('/:slug');
+  const [, categorySlugParams] = useRoute('/:category/:slug');
 
   // Memoize the menu hierarchy to prevent constant rebuilding
   const hierarchy = useMemo(() => buildMenuHierarchy(), []);
@@ -90,8 +94,58 @@ export default function Home() {
       return searchTerm ? findMenuItem(searchTerm) : null;
     }
     
+    // Handle new shortened URL patterns
+    if (categorySlugParams?.category && categorySlugParams?.slug) {
+      const fullPath = `/${categorySlugParams.category}/${categorySlugParams.slug}`;
+      
+      // First try to find by exact URL match
+      const byUrl = Object.values(hierarchy.byId).find(item => 
+        item.url === fullPath
+      );
+      
+      if (byUrl) return byUrl;
+      
+      // Try to find by argument match
+      const argument = `${categorySlugParams.category}/${categorySlugParams.slug}`;
+      const byArgument = Object.values(hierarchy.byId).find(item => 
+        item.argument === argument
+      );
+      
+      if (byArgument) return byArgument;
+    }
+    
+    if (singleSlugParams?.slug) {
+      const slug = singleSlugParams.slug;
+      
+      // First try to find by exact URL match
+      const byUrl = Object.values(hierarchy.byId).find(item => 
+        item.url === `/${slug}`
+      );
+      
+      if (byUrl) return byUrl;
+      
+      // Try to find by argument match
+      const byArgument = Object.values(hierarchy.byId).find(item => 
+        item.argument === slug
+      );
+      
+      if (byArgument) return byArgument;
+      
+      // Try to find by slug from title
+      const byTitle = Object.values(hierarchy.byId).find(item => {
+        const itemSlug = item.title.toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .trim();
+        return itemSlug === slug;
+      });
+      
+      if (byTitle) return byTitle;
+    }
+    
     return null;
-  }, [hierarchy, pageParams, contentParams, topicParams, sectionParams]);
+  }, [hierarchy, pageParams, contentParams, topicParams, sectionParams, singleSlugParams, categorySlugParams]);
 
   // Load content based on URL on mount and URL changes
   useEffect(() => {
@@ -224,7 +278,7 @@ export default function Home() {
         {/* Show default sections only when no specific content is selected */}
         {!selectedContent && (
           <>
-            <Mission />
+            <TexeconAbout />
             <Team />
           </>
         )}

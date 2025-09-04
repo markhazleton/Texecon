@@ -1,11 +1,7 @@
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useScrollToSection } from '@/hooks/use-scroll';
 import { heroContent } from '@/lib/data';
 
 export default function Hero() {
-  const scrollToSection = useScrollToSection();
-
   return (
     <header 
       id="home" 
@@ -23,25 +19,6 @@ export default function Hero() {
             <p className="text-xl text-foreground/90 mb-8 leading-relaxed">
               {heroContent.description}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                size="lg"
-                className="bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                onClick={() => scrollToSection('insights')}
-                data-testid="button-latest-analysis"
-              >
-                Latest Analysis
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                onClick={() => scrollToSection('about')}
-                data-testid="button-learn-more"
-              >
-                Learn More
-              </Button>
-            </div>
           </div>
           
           <div className="relative">

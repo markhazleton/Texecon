@@ -21,8 +21,9 @@ function loadContentData() {
 }
 
 // Generate SEO-friendly URL path for PRIMARY routes only (avoiding duplicate content)
+// Using shortened URLs without section/content prefixes for better SEO
 function generateSEOPath(item) {
-  // Team members use /section/ as primary route
+  // Team members use /:slug as primary route (no 'section' prefix)
   if (item.argument && item.argument.includes('hazleton')) {
     const slug = item.title
       .toLowerCase()
@@ -30,12 +31,12 @@ function generateSEOPath(item) {
       .replace(/\s+/g, '-')
       .replace(/-+/g, '-')
       .trim();
-    return `/section/${slug}`;
+    return `/${slug}`;
   }
   
-  // All other content uses /content/ as primary route
+  // All other content uses /:slug as primary route (no 'content' prefix)
   if (item.argument && item.argument !== 'home') {
-    return `/content/${item.argument}`;
+    return `/${item.argument}`;
   }
   
   // Default to homepage for home content
@@ -62,13 +63,13 @@ function generateSiteMapFromData() {
   // Generate dynamic pages from actual content data
   const dynamicPages = [];
   
-  // Add team member pages from /section/ routes
+  // Add team member pages from /:slug routes (no 'section' prefix)
   if (contentData.team && Array.isArray(contentData.team)) {
     contentData.team.forEach(member => {
       const slug = member.page_url?.replace('/section/', '') || 
                   member.name?.toLowerCase().replace(/\s+/g, '-');
       if (slug) {
-        const fullUrl = `${baseUrl}/section/${slug}`;
+        const fullUrl = `${baseUrl}/${slug}`;
         dynamicPages.push({
           url: fullUrl,
           priority: '0.8',
@@ -80,7 +81,7 @@ function generateSiteMapFromData() {
     });
   }
   
-  // Add content pages from /content/ routes  
+  // Add content pages from /:slug routes (no 'content' prefix)
   if (contentData.pages && contentData.pages.all) {
     contentData.pages.all
       .filter(item => item.display_navigation && !item.isHomePage) // Only include navigable non-home pages
@@ -154,11 +155,9 @@ const publicDir = path.join(__dirname, '..', 'client', 'public');
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXML);
 fs.writeFileSync(path.join(publicDir, 'robots.txt'), robotsTxt);
 
-console.log('Generated sitemap.xml and robots.txt for dynamic routing');
+console.log('Generated sitemap.xml and robots.txt for dynamic routing with shortened URLs');
 console.log(`Sitemap includes ${pageCount} total URLs (${dynamicPageCount} dynamic pages):`);
 console.log('  - Static pages (home)');
-console.log('  - Dynamic content pages (/content/:slug)');
-console.log('  - Topic pages (/topic/:id)');
-console.log('  - Section pages (/section/:slug)');
-console.log('  - Page ID routes (/page/:id)');
+console.log('  - Dynamic content pages (/:slug - no content prefix)');
+console.log('  - Team member pages (/:slug - no section prefix)');
 console.log(`Base URL: ${baseUrl}`);

@@ -21,6 +21,9 @@ function Router() {
       <Route path="/content/:contentSlug" component={Home} />
       <Route path="/topic/:topicId" component={Home} />
       <Route path="/section/:sectionSlug" component={Home} />
+      {/* New shortened URL routes */}
+      <Route path="/:slug" component={Home} />
+      <Route path="/:category/:slug" component={Home} />
       <Route component={NotFound} />
     </Switch>
   );
