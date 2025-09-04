@@ -23,7 +23,16 @@ async function fetchTexEconContent() {
     console.log('🔄 Fetching TexEcon content from WebSpark API...');
     const startTime = Date.now();
     
-    const response = await fetch(apiUrl, { headers });
+    // Create a timeout for the fetch request
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    
+    const response = await fetch(apiUrl, { 
+      headers,
+      signal: controller.signal
+    });
+    
+    clearTimeout(timeoutId);
     
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -355,10 +364,14 @@ function generateContentReport(apiData, processedData, fetchTime) {
 // Run if called directly (normalize Windows paths)
 if (import.meta.url === `file:///${process.argv[1]?.replace(/\\/g, '/')}`) {
   fetchTexEconContent()
-    .then(() => process.exit(0))
+    .then(() => {
+      console.log('🎉 Content fetch completed successfully');
+      // Force process exit to prevent hanging
+      setTimeout(() => process.exit(0), 100);
+    })
     .catch(error => {
-      console.error(error);
-      process.exit(1);
+      console.error('❌ Content fetch failed:', error);
+      setTimeout(() => process.exit(1), 100);
     });
 }
 

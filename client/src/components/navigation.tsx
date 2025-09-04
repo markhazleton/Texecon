@@ -40,11 +40,14 @@ export default function Navigation({ onMenuItemSelect }: NavigationProps) {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <button 
+          <a 
+            href="/"
             className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer"
-            onClick={handleLogoClick}
-            data-testid="logo-button"
-            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              handleLogoClick();
+            }}
+            data-testid="logo-link"
           >
             <img 
               src={`${base}favicon-96x96.png`} 
@@ -56,7 +59,7 @@ export default function Navigation({ onMenuItemSelect }: NavigationProps) {
             <span className="text-xl font-bold text-primary" data-testid="logo-text">
               TexEcon
             </span>
-          </button>
+          </a>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">

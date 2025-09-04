@@ -12,6 +12,7 @@ import StructuredData from '@/components/structured-data';
 import PerformanceMonitor from '@/components/performance-monitor';
 import AdminDashboard from '@/components/admin-dashboard';
 import RouteDebugger from '@/components/route-debugger';
+import SiteNavigationTree from '@/components/site-navigation-tree';
 import { MenuItem, findMenuItem, buildMenuHierarchy } from '@/lib/menu-utils';
 import { generateSEOPath, generateMetaDescription, extractKeywords, generateCanonicalUrlForPath } from '@/lib/seo-utils';
 import { teamMembers } from '@/lib/data';
@@ -280,6 +281,19 @@ export default function Home() {
           <>
             <TexeconAbout />
             <Team />
+            
+            {/* Site Navigation Section for Crawlers */}
+            <section className="py-16 bg-muted/30" data-testid="site-navigation">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-2xl font-bold text-center mb-8">Explore Our Content</h2>
+                <div className="max-w-4xl mx-auto">
+                  <SiteNavigationTree 
+                    items={hierarchy.topLevel}
+                    onItemSelect={handleMenuItemSelect}
+                  />
+                </div>
+              </div>
+            </section>
           </>
         )}
         

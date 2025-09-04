@@ -91,21 +91,29 @@ export default function Footer() {
               {footerLinks.quickLinks.map((link, index) => (
                 <li key={link.section || (link as any).path || index}>
                   {link.section ? (
-                    <button
-                      onClick={() => scrollToSection(link.section)}
-                      className="text-muted-foreground hover:text-primary transition-colors text-left"
+                    <a
+                      href={`#${link.section}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(link.section);
+                      }}
+                      className="text-muted-foreground hover:text-primary transition-colors"
                       data-testid={`footer-link-${link.section}`}
                     >
                       {link.label}
-                    </button>
+                    </a>
                   ) : (
-                    <button
-                      onClick={() => handleNavClick((link as any).path, (link as any).item)}
-                      className="text-muted-foreground hover:text-primary transition-colors text-left"
+                    <a
+                      href={(link as any).path}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick((link as any).path, (link as any).item);
+                      }}
+                      className="text-muted-foreground hover:text-primary transition-colors"
                       data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.label}
-                    </button>
+                    </a>
                   )}
                 </li>
               ))}
@@ -128,13 +136,17 @@ export default function Footer() {
                       {link.label}
                     </a>
                   ) : (
-                    <button
-                      onClick={() => handleNavClick((link as any).path, (link as any).item)}
-                      className="text-muted-foreground hover:text-primary transition-colors text-left"
+                    <a
+                      href={(link as any).path}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick((link as any).path, (link as any).item);
+                      }}
+                      className="text-muted-foreground hover:text-primary transition-colors"
                       data-testid={`resource-link-${link.label.toLowerCase().replace(/\s+/g, '-')}`}
                     >
                       {link.label}
-                    </button>
+                    </a>
                   )}
                 </li>
               ))}
