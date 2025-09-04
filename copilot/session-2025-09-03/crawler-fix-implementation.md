@@ -16,6 +16,7 @@
 - **SEO Benefit**: Crawlers can now discover all navigation links
 
 **Example Change**:
+
 ```tsx
 // Before
 <button onClick={handleItemClick}>Menu Item</button>
@@ -50,6 +51,7 @@
 - **Benefit**: Comprehensive crawlable link directory on homepage
 
 **New Section Features**:
+
 - Lists all menu items with proper links
 - Includes page descriptions
 - Maintains JavaScript functionality
@@ -60,6 +62,7 @@
 ### Hybrid Navigation Approach
 
 All navigation links now use this pattern:
+
 ```tsx
 <a 
   href={generateSEOPath(item)}
@@ -81,6 +84,7 @@ All navigation links now use this pattern:
 ## Testing & Verification
 
 ### 1. Browser Testing
+
 - ✅ All navigation still works with JavaScript
 - ✅ Right-click "Open in new tab" works
 - ✅ Hover shows proper URLs in browser status bar
@@ -88,6 +92,7 @@ All navigation links now use this pattern:
 ### 2. Crawler Testing
 
 **Before Fix**:
+
 ```
 Screaming Frog Results:
 - 1 URL crawled (homepage only)
@@ -95,6 +100,7 @@ Screaming Frog Results:
 ```
 
 **After Fix (Expected)**:
+
 ```
 Screaming Frog Results:
 - 13+ URLs crawled
@@ -104,7 +110,8 @@ Screaming Frog Results:
 
 ### 3. View Source Verification
 
-Open https://texecon.com and view page source to verify:
+Open <https://texecon.com> and view page source to verify:
+
 - `<a href="/texas">` tags are present in navigation
 - `<a href="/texecon/mark-hazleton">` tags in footer
 - Homepage "Explore Our Content" section contains all page links
@@ -112,17 +119,20 @@ Open https://texecon.com and view page source to verify:
 ## Crawler Discovery Points
 
 ### Navigation Bar
-- Texas → `/texas` 
+
+- Texas → `/texas`
 - Arizona → `/arizona`
 - Kansas → `/kansas`
 - TexEcon → Multiple sub-pages
 
 ### Footer Links
+
 - Quick Links section
 - Resources section
 - All use proper anchor tags
 
 ### Homepage Site Directory
+
 - Complete list of all available pages
 - Grid layout with descriptions
 - Full SEO path URLs
@@ -137,15 +147,16 @@ Open https://texecon.com and view page source to verify:
 ## Next Steps for Testing
 
 1. **Deploy to Production**: Push changes to GitHub for deployment
-2. **Test with Screaming Frog**: Re-crawl https://texecon.com
+2. **Test with Screaming Frog**: Re-crawl <https://texecon.com>
 3. **Verify Sitemap**: Check sitemap.xml is accessible
 4. **Monitor Search Console**: Watch for improved indexing
 
 ## Expected Crawling Results
 
 Screaming Frog should now discover:
+
 - `/texas` (and all Texas city pages)
-- `/arizona` (and Arizona city pages) 
+- `/arizona` (and Arizona city pages)
 - `/kansas` (and Kansas city pages)
 - `/texecon/mark-hazleton`
 - `/texecon/jared-hazleton`

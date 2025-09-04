@@ -13,6 +13,7 @@ Screaming Frog and other crawlers cannot discover internal pages because:
 ### 1. Convert Navigation Buttons to Crawlable Links
 
 **Before:**
+
 ```tsx
 <button onClick={handleItemClick}>
   Menu Item
@@ -20,6 +21,7 @@ Screaming Frog and other crawlers cannot discover internal pages because:
 ```
 
 **After:**
+
 ```tsx
 <a href={generateSEOPath(item)} onClick={handleItemClick}>
   Menu Item
