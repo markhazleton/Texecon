@@ -1,6 +1,6 @@
 {
-  "timestamp": "2025-09-04T04:34:11.695Z",
-  "fetchTime": 208,
+  "timestamp": "2025-09-04T04:40:36.440Z",
+  "fetchTime": 220,
   "source": {
     "url": "https://webspark.markhazleton.com/api/WebCMS/websites/1",
     "success": true,
@@ -29,7 +29,7 @@
       "texecon",
       "kansas/wichita"
     ],
-    "dataSize": 67078
+    "dataSize": 67103
   },
   "navigation": {
     "count": 6,
@@ -47,12 +47,12 @@
       {
         "id": "texecon/mark-hazleton",
         "label": "Texecon/mark hazleton",
-        "description": "Mark Hazleton..."
+        "description": "Solutions Architect..."
       },
       {
         "id": "texecon/jared-hazleton",
         "label": "Texecon/jared hazleton",
-        "description": "Jared Hazleton..."
+        "description": "American economist, and educator...."
       },
       {
         "id": "texas",
