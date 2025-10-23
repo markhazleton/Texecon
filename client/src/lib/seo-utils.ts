@@ -113,42 +113,103 @@ Disallow: /*.map$
 }
 
 // Extract keywords from menu item content
-export function extractKeywords(item: MenuItem): string[] {
-  const keywords = ["Texas economy", "economic analysis", item.title.toLowerCase()];
+export function extractKeywords(item: MenuItem): string[];
+// Extract keywords from string content
+// eslint-disable-next-line no-redeclare
+export function extractKeywords(content: string): string[];
+// eslint-disable-next-line no-redeclare
+export function extractKeywords(input: string | MenuItem): string[] {
+  if (typeof input === "string") {
+    const content = input;
+    let keywords = ["Texas economy", "economic analysis"];
 
-  // Add keywords based on content type
-  if (item.description) {
-    const words = item.description
-      .toLowerCase()
-      .replace(/[^\w\s]/g, "")
-      .split(/\s+/)
-      .filter((word) => word.length > 3);
+    if (content) {
+      const stopWords = new Set([
+        "the",
+        "and",
+        "or",
+        "but",
+        "a",
+        "an",
+        "in",
+        "on",
+        "at",
+        "to",
+        "for",
+        "of",
+        "with",
+        "by",
+      ]);
 
-    keywords.push(...words.slice(0, 3));
+      const words = content
+        .toLowerCase()
+        .replace(/[^\w\s]/g, "")
+        .split(/\s+/)
+        .filter((word) => word.length > 3 && !stopWords.has(word));
+
+      keywords.push(...words.slice(0, 10));
+    }
+
+    const uniqueKeywords = Array.from(new Set(keywords));
+    return uniqueKeywords.slice(0, 20);
+  } else {
+    const item = input;
+    const keywords = ["Texas economy", "economic analysis", item.title.toLowerCase()];
+
+    // Add keywords based on content type
+    if (item.description) {
+      const words = item.description
+        .toLowerCase()
+        .replace(/[^\w\s]/g, "")
+        .split(/\s+/)
+        .filter((word) => word.length > 3);
+
+      keywords.push(...words.slice(0, 3));
+    }
+
+    // Add category-specific keywords
+    if (item.parent_page) {
+      keywords.push("Texas economic trends", "regional analysis");
+    }
+
+    if (item.argument) {
+      keywords.push("economic topic", "economic data");
+    }
+
+    return Array.from(new Set(keywords)); // Remove duplicates
   }
-
-  // Add category-specific keywords
-  if (item.parent_page) {
-    keywords.push("Texas economic trends", "regional analysis");
-  }
-
-  if (item.argument) {
-    keywords.push("economic topic", "economic data");
-  }
-
-  return Array.from(new Set(keywords)); // Remove duplicates
 }
 
 // Generate meta description for menu item
-export function generateMetaDescription(item: MenuItem): string {
-  if (item.description && item.description.length > 50) {
-    return item.description.length > 160
-      ? item.description.substring(0, 157) + "..."
-      : item.description;
-  }
+export function generateMetaDescription(item: MenuItem): string;
+// Generate meta description for string content
+// eslint-disable-next-line no-redeclare
+export function generateMetaDescription(description: string, content?: string): string;
+// eslint-disable-next-line no-redeclare
+export function generateMetaDescription(input: string | MenuItem, content?: string): string {
+  if (typeof input === "string") {
+    const description = input;
+    if (description && description.trim() && description !== "undefined") {
+      return description.length > 160 ? description.substring(0, 157) + "..." : description;
+    }
 
-  const baseDescription = "Texas Economic Analysis & Insights";
-  return `${item.title} - ${baseDescription}. Expert analysis and commentary on the Texas economy.`;
+    if (content && content.trim()) {
+      const truncated = content.length > 160 ? content.substring(0, 157) + "..." : content;
+      return truncated;
+    }
+
+    return "Texas Economic Analysis & Insights. Expert analysis and commentary on the Texas economic analysis.";
+  } else {
+    const item = input;
+    if (item.description && item.description.length > 50) {
+      return item.description.length > 160
+        ? item.description.substring(0, 157) + "..."
+        : item.description;
+    }
+
+    const baseDescription = "Texas Economic Analysis & Insights";
+    return `${item.title} - ${baseDescription}. Expert analysis and commentary on the Texas economy.`;
+  }
 }
 
 // Get structured data for a menu item
@@ -179,4 +240,12 @@ export function getStructuredData(item: MenuItem) {
       "@id": generateCanonicalUrl(item),
     },
   };
+}
+
+// Generate page title with TexEcon branding
+export function generatePageTitle(title: string): string {
+  if (!title || title.trim() === "") {
+    return "TexEcon - Texas Economic Analysis & Insights";
+  }
+  return `${title} | TexEcon`;
 }
