@@ -3,6 +3,12 @@ import { useScrollToSection } from "@/hooks/use-scroll";
 import { buildMenuHierarchy, MenuItem } from "@/lib/menu-utils";
 import { generateSEOPath } from "@/lib/seo-utils";
 
+// Footer link types with discriminated union
+type FooterLink =
+  | { type: "section"; label: string; section: string }
+  | { type: "path"; label: string; path: string; item: MenuItem }
+  | { type: "external"; label: string; href: string; external: true };
+
 // Get actual pages from navigation data and generate SEO-friendly paths
 const getFooterLinks = () => {
   const hierarchy = buildMenuHierarchy();
@@ -20,25 +26,61 @@ const getFooterLinks = () => {
 
   return {
     quickLinks: [
-      { label: "Home", section: "home" },
+      { type: "section" as const, label: "Home", section: "home" },
       ...(texasItem
-        ? [{ label: "Texas Economy", path: generateSEOPath(texasItem), item: texasItem }]
+        ? [
+            {
+              type: "path" as const,
+              label: "Texas Economy",
+              path: generateSEOPath(texasItem),
+              item: texasItem,
+            },
+          ]
         : []),
       ...(teamItem
-        ? [{ label: "Economic Team", path: generateSEOPath(teamItem), item: teamItem }]
+        ? [
+            {
+              type: "path" as const,
+              label: "Economic Team",
+              path: generateSEOPath(teamItem),
+              item: teamItem,
+            },
+          ]
         : []),
       ...(markItem
-        ? [{ label: "About Mark Hazleton", path: generateSEOPath(markItem), item: markItem }]
+        ? [
+            {
+              type: "path" as const,
+              label: "About Mark Hazleton",
+              path: generateSEOPath(markItem),
+              item: markItem,
+            },
+          ]
         : []),
     ],
     resources: [
       ...(jaredItem
-        ? [{ label: "Dr. Jared Hazleton", path: generateSEOPath(jaredItem), item: jaredItem }]
+        ? [
+            {
+              type: "path" as const,
+              label: "Dr. Jared Hazleton",
+              path: generateSEOPath(jaredItem),
+              item: jaredItem,
+            },
+          ]
         : []),
       ...(regionalItem
-        ? [{ label: "Regional Analysis", path: generateSEOPath(regionalItem), item: regionalItem }]
+        ? [
+            {
+              type: "path" as const,
+              label: "Regional Analysis",
+              path: generateSEOPath(regionalItem),
+              item: regionalItem,
+            },
+          ]
         : []),
       {
+        type: "external" as const,
         label: "Contact Mark Hazleton",
         href: "https://www.linkedin.com/in/markhazleton/",
         external: true,
@@ -54,6 +96,25 @@ const socialLinks = [
     label: "Mark Hazleton LinkedIn",
   },
 ];
+
+// Type guard functions
+function isSectionLink(
+  link: FooterLink
+): link is { type: "section"; label: string; section: string } {
+  return link.type === "section";
+}
+
+function isPathLink(
+  link: FooterLink
+): link is { type: "path"; label: string; path: string; item: MenuItem } {
+  return link.type === "path";
+}
+
+function isExternalLink(
+  link: FooterLink
+): link is { type: "external"; label: string; href: string; external: true } {
+  return link.type === "external";
+}
 
 export default function Footer() {
   const base = (import.meta.env.BASE_URL as string) || "/";
@@ -108,8 +169,8 @@ export default function Footer() {
             <h4 className="font-semibold text-card-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {footerLinks.quickLinks.map((link, index) => (
-                <li key={link.section || (link as any).path || index}>
-                  {link.section ? (
+                <li key={isSectionLink(link) ? link.section : isPathLink(link) ? link.path : index}>
+                  {isSectionLink(link) ? (
                     <a
                       href={`#${link.section}`}
                       onClick={(e) => {
@@ -121,19 +182,19 @@ export default function Footer() {
                     >
                       {link.label}
                     </a>
-                  ) : (
+                  ) : isPathLink(link) ? (
                     <a
-                      href={(link as any).path}
+                      href={link.path}
                       onClick={(e) => {
                         e.preventDefault();
-                        handleNavClick((link as any).path, (link as any).item);
+                        handleNavClick(link.path, link.item);
                       }}
                       className="text-muted-foreground hover:text-primary transition-colors"
                       data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                     >
                       {link.label}
                     </a>
-                  )}
+                  ) : null}
                 </li>
               ))}
             </ul>
@@ -144,7 +205,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {footerLinks.resources.map((link, index) => (
                 <li key={link.label || index}>
-                  {(link as any).external ? (
+                  {isExternalLink(link) ? (
                     <a
                       href={link.href}
                       target="_blank"
@@ -154,19 +215,19 @@ export default function Footer() {
                     >
                       {link.label}
                     </a>
-                  ) : (
+                  ) : isPathLink(link) ? (
                     <a
-                      href={(link as any).path}
+                      href={link.path}
                       onClick={(e) => {
                         e.preventDefault();
-                        handleNavClick((link as any).path, (link as any).item);
+                        handleNavClick(link.path, link.item);
                       }}
                       className="text-muted-foreground hover:text-primary transition-colors"
                       data-testid={`resource-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                     >
                       {link.label}
                     </a>
-                  )}
+                  ) : null}
                 </li>
               ))}
             </ul>

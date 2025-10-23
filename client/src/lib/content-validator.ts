@@ -1,3 +1,8 @@
+import type { CachedContent } from "../data/content-types";
+
+// Type for partial content being validated (may not have all fields)
+type PartialContent = Partial<CachedContent> & Record<string, unknown>;
+
 interface ValidationResult {
   isValid: boolean;
   errors: string[];
@@ -67,7 +72,7 @@ class ContentValidator {
   }
 
   private async validateRequiredFields(
-    data: any,
+    data: PartialContent,
     errors: string[],
     warnings: string[]
   ): Promise<void> {
@@ -84,7 +89,7 @@ class ContentValidator {
     if (!data.team || !Array.isArray(data.team)) {
       errors.push("Missing or invalid team section");
     } else {
-      data.team.forEach((member: any, index: number) => {
+      data.team.forEach((member: CachedContent["team"][0], index: number) => {
         if (!member.name) errors.push(`Team member ${index + 1} missing name`);
         if (!member.title) errors.push(`Team member ${index + 1} missing title`);
         if (!member.description) warnings.push(`Team member ${index + 1} missing description`);
@@ -100,18 +105,22 @@ class ContentValidator {
     }
   }
 
-  private async validateImages(data: any, errors: string[], warnings: string[]): Promise<void> {
+  private async validateImages(
+    data: PartialContent,
+    errors: string[],
+    warnings: string[]
+  ): Promise<void> {
     const imageUrls: string[] = [];
 
     // Collect image URLs from various sections
     if (data.team) {
-      data.team.forEach((member: any) => {
+      data.team.forEach((member: CachedContent["team"][0]) => {
         if (member.image) imageUrls.push(member.image);
       });
     }
 
     if (data.insights) {
-      data.insights.forEach((insight: any) => {
+      data.insights.forEach((insight: CachedContent["insights"][0]) => {
         if (insight.image) imageUrls.push(insight.image);
       });
     }
@@ -135,14 +144,18 @@ class ContentValidator {
     }
   }
 
-  private async validateLinks(data: any, _errors: string[], warnings: string[]): Promise<void> {
+  private async validateLinks(
+    data: PartialContent,
+    _errors: string[],
+    warnings: string[]
+  ): Promise<void> {
     const links: string[] = [];
 
     // Collect links from team social profiles
     if (data.team) {
-      data.team.forEach((member: any) => {
+      data.team.forEach((member: CachedContent["team"][0]) => {
         if (member.social) {
-          Object.values(member.social).forEach((url: any) => {
+          Object.values(member.social).forEach((url: string) => {
             if (url && typeof url === "string" && url !== "#") {
               links.push(url);
             }
@@ -171,13 +184,13 @@ class ContentValidator {
   }
 
   private async validateContentStructure(
-    data: any,
+    data: PartialContent,
     errors: string[],
     warnings: string[]
   ): Promise<void> {
     // Check for empty content
     if (data.navigation) {
-      data.navigation.forEach((item: any, index: number) => {
+      data.navigation.forEach((item: CachedContent["navigation"][0], index: number) => {
         if (!item.label || item.label.trim() === "") {
           errors.push(`Navigation item ${index + 1} has empty label`);
         }
@@ -192,7 +205,7 @@ class ContentValidator {
 
     // Check navigation item structure
     if (data.navigation) {
-      data.navigation.forEach((item: any, index: number) => {
+      data.navigation.forEach((item: CachedContent["navigation"][0], index: number) => {
         if (item.description && typeof item.description === "string") {
           const openTags = (item.description.match(/<[^/][^>]*>/g) || []).length;
           const closeTags = (item.description.match(/<\/[^>]*>/g) || []).length;
@@ -208,7 +221,7 @@ class ContentValidator {
   }
 
   // Validate content freshness
-  async validateFreshness(data: any): Promise<ValidationResult> {
+  async validateFreshness(data: PartialContent): Promise<ValidationResult> {
     const errors: string[] = [];
     const warnings: string[] = [];
     const timestamp = new Date().toISOString();
