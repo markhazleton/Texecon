@@ -20,14 +20,11 @@ export default [
       "vitest.config.ts",
       "tailwind.config.ts",
       "postcss.config.js",
-      "**/*.test.{ts,tsx}",
-      "**/*.spec.{ts,tsx}",
     ],
   },
   js.configs.recommended,
   {
     files: ["**/*.{ts,tsx}"],
-    ignores: ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}"], // Exclude test files
     languageOptions: {
       parser: tsparser,
       parserOptions: {
@@ -62,22 +59,21 @@ export default [
       prettier: prettier,
     },
     rules: {
-      // Disabled all problematic rules for GitHub Action to pass
-      "prettier/prettier": "off",
+      // Relaxed rules for GitHub Action to pass
+      "prettier/prettier": "off", // Disabled formatting checks
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-unused-vars": "off", // Disabled
+      "@typescript-eslint/no-explicit-any": "off", // Disabled
       "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/ban-ts-comment": "off",
       "jsx-a11y/click-events-have-key-events": "off",
       "jsx-a11y/no-static-element-interactions": "off",
       "jsx-a11y/anchor-is-valid": "off",
-      "no-undef": "off",
-      "no-unused-vars": "off", // Disable the base rule causing issues
-      // Keep only critical React errors
+      "no-undef": "off", // TypeScript handles this
+      // Keep only critical errors
       "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "off", // Changed to off
+      "react-hooks/exhaustive-deps": "warn",
       "@typescript-eslint/no-undef": "off",
     },
     settings: {
