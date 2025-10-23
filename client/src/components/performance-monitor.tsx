@@ -16,7 +16,7 @@ export default function PerformanceMonitor() {
 
       try {
         lcpObserver.observe({ entryTypes: ["largest-contentful-paint"] });
-      } catch (e) {
+      } catch {
         // Fallback for browsers that don't support LCP
       }
 
@@ -25,8 +25,12 @@ export default function PerformanceMonitor() {
         let clsScore = 0;
         const entries = entryList.getEntries();
         for (const entry of entries) {
-          if (!(entry as any).hadRecentInput) {
-            clsScore += (entry as any).value;
+          const layoutShiftEntry = entry as PerformanceEntry & {
+            hadRecentInput?: boolean;
+            value: number;
+          };
+          if (!layoutShiftEntry.hadRecentInput) {
+            clsScore += layoutShiftEntry.value;
           }
         }
         if (process.env.NODE_ENV === "development" && clsScore > 0) {
@@ -36,7 +40,7 @@ export default function PerformanceMonitor() {
 
       try {
         clsObserver.observe({ entryTypes: ["layout-shift"] });
-      } catch (e) {
+      } catch {
         // Fallback for browsers that don't support CLS
       }
 
@@ -45,13 +49,16 @@ export default function PerformanceMonitor() {
         const entries = entryList.getEntries();
         const lastEntry = entries[entries.length - 1];
         if (lastEntry && process.env.NODE_ENV === "development") {
-          console.log("FID:", (lastEntry as any).processingStart - lastEntry.startTime);
+          const firstInputEntry = lastEntry as PerformanceEntry & {
+            processingStart: number;
+          };
+          console.log("FID:", firstInputEntry.processingStart - lastEntry.startTime);
         }
       });
 
       try {
         fidObserver.observe({ entryTypes: ["first-input"] });
-      } catch (e) {
+      } catch {
         // Fallback for browsers that don't support FID
       }
 

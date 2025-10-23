@@ -41,7 +41,7 @@ function startVersionWatcher() {
         url.searchParams.set("_", String(Date.now()));
         window.location.replace(url.toString());
       }
-    } catch (_) {
+    } catch {
       // ignore transient errors
     }
   }

@@ -25,7 +25,7 @@ class ContentValidator {
     };
   }
 
-  async validateContent(data: any): Promise<ValidationResult> {
+  async validateContent(data: Record<string, unknown>): Promise<ValidationResult> {
     const errors: string[] = [];
     const warnings: string[] = [];
     const timestamp = new Date().toISOString();
@@ -129,7 +129,7 @@ class ContentValidator {
         } else if (!response.headers.get("content-type")?.startsWith("image/")) {
           warnings.push(`URL may not be an image: ${imageUrl}`);
         }
-      } catch (error) {
+      } catch {
         warnings.push(`Could not validate image: ${imageUrl}`);
       }
     }
@@ -163,7 +163,7 @@ class ContentValidator {
           if (!response.ok) {
             warnings.push(`External link may be broken: ${link} (${response.status})`);
           }
-        } catch (error) {
+        } catch {
           warnings.push(`Could not validate link: ${link}`);
         }
       }

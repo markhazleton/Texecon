@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -12,12 +12,22 @@ interface ErrorReport {
   message: string;
   timestamp: Date;
   resolved?: boolean;
-  context?: any;
+  context?: Record<string, unknown>;
 }
 
 export default function ErrorMonitor() {
   const [errors, setErrors] = useState<ErrorReport[]>([]);
   const isMonitoring = true;
+
+  const addError = useCallback((errorData: Omit<ErrorReport, "id" | "timestamp">) => {
+    const newError: ErrorReport = {
+      ...errorData,
+      id: Date.now().toString(),
+      timestamp: new Date(),
+    };
+
+    setErrors((prev) => [newError, ...prev.slice(0, 49)]); // Keep last 50 errors
+  }, []);
 
   useEffect(() => {
     if (!isMonitoring) return;
@@ -65,17 +75,7 @@ export default function ErrorMonitor() {
       window.removeEventListener("unhandledrejection", handleUnhandledRejection);
       window.removeEventListener("error", handleError);
     };
-  }, [isMonitoring]);
-
-  const addError = (errorData: Omit<ErrorReport, "id" | "timestamp">) => {
-    const newError: ErrorReport = {
-      ...errorData,
-      id: Date.now().toString(),
-      timestamp: new Date(),
-    };
-
-    setErrors((prev) => [newError, ...prev.slice(0, 49)]); // Keep last 50 errors
-  };
+  }, [isMonitoring, addError]);
 
   const clearErrors = () => {
     setErrors([]);
@@ -170,7 +170,16 @@ export default function ErrorMonitor() {
                 >
                   <div className="flex items-center gap-2">
                     {getSeverityIcon(error.severity)}
-                    <Badge variant={getSeverityColor(error.severity) as any} className="text-xs">
+                    <Badge
+                      variant={
+                        getSeverityColor(error.severity) as
+                          | "default"
+                          | "destructive"
+                          | "outline"
+                          | "secondary"
+                      }
+                      className="text-xs"
+                    >
                       {error.severity}
                     </Badge>
                   </div>

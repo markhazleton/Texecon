@@ -13,8 +13,11 @@ export default function ContentDisplay({ menuItem }: ContentDisplayProps) {
 
   useEffect(() => {
     if (menuItem) {
-      setIsVisible(false);
-      setTimeout(() => setIsVisible(true), 50);
+      // Schedule state updates for next render
+      setTimeout(() => {
+        setIsVisible(false);
+        setTimeout(() => setIsVisible(true), 50);
+      }, 0);
     }
   }, [menuItem]);
 

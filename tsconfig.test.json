@@ -1,9 +1,7 @@
 {
-  "include": ["client/src/**/*", "shared/**/*", "server/**/*"],
-  "exclude": ["node_modules", "build", "dist", "target", "**/*.test.ts", "**/*.test.tsx"],
   "compilerOptions": {
     "incremental": true,
-    "tsBuildInfoFile": "./node_modules/.cache/typescript/tsbuildinfo",
+    "tsBuildInfoFile": "./node_modules/.cache/typescript/tsbuildinfo-test",
     "noEmit": true,
     "module": "ESNext",
     "target": "ES2020",
@@ -23,10 +21,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": ".",
-    "types": ["node", "vite/client"],
+    "types": ["vitest", "node", "@testing-library/jest-dom", "vite/client"],
     "paths": {
       "@/*": ["./client/src/*"],
       "@shared/*": ["./shared/*"]
     }
-  }
+  },
+  "include": ["client/src/**/*.test.ts", "client/src/**/*.test.tsx", "client/src/**/*.d.ts"],
+  "exclude": ["node_modules", "build", "dist", "target"]
 }

@@ -39,7 +39,7 @@ export interface ApiClientConfig {
 
 class WebSparkApiClient {
   private config: ApiClientConfig;
-  private cache: Map<string, { data: any; timestamp: number }> = new Map();
+  private cache: Map<string, { data: WebSparkWebsiteData; timestamp: number }> = new Map();
   private cacheExpiry = 5 * 60 * 1000; // 5 minutes cache
 
   constructor(config: ApiClientConfig) {
@@ -54,7 +54,7 @@ class WebSparkApiClient {
     return Date.now() - timestamp < this.cacheExpiry;
   }
 
-  private async fetchFromAPI(endpoint: string): Promise<any> {
+  private async fetchFromAPI(endpoint: string): Promise<WebSparkWebsiteData> {
     const url = `${this.config.baseUrl}${endpoint}`;
     const headers: Record<string, string> = {
       Accept: "application/json",
@@ -114,7 +114,7 @@ class WebSparkApiClient {
       if (cached) {
         try {
           return JSON.parse(cached);
-        } catch (e) {
+        } catch {
           console.warn("Failed to parse cached data from localStorage");
         }
       }

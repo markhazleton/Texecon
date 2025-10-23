@@ -9,7 +9,8 @@ describe("utils", () => {
     });
 
     it("handles conditional classes", () => {
-      expect(cn("class1", false && "class2", "class3")).toBe("class1 class3");
+      const condition = false;
+      expect(cn("class1", condition && "class2", "class3")).toBe("class1 class3");
     });
 
     it("handles undefined and null", () => {

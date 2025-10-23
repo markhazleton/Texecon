@@ -3,6 +3,23 @@
 import cachedContent from "../data/texecon-content.json";
 import teamData from "../data/team-data.json";
 
+// Type definitions
+interface TeamMember {
+  id: string;
+  name: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  page_url: string;
+  social: {
+    linkedin: string;
+    github?: string;
+    website?: string;
+    twitter?: string;
+  };
+}
+
 const content = cachedContent;
 
 export const siteMetadata = {
@@ -17,7 +34,7 @@ export const siteMetadata = {
 };
 
 // Ensure team member images resolve under the configured base path (GitHub Pages subpaths)
-export const teamMembers = teamData.teamMembers.map((m: any) => ({
+export const teamMembers: TeamMember[] = (teamData.teamMembers as TeamMember[]).map((m) => ({
   ...m,
   image:
     typeof m.image === "string" && !/^https?:\/\//.test(m.image)

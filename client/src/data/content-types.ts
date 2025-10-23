@@ -43,9 +43,9 @@ export interface CachedContent {
     }
   >;
   pages: {
-    home: any;
-    about: any;
-    analysis: any[];
-    all: any[];
+    home: Record<string, unknown>;
+    about: Record<string, unknown>;
+    analysis: Record<string, unknown>[];
+    all: Record<string, unknown>[];
   };
 }

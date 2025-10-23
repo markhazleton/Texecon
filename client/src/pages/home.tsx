@@ -161,17 +161,24 @@ export default function Home() {
   useEffect(() => {
     const contentFromUrl = findContentFromUrl();
 
-    // Only update if content actually changed
-    if (contentFromUrl && contentFromUrl.id !== selectedContent?.id) {
-      setSelectedContent(contentFromUrl);
-    } else if (!contentFromUrl && selectedContent && location !== "/") {
-      // If URL doesn't match any content and we're not on home, redirect to home
-      setLocation("/");
-      setSelectedContent(null);
-    } else if (!contentFromUrl && !selectedContent && location === "/") {
-      // Ensure we're on home page with no content selected
-      setSelectedContent(null);
-    }
+    // Schedule state updates for next render to avoid synchronous updates in effect
+    const scheduleUpdate = () => {
+      // Only update if content actually changed
+      if (contentFromUrl && contentFromUrl.id !== selectedContent?.id) {
+        setTimeout(() => setSelectedContent(contentFromUrl), 0);
+      } else if (!contentFromUrl && selectedContent && location !== "/") {
+        // If URL doesn't match any content and we're not on home, redirect to home
+        setTimeout(() => {
+          setLocation("/");
+          setSelectedContent(null);
+        }, 0);
+      } else if (!contentFromUrl && !selectedContent && location === "/") {
+        // Ensure we're on home page with no content selected
+        setTimeout(() => setSelectedContent(null), 0);
+      }
+    };
+
+    scheduleUpdate();
   }, [findContentFromUrl, selectedContent, location, setLocation]);
 
   // Handle navigation from footer links
@@ -227,14 +234,14 @@ export default function Home() {
   // Convert team members to structured data format - memoize static data
   const structuredPeople = useMemo(
     () =>
-      teamMembers.map((member: any) => ({
+      teamMembers.map((member) => ({
         name: member.name,
         jobTitle: member.title,
         description: member.description,
         image: member.image,
-        url: member.social.website,
+        url: member.social.website || member.page_url || "",
         sameAs: [member.social.linkedin, member.social.github, member.social.twitter].filter(
-          Boolean
+          (link): link is string => Boolean(link)
         ),
       })),
     []
