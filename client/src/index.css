@@ -12,8 +12,8 @@
   /* fonts */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
-    "Liberation Mono", Menlo, monospace;
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
 
   /* colors (tokens expected by utilities like bg-background, text-foreground, ring-ring, etc.) */
   --color-background: var(--background);
@@ -93,8 +93,8 @@
   --sidebar-ring: hsl(213, 94%, 25%);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas,
-    "Liberation Mono", Menlo, monospace;
+  --font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
   --radius: 0.5rem;
 }
 
@@ -153,24 +153,13 @@
 
 @layer utilities {
   .gradient-texas {
-    background: linear-gradient(
-      135deg,
-      hsl(213, 94%, 25%) 0%,
-      hsl(43, 74%, 39%) 100%
-    );
+    background: linear-gradient(135deg, hsl(213, 94%, 25%) 0%, hsl(43, 74%, 39%) 100%);
   }
 
   .hero-pattern {
-    background-image: radial-gradient(
-        circle at 25px 25px,
-        rgba(255, 255, 255, 0.1) 2%,
-        transparent 0%
-      ),
-      radial-gradient(
-        circle at 75px 75px,
-        rgba(255, 255, 255, 0.1) 2%,
-        transparent 0%
-      );
+    background-image:
+      radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.1) 2%, transparent 0%),
+      radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.1) 2%, transparent 0%);
     background-size: 100px 100px;
   }
 
@@ -180,7 +169,8 @@
 
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    box-shadow:
+      0 20px 25px -5px rgba(0, 0, 0, 0.1),
       0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
@@ -207,7 +197,9 @@
   .dropdown-enter-active {
     opacity: 1;
     transform: translateY(0);
-    transition: opacity 200ms ease-out, transform 200ms ease-out;
+    transition:
+      opacity 200ms ease-out,
+      transform 200ms ease-out;
   }
 
   .dropdown-exit {
@@ -218,6 +210,8 @@
   .dropdown-exit-active {
     opacity: 0;
     transform: translateY(-10px);
-    transition: opacity 200ms ease-in, transform 200ms ease-in;
+    transition:
+      opacity 200ms ease-in,
+      transform 200ms ease-in;
   }
 }
