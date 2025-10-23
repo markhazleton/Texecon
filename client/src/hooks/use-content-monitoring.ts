@@ -9,8 +9,7 @@ interface ContentMonitoringConfig {
 }
 
 export function useContentMonitoring(config: ContentMonitoringConfig = {}) {
-  const [validationResult, setValidationResult] =
-    useState<ValidationResult | null>(null);
+  const [validationResult, setValidationResult] = useState<ValidationResult | null>(null);
   const [isValidating, setIsValidating] = useState(false);
   const [lastCheck, setLastCheck] = useState<Date | null>(null);
   const [validator] = useState(() => new ContentValidator());
@@ -53,9 +52,7 @@ export function useContentMonitoring(config: ContentMonitoringConfig = {}) {
       setValidationResult({
         isValid: false,
         errors: [
-          `Validation system error: ${
-            error instanceof Error ? error.message : "Unknown error"
-          }`,
+          `Validation system error: ${error instanceof Error ? error.message : "Unknown error"}`,
         ],
         warnings: [],
         timestamp: new Date().toISOString(),
@@ -89,8 +86,7 @@ export function useContentMonitoring(config: ContentMonitoringConfig = {}) {
       const hasContentChanges = mutations.some(
         (mutation) =>
           mutation.type === "childList" ||
-          (mutation.type === "attributes" &&
-            mutation.attributeName === "data-testid")
+          (mutation.type === "attributes" && mutation.attributeName === "data-testid")
       );
 
       if (hasContentChanges) {
@@ -112,8 +108,7 @@ export function useContentMonitoring(config: ContentMonitoringConfig = {}) {
   const getHealthScore = useCallback(() => {
     if (!validationResult) return 0;
 
-    const totalIssues =
-      validationResult.errors.length + validationResult.warnings.length;
+    const totalIssues = validationResult.errors.length + validationResult.warnings.length;
     if (totalIssues === 0) return 100;
 
     const errorWeight = validationResult.errors.length * 10;

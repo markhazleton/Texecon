@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from 'react';
-import { ChevronDown } from 'lucide-react';
-import { MenuItem, hasChildren, formatMenuTitle } from '@/lib/menu-utils';
-import { generateSEOPath } from '@/lib/seo-utils';
+import { useState, useRef, useEffect } from "react";
+import { ChevronDown } from "lucide-react";
+import { MenuItem, hasChildren, formatMenuTitle } from "@/lib/menu-utils";
+import { generateSEOPath } from "@/lib/seo-utils";
 
 interface DropdownMenuItemProps {
   item: MenuItem;
@@ -10,11 +10,11 @@ interface DropdownMenuItemProps {
   isMobile?: boolean;
 }
 
-export default function DropdownMenuItem({ 
-  item, 
-  onItemClick, 
-  isActive, 
-  isMobile = false 
+export default function DropdownMenuItem({
+  item,
+  onItemClick,
+  isActive,
+  isMobile = false,
 }: DropdownMenuItemProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
@@ -70,19 +70,17 @@ export default function DropdownMenuItem({
           onClick={handleItemClick}
           className={`w-full text-left px-4 py-3 flex items-center justify-between transition-colors ${
             isActive
-              ? 'text-primary font-medium bg-muted'
-              : 'text-muted-foreground hover:text-primary hover:bg-muted'
+              ? "text-primary font-medium bg-muted"
+              : "text-muted-foreground hover:text-primary hover:bg-muted"
           }`}
           data-testid={`mobile-nav-${item.argument || item.id}`}
         >
           <span>{formatMenuTitle(item.title)}</span>
           {hasSubItems && (
-            <ChevronDown 
-              className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-            />
+            <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
           )}
         </a>
-        
+
         {hasSubItems && isOpen && (
           <div className="pl-6 bg-muted/50">
             {item.children.map((child) => (
@@ -104,7 +102,7 @@ export default function DropdownMenuItem({
 
   // Desktop dropdown
   return (
-    <div 
+    <div
       ref={dropdownRef}
       className="relative group"
       onMouseEnter={handleMouseEnter}
@@ -114,18 +112,14 @@ export default function DropdownMenuItem({
         href={generateSEOPath(item)}
         onClick={handleItemClick}
         className={`flex items-center space-x-1 transition-colors ${
-          isActive
-            ? 'text-primary font-medium'
-            : 'text-muted-foreground hover:text-primary'
+          isActive ? "text-primary font-medium" : "text-muted-foreground hover:text-primary"
         }`}
         data-testid={`nav-${item.argument || item.id}`}
       >
         <span>{formatMenuTitle(item.title)}</span>
-        {hasSubItems && (
-          <ChevronDown className="w-4 h-4" />
-        )}
+        {hasSubItems && <ChevronDown className="w-4 h-4" />}
       </a>
-      
+
       {hasSubItems && isOpen && (
         <div className="absolute top-full left-0 mt-1 min-w-48 bg-card border border-border rounded-md shadow-lg z-50">
           <div className="py-2">

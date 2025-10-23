@@ -1,18 +1,18 @@
 // Route debugger component for development
 // Shows current route information and available routes
 
-import { useMemo } from 'react';
-import { useLocation, useRoute } from 'wouter';
-import { buildMenuHierarchy } from '@/lib/menu-utils';
-import { generateSEOPath } from '@/lib/seo-utils';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useMemo } from "react";
+import { useLocation, useRoute } from "wouter";
+import { buildMenuHierarchy } from "@/lib/menu-utils";
+import { generateSEOPath } from "@/lib/seo-utils";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function RouteDebugger() {
   const [location] = useLocation();
-  const [, pageParams] = useRoute('/page/:pageId');
-  const [, contentParams] = useRoute('/content/:contentSlug');
-  const [, topicParams] = useRoute('/topic/:topicId');
-  const [, sectionParams] = useRoute('/section/:sectionSlug');
+  const [, pageParams] = useRoute("/page/:pageId");
+  const [, contentParams] = useRoute("/content/:contentSlug");
+  const [, topicParams] = useRoute("/topic/:topicId");
+  const [, sectionParams] = useRoute("/section/:sectionSlug");
 
   // Memoize menu items to prevent constant rebuilding
   const menuItems = useMemo(() => {
@@ -20,12 +20,12 @@ export default function RouteDebugger() {
     return Object.values(hierarchy.byId).slice(0, 5); // Show first 5 items
   }, []);
 
-  if (process.env.NODE_ENV !== 'development') {
+  if (process.env.NODE_ENV !== "development") {
     return null;
   }
 
   return (
-  <Card className="fixed bottom-4 right-4 w-96 max-h-96 overflow-y-auto bg-background/95 backdrop-blur-xs border shadow-lg z-50">
+    <Card className="fixed bottom-4 right-4 w-96 max-h-96 overflow-y-auto bg-background/95 backdrop-blur-xs border shadow-lg z-50">
       <CardHeader className="pb-2">
         <CardTitle className="text-sm">Route Debugger</CardTitle>
       </CardHeader>
@@ -33,7 +33,7 @@ export default function RouteDebugger() {
         <div>
           <strong>Current Location:</strong> {location}
         </div>
-        
+
         <div>
           <strong>Route Params:</strong>
           <div className="ml-2">
@@ -51,7 +51,7 @@ export default function RouteDebugger() {
           <strong>Available Routes:</strong>
           <div className="ml-2 space-y-1">
             <div className="text-primary">/ (Home)</div>
-            {menuItems.map(item => (
+            {menuItems.map((item) => (
               <div key={item.id} className="text-muted-foreground">
                 {generateSEOPath(item)} ({item.title})
               </div>

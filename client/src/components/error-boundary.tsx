@@ -1,7 +1,7 @@
-import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AlertTriangle, RefreshCw } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React, { Component, ErrorInfo, ReactNode } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AlertTriangle, RefreshCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   children: ReactNode;
@@ -22,14 +22,14 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
-    
+    console.error("ErrorBoundary caught an error:", error, errorInfo);
+
     // Log to monitoring service in production
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === "production") {
       // Add error reporting service integration here
-      console.error('Production error caught by boundary:', error.message);
+      console.error("Production error caught by boundary:", error.message);
     }
-    
+
     this.props.onError?.(error, errorInfo);
   }
 
@@ -55,14 +55,14 @@ class ErrorBoundary extends Component<Props, State> {
             <p className="text-muted-foreground">
               An error occurred while rendering this component. Please try refreshing the page.
             </p>
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+            {process.env.NODE_ENV === "development" && this.state.error && (
               <details className="text-xs">
                 <summary className="cursor-pointer font-medium">Error Details</summary>
                 <pre className="mt-2 bg-muted p-2 rounded overflow-auto whitespace-pre-wrap">
                   {this.state.error.message}
                   {this.state.error.stack && (
                     <>
-                      {'\n\n'}
+                      {"\n\n"}
                       {this.state.error.stack}
                     </>
                   )}
@@ -74,8 +74,8 @@ class ErrorBoundary extends Component<Props, State> {
                 <RefreshCw className="w-4 h-4" />
                 Try Again
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => window.location.reload()}
                 className="flex items-center gap-2"
               >

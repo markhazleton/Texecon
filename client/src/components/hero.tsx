@@ -1,10 +1,10 @@
-import { ArrowRight } from 'lucide-react';
-import { heroContent } from '@/lib/data';
+import { ArrowRight } from "lucide-react";
+import { heroContent } from "@/lib/data";
 
 export default function Hero() {
   return (
-    <header 
-      id="home" 
+    <header
+      id="home"
       className="gradient-texas hero-pattern pt-24 pb-16 lg:pb-20"
       role="banner"
       data-testid="hero-section"
@@ -20,11 +20,11 @@ export default function Hero() {
               {heroContent.description}
             </p>
           </div>
-          
+
           <div className="relative">
-            <img 
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="Modern Texas office building skyline representing economic growth and business development in the Lone Star State" 
+            <img
+              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+              alt="Modern Texas office building skyline representing economic growth and business development in the Lone Star State"
               className="rounded-xl shadow-2xl animate-float w-full h-auto"
               loading="eager"
               data-testid="hero-image"

@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export function useScrollspy(sectionIds: string[], offset: number = 100) {
-  const [activeSection, setActiveSection] = useState<string>('');
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +21,10 @@ export function useScrollspy(sectionIds: string[], offset: number = 100) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     handleScroll(); // Initial check
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [sectionIds, offset]);
 
   return activeSection;
@@ -37,7 +37,7 @@ export function useScrollToSection() {
       const offsetTop = element.offsetTop - 80; // Account for fixed header
       window.scrollTo({
         top: offsetTop,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };

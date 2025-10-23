@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { ExternalLink, CheckCircle, XCircle, AlertTriangle, RefreshCw } from 'lucide-react';
-import FooterLinkValidator from '@/lib/footer-link-validator';
+import { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ExternalLink, CheckCircle, XCircle, AlertTriangle, RefreshCw } from "lucide-react";
+import FooterLinkValidator from "@/lib/footer-link-validator";
 
 export default function FooterLinkTest() {
   const [validationResults, setValidationResults] = useState<any[]>([]);
@@ -16,11 +16,11 @@ export default function FooterLinkTest() {
       const validator = FooterLinkValidator.getInstance();
       const results = await validator.validateAllFooterLinks();
       const summary = validator.getValidationSummary(results);
-      
+
       setValidationResults(results);
       setSummary(summary);
     } catch (error) {
-      console.error('Footer link validation failed:', error);
+      console.error("Footer link validation failed:", error);
     } finally {
       setIsValidating(false);
     }
@@ -40,10 +40,14 @@ export default function FooterLinkTest() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'external': return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200';
-      case 'internal': return 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200';
-      case 'section': return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200';
-      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200';
+      case "external":
+        return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
+      case "internal":
+        return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
+      case "section":
+        return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200";
+      default:
+        return "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200";
     }
   };
 
@@ -76,7 +80,7 @@ export default function FooterLinkTest() {
           </Button>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         {summary && (
           <div className="mb-4">
@@ -117,9 +121,7 @@ export default function FooterLinkTest() {
                     {result.status}
                   </Badge>
                 )}
-                <Badge className={`text-xs ${getTypeColor(result.type)}`}>
-                  {result.type}
-                </Badge>
+                <Badge className={`text-xs ${getTypeColor(result.type)}`}>{result.type}</Badge>
               </div>
             </div>
           ))}

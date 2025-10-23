@@ -8,13 +8,11 @@ const content = cachedContent;
 export const siteMetadata = {
   title: content.metadata.title + " - Texas Economic Analysis & Commentary",
   description:
-    content.metadata.description +
-    " - Expert analysis and commentary on the Texas economy.",
+    content.metadata.description + " - Expert analysis and commentary on the Texas economy.",
   // Build absolute site URL dynamically so GitHub Pages subpaths work
   url:
-    (typeof window !== "undefined"
-      ? window.location.origin
-      : "https://texecon.com") + (import.meta.env.BASE_URL || "/"),
+    (typeof window !== "undefined" ? window.location.origin : "https://texecon.com") +
+    (import.meta.env.BASE_URL || "/"),
   lastUpdated: content.metadata.lastUpdated,
 };
 
@@ -83,9 +81,7 @@ export const heroContent = {
 
 export const navigationItems = content.navigation.slice(0, 5).map((item) => ({
   id: item.id,
-  label: item.label.includes("/")
-    ? item.label.split("/")[1] || item.label
-    : item.label,
+  label: item.label.includes("/") ? item.label.split("/")[1] || item.label : item.label,
 }));
 
 export const realContent = content;

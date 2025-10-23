@@ -36,17 +36,19 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <ErrorBoundary onError={(error, errorInfo) => {
-          // Log error in development
-          if (process.env.NODE_ENV === 'development') {
-            console.error('App Error Boundary caught error:', error, errorInfo);
-          }
-          
-          // Track error with Google Analytics
-          trackException(`${error.name}: ${error.message}`, true);
-          
-          // TODO: Send to error reporting service in production
-        }}>
+        <ErrorBoundary
+          onError={(error, errorInfo) => {
+            // Log error in development
+            if (process.env.NODE_ENV === "development") {
+              console.error("App Error Boundary caught error:", error, errorInfo);
+            }
+
+            // Track error with Google Analytics
+            trackException(`${error.name}: ${error.message}`, true);
+
+            // TODO: Send to error reporting service in production
+          }}
+        >
           <Toaster />
           <WouterRouter base={base}>
             <Router />

@@ -68,9 +68,7 @@ class WebSparkApiClient {
     const response = await fetch(url, { headers });
 
     if (!response.ok) {
-      throw new Error(
-        `API request failed: ${response.status} ${response.statusText}`
-      );
+      throw new Error(`API request failed: ${response.status} ${response.statusText}`);
     }
 
     return response.json();
@@ -188,34 +186,26 @@ export function transformWebSparkData(apiData: WebSparkWebsiteData) {
   const pages = apiData.data.menu;
 
   // Find pages with specific arguments/content types
-  const homePage = pages.find(
-    (page) => page.isHomePage || page.argument === "home"
-  );
+  const homePage = pages.find((page) => page.isHomePage || page.argument === "home");
   const aboutPages = pages.filter(
-    (page) =>
-      page.argument?.includes("about") ||
-      page.description?.toLowerCase().includes("team")
+    (page) => page.argument?.includes("about") || page.description?.toLowerCase().includes("team")
   );
   const analysisPages = pages.filter(
     (page) =>
-      page.argument?.includes("analysis") ||
-      page.description?.toLowerCase().includes("economic")
+      page.argument?.includes("analysis") || page.description?.toLowerCase().includes("economic")
   );
 
   return {
     siteInfo: {
       title: apiData.data.description,
-      description:
-        homePage?.description || "Texas Economic Analysis & Commentary",
+      description: homePage?.description || "Texas Economic Analysis & Commentary",
     },
     navigation: pages
       .filter((page) => page.display_navigation)
       .sort((a, b) => a.order - b.order)
       .map((page) => ({
         id: page.argument || page.id.toString(),
-        label:
-          page.argument?.charAt(0).toUpperCase() + page.argument?.slice(1) ||
-          "Page",
+        label: page.argument?.charAt(0).toUpperCase() + page.argument?.slice(1) || "Page",
         description: page.description,
         content: page.content,
       })),

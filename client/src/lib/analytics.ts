@@ -33,12 +33,7 @@ export function trackPageView(url: string): void {
  * @param label - Optional event label
  * @param value - Optional numeric value
  */
-export function trackEvent(
-  action: string,
-  category: string,
-  label?: string,
-  value?: number
-): void {
+export function trackEvent(action: string, category: string, label?: string, value?: number): void {
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", action, {
       event_category: category,

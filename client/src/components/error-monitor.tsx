@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { AlertTriangle, XCircle, Clock } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { AlertTriangle, XCircle, Clock } from "lucide-react";
 
 interface ErrorReport {
   id: string;
-  type: 'content' | 'api' | 'performance' | 'validation';
-  severity: 'low' | 'medium' | 'high' | 'critical';
+  type: "content" | "api" | "performance" | "validation";
+  severity: "low" | "medium" | "high" | "critical";
   message: string;
   timestamp: Date;
   resolved?: boolean;
@@ -26,55 +26,55 @@ export default function ErrorMonitor() {
     const originalError = console.error;
     console.error = (...args) => {
       originalError.apply(console, args);
-      
-      const errorMessage = args.join(' ');
+
+      const errorMessage = args.join(" ");
       addError({
-        type: 'content',
-        severity: 'high',
+        type: "content",
+        severity: "high",
         message: errorMessage,
-        context: { source: 'console' }
+        context: { source: "console" },
       });
     };
 
     // Monitor unhandled promise rejections
     const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
       addError({
-        type: 'api',
-        severity: 'critical',
+        type: "api",
+        severity: "critical",
         message: `Unhandled promise rejection: ${event.reason}`,
-        context: { source: 'promise' }
+        context: { source: "promise" },
       });
     };
 
     // Monitor JavaScript errors
     const handleError = (event: ErrorEvent) => {
       addError({
-        type: 'content',
-        severity: 'high',
+        type: "content",
+        severity: "high",
         message: `${event.message} at ${event.filename}:${event.lineno}`,
-        context: { source: 'javascript', filename: event.filename, line: event.lineno }
+        context: { source: "javascript", filename: event.filename, line: event.lineno },
       });
     };
 
-    window.addEventListener('unhandledrejection', handleUnhandledRejection);
-    window.addEventListener('error', handleError);
+    window.addEventListener("unhandledrejection", handleUnhandledRejection);
+    window.addEventListener("error", handleError);
 
     // Cleanup
     return () => {
       console.error = originalError;
-      window.removeEventListener('unhandledrejection', handleUnhandledRejection);
-      window.removeEventListener('error', handleError);
+      window.removeEventListener("unhandledrejection", handleUnhandledRejection);
+      window.removeEventListener("error", handleError);
     };
   }, [isMonitoring]);
 
-  const addError = (errorData: Omit<ErrorReport, 'id' | 'timestamp'>) => {
+  const addError = (errorData: Omit<ErrorReport, "id" | "timestamp">) => {
     const newError: ErrorReport = {
       ...errorData,
       id: Date.now().toString(),
-      timestamp: new Date()
+      timestamp: new Date(),
     };
-    
-    setErrors(prev => [newError, ...prev.slice(0, 49)]); // Keep last 50 errors
+
+    setErrors((prev) => [newError, ...prev.slice(0, 49)]); // Keep last 50 errors
   };
 
   const clearErrors = () => {
@@ -82,31 +82,39 @@ export default function ErrorMonitor() {
   };
 
   const resolveError = (id: string) => {
-    setErrors(prev => prev.map(error => 
-      error.id === id ? { ...error, resolved: true } : error
-    ));
+    setErrors((prev) =>
+      prev.map((error) => (error.id === id ? { ...error, resolved: true } : error))
+    );
   };
 
-  const getSeverityColor = (severity: ErrorReport['severity']) => {
+  const getSeverityColor = (severity: ErrorReport["severity"]) => {
     switch (severity) {
-      case 'critical': return 'destructive';
-      case 'high': return 'destructive';
-      case 'medium': return 'secondary';
-      case 'low': return 'outline';
+      case "critical":
+        return "destructive";
+      case "high":
+        return "destructive";
+      case "medium":
+        return "secondary";
+      case "low":
+        return "outline";
     }
   };
 
-  const getSeverityIcon = (severity: ErrorReport['severity']) => {
+  const getSeverityIcon = (severity: ErrorReport["severity"]) => {
     switch (severity) {
-      case 'critical': return <XCircle className="w-4 h-4" />;
-      case 'high': return <AlertTriangle className="w-4 h-4" />;
-      case 'medium': return <AlertTriangle className="w-4 h-4" />;
-      case 'low': return <Clock className="w-4 h-4" />;
+      case "critical":
+        return <XCircle className="w-4 h-4" />;
+      case "high":
+        return <AlertTriangle className="w-4 h-4" />;
+      case "medium":
+        return <AlertTriangle className="w-4 h-4" />;
+      case "low":
+        return <Clock className="w-4 h-4" />;
     }
   };
 
-  const activeErrors = errors.filter(e => !e.resolved);
-  const criticalErrors = activeErrors.filter(e => e.severity === 'critical');
+  const activeErrors = errors.filter((e) => !e.resolved);
+  const criticalErrors = activeErrors.filter((e) => e.severity === "critical");
 
   return (
     <Card data-testid="error-monitor">
@@ -117,7 +125,7 @@ export default function ErrorMonitor() {
             Error Monitor
           </CardTitle>
           <div className="flex items-center gap-2">
-            <Badge variant={activeErrors.length > 0 ? 'destructive' : 'default'}>
+            <Badge variant={activeErrors.length > 0 ? "destructive" : "default"}>
               {activeErrors.length} Active
             </Badge>
             <Button
@@ -132,7 +140,7 @@ export default function ErrorMonitor() {
           </div>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         {activeErrors.length === 0 ? (
           <div className="text-center py-4">
@@ -146,7 +154,8 @@ export default function ErrorMonitor() {
               <Alert variant="destructive">
                 <XCircle className="h-4 w-4" />
                 <AlertDescription>
-                  {criticalErrors.length} critical error{criticalErrors.length > 1 ? 's' : ''} detected that may affect site functionality
+                  {criticalErrors.length} critical error{criticalErrors.length > 1 ? "s" : ""}{" "}
+                  detected that may affect site functionality
                 </AlertDescription>
               </Alert>
             )}

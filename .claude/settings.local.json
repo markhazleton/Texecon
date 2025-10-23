@@ -3,7 +3,11 @@
     "allow": [
       "Bash(npm run type-check:*)",
       "Bash(npm install:*)",
-      "Bash(npx husky init)"
+      "Bash(npx husky init)",
+      "Bash(cat:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run lint:fix:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

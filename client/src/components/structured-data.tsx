@@ -43,32 +43,30 @@ interface StructuredDataProps {
   }>;
 }
 
-export default function StructuredData({ 
+export default function StructuredData({
   organization,
   website,
   people = [],
-  breadcrumbs = []
+  breadcrumbs = [],
 }: StructuredDataProps) {
-  
   const defaultOrganization: OrganizationData = {
     name: "TexEcon",
-    description: "Leading Texas economic analysis and commentary providing expert insights on Texas economy trends, data analysis, and economic forecasting.",
+    description:
+      "Leading Texas economic analysis and commentary providing expert insights on Texas economy trends, data analysis, and economic forecasting.",
     url: "https://texecon.com",
     logo: "https://texecon.com/assets/texecon-logo.png",
     email: "contact@texecon.com",
-    sameAs: [
-      "https://twitter.com/texecon",
-      "https://linkedin.com/company/texecon"
-    ]
+    sameAs: ["https://twitter.com/texecon", "https://linkedin.com/company/texecon"],
   };
 
   const defaultWebsite: WebsiteData = {
     name: "TexEcon - Texas Economic Analysis",
     url: "https://texecon.com",
-    description: "Expert Texas economic analysis, trends, and forecasting from experienced economists and data analysts.",
+    description:
+      "Expert Texas economic analysis, trends, and forecasting from experienced economists and data analysts.",
     inLanguage: "en-US",
     copyrightYear: new Date().getFullYear(),
-    copyrightHolder: "TexEcon"
+    copyrightHolder: "TexEcon",
   };
 
   const orgData = organization || defaultOrganization;
@@ -78,80 +76,85 @@ export default function StructuredData({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": orgData.name,
-    "description": orgData.description,
-    "url": orgData.url,
-    "logo": orgData.logo,
-    "email": orgData.email,
-    "telephone": orgData.phone,
-    "address": orgData.address ? {
-      "@type": "PostalAddress",
-      "streetAddress": orgData.address.streetAddress,
-      "addressLocality": orgData.address.addressLocality,
-      "addressRegion": orgData.address.addressRegion,
-      "postalCode": orgData.address.postalCode,
-      "addressCountry": orgData.address.addressCountry
-    } : undefined,
-    "sameAs": orgData.sameAs
+    name: orgData.name,
+    description: orgData.description,
+    url: orgData.url,
+    logo: orgData.logo,
+    email: orgData.email,
+    telephone: orgData.phone,
+    address: orgData.address
+      ? {
+          "@type": "PostalAddress",
+          streetAddress: orgData.address.streetAddress,
+          addressLocality: orgData.address.addressLocality,
+          addressRegion: orgData.address.addressRegion,
+          postalCode: orgData.address.postalCode,
+          addressCountry: orgData.address.addressCountry,
+        }
+      : undefined,
+    sameAs: orgData.sameAs,
   };
 
   // Website Schema
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": webData.name,
-    "url": webData.url,
-    "description": webData.description,
-    "inLanguage": webData.inLanguage,
-    "copyrightYear": webData.copyrightYear,
-    "copyrightHolder": {
+    name: webData.name,
+    url: webData.url,
+    description: webData.description,
+    inLanguage: webData.inLanguage,
+    copyrightYear: webData.copyrightYear,
+    copyrightHolder: {
       "@type": "Organization",
-      "name": webData.copyrightHolder
+      name: webData.copyrightHolder,
     },
-    "potentialAction": {
+    potentialAction: {
       "@type": "SearchAction",
-      "target": {
+      target: {
         "@type": "EntryPoint",
-        "urlTemplate": `${webData.url}/search?q={search_term_string}`
+        urlTemplate: `${webData.url}/search?q={search_term_string}`,
       },
-      "query-input": "required name=search_term_string"
-    }
+      "query-input": "required name=search_term_string",
+    },
   };
 
   // Person Schemas
-  const personSchemas = people.map(person => ({
+  const personSchemas = people.map((person) => ({
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": person.name,
-    "jobTitle": person.jobTitle,
-    "description": person.description,
-    "image": person.image,
-    "url": person.url,
-    "sameAs": person.sameAs,
-    "worksFor": {
+    name: person.name,
+    jobTitle: person.jobTitle,
+    description: person.description,
+    image: person.image,
+    url: person.url,
+    sameAs: person.sameAs,
+    worksFor: {
       "@type": "Organization",
-      "name": orgData.name,
-      "url": orgData.url
-    }
+      name: orgData.name,
+      url: orgData.url,
+    },
   }));
 
   // Breadcrumb Schema
-  const breadcrumbSchema = breadcrumbs.length > 0 ? {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": breadcrumbs.map((crumb, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": crumb.name,
-      "item": crumb.url
-    }))
-  } : null;
+  const breadcrumbSchema =
+    breadcrumbs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: breadcrumbs.map((crumb, index) => ({
+            "@type": "ListItem",
+            position: index + 1,
+            name: crumb.name,
+            item: crumb.url,
+          })),
+        }
+      : null;
 
   const allSchemas = [
     organizationSchema,
     websiteSchema,
     ...personSchemas,
-    ...(breadcrumbSchema ? [breadcrumbSchema] : [])
+    ...(breadcrumbSchema ? [breadcrumbSchema] : []),
   ].filter(Boolean);
 
   return (
@@ -161,7 +164,7 @@ export default function StructuredData({
           key={index}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(schema, null, 2)
+            __html: JSON.stringify(schema, null, 2),
           }}
         />
       ))}

@@ -55,11 +55,7 @@ class ContentValidator {
         await this.validateContentStructure(data, errors, warnings);
       }
     } catch (error) {
-      errors.push(
-        `Validation error: ${
-          error instanceof Error ? error.message : "Unknown error"
-        }`
-      );
+      errors.push(`Validation error: ${error instanceof Error ? error.message : "Unknown error"}`);
     }
 
     return {
@@ -80,10 +76,8 @@ class ContentValidator {
       errors.push("Missing metadata section");
     } else {
       if (!data.metadata.title) errors.push("Missing metadata title");
-      if (!data.metadata.description)
-        errors.push("Missing metadata description");
-      if (!data.metadata.lastUpdated)
-        warnings.push("Missing lastUpdated timestamp");
+      if (!data.metadata.description) errors.push("Missing metadata description");
+      if (!data.metadata.lastUpdated) warnings.push("Missing lastUpdated timestamp");
     }
 
     // Check team members
@@ -92,12 +86,9 @@ class ContentValidator {
     } else {
       data.team.forEach((member: any, index: number) => {
         if (!member.name) errors.push(`Team member ${index + 1} missing name`);
-        if (!member.title)
-          errors.push(`Team member ${index + 1} missing title`);
-        if (!member.description)
-          warnings.push(`Team member ${index + 1} missing description`);
-        if (!member.image)
-          warnings.push(`Team member ${index + 1} missing image`);
+        if (!member.title) errors.push(`Team member ${index + 1} missing title`);
+        if (!member.description) warnings.push(`Team member ${index + 1} missing description`);
+        if (!member.image) warnings.push(`Team member ${index + 1} missing image`);
       });
     }
 
@@ -109,11 +100,7 @@ class ContentValidator {
     }
   }
 
-  private async validateImages(
-    data: any,
-    errors: string[],
-    warnings: string[]
-  ): Promise<void> {
+  private async validateImages(data: any, errors: string[], warnings: string[]): Promise<void> {
     const imageUrls: string[] = [];
 
     // Collect image URLs from various sections
@@ -139,9 +126,7 @@ class ContentValidator {
 
         if (!response.ok) {
           errors.push(`Image not accessible: ${imageUrl} (${response.status})`);
-        } else if (
-          !response.headers.get("content-type")?.startsWith("image/")
-        ) {
+        } else if (!response.headers.get("content-type")?.startsWith("image/")) {
           warnings.push(`URL may not be an image: ${imageUrl}`);
         }
       } catch (error) {
@@ -150,11 +135,7 @@ class ContentValidator {
     }
   }
 
-  private async validateLinks(
-    data: any,
-    _errors: string[],
-    warnings: string[]
-  ): Promise<void> {
+  private async validateLinks(data: any, _errors: string[], warnings: string[]): Promise<void> {
     const links: string[] = [];
 
     // Collect links from team social profiles
@@ -180,9 +161,7 @@ class ContentValidator {
           });
 
           if (!response.ok) {
-            warnings.push(
-              `External link may be broken: ${link} (${response.status})`
-            );
+            warnings.push(`External link may be broken: ${link} (${response.status})`);
           }
         } catch (error) {
           warnings.push(`Could not validate link: ${link}`);
@@ -215,15 +194,12 @@ class ContentValidator {
     if (data.navigation) {
       data.navigation.forEach((item: any, index: number) => {
         if (item.description && typeof item.description === "string") {
-          const openTags = (item.description.match(/<[^/][^>]*>/g) || [])
-            .length;
+          const openTags = (item.description.match(/<[^/][^>]*>/g) || []).length;
           const closeTags = (item.description.match(/<\/[^>]*>/g) || []).length;
 
           if (openTags !== closeTags) {
             warnings.push(
-              `Navigation item ${
-                index + 1
-              } may have unmatched HTML tags in description`
+              `Navigation item ${index + 1} may have unmatched HTML tags in description`
             );
           }
         }
@@ -239,13 +215,10 @@ class ContentValidator {
 
     if (data.metadata?.lastUpdated) {
       const lastUpdate = new Date(data.metadata.lastUpdated);
-      const daysSinceUpdate =
-        (Date.now() - lastUpdate.getTime()) / (1000 * 60 * 60 * 24);
+      const daysSinceUpdate = (Date.now() - lastUpdate.getTime()) / (1000 * 60 * 60 * 24);
 
       if (daysSinceUpdate > 30) {
-        warnings.push(
-          `Content hasn't been updated in ${Math.floor(daysSinceUpdate)} days`
-        );
+        warnings.push(`Content hasn't been updated in ${Math.floor(daysSinceUpdate)} days`);
       } else if (daysSinceUpdate > 7) {
         warnings.push(`Content is ${Math.floor(daysSinceUpdate)} days old`);
       }

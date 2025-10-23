@@ -1,63 +1,71 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Shield, 
-  Activity, 
-  AlertTriangle, 
-  CheckCircle, 
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Shield,
+  Activity,
+  AlertTriangle,
+  CheckCircle,
   RefreshCw,
   Clock,
   Globe,
   Database,
-  Zap
-} from 'lucide-react';
-import ContentValidatorUI from './content-validator-ui';
-import ErrorMonitor from './error-monitor';
-import FooterLinkTest from './footer-link-test';
-import { useContentMonitoring } from '@/hooks/use-content-monitoring';
+  Zap,
+} from "lucide-react";
+import ContentValidatorUI from "./content-validator-ui";
+import ErrorMonitor from "./error-monitor";
+import FooterLinkTest from "./footer-link-test";
+import { useContentMonitoring } from "@/hooks/use-content-monitoring";
 
 export default function AdminDashboard() {
   const [isVisible, setIsVisible] = useState(false);
-  const { 
-    validationResult, 
-    isValidating, 
-    lastCheck, 
-    runValidation, 
-    healthScore, 
+  const {
+    validationResult,
+    isValidating,
+    lastCheck,
+    runValidation,
+    healthScore,
     status,
     hasErrors,
-    hasWarnings 
+    hasWarnings,
   } = useContentMonitoring({
     autoValidate: true,
     validationInterval: 5 * 60 * 1000, // 5 minutes
-    enableRealTimeChecks: true
+    enableRealTimeChecks: true,
   });
 
   const getStatusIcon = () => {
     switch (status) {
-      case 'healthy': return <CheckCircle className="w-5 h-5 text-green-600" />;
-      case 'warning': return <AlertTriangle className="w-5 h-5 text-yellow-600" />;
-      case 'error': return <Shield className="w-5 h-5 text-red-600" />;
-      default: return <Clock className="w-5 h-5 text-gray-600" />;
+      case "healthy":
+        return <CheckCircle className="w-5 h-5 text-green-600" />;
+      case "warning":
+        return <AlertTriangle className="w-5 h-5 text-yellow-600" />;
+      case "error":
+        return <Shield className="w-5 h-5 text-red-600" />;
+      default:
+        return <Clock className="w-5 h-5 text-gray-600" />;
     }
   };
 
   const getStatusColor = () => {
     switch (status) {
-      case 'healthy': return 'default';
-      case 'warning': return 'secondary';
-      case 'error': return 'destructive';
-      default: return 'outline';
+      case "healthy":
+        return "default";
+      case "warning":
+        return "secondary";
+      case "error":
+        return "destructive";
+      default:
+        return "outline";
     }
   };
 
   const getHealthColor = () => {
-    if (healthScore >= 90) return 'text-green-600';
-    if (healthScore >= 70) return 'text-yellow-600';
-    return 'text-red-600';
+    if (healthScore >= 90) return "text-green-600";
+    if (healthScore >= 70) return "text-yellow-600";
+    return "text-red-600";
   };
 
   if (!isVisible) {
@@ -77,7 +85,7 @@ export default function AdminDashboard() {
   }
 
   return (
-  <div className="fixed inset-4 z-50 bg-background/95 backdrop-blur-xs rounded-lg shadow-2xl border overflow-hidden">
+    <div className="fixed inset-4 z-50 bg-background/95 backdrop-blur-xs rounded-lg shadow-2xl border overflow-hidden">
       <div className="h-full flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b bg-card">
@@ -134,7 +142,9 @@ export default function AdminDashboard() {
                       <Database className="w-5 h-5 text-green-600" />
                       <div>
                         <div className="font-semibold">Health Score</div>
-                        <div className={`text-sm font-bold ${getHealthColor()}`}>{healthScore}%</div>
+                        <div className={`text-sm font-bold ${getHealthColor()}`}>
+                          {healthScore}%
+                        </div>
                       </div>
                     </div>
                   </CardContent>
@@ -147,7 +157,7 @@ export default function AdminDashboard() {
                       <div>
                         <div className="font-semibold">Last Check</div>
                         <div className="text-sm text-muted-foreground">
-                          {lastCheck ? lastCheck.toLocaleTimeString() : 'Never'}
+                          {lastCheck ? lastCheck.toLocaleTimeString() : "Never"}
                         </div>
                       </div>
                     </div>
@@ -179,7 +189,7 @@ export default function AdminDashboard() {
                       </>
                     )}
                   </Button>
-                  
+
                   {hasErrors && (
                     <div className="p-3 bg-red-50 dark:bg-red-950 rounded-lg">
                       <div className="flex items-center gap-2 text-red-700 dark:text-red-300">
@@ -190,7 +200,7 @@ export default function AdminDashboard() {
                       </div>
                     </div>
                   )}
-                  
+
                   {hasWarnings && !hasErrors && (
                     <div className="p-3 bg-yellow-50 dark:bg-yellow-950 rounded-lg">
                       <div className="flex items-center gap-2 text-yellow-700 dark:text-yellow-300">
@@ -232,13 +242,13 @@ export default function AdminDashboard() {
                       <div className="flex items-center justify-between">
                         <span>Last Validation</span>
                         <span className="text-sm text-muted-foreground">
-                          {lastCheck ? lastCheck.toLocaleString() : 'Never'}
+                          {lastCheck ? lastCheck.toLocaleString() : "Never"}
                         </span>
                       </div>
                     </div>
                   </CardContent>
                 </Card>
-                
+
                 <ErrorMonitor />
               </div>
             </TabsContent>
@@ -255,22 +265,27 @@ export default function AdminDashboard() {
                         <Zap className="w-8 h-8 text-primary mx-auto mb-3" />
                         <h3 className="text-lg font-semibold mb-2">Comprehensive Testing</h3>
                         <p className="text-muted-foreground mb-4">
-                          Automated tests for content validation, SEO compliance, and data integrity.
+                          Automated tests for content validation, SEO compliance, and data
+                          integrity.
                         </p>
                       </div>
-                      
+
                       {/* Test Categories */}
                       <div className="grid grid-cols-2 gap-3">
                         <div className="p-3 bg-muted rounded-lg">
                           <div className="font-medium text-sm">Content Tests</div>
-                          <div className="text-xs text-muted-foreground">API data, navigation, team profiles</div>
+                          <div className="text-xs text-muted-foreground">
+                            API data, navigation, team profiles
+                          </div>
                         </div>
                         <div className="p-3 bg-muted rounded-lg">
                           <div className="font-medium text-sm">SEO Tests</div>
-                          <div className="text-xs text-muted-foreground">Meta tags, structured data, performance</div>
+                          <div className="text-xs text-muted-foreground">
+                            Meta tags, structured data, performance
+                          </div>
                         </div>
                       </div>
-                      
+
                       <Button
                         onClick={runValidation}
                         disabled={isValidating}
@@ -292,7 +307,7 @@ export default function AdminDashboard() {
                     </div>
                   </CardContent>
                 </Card>
-                
+
                 <FooterLinkTest />
               </div>
             </TabsContent>

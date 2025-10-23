@@ -102,9 +102,7 @@ export function findMenuItem(urlOrArgument: string): MenuItem | null {
 
   // If not found by URL, search by argument
   if (!found) {
-    found = Object.values(hierarchy.byId).find(
-      (item) => item.argument === urlOrArgument
-    );
+    found = Object.values(hierarchy.byId).find((item) => item.argument === urlOrArgument);
   }
 
   return found || null;
@@ -152,9 +150,7 @@ export function getHomePage(): MenuItem | null {
   const hierarchy = buildMenuHierarchy();
 
   // Find the item marked as home page
-  const homePage = Object.values(hierarchy.byId).find(
-    (item) => item.isHomePage
-  );
+  const homePage = Object.values(hierarchy.byId).find((item) => item.isHomePage);
 
   return homePage || null;
 }

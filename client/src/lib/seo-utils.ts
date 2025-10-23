@@ -5,14 +5,7 @@ import { buildMenuHierarchy, MenuItem } from "./menu-utils";
 export interface SitemapEntry {
   url: string;
   lastModified: string;
-  changeFrequency:
-    | "always"
-    | "hourly"
-    | "daily"
-    | "weekly"
-    | "monthly"
-    | "yearly"
-    | "never";
+  changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
   priority: string;
 }
 
@@ -55,9 +48,7 @@ export function generateCanonicalUrlForPath(
 }
 
 // Generate dynamic sitemap entries from menu items
-export function generateSitemapEntries(
-  baseUrl: string = "https://texecon.com"
-): SitemapEntry[] {
+export function generateSitemapEntries(baseUrl: string = "https://texecon.com"): SitemapEntry[] {
   const hierarchy = buildMenuHierarchy();
   const entries: SitemapEntry[] = [];
 
@@ -72,11 +63,7 @@ export function generateSitemapEntries(
   // Add all navigation pages
   Object.values(hierarchy.byId).forEach((item) => {
     if (item.display_navigation) {
-      const priority = item.isHomePage
-        ? "1.0"
-        : item.parent_page
-        ? "0.6"
-        : "0.8";
+      const priority = item.isHomePage ? "1.0" : item.parent_page ? "0.6" : "0.8";
 
       entries.push({
         url: generateCanonicalUrl(item, baseUrl),
@@ -111,9 +98,7 @@ ${xmlEntries}
 }
 
 // Generate robots.txt content with dynamic sitemap reference
-export function generateRobotsTxt(
-  baseUrl: string = "https://texecon.com"
-): string {
+export function generateRobotsTxt(baseUrl: string = "https://texecon.com"): string {
   return `User-agent: *
 Allow: /
 
@@ -129,11 +114,7 @@ Disallow: /*.map$
 
 // Extract keywords from menu item content
 export function extractKeywords(item: MenuItem): string[] {
-  const keywords = [
-    "Texas economy",
-    "economic analysis",
-    item.title.toLowerCase(),
-  ];
+  const keywords = ["Texas economy", "economic analysis", item.title.toLowerCase()];
 
   // Add keywords based on content type
   if (item.description) {
