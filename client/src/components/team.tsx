@@ -65,9 +65,9 @@ export default function Team() {
                   />
                   <div className="text-center md:text-left">
                     <h3 className="text-2xl font-bold text-card-foreground mb-2">
-                      {(member as any).page_url ? (
+                      {member.page_url ? (
                         <button
-                          onClick={() => handleProfileClick((member as any).page_url)}
+                          onClick={() => handleProfileClick(member.page_url)}
                           className="hover:text-primary transition-colors text-left"
                           data-testid={`link-${member.id}-profile`}
                           title={`View ${member.name}'s Profile`}
@@ -79,10 +79,8 @@ export default function Team() {
                       )}
                     </h3>
                     <p className="text-primary font-semibold mb-1">{member.title}</p>
-                    {(member as any).subtitle && (
-                      <p className="text-secondary font-medium text-sm mb-3">
-                        {(member as any).subtitle}
-                      </p>
+                    {member.subtitle && (
+                      <p className="text-secondary font-medium text-sm mb-3">{member.subtitle}</p>
                     )}
                     <p className="text-muted-foreground leading-relaxed mb-4">
                       {member.description}
@@ -112,9 +110,9 @@ export default function Team() {
                           <Github className="w-5 h-5" />
                         </a>
                       )}
-                      {(member.social as any)?.website && (
+                      {member.social?.website && (
                         <a
-                          href={(member.social as any).website}
+                          href={member.social.website}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-muted-foreground hover:text-primary transition-colors"

@@ -5,10 +5,30 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, CheckCircle, XCircle, AlertTriangle, RefreshCw } from "lucide-react";
 import FooterLinkValidator from "@/lib/footer-link-validator";
 
+interface LinkValidationResult {
+  link: string;
+  isValid: boolean;
+  type: "internal" | "external" | "section";
+  status?: number;
+  message: string;
+}
+
+interface ValidationSummary {
+  total: number;
+  valid: number;
+  invalid: number;
+  validationRate: number;
+  byType: {
+    internal: LinkValidationResult[];
+    external: LinkValidationResult[];
+    section: LinkValidationResult[];
+  };
+}
+
 export default function FooterLinkTest() {
-  const [validationResults, setValidationResults] = useState<any[]>([]);
+  const [validationResults, setValidationResults] = useState<LinkValidationResult[]>([]);
   const [isValidating, setIsValidating] = useState(false);
-  const [summary, setSummary] = useState<any>(null);
+  const [summary, setSummary] = useState<ValidationSummary | null>(null);
 
   const runValidation = async () => {
     setIsValidating(true);

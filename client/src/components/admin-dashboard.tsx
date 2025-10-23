@@ -92,7 +92,10 @@ export default function AdminDashboard() {
           <div className="flex items-center gap-3">
             <Activity className="w-6 h-6 text-primary" />
             <h2 className="text-xl font-semibold">Content Monitoring Dashboard</h2>
-            <Badge variant={getStatusColor() as any} className="flex items-center gap-1">
+            <Badge
+              variant={getStatusColor() as "default" | "destructive" | "outline" | "secondary"}
+              className="flex items-center gap-1"
+            >
               {getStatusIcon()}
               {status}
             </Badge>

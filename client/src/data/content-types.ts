@@ -2,7 +2,7 @@
 export interface CachedContent {
   metadata: {
     title: string;
-    description: string;
+    description: string; 
     lastUpdated: string;
     sourcePages: number;
   };
@@ -33,19 +33,16 @@ export interface CachedContent {
     image: string;
     slug: string;
   }>;
-  economicMetrics: Record<
-    string,
-    {
-      value: number;
-      unit: string;
-      change: string;
-      label: string;
-    }
-  >;
+  economicMetrics: Record<string, {
+    value: number;
+    unit: string;
+    change: string;
+    label: string;
+  }>;
   pages: {
-    home: Record<string, unknown>;
-    about: Record<string, unknown>;
-    analysis: Record<string, unknown>[];
-    all: Record<string, unknown>[];
+    home: any;
+    about: any;
+    analysis: any[];
+    all: any[];
   };
 }

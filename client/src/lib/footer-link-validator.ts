@@ -48,7 +48,7 @@ export class FooterLinkValidator {
 
     // Validate internal page links
     for (const item of internalLinks) {
-      const pageExists = realContent.navigation?.some((navItem: any) => navItem.id === item.pageId);
+      const pageExists = realContent.navigation?.some((navItem) => navItem.id === item.pageId);
       results.push({
         link: item.link,
         isValid: pageExists || false,

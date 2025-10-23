@@ -56,7 +56,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const base = (import.meta as any).env.BASE_URL as string;
+  const base = (import.meta.env.BASE_URL as string) || "/";
   const scrollToSection = useScrollToSection();
   const footerLinks = getFooterLinks();
 

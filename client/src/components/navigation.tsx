@@ -5,11 +5,11 @@ import { getNavigationItems, MenuItem } from "@/lib/menu-utils";
 import DropdownMenuItem from "./dropdown-menu-item";
 
 interface NavigationProps {
-  onMenuItemSelect?: (item: MenuItem) => void;
+  onMenuItemSelect?: (item: MenuItem | null) => void;
 }
 
 export default function Navigation({ onMenuItemSelect }: NavigationProps) {
-  const base = (import.meta as any).env.BASE_URL as string;
+  const base = (import.meta.env.BASE_URL as string) || "/";
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
   const menuItems = getNavigationItems();
@@ -29,7 +29,7 @@ export default function Navigation({ onMenuItemSelect }: NavigationProps) {
 
     if (onMenuItemSelect) {
       // Signal to show home page (no specific content)
-      onMenuItemSelect(null as any);
+      onMenuItemSelect(null);
     }
   };
 

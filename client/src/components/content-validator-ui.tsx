@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +13,7 @@ export default function ContentValidatorUI() {
   const [lastValidation, setLastValidation] = useState<string | null>(null);
   const [validator] = useState(() => new ContentValidator());
 
-  const runValidation = async () => {
+  const runValidation = useCallback(async () => {
     setIsValidating(true);
     try {
       const result = await validator.validateContent(realContent);
@@ -39,12 +39,12 @@ export default function ContentValidatorUI() {
     } finally {
       setIsValidating(false);
     }
-  };
+  }, [validator]);
 
   // Run initial validation on mount
   useEffect(() => {
     runValidation();
-  }, []);
+  }, [runValidation]);
 
   const getStatusIcon = () => {
     if (!validationResult) return <Clock className="w-5 h-5" />;
@@ -73,7 +73,11 @@ export default function ContentValidatorUI() {
             Content Validation
           </CardTitle>
           <div className="flex items-center gap-2">
-            <Badge variant={getStatusColor() as any}>{getStatusText()}</Badge>
+            <Badge
+              variant={getStatusColor() as "default" | "destructive" | "outline" | "secondary"}
+            >
+              {getStatusText()}
+            </Badge>
             <Button
               onClick={runValidation}
               disabled={isValidating}
