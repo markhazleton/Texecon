@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run type-check:*)",
+      "Bash(npm install:*)",
+      "Bash(npx husky init)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

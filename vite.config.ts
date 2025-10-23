@@ -3,6 +3,8 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { execSync } from "node:child_process";
+import { visualizer } from "rollup-plugin-visualizer";
+import { VitePWA } from "vite-plugin-pwa";
 
 // Build ID generator: prefer git short SHA, fallback to timestamp
 function getBuildId(): string {
@@ -80,6 +82,60 @@ export default defineConfig({
           },
         }),
       },
+      VitePWA({
+        registerType: "autoUpdate",
+        includeAssets: ["favicon.ico", "favicon.svg", "*.png"],
+        manifest: {
+          name: "TexEcon - Texas Economic Analysis",
+          short_name: "TexEcon",
+          description:
+            "Leading Texas economic analysis and commentary. Expert insights on Texas economy trends, data analysis, and economic forecasting.",
+          theme_color: "#1e3a8a",
+          background_color: "#ffffff",
+          display: "standalone",
+          icons: [
+            {
+              src: "favicon-192x192.png",
+              sizes: "192x192",
+              type: "image/png",
+            },
+            {
+              src: "favicon-512x512.png",
+              sizes: "512x512",
+              type: "image/png",
+            },
+          ],
+        },
+        workbox: {
+          globPatterns: ["**/*.{js,css,html,ico,png,svg,json}"],
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/webspark\.markhazleton\.com\/.*/i,
+              handler: "NetworkFirst",
+              options: {
+                cacheName: "api-cache",
+                expiration: {
+                  maxEntries: 50,
+                  maxAgeSeconds: 60 * 60 * 24, // 24 hours
+                },
+                cacheableResponse: {
+                  statuses: [0, 200],
+                },
+              },
+            },
+            {
+              urlPattern: /^https:\/\/www\.google-analytics\.com\/.*/i,
+              handler: "NetworkOnly",
+            },
+          ],
+        },
+      }),
+      visualizer({
+        filename: "./target/bundle-stats.html",
+        open: false,
+        gzipSize: true,
+        brotliSize: true,
+      }),
     ];
   })(),
   resolve: {

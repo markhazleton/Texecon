@@ -1,6 +1,21 @@
+import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
+
+// Accessibility testing in development
+if (import.meta.env.DEV) {
+  import("@axe-core/react").then((axe) => {
+    axe.default(React, createRoot, 1000, {
+      rules: [
+        {
+          id: "color-contrast",
+          enabled: true,
+        },
+      ],
+    });
+  });
+}
 
 // Lightweight runtime version check – reloads when a new build is published
 declare const __BUILD_ID__: string;
@@ -42,4 +57,8 @@ function startVersionWatcher() {
 
 if (import.meta.env.PROD) startVersionWatcher();
 
-createRoot(document.getElementById("root")!).render(<App />);
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);

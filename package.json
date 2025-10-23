@@ -13,7 +13,24 @@
     "generate:static-pages": "node scripts/generate-static-pages.js",
     "type-check": "tsc --noEmit",
     "clean": "node scripts/clean.js",
-    "start": "npm run clean && npm run fetch:content && npm run generate:sitemap && vite build && npm run generate:static-pages && vite preview"
+    "start": "npm run clean && npm run fetch:content && npm run generate:sitemap && vite build && npm run generate:static-pages && vite preview",
+    "lint": "eslint client/src --ext .ts,.tsx",
+    "lint:fix": "eslint client/src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"client/src/**/*.{ts,tsx,css}\"",
+    "format:check": "prettier --check \"client/src/**/*.{ts,tsx,css}\"",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:run": "vitest run",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
@@ -33,13 +50,40 @@
     "wouter": "^3.7.1"
   },
   "devDependencies": {
+    "@axe-core/react": "^4.11.0",
+    "@eslint/js": "^9.38.0",
     "@tailwindcss/vite": "^4.1.15",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "@vheemstra/vite-plugin-imagemin": "^2.2.1",
     "@vitejs/plugin-react": "^5.0.4",
+    "@vitest/coverage-v8": "^4.0.1",
+    "@vitest/ui": "^4.0.1",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "happy-dom": "^20.0.8",
+    "husky": "^9.1.7",
+    "jsdom": "^27.0.1",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
+    "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "5.9.3",
-    "vite": "^7.1.11"
+    "vite": "^7.1.11",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-pwa": "^1.1.0",
+    "vitest": "^4.0.1",
+    "workbox-window": "^7.3.0"
   }
 }

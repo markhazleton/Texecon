@@ -1,0 +1,4 @@
+# Pre-commit hook disabled temporarily
+# Uncomment when ready to use:
+# npx lint-staged
+exit 0

@@ -63,11 +63,36 @@ jobs:
       - name: Install dependencies (incl. dev)
         run: npm ci --include=dev
 
+      - name: Security audit
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+
+      - name: Lint code
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
       - name: Type check
         run: npm run type-check
 
+      - name: Run tests
+        run: npm run test:run
+
+      - name: Check test coverage
+        run: npm run test:coverage
+        continue-on-error: true
+
       - name: Build
         run: npm run build
+
+      - name: Validate build artifacts
+        run: |
+          test -f target/index.html || (echo "Missing index.html" && exit 1)
+          test -f target/version.json || (echo "Missing version.json" && exit 1)
+          test -f target/sitemap.xml || (echo "Missing sitemap.xml" && exit 1)
+          test -f target/robots.txt || (echo "Missing robots.txt" && exit 1)
+          echo "✅ All critical build artifacts present"
 
       # Only prepare and upload the Pages artifact on non-PR events
       - name: Setup Pages
@@ -79,6 +104,35 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./target
+
+  lighthouse:
+    name: Lighthouse CI
+    needs: build
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: ./lighthouse-target
+
+      - name: Extract artifact
+        run: |
+          cd lighthouse-target
+          tar -xf artifact.tar
+          cd ..
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: "./.github/lighthouse/lighthouserc.json"
+          temporaryPublicStorage: true
+          uploadArtifacts: true
+          runs: 3
 
   deploy:
     name: Deploy to GitHub Pages
