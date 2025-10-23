@@ -1,7 +1,13 @@
 import type { CachedContent } from "../data/content-types";
 
-// Type for partial content being validated (may not have all fields)
-type PartialContent = Partial<CachedContent> & Record<string, unknown>;
+// Type for content being validated - more flexible to handle API variations
+type PartialContent = Record<string, unknown> & {
+  metadata?: Partial<CachedContent["metadata"]>;
+  team?: Array<Record<string, unknown>>;
+  navigation?: Array<Record<string, unknown>>;
+  insights?: Array<Record<string, unknown>>;
+  pages?: Record<string, unknown>;
+};
 
 interface ValidationResult {
   isValid: boolean;
@@ -89,7 +95,7 @@ class ContentValidator {
     if (!data.team || !Array.isArray(data.team)) {
       errors.push("Missing or invalid team section");
     } else {
-      data.team.forEach((member: CachedContent["team"][0], index: number) => {
+      data.team.forEach((member: Record<string, unknown>, index: number) => {
         if (!member.name) errors.push(`Team member ${index + 1} missing name`);
         if (!member.title) errors.push(`Team member ${index + 1} missing title`);
         if (!member.description) warnings.push(`Team member ${index + 1} missing description`);
@@ -114,14 +120,14 @@ class ContentValidator {
 
     // Collect image URLs from various sections
     if (data.team) {
-      data.team.forEach((member: CachedContent["team"][0]) => {
-        if (member.image) imageUrls.push(member.image);
+      data.team.forEach((member: Record<string, unknown>) => {
+        if (member.image && typeof member.image === "string") imageUrls.push(member.image);
       });
     }
 
     if (data.insights) {
-      data.insights.forEach((insight: CachedContent["insights"][0]) => {
-        if (insight.image) imageUrls.push(insight.image);
+      data.insights.forEach((insight: Record<string, unknown>) => {
+        if (insight.image && typeof insight.image === "string") imageUrls.push(insight.image);
       });
     }
 
@@ -153,9 +159,9 @@ class ContentValidator {
 
     // Collect links from team social profiles
     if (data.team) {
-      data.team.forEach((member: CachedContent["team"][0]) => {
-        if (member.social) {
-          Object.values(member.social).forEach((url: string) => {
+      data.team.forEach((member: Record<string, unknown>) => {
+        if (member.social && typeof member.social === "object") {
+          Object.values(member.social as Record<string, unknown>).forEach((url: unknown) => {
             if (url && typeof url === "string" && url !== "#") {
               links.push(url);
             }
@@ -190,11 +196,14 @@ class ContentValidator {
   ): Promise<void> {
     // Check for empty content
     if (data.navigation) {
-      data.navigation.forEach((item: CachedContent["navigation"][0], index: number) => {
-        if (!item.label || item.label.trim() === "") {
+      data.navigation.forEach((item: Record<string, unknown>, index: number) => {
+        if (!item.label || (typeof item.label === "string" && item.label.trim() === "")) {
           errors.push(`Navigation item ${index + 1} has empty label`);
         }
-        if (!item.description || item.description.trim() === "") {
+        if (
+          !item.description ||
+          (typeof item.description === "string" && item.description.trim() === "")
+        ) {
           warnings.push(`Navigation item ${index + 1} has no description`);
         }
         if (!item.href) {
@@ -205,7 +214,7 @@ class ContentValidator {
 
     // Check navigation item structure
     if (data.navigation) {
-      data.navigation.forEach((item: CachedContent["navigation"][0], index: number) => {
+      data.navigation.forEach((item: Record<string, unknown>, index: number) => {
         if (item.description && typeof item.description === "string") {
           const openTags = (item.description.match(/<[^/][^>]*>/g) || []).length;
           const closeTags = (item.description.match(/<\/[^>]*>/g) || []).length;

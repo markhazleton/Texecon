@@ -83,7 +83,7 @@ const getFooterLinks = () => {
         type: "external" as const,
         label: "Contact Mark Hazleton",
         href: "https://www.linkedin.com/in/markhazleton/",
-        external: true,
+        external: true as const,
       },
     ],
   };
