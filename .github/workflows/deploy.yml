@@ -86,6 +86,15 @@ jobs:
         run: npm audit --audit-level=moderate
         continue-on-error: true
 
+      - name: Generate content artifacts
+        run: npm run fetch:content
+
+      - name: Normalize generated content types formatting
+        run: npx prettier --write client/src/data/content-types.ts
+
+      - name: Validate generated content types formatting
+        run: npx prettier --check client/src/data/content-types.ts
+
       - name: Lint code
         run: npm run lint
 
