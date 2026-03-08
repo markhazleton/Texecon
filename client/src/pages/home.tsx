@@ -28,6 +28,26 @@ export default function Home() {
   const [isRouteNotFound, setIsRouteNotFound] = useState(false);
   const [location, setLocation] = useLocation();
 
+  // Normalize paths like /index.html and /foo/index.html to canonical route paths.
+  const normalizedLocation = useMemo(() => {
+    const pathOnly = location.split("?")[0].split("#")[0] || "/";
+
+    if (pathOnly === "/index.html") {
+      return "/";
+    }
+
+    if (pathOnly.endsWith("/index.html")) {
+      const withoutIndex = pathOnly.slice(0, -"/index.html".length);
+      return withoutIndex || "/";
+    }
+
+    if (pathOnly.length > 1 && pathOnly.endsWith("/")) {
+      return pathOnly.slice(0, -1);
+    }
+
+    return pathOnly;
+  }, [location]);
+
   // Route matching for different URL patterns
   const [, pageParams] = useRoute("/page/:pageId");
   const [, contentParams] = useRoute("/content/:contentSlug");
@@ -46,7 +66,7 @@ export default function Home() {
       if (!item) {
         setSelectedContent(null);
         setIsRouteNotFound(false);
-        if (location !== "/") {
+        if (normalizedLocation !== "/") {
           setLocation("/");
         }
         return;
@@ -57,7 +77,7 @@ export default function Home() {
 
       // Update URL using wouter's setLocation (don't use pushState)
       const path = generateSEOPath(item);
-      if (location !== path) {
+      if (normalizedLocation !== path) {
         setLocation(path);
       }
 
@@ -69,13 +89,22 @@ export default function Home() {
         }
       }, 100);
     },
-    [location, setLocation]
+    [normalizedLocation, setLocation]
   );
 
   // Generate SEO-friendly URL path for a menu item (using utility function)
 
   // Find content based on URL parameters - memoize to prevent constant recalculation
   const findContentFromUrl = useCallback((): MenuItem | null => {
+    // Handle static-file routes produced by static hosts and Lighthouse URLs.
+    if (normalizedLocation !== "/") {
+      const byNormalizedUrl = Object.values(hierarchy.byId).find(
+        (item) => item.url === normalizedLocation
+      );
+
+      if (byNormalizedUrl) return byNormalizedUrl;
+    }
+
     if (pageParams?.pageId) {
       const pageId = parseInt(pageParams.pageId);
       return hierarchy.byId[pageId] || null;
@@ -159,6 +188,7 @@ export default function Home() {
     sectionParams,
     singleSlugParams,
     categorySlugParams,
+    normalizedLocation,
   ]);
 
   // Load content based on URL on mount and URL changes
@@ -173,13 +203,13 @@ export default function Home() {
           setSelectedContent(contentFromUrl);
           setIsRouteNotFound(false);
         }, 0);
-      } else if (!contentFromUrl && location !== "/") {
+      } else if (!contentFromUrl && normalizedLocation !== "/") {
         // Unknown route: render 404 UI instead of redirecting to home.
         setTimeout(() => {
           setSelectedContent(null);
           setIsRouteNotFound(true);
         }, 0);
-      } else if (!contentFromUrl && location === "/") {
+      } else if (!contentFromUrl && normalizedLocation === "/") {
         // Ensure we're on home page with no content selected
         setTimeout(() => {
           setSelectedContent(null);
@@ -189,7 +219,7 @@ export default function Home() {
     };
 
     scheduleUpdate();
-  }, [findContentFromUrl, selectedContent, location]);
+  }, [findContentFromUrl, selectedContent, normalizedLocation]);
 
   // Handle navigation from footer links
   useEffect(() => {
@@ -226,7 +256,7 @@ export default function Home() {
         description:
           "The requested page could not be found. Browse Texas economic analysis and expert insights from TexEcon.",
         keywords: ["404", "page not found", "TexEcon", "Texas economic analysis"],
-        url: generateCanonicalUrlForPath(location),
+        url: generateCanonicalUrlForPath(normalizedLocation),
         type: "website" as const,
         robots: "noindex, nofollow",
       };
@@ -252,7 +282,7 @@ export default function Home() {
       type: "website" as const,
       robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     };
-  }, [selectedContent, isRouteNotFound, location]);
+  }, [selectedContent, isRouteNotFound, normalizedLocation]);
 
   // Convert team members to structured data format - memoize static data
   // Convert team members to structured data format - memoize static data

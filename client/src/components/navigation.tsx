@@ -79,6 +79,9 @@ export default function Navigation({ onMenuItemSelect }: NavigationProps) {
             size="icon"
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation-menu"
             data-testid="mobile-menu-button"
           >
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -87,7 +90,11 @@ export default function Navigation({ onMenuItemSelect }: NavigationProps) {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-border" data-testid="mobile-menu">
+          <div
+            id="mobile-navigation-menu"
+            className="md:hidden border-t border-border"
+            data-testid="mobile-menu"
+          >
             <div className="py-2">
               {menuItems.map((item) => (
                 <DropdownMenuItem
