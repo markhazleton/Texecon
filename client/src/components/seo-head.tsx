@@ -6,6 +6,7 @@ interface SEOHeadProps {
   keywords?: string[];
   image?: string;
   url?: string;
+  robots?: string;
   type?: "website" | "article" | "profile";
   author?: string;
   publishedTime?: string;
@@ -27,6 +28,7 @@ export default function SEOHead({
   ],
   image = `${import.meta.env.BASE_URL}assets/texecon-og-image.jpg`,
   url = "https://texecon.com",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   type = "website",
   author = "TexEcon Team",
   publishedTime,
@@ -41,6 +43,7 @@ export default function SEOHead({
 
     // Update meta keywords
     updateMetaTag("keywords", keywords.join(", "));
+    updateMetaTag("robots", robots);
 
     // Update Open Graph meta tags
     updateMetaTag("og:title", title, "property");
@@ -69,7 +72,7 @@ export default function SEOHead({
 
     // Update canonical URL
     updateCanonicalUrl(url);
-  }, [title, description, keywords, image, url, type, author, publishedTime, modifiedTime]);
+  }, [title, description, keywords, image, url, robots, type, author, publishedTime, modifiedTime]);
 
   const updateMetaTag = (
     name: string,

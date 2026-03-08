@@ -118,6 +118,7 @@ function isExternalLink(
 
 export default function Footer() {
   const base = (import.meta.env.BASE_URL as string) || "/";
+  const currentYear = new Date().getFullYear();
   const scrollToSection = useScrollToSection();
   const footerLinks = getFooterLinks();
 
@@ -236,7 +237,7 @@ export default function Footer() {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2006-2025 TexEcon.com. All rights reserved. Powered by expert economic analysis and
+            © 2006-{currentYear} TexEcon.com. All rights reserved. Powered by expert economic analysis and
             cutting-edge technology.
           </p>
         </div>

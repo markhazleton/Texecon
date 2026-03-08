@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
-import { MenuItem } from "@/lib/menu-utils";
+import { useState, useEffect, MouseEvent } from "react";
+import { MenuItem, getBreadcrumbs, getMenuItemsByParent } from "@/lib/menu-utils";
+import { generateSEOPath } from "@/lib/seo-utils";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Tag } from "lucide-react";
 
 interface ContentDisplayProps {
   menuItem: MenuItem | null;
+  onNavigate?: (item: MenuItem) => void;
 }
 
-export default function ContentDisplay({ menuItem }: ContentDisplayProps) {
+export default function ContentDisplay({ menuItem, onNavigate }: ContentDisplayProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -35,6 +37,23 @@ export default function ContentDisplay({ menuItem }: ContentDisplayProps) {
     );
   }
 
+  const breadcrumbItems = getBreadcrumbs(menuItem.id);
+  const siblingItems =
+    menuItem.parent_page !== null
+      ? getMenuItemsByParent(menuItem.parent_page).filter((item) => item.id !== menuItem.id)
+      : [];
+
+  const relatedCandidates = [...siblingItems, ...(menuItem.children || [])];
+  const relatedItems = Array.from(new Map(relatedCandidates.map((item) => [item.id, item])).values())
+    .filter((item) => item.id !== menuItem.id)
+    .slice(0, 6);
+
+  const handleNavigate = (event: MouseEvent<HTMLAnchorElement>, item: MenuItem) => {
+    if (!onNavigate) return;
+    event.preventDefault();
+    onNavigate(item);
+  };
+
   return (
     <div
       className={`transition-all duration-300 ${
@@ -44,6 +63,33 @@ export default function ContentDisplay({ menuItem }: ContentDisplayProps) {
     >
       <Card className="shadow-lg">
         <CardHeader>
+          <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted-foreground">
+            <a href="/" className="hover:text-primary transition-colors">
+              Home
+            </a>
+            {breadcrumbItems.map((item) => {
+              const isCurrentPage = item.id === menuItem.id;
+              const path = generateSEOPath(item);
+
+              return (
+                <span key={item.id}>
+                  <span className="mx-2">/</span>
+                  {isCurrentPage ? (
+                    <span className="text-foreground">{item.title}</span>
+                  ) : (
+                    <a
+                      href={path}
+                      onClick={(event) => handleNavigate(event, item)}
+                      className="hover:text-primary transition-colors"
+                    >
+                      {item.title}
+                    </a>
+                  )}
+                </span>
+              );
+            })}
+          </nav>
+
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <CardTitle className="text-3xl font-bold mb-3">{menuItem.title}</CardTitle>
@@ -86,6 +132,25 @@ export default function ContentDisplay({ menuItem }: ContentDisplayProps) {
                 Content for this section is being updated. Please check back soon.
               </p>
             </div>
+          )}
+
+          {relatedItems.length > 0 && (
+            <section className="mt-10 border-t border-border pt-6" aria-label="Related pages">
+              <h3 className="text-lg font-semibold text-foreground mb-3">Related pages</h3>
+              <ul className="grid gap-2 sm:grid-cols-2">
+                {relatedItems.map((item) => (
+                  <li key={item.id}>
+                    <a
+                      href={generateSEOPath(item)}
+                      onClick={(event) => handleNavigate(event, item)}
+                      className="text-primary hover:text-primary/80 transition-colors"
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
           )}
         </CardContent>
       </Card>

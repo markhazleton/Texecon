@@ -13,6 +13,7 @@ import PerformanceMonitor from "@/components/performance-monitor";
 import AdminDashboard from "@/components/admin-dashboard";
 import RouteDebugger from "@/components/route-debugger";
 import SiteNavigationTree from "@/components/site-navigation-tree";
+import NotFound from "@/pages/not-found";
 import { MenuItem, findMenuItem, buildMenuHierarchy } from "@/lib/menu-utils";
 import {
   generateSEOPath,
@@ -24,6 +25,7 @@ import { teamMembers } from "@/lib/data";
 
 export default function Home() {
   const [selectedContent, setSelectedContent] = useState<MenuItem | null>(null);
+  const [isRouteNotFound, setIsRouteNotFound] = useState(false);
   const [location, setLocation] = useLocation();
 
   // Route matching for different URL patterns
@@ -43,6 +45,7 @@ export default function Home() {
     (item: MenuItem | null) => {
       if (!item) {
         setSelectedContent(null);
+        setIsRouteNotFound(false);
         if (location !== "/") {
           setLocation("/");
         }
@@ -50,6 +53,7 @@ export default function Home() {
       }
 
       setSelectedContent(item);
+      setIsRouteNotFound(false);
 
       // Update URL using wouter's setLocation (don't use pushState)
       const path = generateSEOPath(item);
@@ -165,21 +169,27 @@ export default function Home() {
     const scheduleUpdate = () => {
       // Only update if content actually changed
       if (contentFromUrl && contentFromUrl.id !== selectedContent?.id) {
-        setTimeout(() => setSelectedContent(contentFromUrl), 0);
-      } else if (!contentFromUrl && selectedContent && location !== "/") {
-        // If URL doesn't match any content and we're not on home, redirect to home
         setTimeout(() => {
-          setLocation("/");
-          setSelectedContent(null);
+          setSelectedContent(contentFromUrl);
+          setIsRouteNotFound(false);
         }, 0);
-      } else if (!contentFromUrl && !selectedContent && location === "/") {
+      } else if (!contentFromUrl && location !== "/") {
+        // Unknown route: render 404 UI instead of redirecting to home.
+        setTimeout(() => {
+          setSelectedContent(null);
+          setIsRouteNotFound(true);
+        }, 0);
+      } else if (!contentFromUrl && location === "/") {
         // Ensure we're on home page with no content selected
-        setTimeout(() => setSelectedContent(null), 0);
+        setTimeout(() => {
+          setSelectedContent(null);
+          setIsRouteNotFound(false);
+        }, 0);
       }
     };
 
     scheduleUpdate();
-  }, [findContentFromUrl, selectedContent, location, setLocation]);
+  }, [findContentFromUrl, selectedContent, location]);
 
   // Handle navigation from footer links
   useEffect(() => {
@@ -206,6 +216,19 @@ export default function Home() {
         keywords: extractKeywords(selectedContent),
         url: generateCanonicalUrlForPath(currentPath),
         type: "article" as const,
+        robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      };
+    }
+
+    if (isRouteNotFound) {
+      return {
+        title: "Page Not Found | TexEcon",
+        description:
+          "The requested page could not be found. Browse Texas economic analysis and expert insights from TexEcon.",
+        keywords: ["404", "page not found", "TexEcon", "Texas economic analysis"],
+        url: generateCanonicalUrlForPath(location),
+        type: "website" as const,
+        robots: "noindex, nofollow",
       };
     }
 
@@ -227,8 +250,9 @@ export default function Home() {
       ],
       url: "https://texecon.com",
       type: "website" as const,
+      robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
     };
-  }, [selectedContent]);
+  }, [selectedContent, isRouteNotFound, location]);
 
   // Convert team members to structured data format - memoize static data
   // Convert team members to structured data format - memoize static data
@@ -272,6 +296,7 @@ export default function Home() {
         image={`${typeof window !== "undefined" ? window.location.origin : "https://texecon.com"}${import.meta.env.BASE_URL || "/"}assets/texecon-og-image.jpg`}
         url={seoData.url}
         type={seoData.type}
+        robots={seoData.robots}
       />
 
       <StructuredData people={structuredPeople} breadcrumbs={breadcrumbs} />
@@ -286,8 +311,10 @@ export default function Home() {
 
       <Navigation onMenuItemSelect={handleMenuItemSelect} />
       <main>
+        {isRouteNotFound && <NotFound />}
+
         {/* Show Hero only on home page (no content selected) */}
-        {!selectedContent && <Hero />}
+        {!selectedContent && !isRouteNotFound && <Hero />}
 
         {/* Dynamic Content Area */}
         {selectedContent && (
@@ -297,13 +324,13 @@ export default function Home() {
             data-testid="dynamic-content-area"
           >
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <ContentDisplay menuItem={selectedContent} />
+              <ContentDisplay menuItem={selectedContent} onNavigate={handleMenuItemSelect} />
             </div>
           </section>
         )}
 
         {/* Show default sections only when no specific content is selected */}
-        {!selectedContent && (
+        {!selectedContent && !isRouteNotFound && (
           <>
             <TexeconAbout />
             <Team />
