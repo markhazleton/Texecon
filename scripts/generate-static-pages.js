@@ -66,17 +66,19 @@ async function generateStaticPages() {
  * Generate SEO-optimized HTML for any page using API data
  */
 function generatePageHTML(baseTemplate, item) {
+  const contentText = stripHtml(item.content || "");
   const title = `${item.title || item.argument} - Economic Analysis | TexEcon`;
-  const description = item.description || `Expert analysis and insights on ${item.title || item.argument} from TexEcon's Texas economic experts.`;
+  const description = buildMetaDescription(item, contentText);
   const canonicalUrl = `https://texecon.com${item.url}`;
   
   // Generate content-specific keywords
-  const keywords = generateContentKeywords(item);
+  const keywords = generateContentKeywords(item, contentText);
   
-  let html = updateMetaTags(baseTemplate, title, description, canonicalUrl, keywords);
-  
-  // Determine content type for structured data
-  const isPersonPage = item.argument && item.argument.includes('hazleton');
+  const isPersonPage = Boolean(item.argument && item.argument.includes('hazleton'));
+  const ogType = isPersonPage ? "profile" : "article";
+  const breadcrumbData = generateBreadcrumbData(item, canonicalUrl);
+
+  let html = baseTemplate;
   
   if (isPersonPage) {
     // Enhanced structured data for person
@@ -146,35 +148,11 @@ function generatePageHTML(baseTemplate, item) {
       }
     };
     
-    // Add breadcrumb structured data for better navigation understanding
-    const breadcrumbData = {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://texecon.com"
-        },
-        {
-          "@type": "ListItem", 
-          "position": 2,
-          "name": "Economic Analysis",
-          "item": "https://texecon.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": item.title || item.argument,
-          "item": canonicalUrl
-        }
-      ]
-    };
-    
     html = addStructuredData(html, structuredData);
-    html = addStructuredData(html, breadcrumbData);
   }
+
+  html = updateMetaTags(html, title, description, canonicalUrl, keywords, ogType);
+  html = addStructuredData(html, breadcrumbData);
   
   return html;
 }
@@ -182,22 +160,27 @@ function generatePageHTML(baseTemplate, item) {
 /**
  * Generate relevant keywords for content pages based on content analysis
  */
-function generateContentKeywords(item) {
+function generateContentKeywords(item, content = "") {
   const baseKeywords = [
     "economic analysis",
-    "economic development", 
-    "business growth",
     "economic trends",
+    "texas economy",
     "market analysis"
   ];
+  const apiKeywords = (item.keywords || "")
+    .split(",")
+    .map((value) => value.trim().toLowerCase())
+    .filter(Boolean);
   
   // Extract location-based keywords
-  const locationKeywords = extractLocationKeywords(item.title || item.argument, item.content);
+  const locationKeywords = extractLocationKeywords(item.title || item.argument, content);
   
   // Extract industry-based keywords  
-  const industryKeywords = extractIndustryKeywords(item.content);
+  const industryKeywords = extractIndustryKeywords(content);
   
-  return [...baseKeywords, ...locationKeywords, ...industryKeywords].join(', ');
+  const merged = [...baseKeywords, ...apiKeywords, ...locationKeywords, ...industryKeywords];
+  const unique = Array.from(new Set(merged.map((value) => value.toLowerCase())));
+  return unique.slice(0, 20).join(", ");
 }
 
 /**
@@ -252,46 +235,100 @@ function extractIndustryKeywords(content = '') {
 /**
  * Update meta tags in HTML template with enhanced SEO optimization
  */
-function updateMetaTags(html, title, description, canonicalUrl, keywords = null) {
+function updateMetaTags(html, title, description, canonicalUrl, keywords = null, ogType = "article") {
+  const safeTitle = escapeHtmlAttr(title);
+  const safeDescription = escapeHtmlAttr(description);
+  const safeCanonicalUrl = escapeHtmlAttr(canonicalUrl);
+  const safeKeywords = keywords ? escapeHtmlAttr(keywords) : null;
+
   // Update basic meta tags
   let updatedHtml = html
-    .replace(/<title>.*?<\/title>/, `<title>${title}</title>`)
-    .replace(/<meta\s+name="description"\s+content="[^"]*"/, `<meta name="description" content="${description}"`)
-    .replace(/<link\s+rel="canonical"\s+href="[^"]*"/, `<link rel="canonical" href="${canonicalUrl}"`)
-    .replace(/<meta\s+property="og:title"\s+content="[^"]*"/, `<meta property="og:title" content="${title}"`)
-    .replace(/<meta\s+property="og:description"\s+content="[^"]*"/, `<meta property="og:description" content="${description}"`)
-    .replace(/<meta\s+property="og:url"\s+content="[^"]*"/, `<meta property="og:url" content="${canonicalUrl}"`);
+    .replace(/<title>.*?<\/title>/, `<title>${safeTitle}</title>`)
+    .replace(/<meta\s+name="description"\s+content="[^"]*"/, `<meta name="description" content="${safeDescription}"`)
+    .replace(/<link\s+rel="canonical"\s+href="[^"]*"/, `<link rel="canonical" href="${safeCanonicalUrl}"`)
+    .replace(/<meta\s+property="og:title"\s+content="[^"]*"/, `<meta property="og:title" content="${safeTitle}"`)
+    .replace(/<meta\s+property="og:description"\s+content="[^"]*"/, `<meta property="og:description" content="${safeDescription}"`)
+    .replace(/<meta\s+property="og:url"\s+content="[^"]*"/, `<meta property="og:url" content="${safeCanonicalUrl}"`)
+    .replace(/<meta\s+property="og:type"\s+content="[^"]*"/, `<meta property="og:type" content="${ogType}"`);
   
   // Update keywords if provided
-  if (keywords) {
+  if (safeKeywords) {
     updatedHtml = updatedHtml.replace(
       /<meta\s+name="keywords"\s+content="[^"]*"/,
-      `<meta name="keywords" content="${keywords}"`
+      `<meta name="keywords" content="${safeKeywords}"`
     );
   }
   
   // Update Twitter Card meta tags to match page content
   updatedHtml = updatedHtml
-    .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"/, `<meta name="twitter:title" content="${title}"`)
-    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"/, `<meta name="twitter:description" content="${description}"`);
-  
-  // Add additional SEO meta tags for better optimization
-  const additionalMetaTags = `
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta property="article:publisher" content="https://texecon.com">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:type" content="article">
-    <meta name="twitter:creator" content="@TexEcon">
-    <meta name="twitter:site" content="@TexEcon">`;
-  
-  // Insert additional meta tags before the closing head tag
-  updatedHtml = updatedHtml.replace(
-    /<link rel="canonical"/,
-    `${additionalMetaTags}\n    <link rel="canonical"`
-  );
+    .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"/, `<meta name="twitter:title" content="${safeTitle}"`)
+    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"/, `<meta name="twitter:description" content="${safeDescription}"`);
   
   return updatedHtml;
+}
+
+function stripHtml(html = "") {
+  return html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function buildMetaDescription(item, contentText) {
+  const fallback = `Expert analysis and insights on ${item.title || item.argument} from TexEcon's Texas economic experts.`;
+  const base = item.description && item.description.trim() ? item.description.trim() : (contentText || fallback);
+  return base.length > 160 ? `${base.slice(0, 157).trim()}...` : base;
+}
+
+function escapeHtmlAttr(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function formatPathSegment(segment = "") {
+  return segment
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+function generateBreadcrumbData(item, canonicalUrl) {
+  const segments = (item.url || "/")
+    .split("/")
+    .filter(Boolean);
+
+  const itemListElement = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://texecon.com",
+    },
+  ];
+
+  segments.forEach((segment, index) => {
+    const url = `https://texecon.com/${segments.slice(0, index + 1).join("/")}`;
+    itemListElement.push({
+      "@type": "ListItem",
+      position: index + 2,
+      name: index === segments.length - 1 ? (item.title || formatPathSegment(segment)) : formatPathSegment(segment),
+      item: url,
+    });
+  });
+
+  if (segments.length === 0) {
+    itemListElement.push({
+      "@type": "ListItem",
+      position: 2,
+      name: item.title || item.argument || "Page",
+      item: canonicalUrl,
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement,
+  };
 }
 
 /**

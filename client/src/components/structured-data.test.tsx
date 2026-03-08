@@ -106,7 +106,7 @@ describe("StructuredData", () => {
     expect(orgData.email).toBe("info@custom.com");
   });
 
-  it("includes SearchAction in website schema", () => {
+  it("does not include SearchAction when no search page exists", () => {
     render(<StructuredData />);
 
     const scripts = document.querySelectorAll('script[type="application/ld+json"]');
@@ -116,7 +116,6 @@ describe("StructuredData", () => {
     });
 
     const websiteData = JSON.parse(websiteScript!.textContent || "{}");
-    expect(websiteData.potentialAction).toBeDefined();
-    expect(websiteData.potentialAction["@type"]).toBe("SearchAction");
+    expect(websiteData.potentialAction).toBeUndefined();
   });
 });

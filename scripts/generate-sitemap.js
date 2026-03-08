@@ -103,8 +103,9 @@ Sitemap: ${baseUrl}/sitemap.xml
 # Block development and admin routes
 Disallow: /admin/
 Disallow: /_dev/
-Disallow: /*.json$
-Disallow: /*.map$
+Disallow: /admin/*.json
+Disallow: /_dev/*.json
+Disallow: /assets/*.map
 `;
 }
 

@@ -108,14 +108,6 @@ export default function StructuredData({
       "@type": "Organization",
       name: webData.copyrightHolder,
     },
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${webData.url}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 
   // Person Schemas

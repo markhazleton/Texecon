@@ -191,37 +191,6 @@
 
     <div id="root"></div>
     
-    <!-- Static HTML Links for Crawlers (React will hide this on load) -->
-    <div id="crawler-links" style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
-      <nav>
-        <h2>TexEcon Site Navigation</h2>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/texecon/mark-hazleton">Mark Hazleton - Economic Analysis Expert</a></li>
-          <li><a href="/texecon/jared-hazleton">Jared Hazleton - Data Analysis Expert</a></li>
-          <li><a href="/texas">Texas Economic Analysis</a></li>
-          <li><a href="/texas/austin">Austin, Texas</a></li>
-          <li><a href="/texas/dallas">Dallas, Texas</a></li>
-          <li><a href="/texas/houston">Houston, Texas</a></li>
-          <li><a href="/texas/keller">Keller, Texas</a></li>
-          <li><a href="/texas/roanoke">Roanoke, Texas</a></li>
-          <li><a href="/arizona">Arizona Economic Analysis</a></li>
-          <li><a href="/arizona/phoenix">Phoenix, Arizona</a></li>
-          <li><a href="/kansas">Kansas Economic Analysis</a></li>
-          <li><a href="/kansas/wichita">Wichita, Kansas</a></li>
-        </ul>
-      </nav>
-    </div>
-    
     <script type="module" src="./src/main.tsx"></script>
-    <script>
-      // Remove crawler links after React loads to keep DOM clean
-      window.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
-          var crawlerLinks = document.getElementById('crawler-links');
-          if (crawlerLinks) crawlerLinks.remove();
-        }, 100);
-      });
-    </script>
   </body>
 </html>
