@@ -44,7 +44,9 @@ export default function ContentDisplay({ menuItem, onNavigate }: ContentDisplayP
       : [];
 
   const relatedCandidates = [...siblingItems, ...(menuItem.children || [])];
-  const relatedItems = Array.from(new Map(relatedCandidates.map((item) => [item.id, item])).values())
+  const relatedItems = Array.from(
+    new Map(relatedCandidates.map((item) => [item.id, item])).values()
+  )
     .filter((item) => item.id !== menuItem.id)
     .slice(0, 6);
 

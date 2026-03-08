@@ -237,8 +237,8 @@ export default function Footer() {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground">
-            © 2006-{currentYear} TexEcon.com. All rights reserved. Powered by expert economic analysis and
-            cutting-edge technology.
+            © 2006-{currentYear} TexEcon.com. All rights reserved. Powered by expert economic
+            analysis and cutting-edge technology.
           </p>
         </div>
       </div>
