@@ -9,7 +9,7 @@ on:
 
 # Prevent overlapping page deployments
 concurrency:
-  group: "pages"
+  group: "${{ github.workflow }}-${{ github.ref }}"
   cancel-in-progress: true
 
 env:
@@ -28,10 +28,10 @@ jobs:
       CI: true
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
         with:
           node-version: "20"
           cache: "npm"
@@ -40,8 +40,15 @@ jobs:
       - name: Determine Vite base path and site URL
         shell: bash
         run: |
-          # Prefer explicit CUSTOM_DOMAIN when provided
-          if [ -n "${CUSTOM_DOMAIN}" ]; then
+          # Validate PR builds against project pages paths to catch base-path issues.
+          if [ "${GITHUB_EVENT_NAME}" = "pull_request" ]; then
+            REPO=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
+            OWNER=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f1)
+            echo "PR build mode: validating with project-pages base path"
+            echo "VITE_BASE_PATH=/${REPO}/" >> "$GITHUB_ENV"
+            echo "SITE_BASE_URL=https://${OWNER}.github.io/${REPO}" >> "$GITHUB_ENV"
+          # Prefer explicit CUSTOM_DOMAIN when provided on non-PR builds.
+          elif [ -n "${CUSTOM_DOMAIN}" ]; then
             echo "Using CUSTOM_DOMAIN=$CUSTOM_DOMAIN"
             echo "VITE_BASE_PATH=/" >> "$GITHUB_ENV"
             echo "SITE_BASE_URL=https://${CUSTOM_DOMAIN}" >> "$GITHUB_ENV"
@@ -60,12 +67,24 @@ jobs:
             echo "SITE_BASE_URL=https://$OWNER.github.io/$REPO" >> "$GITHUB_ENV"
           fi
 
+      - name: Build configuration summary
+        shell: bash
+        run: |
+          {
+            echo "### Build Configuration"
+            echo "- Event: ${GITHUB_EVENT_NAME}"
+            echo "- Ref: ${GITHUB_REF}"
+            echo "- VITE_BASE_PATH: ${VITE_BASE_PATH}"
+            echo "- SITE_BASE_URL: ${SITE_BASE_URL}"
+            echo "- CUSTOM_DOMAIN: ${CUSTOM_DOMAIN}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Install dependencies (incl. dev)
         run: npm ci --include=dev
 
       - name: Security audit
         run: npm audit --audit-level=moderate
-        continue-on-error: true
+        continue-on-error: ${{ github.event_name == 'pull_request' }}
 
       - name: Lint code
         run: npm run lint
@@ -81,27 +100,47 @@ jobs:
 
       - name: Check test coverage
         run: npm run test:coverage
-        continue-on-error: true
+        continue-on-error: ${{ github.event_name == 'pull_request' }}
 
       - name: Build
         run: npm run build
 
       - name: Validate build artifacts
+        shell: bash
         run: |
           test -f target/index.html || (echo "Missing index.html" && exit 1)
           test -f target/version.json || (echo "Missing version.json" && exit 1)
           test -f target/sitemap.xml || (echo "Missing sitemap.xml" && exit 1)
           test -f target/robots.txt || (echo "Missing robots.txt" && exit 1)
+          grep -Fq "${SITE_BASE_URL}" target/sitemap.xml || (echo "sitemap.xml missing expected base URL: ${SITE_BASE_URL}" && exit 1)
+
+          if [ "${GITHUB_EVENT_NAME}" != "pull_request" ] && [ -n "${CUSTOM_DOMAIN}" ]; then
+            test -f target/CNAME || (echo "Missing CNAME for deploy build" && exit 1)
+            grep -Fxq "${CUSTOM_DOMAIN}" target/CNAME || (echo "CNAME does not match CUSTOM_DOMAIN=${CUSTOM_DOMAIN}" && exit 1)
+          fi
+
           echo "✅ All critical build artifacts present"
+
+      - name: Build output summary
+        shell: bash
+        run: |
+          {
+            echo "### Build Output"
+            echo "- target/index.html: $(wc -c < target/index.html) bytes"
+            echo "- target/sitemap.xml: $(wc -c < target/sitemap.xml) bytes"
+            echo "- target/robots.txt: $(wc -c < target/robots.txt) bytes"
+            echo "- target/version.json: $(cat target/version.json)"
+            echo "- target directory size: $(du -sh target | cut -f1)"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       # Only prepare and upload the Pages artifact on non-PR events
       - name: Setup Pages
         if: github.event_name != 'pull_request'
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
 
       - name: Upload artifact
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: ./target
 
@@ -110,12 +149,23 @@ jobs:
     needs: build
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
+      - name: Cache Lighthouse assets
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            ~/.npm
+            ~/.cache
+          key: ${{ runner.os }}-lighthouse-${{ hashFiles('package-lock.json', '.github/lighthouse/lighthouserc.json') }}
+          restore-keys: |
+            ${{ runner.os }}-lighthouse-
 
       - name: Download build artifacts
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@70fc10c6e5e1ce46ad2ea6f2b72d43f7d47b13c3 # v8
         with:
           name: github-pages
           path: ./lighthouse-target
@@ -127,7 +177,7 @@ jobs:
           cd ..
 
       - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v12
+        uses: treosh/lighthouse-ci-action@2dd68ab12619d615e69ce5982eb20be9a6883ae0 # v12
         with:
           configPath: "./.github/lighthouse/lighthouserc.json"
           temporaryPublicStorage: true
@@ -148,4 +198,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
