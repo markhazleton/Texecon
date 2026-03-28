@@ -1,7 +1,22 @@
-import { Linkedin, Github } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { teamMembers } from "@/lib/data";
 import { buildMenuHierarchy } from "@/lib/menu-utils";
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M20.45 20.45h-3.56V14.9c0-1.32-.03-3.02-1.84-3.02-1.85 0-2.14 1.44-2.14 2.93v5.64H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.84 3.38-1.84 3.61 0 4.28 2.38 4.28 5.48v6.25ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" />
+    </svg>
+  );
+}
+
+function GitHubIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.16c-3.34.73-4.04-1.41-4.04-1.41-.55-1.37-1.34-1.74-1.34-1.74-1.1-.74.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.08 1.83 2.83 1.3 3.52.99.11-.77.42-1.3.76-1.6-2.67-.3-5.48-1.33-5.48-5.92 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.16 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.64.25 2.86.12 3.16.77.84 1.24 1.91 1.24 3.22 0 4.6-2.82 5.61-5.51 5.91.43.37.82 1.1.82 2.23v3.3c0 .32.22.69.82.58A12 12 0 0 0 12 .5Z" />
+    </svg>
+  );
+}
 
 export default function Team() {
   // Handle team member profile navigation
@@ -95,7 +110,7 @@ export default function Team() {
                           data-testid={`link-${member.id}-linkedin`}
                           title="LinkedIn Profile"
                         >
-                          <Linkedin className="w-5 h-5" />
+                          <LinkedInIcon className="w-5 h-5" />
                         </a>
                       )}
                       {member.social?.github && (
@@ -107,7 +122,7 @@ export default function Team() {
                           data-testid={`link-${member.id}-github`}
                           title="GitHub Profile"
                         >
-                          <Github className="w-5 h-5" />
+                          <GitHubIcon className="w-5 h-5" />
                         </a>
                       )}
                       {member.social?.website && (

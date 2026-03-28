@@ -1,7 +1,14 @@
-import { Linkedin } from "lucide-react";
 import { useScrollToSection } from "@/hooks/use-scroll";
 import { buildMenuHierarchy, MenuItem } from "@/lib/menu-utils";
 import { generateSEOPath } from "@/lib/seo-utils";
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M20.45 20.45h-3.56V14.9c0-1.32-.03-3.02-1.84-3.02-1.85 0-2.14 1.44-2.14 2.93v5.64H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.84 3.38-1.84 3.61 0 4.28 2.38 4.28 5.48v6.25ZM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z" />
+    </svg>
+  );
+}
 
 // Footer link types with discriminated union
 type FooterLink =
@@ -91,7 +98,7 @@ const getFooterLinks = () => {
 
 const socialLinks = [
   {
-    icon: Linkedin,
+    icon: LinkedInIcon,
     href: "https://www.linkedin.com/in/markhazleton/",
     label: "Mark Hazleton LinkedIn",
   },

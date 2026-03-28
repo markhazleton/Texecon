@@ -23,15 +23,20 @@ Object.defineProperty(window, "matchMedia", {
 });
 
 // Mock IntersectionObserver
-global.IntersectionObserver = vi.fn(() => ({
-  observe: vi.fn(),
-  disconnect: vi.fn(),
-  unobserve: vi.fn(),
-  root: null,
-  rootMargin: "",
-  thresholds: [],
-  takeRecords: vi.fn(() => []),
-}));
+class MockIntersectionObserver implements IntersectionObserver {
+  readonly root: Element | Document | null = null;
+  readonly rootMargin = "";
+  readonly scrollMargin = "";
+  readonly thresholds: ReadonlyArray<number> = [];
+
+  disconnect = vi.fn();
+  observe = vi.fn();
+  takeRecords = vi.fn<() => IntersectionObserverEntry[]>(() => []);
+  unobserve = vi.fn();
+}
+
+global.IntersectionObserver =
+  MockIntersectionObserver as unknown as typeof global.IntersectionObserver;
 
 // Mock ResizeObserver
 global.ResizeObserver = vi.fn(() => ({
