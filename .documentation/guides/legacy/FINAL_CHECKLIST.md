@@ -230,7 +230,7 @@ npm run build
 
 ## 📚 Documentation Reference
 
-- [IMPLEMENTATION_SUMMARY.md](../IMPLEMENTATION_SUMMARY.md) - Executive summary
+- [IMPLEMENTATION_SUMMARY.md](../../reports/IMPLEMENTATION_SUMMARY.md) - Executive summary
 - [IMPROVEMENTS_IMPLEMENTED.md](IMPROVEMENTS_IMPLEMENTED.md) - Detailed log
 - [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md) - Developer onboarding
 - [QUICK_START.md](QUICK_START.md) - Quick start guide

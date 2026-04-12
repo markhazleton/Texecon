@@ -171,7 +171,7 @@ npm run lint
 npm run lint:fix
 ```
 
-**Configuration**: [.eslintrc.json](../.eslintrc.json)
+**Configuration**: [eslint.config.js](../../../eslint.config.js)
 
 **Key Rules**:
 - TypeScript strict checking
@@ -192,7 +192,7 @@ npm run format
 npm run format:check
 ```
 
-**Configuration**: [.prettierrc](../.prettierrc)
+**Configuration**: [.prettierrc](../../../.prettierrc)
 
 **Settings**:
 - 2 spaces indentation
@@ -210,7 +210,7 @@ TypeScript strict mode is enabled.
 npm run type-check
 ```
 
-**Configuration**: [tsconfig.json](../tsconfig.json)
+**Configuration**: [tsconfig.json](../../../tsconfig.json)
 
 **Strict Mode Features**:
 - No implicit any

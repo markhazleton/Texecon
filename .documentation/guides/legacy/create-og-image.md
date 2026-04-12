@@ -46,4 +46,4 @@ After creating the image, test with:
 ## Current Status
 ⚠️ **Action Required**: Create and place OG image at `client/public/assets/texecon-og-image.jpg`
 
-The SEO component ([client/src/components/seo-head.tsx](../client/src/components/seo-head.tsx)) already references this file on line 19.
+The SEO component ([client/src/components/seo-head.tsx](../../../client/src/components/seo-head.tsx)) already references this file on line 19.
