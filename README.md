@@ -94,6 +94,11 @@ Content is fetched from a headless CMS (WebSpark) during the build process. The 
 - Dynamic navigation structure
 - SEO-optimized content organization
 
+## Repo Story
+
+An evidence-based narrative of this repository's development history, contributor patterns, and architecture:
+[Repo Story (2026-04-12)](.documentation/repo-story/repo-story-2026-04-12.md)
+
 ## Project Structure
 
 ```text

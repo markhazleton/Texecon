@@ -40,3 +40,5 @@ yarn-error.log*
 # Archive files
 *.tar.gz
 *.zip
+# DevSpark — personal overrides (never commit)
+.documentation/*/commands/
