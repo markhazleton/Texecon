@@ -12,7 +12,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function fetchTexEconContent() {
-  const apiUrl = 'https://webspark.markhazleton.com/api/WebCMS/websites/1';
+  const apiUrl = 'https://web.makeboldspark.com/api/WebCMS/websites/1';
   const headers = {
     'Accept': 'application/json',
     'Authorization': 'Bearer MARKHAZLETON-WEB',
@@ -316,7 +316,7 @@ function generateContentReport(apiData, processedData, fetchTime) {
     timestamp: new Date().toISOString(),
     fetchTime: fetchTime,
     source: {
-      url: 'https://webspark.markhazleton.com/api/WebCMS/websites/1',
+      url: 'https://web.makeboldspark.com/api/WebCMS/websites/1',
       success: apiData.success,
       totalPages: pages.length
     },

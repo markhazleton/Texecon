@@ -442,7 +442,7 @@ export const OptimizedImage = ({
     <title>TexEcon - Texas Economic Analysis</title>
     
     <!-- Preconnect to external domains -->
-    <link rel="preconnect" href="https://webspark.markhazleton.com" />
+    <link rel="preconnect" href="https://web.makeboldspark.com" />
     <link rel="preconnect" href="https://images.unsplash.com" />
     
     <script type="text/javascript">

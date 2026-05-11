@@ -25,7 +25,7 @@ async function refreshContent() {
   
   try {
     // Try to fetch from the WebSpark API
-    const apiUrl = 'https://webspark.markhazleton.com/api/WebCMS/websites/1';
+    const apiUrl = 'https://web.makeboldspark.com/api/WebCMS/websites/1';
     const headers = {
       'Accept': 'application/json',
       'Authorization': 'Bearer MARKHAZLETON-WEB',

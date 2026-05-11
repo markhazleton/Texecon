@@ -156,7 +156,7 @@ class WebSparkApiClient {
 
 // Create singleton instance
 const apiConfig: ApiClientConfig = {
-  baseUrl: "https://webspark.markhazleton.com",
+  baseUrl: "https://web.makeboldspark.com",
   authToken: "MARKHAZLETON-WEB",
   websiteId: 1,
   cookies:
