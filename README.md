@@ -1,6 +1,15 @@
 # TexEcon - Texas Economic Analysis
 
+**Live Site**: [https://texecon.com](https://texecon.com)
+
 A modern static React application providing expert analysis and commentary on the Texas economy. Built with React 19, TypeScript, and Tailwind CSS for optimal performance and SEO on GitHub Pages.
+
+## About
+
+Texecon.com delivers expert analysis and commentary on the Texas economy, featuring economic metrics, team profiles, and regional insights. The live application is hosted at [https://texecon.com](https://texecon.com).
+
+> Built by [Mark Hazleton](https://markhazleton.com) — Mark Hazleton, Solutions Architect
+> Texecon.com is part of the [Make Bold Spark](https://makeboldspark.com) portfolio of technical demonstrations.
 
 ## Features
 
