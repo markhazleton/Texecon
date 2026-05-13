@@ -6,6 +6,234 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
+ * Build a menu hierarchy (mirrors menu-utils.ts buildMenuHierarchy).
+ * Returns { topLevel, byId, byParent }.
+ */
+function buildMenuHierarchy(menuItems) {
+  const filtered = menuItems
+    .filter((item) => item.display_navigation)
+    .sort((a, b) => a.order - b.order);
+
+  const byId = {};
+  const byParent = {};
+
+  filtered.forEach((item) => {
+    byId[item.id] = { ...item, children: [] };
+    if (item.parent_page) {
+      if (!byParent[item.parent_page]) byParent[item.parent_page] = [];
+      byParent[item.parent_page].push(item.id);
+    }
+  });
+
+  filtered.forEach((item) => {
+    if (byParent[item.id]) {
+      byId[item.id].children = byParent[item.id]
+        .map((id) => byId[id])
+        .filter(Boolean)
+        .sort((a, b) => a.order - b.order);
+    }
+  });
+
+  const topLevel = filtered
+    .filter((item) => !item.parent_page || !byId[item.parent_page])
+    .map((item) => byId[item.id]);
+
+  return { topLevel, byId, byParent };
+}
+
+/**
+ * Render top-level navigation bar HTML with real <a href> links.
+ */
+function generateNavHTML(hierarchy, currentUrl) {
+  let nav =
+    `<nav style="background:#1e3a5f;padding:12px 24px;display:flex;` +
+    `align-items:center;gap:20px;flex-wrap:wrap;font-family:system-ui,sans-serif;">` +
+    `<a href="/" style="color:#fff;font-weight:700;font-size:1.15em;text-decoration:none;` +
+    `margin-right:8px;">TexEcon</a>`;
+
+  hierarchy.topLevel.forEach((item) => {
+    if (item.isHomePage) return;
+    const isActive = currentUrl === item.url;
+    const color = isActive ? '#60a5fa' : '#e2e8f0';
+    const suffix = item.children && item.children.length > 0 ? ' ▾' : '';
+    nav +=
+      `<a href="${escapeHtmlAttr(item.url)}" style="color:${color};text-decoration:none;` +
+      `font-size:0.95em;" aria-current="${isActive ? 'page' : 'false'}">${escapeHtml(item.title)}${suffix}</a>`;
+  });
+
+  nav += `</nav>`;
+  return nav;
+}
+
+/**
+ * Render breadcrumb trail HTML with real <a href> links.
+ */
+function generateBreadcrumbHTML(item, byId) {
+  // Build trail from root → current
+  const trail = [];
+  let cur = item;
+  while (cur) {
+    trail.unshift(cur);
+    cur = cur.parent_page ? byId[cur.parent_page] : null;
+  }
+
+  let html =
+    `<nav aria-label="Breadcrumb" style="padding:8px 24px;background:#f8fafc;` +
+    `border-bottom:1px solid #e2e8f0;font-family:system-ui,sans-serif;">` +
+    `<ol style="list-style:none;display:flex;flex-wrap:wrap;gap:4px;margin:0;` +
+    `padding:0;font-size:0.875em;" itemscope itemtype="https://schema.org/BreadcrumbList">` +
+    `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">` +
+    `<a href="/" itemprop="item" style="color:#1e3a5f;text-decoration:none;">` +
+    `<span itemprop="name">Home</span></a>` +
+    `<meta itemprop="position" content="1"/></li>`;
+
+  trail.forEach((bc, i) => {
+    const isLast = i === trail.length - 1;
+    html += `<li aria-hidden="true" style="color:#9ca3af;">›</li>`;
+    html +=
+      `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">`;
+    if (isLast) {
+      html +=
+        `<span itemprop="name" aria-current="page" style="color:#374151;">${escapeHtml(bc.title)}</span>` +
+        `<meta itemprop="item" content="https://texecon.com${escapeHtmlAttr(bc.url)}"/>`;
+    } else {
+      html +=
+        `<a href="${escapeHtmlAttr(bc.url)}" itemprop="item" style="color:#1e3a5f;text-decoration:none;">` +
+        `<span itemprop="name">${escapeHtml(bc.title)}</span></a>`;
+    }
+    html += `<meta itemprop="position" content="${i + 2}"/></li>`;
+  });
+
+  html += `</ol></nav>`;
+  return html;
+}
+
+/**
+ * Render a full nested site-map section so crawlers can discover every page.
+ */
+function generateSiteNavHTML(hierarchy) {
+  function renderItems(items, depth) {
+    if (!items || items.length === 0) return '';
+    const indent = depth === 0
+      ? 'list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:16px;'
+      : 'list-style:none;padding-left:16px;margin:4px 0 0 0;';
+    let html = `<ul style="${indent}">`;
+    items.forEach((item) => {
+      if (item.isHomePage) return;
+      html +=
+        `<li style="margin-bottom:2px;">` +
+        `<a href="${escapeHtmlAttr(item.url)}" ` +
+        `style="color:#1e3a5f;text-decoration:none;font-size:0.9em;">${escapeHtml(item.title)}</a>`;
+      if (item.children && item.children.length > 0) {
+        html += renderItems(item.children, depth + 1);
+      }
+      html += `</li>`;
+    });
+    html += `</ul>`;
+    return html;
+  }
+
+  return (
+    `<section style="background:#f1f5f9;padding:24px;border-top:1px solid #e2e8f0;` +
+    `font-family:system-ui,sans-serif;">` +
+    `<h2 style="font-size:1em;font-weight:600;color:#1e3a5f;margin:0 0 12px;">Site Navigation</h2>` +
+    renderItems(hierarchy.topLevel, 0) +
+    `</section>`
+  );
+}
+
+/**
+ * Render a minimal but complete footer HTML.
+ */
+function generateFooterHTML() {
+  const year = new Date().getFullYear();
+  return (
+    `<footer style="background:#1e3a5f;color:#e2e8f0;padding:28px 24px;text-align:center;` +
+    `font-family:system-ui,sans-serif;">` +
+    `<p style="margin:0 0 8px;font-size:0.9em;">© ${year} TexEcon. All rights reserved.</p>` +
+    `<p style="margin:0;font-size:0.85em;">` +
+    `<a href="/texas" style="color:#93c5fd;text-decoration:none;">Texas</a> · ` +
+    `<a href="/arizona" style="color:#93c5fd;text-decoration:none;">Arizona</a> · ` +
+    `<a href="/kansas" style="color:#93c5fd;text-decoration:none;">Kansas</a> · ` +
+    `<a href="/texecon/mark-hazleton" style="color:#93c5fd;text-decoration:none;">About Mark</a> · ` +
+    `<a href="/sitemap.xml" style="color:#93c5fd;text-decoration:none;">Sitemap</a>` +
+    `</p></footer>`
+  );
+}
+
+/**
+ * Build the full static body to be placed inside <div id="root"> before React loads.
+ * Crawlers read this; React replaces it when JS executes.
+ */
+function buildStaticRoot(item, hierarchy) {
+  const navHTML = generateNavHTML(hierarchy, item ? item.url : '/');
+  const footerHTML = generateFooterHTML();
+  const siteNavHTML = generateSiteNavHTML(hierarchy);
+
+  if (!item) {
+    // Home page: list all top-level sections
+    let sectionsHTML = '';
+    hierarchy.topLevel.forEach((sec) => {
+      if (sec.isHomePage) return;
+      sectionsHTML +=
+        `<article style="margin-bottom:24px;padding:16px;border:1px solid #e2e8f0;border-radius:8px;">` +
+        `<h2 style="margin:0 0 8px;"><a href="${escapeHtmlAttr(sec.url)}" ` +
+        `style="color:#1e3a5f;text-decoration:none;">${escapeHtml(sec.title)}</a></h2>` +
+        `<p style="margin:0;color:#4b5563;font-size:0.95em;">${escapeHtml(sec.description || '')}</p>`;
+      if (sec.children && sec.children.length > 0) {
+        sectionsHTML += `<ul style="margin:8px 0 0 16px;padding:0;list-style:disc;">`;
+        sec.children.forEach((child) => {
+          sectionsHTML +=
+            `<li><a href="${escapeHtmlAttr(child.url)}" ` +
+            `style="color:#1e3a5f;text-decoration:none;">${escapeHtml(child.title)}</a></li>`;
+        });
+        sectionsHTML += `</ul>`;
+      }
+      sectionsHTML += `</article>`;
+    });
+
+    return (
+      `<div id="static-content" style="font-family:system-ui,sans-serif;">` +
+      navHTML +
+      `<main style="max-width:1200px;margin:0 auto;padding:32px 24px;">` +
+      `<h1 style="color:#1e3a5f;margin:0 0 8px;">Texas Economic Analysis &amp; Insights</h1>` +
+      `<p style="color:#4b5563;margin:0 0 32px;">Expert insights on Texas economy trends, ` +
+      `data analysis, and economic forecasting.</p>` +
+      sectionsHTML +
+      `</main>` +
+      siteNavHTML +
+      footerHTML +
+      `</div>`
+    );
+  }
+
+  const breadcrumbHTML = generateBreadcrumbHTML(item, hierarchy.byId);
+
+  return (
+    `<div id="static-content" style="font-family:system-ui,sans-serif;">` +
+    navHTML +
+    breadcrumbHTML +
+    `<main style="max-width:1200px;margin:0 auto;padding:32px 24px;">` +
+    (item.content || `<h1>${escapeHtml(item.title)}</h1>`) +
+    `</main>` +
+    siteNavHTML +
+    footerHTML +
+    `</div>`
+  );
+}
+
+/**
+ * Inject the static root content into the base template's <div id="root">.
+ */
+function injectStaticRoot(baseTemplate, item, hierarchy) {
+  const staticRoot = buildStaticRoot(item, hierarchy);
+  return baseTemplate.replace(
+    '<div id="root"></div>',
+    `<div id="root">${staticRoot}</div>`
+  );
+}
+
+/**
  * Generate static HTML pages for dynamic routes using exact API URLs
  * This creates actual HTML files that search engines can crawl using the 
  * exact URL structure from the API data
@@ -24,37 +252,45 @@ async function generateStaticPages() {
     
     const rawData = JSON.parse(fs.readFileSync(contentPath, 'utf8'));
     const content = rawData.data;
-    const baseTemplate = fs.readFileSync(
-      path.join(__dirname, '..', 'target', 'index.html'), 
-      'utf8'
-    );
-    
+    const baseTemplatePath = path.join(__dirname, '..', 'target', 'index.html');
+    const baseTemplate = fs.readFileSync(baseTemplatePath, 'utf8');
+
+    if (!content.menu || !Array.isArray(content.menu)) {
+      console.error('❌ No menu data found in content file.');
+      return;
+    }
+
+    const hierarchy = buildMenuHierarchy(content.menu);
     let totalGenerated = 0;
-    
+
+    // Update the home page (target/index.html) with static nav + site map
+    const homeHtml = injectStaticRoot(baseTemplate, null, hierarchy);
+    fs.writeFileSync(baseTemplatePath, homeHtml);
+    console.log('✅ Updated home page: /index.html');
+    totalGenerated++;
+
     // Generate pages for all menu items that have URLs
-    if (content.menu && Array.isArray(content.menu)) {
-      for (const item of content.menu) {
-        if (!item.url || item.url === '/' || item.isHomePage) {
-          continue; // Skip home page and items without URLs
-        }
-        
-        const pageHtml = generatePageHTML(baseTemplate, item);
-        // Use the exact URL from API, removing leading slash for directory path
-        const urlPath = item.url.startsWith('/') ? item.url.slice(1) : item.url;
-        const pageDir = path.join(__dirname, '..', 'target', urlPath);
-        
-        if (!fs.existsSync(pageDir)) {
-          fs.mkdirSync(pageDir, { recursive: true });
-        }
-        
-        fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml);
-        console.log(`✅ Generated: ${item.url}/index.html`);
-        totalGenerated++;
+    for (const item of content.menu) {
+      if (!item.url || item.url === '/' || item.isHomePage) {
+        continue; // Skip home page and items without URLs
       }
+
+      const pageHtml = generatePageHTML(injectStaticRoot(baseTemplate, hierarchy.byId[item.id] || item, hierarchy), item);
+      // Use the exact URL from API, removing leading slash for directory path
+      const urlPath = item.url.startsWith('/') ? item.url.slice(1) : item.url;
+      const pageDir = path.join(__dirname, '..', 'target', urlPath);
+      
+      if (!fs.existsSync(pageDir)) {
+        fs.mkdirSync(pageDir, { recursive: true });
+      }
+      
+      fs.writeFileSync(path.join(pageDir, 'index.html'), pageHtml);
+      console.log(`✅ Generated: ${item.url}/index.html`);
+      totalGenerated++;
     }
     
     console.log(`🎉 Static page generation complete! Generated ${totalGenerated} pages total.`);
-    console.log('ℹ️  Using exact API URL structure for all pages.');
+    console.log('ℹ️  All pages now contain real <a href> links and pre-rendered content for crawlers.');
     
   } catch (error) {
     console.error('❌ Error generating static pages:', error);
@@ -281,6 +517,13 @@ function escapeHtmlAttr(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
     .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function escapeHtml(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
