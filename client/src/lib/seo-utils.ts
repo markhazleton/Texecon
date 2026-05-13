@@ -50,7 +50,8 @@ export function generateCanonicalUrlForPath(
   // Ensure baseUrl doesn't end with slash and path starts with slash
   const cleanBaseUrl = baseUrl.replace(/\/$/, "");
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  const trailedPath = cleanPath === "/" ? cleanPath : (cleanPath.endsWith("/") ? cleanPath : `${cleanPath}/`);
+  const trailedPath =
+    cleanPath === "/" ? cleanPath : cleanPath.endsWith("/") ? cleanPath : `${cleanPath}/`;
   return `${cleanBaseUrl}${trailedPath}`;
 }
 
