@@ -248,11 +248,20 @@ export default function Footer() {
             analysis and cutting-edge technology.
           </p>
           <p className="text-muted-foreground text-sm mt-2">
-            <a href="https://texecon.com" className="hover:text-primary transition-colors">Texecon.com</a>
+            <a href="https://texecon.com" className="hover:text-primary transition-colors">
+              Texecon.com
+            </a>
             {" — built by "}
-            <a href="https://markhazleton.com" className="hover:text-primary transition-colors">Mark Hazleton</a>
+            <a href="https://markhazleton.com" className="hover:text-primary transition-colors">
+              Mark Hazleton
+            </a>
             {" · "}
-            <a href="https://makeboldsolutions.com" className="hover:text-primary transition-colors">Make Bold Solutions</a>
+            <a
+              href="https://makeboldsolutions.com"
+              className="hover:text-primary transition-colors"
+            >
+              Make Bold Solutions
+            </a>
           </p>
         </div>
       </div>
