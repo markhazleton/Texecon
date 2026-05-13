@@ -9,20 +9,26 @@ export interface SitemapEntry {
   priority: string;
 }
 
+// Ensure a path has a trailing slash (except root)
+function withTrailingSlash(url: string): string {
+  if (!url || url === "/") return "/";
+  return url.endsWith("/") ? url : `${url}/`;
+}
+
 // Generate SEO-friendly URL path for a menu item
 export function generateSEOPath(item: MenuItem): string {
   // Use the URL directly from the data if available (already optimized)
   if (item.url && item.url !== "/") {
-    return item.url;
+    return withTrailingSlash(item.url);
   }
 
   // Fallback to generating from argument if no URL
   if (item.argument) {
-    return `/${item.argument}`;
+    return withTrailingSlash(`/${item.argument}`);
   }
 
   // Final fallback to page ID
-  return `/page/${item.id}`;
+  return `/page/${item.id}/`;
 }
 
 // Generate canonical URL for a menu item
@@ -44,7 +50,8 @@ export function generateCanonicalUrlForPath(
   // Ensure baseUrl doesn't end with slash and path starts with slash
   const cleanBaseUrl = baseUrl.replace(/\/$/, "");
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  return `${cleanBaseUrl}${cleanPath}`;
+  const trailedPath = cleanPath === "/" ? cleanPath : (cleanPath.endsWith("/") ? cleanPath : `${cleanPath}/`);
+  return `${cleanBaseUrl}${trailedPath}`;
 }
 
 // Generate dynamic sitemap entries from menu items

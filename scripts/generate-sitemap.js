@@ -21,9 +21,11 @@ function loadContentData() {
   }
 }
 
-// Use the exact URL from the API data
+// Use the exact URL from the API data, ensuring trailing slash for GitHub Pages
 function generateSEOPath(item) {
-  return item.url || '/';
+  const url = item.url || '/';
+  if (url === '/') return '/';
+  return url.endsWith('/') ? url : `${url}/`;
 }
 
 function getBaseUrl() {

@@ -6,6 +6,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
+ * Ensure a URL path has a trailing slash (except root).
+ */
+function withTrailingSlash(url) {
+  if (!url || url === '/') return '/';
+  return url.endsWith('/') ? url : `${url}/`;
+}
+
+/**
  * Build a menu hierarchy (mirrors menu-utils.ts buildMenuHierarchy).
  * Returns { topLevel, byId, byParent }.
  */
@@ -57,7 +65,7 @@ function generateNavHTML(hierarchy, currentUrl) {
     const color = isActive ? '#60a5fa' : '#e2e8f0';
     const suffix = item.children && item.children.length > 0 ? ' ▾' : '';
     nav +=
-      `<a href="${escapeHtmlAttr(item.url)}" style="color:${color};text-decoration:none;` +
+      `<a href="${escapeHtmlAttr(withTrailingSlash(item.url))}" style="color:${color};text-decoration:none;` +
       `font-size:0.95em;" aria-current="${isActive ? 'page' : 'false'}">${escapeHtml(item.title)}${suffix}</a>`;
   });
 
@@ -95,10 +103,10 @@ function generateBreadcrumbHTML(item, byId) {
     if (isLast) {
       html +=
         `<span itemprop="name" aria-current="page" style="color:#374151;">${escapeHtml(bc.title)}</span>` +
-        `<meta itemprop="item" content="https://texecon.com${escapeHtmlAttr(bc.url)}"/>`;
+        `<meta itemprop="item" content="https://texecon.com${escapeHtmlAttr(withTrailingSlash(bc.url))}"/>`;
     } else {
       html +=
-        `<a href="${escapeHtmlAttr(bc.url)}" itemprop="item" style="color:#1e3a5f;text-decoration:none;">` +
+        `<a href="${escapeHtmlAttr(withTrailingSlash(bc.url))}" itemprop="item" style="color:#1e3a5f;text-decoration:none;">` +
         `<span itemprop="name">${escapeHtml(bc.title)}</span></a>`;
     }
     html += `<meta itemprop="position" content="${i + 2}"/></li>`;
@@ -122,7 +130,7 @@ function generateSiteNavHTML(hierarchy) {
       if (item.isHomePage) return;
       html +=
         `<li style="margin-bottom:2px;">` +
-        `<a href="${escapeHtmlAttr(item.url)}" ` +
+        `<a href="${escapeHtmlAttr(withTrailingSlash(item.url))}" ` +
         `style="color:#1e3a5f;text-decoration:none;font-size:0.9em;">${escapeHtml(item.title)}</a>`;
       if (item.children && item.children.length > 0) {
         html += renderItems(item.children, depth + 1);
@@ -152,10 +160,10 @@ function generateFooterHTML() {
     `font-family:system-ui,sans-serif;">` +
     `<p style="margin:0 0 8px;font-size:0.9em;">© ${year} TexEcon. All rights reserved.</p>` +
     `<p style="margin:0;font-size:0.85em;">` +
-    `<a href="/texas" style="color:#93c5fd;text-decoration:none;">Texas</a> · ` +
-    `<a href="/arizona" style="color:#93c5fd;text-decoration:none;">Arizona</a> · ` +
-    `<a href="/kansas" style="color:#93c5fd;text-decoration:none;">Kansas</a> · ` +
-    `<a href="/texecon/mark-hazleton" style="color:#93c5fd;text-decoration:none;">About Mark</a> · ` +
+    `<a href="/texas/" style="color:#93c5fd;text-decoration:none;">Texas</a> · ` +
+    `<a href="/arizona/" style="color:#93c5fd;text-decoration:none;">Arizona</a> · ` +
+    `<a href="/kansas/" style="color:#93c5fd;text-decoration:none;">Kansas</a> · ` +
+    `<a href="/texecon/mark-hazleton/" style="color:#93c5fd;text-decoration:none;">About Mark</a> · ` +
     `<a href="/sitemap.xml" style="color:#93c5fd;text-decoration:none;">Sitemap</a>` +
     `</p></footer>`
   );
@@ -305,7 +313,7 @@ function generatePageHTML(baseTemplate, item) {
   const contentText = stripHtml(item.content || "");
   const title = `${item.title || item.argument} - Economic Analysis | TexEcon`;
   const description = buildMetaDescription(item, contentText);
-  const canonicalUrl = `https://texecon.com${item.url}`;
+  const canonicalUrl = `https://texecon.com${withTrailingSlash(item.url)}`;
   
   // Generate content-specific keywords
   const keywords = generateContentKeywords(item, contentText);
@@ -549,7 +557,7 @@ function generateBreadcrumbData(item, canonicalUrl) {
   ];
 
   segments.forEach((segment, index) => {
-    const url = `https://texecon.com/${segments.slice(0, index + 1).join("/")}`;
+    const url = `https://texecon.com/${segments.slice(0, index + 1).join("/")}/`;
     itemListElement.push({
       "@type": "ListItem",
       position: index + 2,
