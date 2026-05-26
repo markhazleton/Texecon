@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "releaseDate": "2026-05-26",
+  "release": {
+    "from": "project-inception",
+    "to": "2026-05-26"
+  },
+  "commitRange": {
+    "baseRef": null,
+    "baseSha": "",
+    "headRef": "HEAD",
+    "headSha": "c87c1285b490c15c6a77b5c612d90cd28d6c9b6a",
+    "rangeSpec": "initial..HEAD"
+  },
+  "previousVersion": null,
+  "features": {
+    "completed": 0,
+    "deferred": 0
+  },
+  "quickfixes": 0,
+  "pullRequests": {
+    "merged": 12,
+    "numbers": [13, 16, 29, 31, 46, 47, 48, 49, 53, 54, 55, 60],
+    "filesChanged": 0,
+    "testsAdded": 0,
+    "breakingChanges": 0,
+    "resolvedHighFindings": 0
+  },
+  "adrs": 3,
+  "commits": 107,
+  "contributors": 2,
+  "specs": [],
+  "timestamp": "2026-05-26T23:08:08Z"
+}
