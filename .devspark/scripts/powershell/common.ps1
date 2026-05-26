@@ -577,5 +577,3 @@ function Get-FeaturePathsAppAware {
         CONTRACTS_DIR  = Join-Path $featureDir 'contracts'
     }
 }
-
-
