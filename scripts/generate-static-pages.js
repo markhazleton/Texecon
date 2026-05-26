@@ -185,14 +185,14 @@ function buildStaticRoot(item, hierarchy) {
       if (sec.isHomePage) return;
       sectionsHTML +=
         `<article style="margin-bottom:24px;padding:16px;border:1px solid #e2e8f0;border-radius:8px;">` +
-        `<h2 style="margin:0 0 8px;"><a href="${escapeHtmlAttr(sec.url)}" ` +
+        `<h2 style="margin:0 0 8px;"><a href="${escapeHtmlAttr(withTrailingSlash(sec.url))}" ` +
         `style="color:#1e3a5f;text-decoration:none;">${escapeHtml(sec.title)}</a></h2>` +
         `<p style="margin:0;color:#4b5563;font-size:0.95em;">${escapeHtml(sec.description || '')}</p>`;
       if (sec.children && sec.children.length > 0) {
         sectionsHTML += `<ul style="margin:8px 0 0 16px;padding:0;list-style:disc;">`;
         sec.children.forEach((child) => {
           sectionsHTML +=
-            `<li><a href="${escapeHtmlAttr(child.url)}" ` +
+            `<li><a href="${escapeHtmlAttr(withTrailingSlash(child.url))}" ` +
             `style="color:#1e3a5f;text-decoration:none;">${escapeHtml(child.title)}</a></li>`;
         });
         sectionsHTML += `</ul>`;
