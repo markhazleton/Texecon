@@ -285,3 +285,4 @@ if ($Json) {
     Write-Output "HAS_GIT: $hasGit"
     Write-Output "DEVSPARK_FEATURE environment variable set to: $branchName"
 }
+
