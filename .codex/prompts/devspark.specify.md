@@ -1,3 +1,7 @@
+---
+description: DevSpark specify command shim.
+---
+
 ## Prompt Resolution
 
 Determine the current git user by running git config user.name.
