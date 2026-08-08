@@ -104,6 +104,24 @@ const socialLinks = [
   },
 ];
 
+declare const __BUILD_TIME__: string;
+
+function formatBuildDate(buildTime: string) {
+  const parsed = new Date(buildTime);
+  if (Number.isNaN(parsed.getTime())) {
+    return buildTime;
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZoneName: "short",
+  }).format(parsed);
+}
+
 // Type guard functions
 function isSectionLink(
   link: FooterLink
@@ -126,6 +144,9 @@ function isExternalLink(
 export default function Footer() {
   const base = (import.meta.env.BASE_URL as string) || "/";
   const currentYear = new Date().getFullYear();
+  const buildTime =
+    (typeof __BUILD_TIME__ !== "undefined" && __BUILD_TIME__) || new Date().toISOString();
+  const buildDate = formatBuildDate(buildTime);
   const scrollToSection = useScrollToSection();
   const footerLinks = getFooterLinks();
 
@@ -247,6 +268,7 @@ export default function Footer() {
             © 2006-{currentYear} TexEcon.com. All rights reserved. Powered by expert economic
             analysis and cutting-edge technology.
           </p>
+          <p className="text-muted-foreground text-sm mt-2">Build date: {buildDate}</p>
           <p className="text-muted-foreground text-sm mt-2">
             <a href="https://texecon.com" className="hover:text-primary transition-colors">
               Texecon.com

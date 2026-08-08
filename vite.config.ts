@@ -21,7 +21,7 @@ function getBuildId(): string {
 }
 
 // Vite plugin to append ?v=BUILD_ID to static links in index.html and emit version.json
-function cacheBusterPlugin(buildId: string): Plugin {
+function cacheBusterPlugin(buildId: string, buildTime: string): Plugin {
   const versionParam = `v=${buildId}`;
   const targetFiles = [
     "favicon.ico",
@@ -55,7 +55,7 @@ function cacheBusterPlugin(buildId: string): Plugin {
     generateBundle() {
       const payload = {
         buildId,
-        buildTime: new Date().toISOString(),
+        buildTime,
       };
       this.emitFile({
         type: "asset",
@@ -69,15 +69,17 @@ function cacheBusterPlugin(buildId: string): Plugin {
 export default defineConfig({
   plugins: (() => {
     const buildId = process.env.BUILD_ID || getBuildId();
+    const buildTime = new Date().toISOString();
     return [
       react(),
       tailwindcss(),
-      cacheBusterPlugin(buildId),
+      cacheBusterPlugin(buildId, buildTime),
       {
         name: "inject-build-id-define",
         config: () => ({
           define: {
             __BUILD_ID__: JSON.stringify(buildId),
+            __BUILD_TIME__: JSON.stringify(buildTime),
           },
         }),
       },

@@ -153,12 +153,43 @@ function generateSiteNavHTML(hierarchy) {
 /**
  * Render a minimal but complete footer HTML.
  */
+function readBuildTime() {
+  const versionPath = path.join(__dirname, '..', 'target', 'version.json');
+  try {
+    const version = JSON.parse(fs.readFileSync(versionPath, 'utf-8'));
+    if (typeof version.buildTime === 'string' && version.buildTime.trim()) {
+      return version.buildTime;
+    }
+  } catch {
+    // Fall back to generation time when version.json has not been emitted yet.
+  }
+  return new Date().toISOString();
+}
+
+function formatBuildDate(buildTime) {
+  const parsed = new Date(buildTime);
+  if (Number.isNaN(parsed.getTime())) {
+    return buildTime;
+  }
+
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    timeZoneName: 'short',
+  }).format(parsed);
+}
+
 function generateFooterHTML() {
   const year = new Date().getFullYear();
+  const buildDate = formatBuildDate(readBuildTime());
   return (
     `<footer style="background:#1e3a5f;color:#e2e8f0;padding:28px 24px;text-align:center;` +
     `font-family:system-ui,sans-serif;">` +
-    `<p style="margin:0 0 8px;font-size:0.9em;">© ${year} TexEcon. All rights reserved.</p>` +
+    `<p style="margin:0 0 8px;font-size:0.9em;">© 2006-${year} TexEcon.com. All rights reserved.</p>` +
+    `<p style="margin:0 0 8px;font-size:0.85em;">Build date: ${escapeHtml(buildDate)}</p>` +
     `<p style="margin:0;font-size:0.85em;">` +
     `<a href="/texas/" style="color:#93c5fd;text-decoration:none;">Texas</a> · ` +
     `<a href="/arizona/" style="color:#93c5fd;text-decoration:none;">Arizona</a> · ` +
