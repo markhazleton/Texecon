@@ -173,10 +173,7 @@ export default function ErrorMonitor() {
                     <Badge
                       variant={
                         getSeverityColor(error.severity) as
-                          | "default"
-                          | "destructive"
-                          | "outline"
-                          | "secondary"
+                          "default" | "destructive" | "outline" | "secondary"
                       }
                       className="text-xs"
                     >
