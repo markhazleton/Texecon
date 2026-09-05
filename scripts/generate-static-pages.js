@@ -4,6 +4,17 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const configuredBasePath = process.env.VITE_BASE_PATH || process.env.BASE_PATH || '/';
+const basePath = configuredBasePath === '/'
+  ? '/'
+  : `/${configuredBasePath.replace(/^\/+|\/+$/g, '')}/`;
+
+function withBasePath(url) {
+  if (!url || url === '/') return basePath;
+  if (/^(?:[a-z]+:)?\/\//i.test(url) || url.startsWith('#')) return url;
+  const relativeUrl = url.replace(/^\/+/, '');
+  return basePath === '/' ? `/${relativeUrl}` : `${basePath}${relativeUrl}`;
+}
 
 /**
  * Ensure a URL path has a trailing slash (except root).
@@ -56,7 +67,7 @@ function generateNavHTML(hierarchy, currentUrl) {
   let nav =
     `<nav style="background:#1e3a5f;padding:12px 24px;display:flex;` +
     `align-items:center;gap:20px;flex-wrap:wrap;font-family:system-ui,sans-serif;">` +
-    `<a href="/" style="color:#fff;font-weight:700;font-size:1.15em;text-decoration:none;` +
+    `<a href="${escapeHtmlAttr(withBasePath('/'))}" style="color:#fff;font-weight:700;font-size:1.15em;text-decoration:none;` +
     `margin-right:8px;">TexEcon</a>`;
 
   hierarchy.topLevel.forEach((item) => {
@@ -65,7 +76,7 @@ function generateNavHTML(hierarchy, currentUrl) {
     const color = isActive ? '#60a5fa' : '#e2e8f0';
     const suffix = item.children && item.children.length > 0 ? ' ▾' : '';
     nav +=
-      `<a href="${escapeHtmlAttr(withTrailingSlash(item.url))}" style="color:${color};text-decoration:none;` +
+      `<a href="${escapeHtmlAttr(withBasePath(withTrailingSlash(item.url)))}" style="color:${color};text-decoration:none;` +
       `font-size:0.95em;" aria-current="${isActive ? 'page' : 'false'}">${escapeHtml(item.title)}${suffix}</a>`;
   });
 
@@ -91,7 +102,7 @@ function generateBreadcrumbHTML(item, byId) {
     `<ol style="list-style:none;display:flex;flex-wrap:wrap;gap:4px;margin:0;` +
     `padding:0;font-size:0.875em;" itemscope itemtype="https://schema.org/BreadcrumbList">` +
     `<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">` +
-    `<a href="/" itemprop="item" style="color:#1e3a5f;text-decoration:none;">` +
+    `<a href="${escapeHtmlAttr(withBasePath('/'))}" itemprop="item" style="color:#1e3a5f;text-decoration:none;">` +
     `<span itemprop="name">Home</span></a>` +
     `<meta itemprop="position" content="1"/></li>`;
 
@@ -106,7 +117,7 @@ function generateBreadcrumbHTML(item, byId) {
         `<meta itemprop="item" content="https://texecon.com${escapeHtmlAttr(withTrailingSlash(bc.url))}"/>`;
     } else {
       html +=
-        `<a href="${escapeHtmlAttr(withTrailingSlash(bc.url))}" itemprop="item" style="color:#1e3a5f;text-decoration:none;">` +
+        `<a href="${escapeHtmlAttr(withBasePath(withTrailingSlash(bc.url)))}" itemprop="item" style="color:#1e3a5f;text-decoration:none;">` +
         `<span itemprop="name">${escapeHtml(bc.title)}</span></a>`;
     }
     html += `<meta itemprop="position" content="${i + 2}"/></li>`;
@@ -130,7 +141,7 @@ function generateSiteNavHTML(hierarchy) {
       if (item.isHomePage) return;
       html +=
         `<li style="margin-bottom:2px;">` +
-        `<a href="${escapeHtmlAttr(withTrailingSlash(item.url))}" ` +
+        `<a href="${escapeHtmlAttr(withBasePath(withTrailingSlash(item.url)))}" ` +
         `style="color:#1e3a5f;text-decoration:none;font-size:0.9em;">${escapeHtml(item.title)}</a>`;
       if (item.children && item.children.length > 0) {
         html += renderItems(item.children, depth + 1);
@@ -191,11 +202,11 @@ function generateFooterHTML() {
     `<p style="margin:0 0 8px;font-size:0.9em;">© 2006-${year} TexEcon.com. All rights reserved.</p>` +
     `<p style="margin:0 0 8px;font-size:0.85em;">Build date: ${escapeHtml(buildDate)}</p>` +
     `<p style="margin:0;font-size:0.85em;">` +
-    `<a href="/texas/" style="color:#93c5fd;text-decoration:none;">Texas</a> · ` +
-    `<a href="/arizona/" style="color:#93c5fd;text-decoration:none;">Arizona</a> · ` +
-    `<a href="/kansas/" style="color:#93c5fd;text-decoration:none;">Kansas</a> · ` +
-    `<a href="/texecon/mark-hazleton/" style="color:#93c5fd;text-decoration:none;">About Mark</a> · ` +
-    `<a href="/sitemap.xml" style="color:#93c5fd;text-decoration:none;">Sitemap</a>` +
+    `<a href="${escapeHtmlAttr(withBasePath('/texas/'))}" style="color:#93c5fd;text-decoration:none;">Texas</a> · ` +
+    `<a href="${escapeHtmlAttr(withBasePath('/arizona/'))}" style="color:#93c5fd;text-decoration:none;">Arizona</a> · ` +
+    `<a href="${escapeHtmlAttr(withBasePath('/kansas/'))}" style="color:#93c5fd;text-decoration:none;">Kansas</a> · ` +
+    `<a href="${escapeHtmlAttr(withBasePath('/texecon/mark-hazleton/'))}" style="color:#93c5fd;text-decoration:none;">About Mark</a> · ` +
+    `<a href="${escapeHtmlAttr(withBasePath('/sitemap.xml'))}" style="color:#93c5fd;text-decoration:none;">Sitemap</a>` +
     `</p></footer>`
   );
 }
@@ -210,20 +221,20 @@ function buildStaticRoot(item, hierarchy) {
   const siteNavHTML = generateSiteNavHTML(hierarchy);
 
   if (!item) {
-    // Home page: list all top-level sections
+    // Home page: memorial tribute followed by the preserved TexEcon archive
     let sectionsHTML = '';
     hierarchy.topLevel.forEach((sec) => {
       if (sec.isHomePage) return;
       sectionsHTML +=
         `<article style="margin-bottom:24px;padding:16px;border:1px solid #e2e8f0;border-radius:8px;">` +
-        `<h2 style="margin:0 0 8px;"><a href="${escapeHtmlAttr(withTrailingSlash(sec.url))}" ` +
+        `<h2 style="margin:0 0 8px;"><a href="${escapeHtmlAttr(withBasePath(withTrailingSlash(sec.url)))}" ` +
         `style="color:#1e3a5f;text-decoration:none;">${escapeHtml(sec.title)}</a></h2>` +
         `<p style="margin:0;color:#4b5563;font-size:0.95em;">${escapeHtml(sec.description || '')}</p>`;
       if (sec.children && sec.children.length > 0) {
         sectionsHTML += `<ul style="margin:8px 0 0 16px;padding:0;list-style:disc;">`;
         sec.children.forEach((child) => {
           sectionsHTML +=
-            `<li><a href="${escapeHtmlAttr(withTrailingSlash(child.url))}" ` +
+            `<li><a href="${escapeHtmlAttr(withBasePath(withTrailingSlash(child.url)))}" ` +
             `style="color:#1e3a5f;text-decoration:none;">${escapeHtml(child.title)}</a></li>`;
         });
         sectionsHTML += `</ul>`;
@@ -235,10 +246,20 @@ function buildStaticRoot(item, hierarchy) {
       `<div id="static-content" style="font-family:system-ui,sans-serif;">` +
       navHTML +
       `<main style="max-width:1200px;margin:0 auto;padding:32px 24px;">` +
-      `<h1 style="color:#1e3a5f;margin:0 0 8px;">Texas Economic Analysis &amp; Insights</h1>` +
-      `<p style="color:#4b5563;margin:0 0 32px;">Expert insights on Texas economy trends, ` +
-      `data analysis, and economic forecasting.</p>` +
+      `<section aria-labelledby="memorial-title" style="max-width:860px;margin:0 auto 48px;text-align:center;">` +
+      `<p style="color:#6f8579;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;">In Loving Memory</p>` +
+      `<h1 id="memorial-title" style="color:#0d2b54;margin:12px 0 8px;font-family:Georgia,serif;">Dr. Jared Earl Hazleton</h1>` +
+      `<p style="font-family:Georgia,serif;font-style:italic;color:#374151;">September 12, 1937 &mdash; September 3, 2026</p>` +
+      `<img src="${escapeHtmlAttr(withBasePath('/jared-hazleton.png'))}" alt="Dr. Jared Earl Hazleton" width="420" height="525" ` +
+      `style="display:block;width:min(100%,420px);height:auto;margin:28px auto;box-shadow:0 20px 40px rgba(13,43,84,.18);" />` +
+      `<p style="color:#4b5563;line-height:1.7;font-size:1.05rem;">American economist, educator, public servant, and principal of TexEcon. ` +
+      `This memorial honors a life devoted to scholarship, service, and the people and institutions he helped shape.</p>` +
+      `</section>` +
+      `<section aria-labelledby="archive-title">` +
+      `<h2 id="archive-title" style="color:#1e3a5f;margin:0 0 8px;">Explore the TexEcon archive</h2>` +
+      `<p style="color:#4b5563;margin:0 0 32px;">Jared Hazleton’s economic analysis, regional research, and published work remain available below.</p>` +
       sectionsHTML +
+      `</section>` +
       `</main>` +
       siteNavHTML +
       footerHTML +
@@ -426,7 +447,16 @@ function generatePageHTML(baseTemplate, item) {
     html = addStructuredData(html, structuredData);
   }
 
-  html = updateMetaTags(html, title, description, canonicalUrl, keywords, ogType);
+  html = updateMetaTags(
+    html,
+    title,
+    description,
+    canonicalUrl,
+    keywords,
+    ogType,
+    "https://texecon.com/assets/texecon-og-image.jpg",
+    `${item.title || item.argument} | TexEcon`
+  );
   html = addStructuredData(html, breadcrumbData);
   
   return html;
@@ -510,11 +540,22 @@ function extractIndustryKeywords(content = '') {
 /**
  * Update meta tags in HTML template with enhanced SEO optimization
  */
-function updateMetaTags(html, title, description, canonicalUrl, keywords = null, ogType = "article") {
+function updateMetaTags(
+  html,
+  title,
+  description,
+  canonicalUrl,
+  keywords = null,
+  ogType = "article",
+  image = "https://texecon.com/assets/texecon-og-image.jpg",
+  imageAlt = "TexEcon economic analysis"
+) {
   const safeTitle = escapeHtmlAttr(title);
   const safeDescription = escapeHtmlAttr(description);
   const safeCanonicalUrl = escapeHtmlAttr(canonicalUrl);
   const safeKeywords = keywords ? escapeHtmlAttr(keywords) : null;
+  const safeImage = escapeHtmlAttr(image);
+  const safeImageAlt = escapeHtmlAttr(imageAlt);
 
   // Update basic meta tags
   let updatedHtml = html
@@ -524,7 +565,9 @@ function updateMetaTags(html, title, description, canonicalUrl, keywords = null,
     .replace(/<meta\s+property="og:title"\s+content="[^"]*"/, `<meta property="og:title" content="${safeTitle}"`)
     .replace(/<meta\s+property="og:description"\s+content="[^"]*"/, `<meta property="og:description" content="${safeDescription}"`)
     .replace(/<meta\s+property="og:url"\s+content="[^"]*"/, `<meta property="og:url" content="${safeCanonicalUrl}"`)
-    .replace(/<meta\s+property="og:type"\s+content="[^"]*"/, `<meta property="og:type" content="${ogType}"`);
+    .replace(/<meta\s+property="og:type"\s+content="[^"]*"/, `<meta property="og:type" content="${ogType}"`)
+    .replace(/<meta\s+property="og:image"\s+content="[^"]*"/, `<meta property="og:image" content="${safeImage}"`)
+    .replace(/<meta\s+property="og:image:alt"\s+content="[^"]*"/, `<meta property="og:image:alt" content="${safeImageAlt}"`);
   
   // Update keywords if provided
   if (safeKeywords) {
@@ -537,7 +580,9 @@ function updateMetaTags(html, title, description, canonicalUrl, keywords = null,
   // Update Twitter Card meta tags to match page content
   updatedHtml = updatedHtml
     .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"/, `<meta name="twitter:title" content="${safeTitle}"`)
-    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"/, `<meta name="twitter:description" content="${safeDescription}"`);
+    .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"/, `<meta name="twitter:description" content="${safeDescription}"`)
+    .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"/, `<meta name="twitter:image" content="${safeImage}"`)
+    .replace(/<meta\s+name="twitter:image:alt"\s+content="[^"]*"/, `<meta name="twitter:image:alt" content="${safeImageAlt}"`);
   
   return updatedHtml;
 }

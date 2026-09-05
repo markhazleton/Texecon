@@ -8,6 +8,7 @@ import { useAnalytics } from "@/hooks/useAnalytics";
 import { trackException } from "@/lib/analytics";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
+import MemorialHome from "@/memorial/MemorialHome";
 
 function Router() {
   // Track page views with Google Analytics
@@ -15,7 +16,7 @@ function Router() {
 
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/" component={MemorialHome} />
       {/* Dynamic routes for menu items */}
       <Route path="/page/:pageId" component={Home} />
       <Route path="/content/:contentSlug" component={Home} />

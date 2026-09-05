@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+
+.memorial-page {
+  --background: hsl(48, 25%, 96%);
+  --foreground: hsl(220, 25%, 15%);
+  --card: hsl(48, 30%, 99%);
+  --card-foreground: hsl(220, 25%, 15%);
+  --primary: hsl(217, 68%, 16%);
+  --primary-foreground: hsl(48, 30%, 99%);
+  --secondary: hsl(40, 48%, 54%);
+  --secondary-foreground: hsl(48, 30%, 99%);
+  --muted: hsl(153, 14%, 45%);
+  --muted-foreground: hsl(217, 30%, 31%);
+  --accent: hsl(40, 30%, 90%);
+  --accent-foreground: hsl(217, 68%, 16%);
+  --border: hsl(48, 20%, 88%);
+  --input: hsl(48, 20%, 90%);
+  --ring: hsl(40, 48%, 54%);
+  --color-background: hsl(48, 25%, 96%);
+  --color-foreground: hsl(220, 25%, 15%);
+  --color-card: hsl(48, 30%, 99%);
+  --color-card-foreground: hsl(220, 25%, 15%);
+  --color-primary: hsl(217, 68%, 16%);
+  --color-primary-foreground: hsl(48, 30%, 99%);
+  --color-secondary: hsl(40, 65%, 32%);
+  --color-secondary-foreground: hsl(48, 30%, 99%);
+  --color-muted: hsl(153, 20%, 34%);
+  --color-muted-foreground: hsl(217, 30%, 31%);
+  --color-accent: hsl(40, 30%, 90%);
+  --color-accent-foreground: hsl(217, 68%, 16%);
+  --color-border: hsl(48, 20%, 82%);
+  --color-input: hsl(48, 20%, 90%);
+  --color-ring: hsl(40, 65%, 32%);
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "Lora", Georgia, serif;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.memorial-page footer .text-secondary {
+  color: hsl(40, 70%, 72%);
+}
+
+.memorial-page .memorial-fade-in {
+  animation: memorial-fade-in 0.8s cubic-bezier(0.21, 0.47, 0.32, 0.98) both;
+  animation-delay: var(--memorial-delay, 0s);
+}
+
+@keyframes memorial-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.memorial-page h1,
+.memorial-page h2,
+.memorial-page h3,
+.memorial-page h4,
+.memorial-page h5,
+.memorial-page h6 {
+  font-family: var(--font-serif);
+}
+
+.memorial-page .texture-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 639px) {
+  .memorial-page .texture-overlay {
+    opacity: 0.22;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memorial-page {
+    scroll-behavior: auto;
+  }
+
+  .memorial-page .memorial-fade-in {
+    animation: none;
+  }
+}
