@@ -1,4 +1,4 @@
-version: 2.6.0
-installed: 2026-06-21
-method: copilot-quickstart
-migrated-from: fresh
+version: 4.2.0
+installed: 2026-09-05
+method: codex-quickstart
+migrated-from: documentation-defaults

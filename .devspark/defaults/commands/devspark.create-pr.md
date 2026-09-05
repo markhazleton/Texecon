@@ -4,6 +4,9 @@ handoffs:
   - label: Review Pull Request
     agent: devspark.pr-review
     prompt: Review the pull request for constitution compliance
+scripts:
+  sh: .devspark/scripts/bash/create-pr.sh --mode preflight --json $ARGUMENTS
+  ps: .devspark/scripts/powershell/create-pr.ps1 -Mode Preflight -Json $ARGUMENTS
 ---
 
 ## User Input
@@ -14,11 +17,23 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## DevSpark v4 Override
+
+This command makes v4 evidence and linkage visible in the PR. When any later
+section conflicts with this section, the v4 section wins.
+
+- Summarize current-truth validation status.
+- Summarize task linkage status: populated `code_ref`, `test_ref`,
+  `knowledge_ref`, and `governance_ref` where applicable.
+- Summarize evidence quality: execution evidence, inspection evidence, and any
+  missing fallback-reason warnings.
+- Do not create or update durable lifecycle-history files.
+
 ## Routing Contract
 
 If a spec exists for the active branch, read the YAML frontmatter in `spec.md` before drafting the PR. Treat `classification`, `risk_level`, and `required_gates` as authoritative metadata.
 
-If no spec exists but a quickfix record exists for the current branch under `/.documentation/quickfixes/`, use that quickfix record as the lifecycle source of truth.
+If no spec exists but a quickfix record exists for the current branch under `/.devspark.work/quickfixes/`, use that quickfix record as the lifecycle source of truth.
 
 If the spec body and frontmatter disagree, surface the inconsistency to the user rather than overriding the metadata.
 
@@ -28,15 +43,19 @@ If the spec body and frontmatter disagree, surface the inconsistency to the user
 
 This command is advisory. Dirty trees, missing specs, incomplete tasks, unresolved gates, and explicit gate acknowledgements are warnings that the agent must explain, not hard blocks. The user decides whether to proceed, adjust the draft, or stop.
 
+## Definition of Done
+
+Done when: the user has explicitly confirmed (step 4) and the PR has been created or updated (step 5), with the step-6 result report printed. Do not call the create/update script before that confirmation, and do not keep re-drafting once the user has approved — act on their decision.
+
 ## Outline
 
-**Multi-app support**: If this repository uses multi-app mode (`.documentation/devspark.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.documentation/` instead of the repository root `.documentation/`. Print the resolved scope (app name, doc root) at the start of output.
+**Multi-app support**: If this repository uses multi-app mode (`.knowledge/entities/application-registry/registry.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.knowledge/` instead of the repository root `.knowledge/`. Print the resolved scope (app name, doc root) at the start of output.
 
 ### 1. Run Preflight Context
 
-> **Script Resolution**: Before running `.devspark/scripts/powershell/create-pr.ps1 -Mode Preflight -Json $ARGUMENTS`, apply the 2-tier override check — if `.documentation/scripts/powershell/<filename>` (PowerShell) or `.documentation/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.documentation/scripts/` always take priority over `.devspark/scripts/`.
+> **Script Resolution**: Before running `{SCRIPT}`, apply the 2-tier override check — if `.knowledge/overrides/scripts/powershell/<filename>` (PowerShell) or `.knowledge/overrides/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.knowledge/overrides/scripts/` always take priority over `.devspark/scripts/`.
 
-Run `.devspark/scripts/powershell/create-pr.ps1 -Mode Preflight -Json $ARGUMENTS` once from the repository root and parse the returned JSON.
+Run `{SCRIPT}` once from the repository root and parse the returned JSON.
 
 Use the script output as the source of truth for:
 
@@ -97,6 +116,8 @@ Ask explicitly whether to:
 - stop without changing anything
 
 Do **not** call the create/update script mode until the user confirms.
+
+**Autonomy override**: if `--auto` (or a standing autonomy instruction) is in effect, skip the wait — create or update the PR as `--draft` (regardless of whether `--draft` was otherwise requested) and proceed without waiting for a reply. Opening a PR is visible to others but a draft is reversible, so this is the one auto-bypass in this command that defaults to the more conservative flag rather than the literal request. Report the action taken (and that it was auto-selected) in the step-6 result.
 
 ### 5. Create or Update the PR
 

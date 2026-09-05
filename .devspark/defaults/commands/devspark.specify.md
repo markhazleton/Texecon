@@ -8,6 +8,9 @@ handoffs:
     agent: devspark.clarify
     prompt: Clarify specification requirements
     send: true
+scripts:
+  sh: .devspark/scripts/bash/create-new-feature.sh --json "{ARGS}"
+  ps: .devspark/scripts/powershell/create-new-feature.ps1 -Json "{ARGS}"
 ---
 
 ## User Input
@@ -18,6 +21,20 @@ $ARGUMENTS
 
 You **MUST** consider the user input before proceeding (if not empty).
 
+## DevSpark v4 Override
+
+This command creates an ephemeral work package, not a durable record. When any
+later section conflicts with this section, the v4 section wins.
+
+- Write planning artifacts under the v4 work-package root.
+- Treat the package as temporary scaffolding that will be moved to
+  `.archive/YYYY-MM-DD/<topic>/` only when `/devspark.release` validates the
+  completed package. Specify, implement, verify, and review never archive it.
+- Do not write package IDs, task IDs, or planning paths into permanent code,
+  `.knowledge`, or governance files.
+- Load governance from `.knowledge/governance/constitution.md`, with legacy
+  fallback only when the v4 file is absent.
+
 ## Workflow Position
 
 **Step 1 of 4** in the authoring chain: `specify (WHAT) → clarify (resolve ambiguity) → plan (HOW) → tasks (ordered actions)`.
@@ -26,9 +43,13 @@ You **MUST** consider the user input before proceeding (if not empty).
 - **Does NOT own**: resolving more than 3 `[NEEDS CLARIFICATION]` markers (→ `/devspark.clarify`); tech stack/architecture (→ `/devspark.plan`); ordered executable tasks (→ `/devspark.tasks`); adversarial review (→ `/devspark.critic`, `/devspark.analyze`).
 - Leave 1–3 prioritized `[NEEDS CLARIFICATION: …]` markers when ambiguity is material — they seed the queue for `/devspark.clarify`.
 
+## Definition of Done
+
+Done when: the route is confirmed by the user, SPEC_FILE is written with `Status: Draft` and the route-metadata frontmatter, the requirements checklist passes (or remaining gaps are documented after 3 repair iterations), and any `[NEEDS CLARIFICATION]` markers are either resolved or capped at 3. Stop once the spec is written and reported — don't keep iterating on wording after the checklist passes.
+
 ## Constitution Authority
 
-If `/.documentation/memory/constitution.md` exists, load it before drafting. The spec MUST align with mandated principles (privacy, accessibility, observability, testing, etc.). If a principle conflicts with what the user asked for, surface it under `## Open Questions` or `## Constitution Conflicts` — do not silently dilute the principle. Changing a principle is an explicit constitution update, not a spec workaround.
+If `/.knowledge/governance/constitution.md` exists, load it before drafting. The spec MUST align with mandated principles (privacy, accessibility, observability, testing, etc.). If a principle conflicts with what the user asked for, surface it under `## Open Questions` or `## Constitution Conflicts` — do not silently dilute the principle. Changing a principle is an explicit constitution update, not a spec workaround.
 
 ## Routing Contract
 
@@ -55,9 +76,9 @@ This workflow MUST also validate the document against the shared specification v
 
 ## Outline
 
-The text the user typed after `/devspark.specify` in the triggering message **is** the feature description. Assume you always have it available in this conversation even if `$ARGUMENTS` appears literally below. Do not ask the user to repeat it unless they provided an empty command.
+The text the user typed after `/devspark.specify` in the triggering message **is** the feature description. Assume you always have it available in this conversation even if `{ARGS}` appears literally below. Do not ask the user to repeat it unless they provided an empty command.
 
-**Multi-app support**: If this repository uses multi-app mode (`.documentation/devspark.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.documentation/` instead of the repository root `.documentation/`. Print the resolved scope (app name, doc root) at the start of output.
+**Multi-app support**: If this repository uses multi-app mode (`.knowledge/entities/application-registry/registry.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.knowledge/` instead of the repository root `.knowledge/`. Print the resolved scope (app name, doc root) at the start of output.
 
 Given that feature description, do this:
 
@@ -65,9 +86,9 @@ Given that feature description, do this:
    - Evaluate scope, risk, expected effort, and impact area
    - Recommend one route: `one-off-fix`, `quick-spec`, or `full-spec`
    - Present the recommendation and reasoning to the user
-   - Ask the user to confirm or override the route before creating artifacts
-   - If the confirmed route is `one-off-fix`, stop and instruct the user to run `/devspark.quickfix` unless they explicitly want to continue here
-   - If `/.documentation/memory/constitution.md` exists, load it so the generated spec can reference mandatory principles and constraints
+   - Ask the user to confirm or override the route before creating artifacts. **Autonomy override**: if `--auto` (or a standing autonomy instruction) is in effect, skip the ask and proceed with the recommended route, noting that it was auto-confirmed.
+   - If the confirmed (or auto-confirmed) route is `one-off-fix`, stop and instruct the user to run `/devspark.quickfix` unless they explicitly want to continue here — `--auto` does not override this redirect, since quickfix vs. full-spec is a workflow choice, not a gate.
+   - If `/.knowledge/governance/constitution.md` exists, load it so the generated spec can reference mandatory principles and constraints
 
 1. **Generate a concise short name** (2-4 words) for the branch:
    - Analyze the feature description and extract the most meaningful keywords
@@ -92,19 +113,19 @@ Given that feature description, do this:
    b. Find the highest feature number across all sources for the short-name:
    - Remote branches: `git ls-remote --heads origin | grep -E 'refs/heads/[0-9]+-<short-name>$'`
    - Local branches: `git branch | grep -E '^[* ]*[0-9]+-<short-name>$'`
-   - Specs directories: Check for directories matching `.documentation/specs/[0-9]+-<short-name>`
+   - Specs directories: Check for directories matching `.devspark.work/specs/[0-9]+-<short-name>`
 
    c. Determine the next available number:
    - Extract all numbers from all three sources
    - Find the highest number N
    - Use N+1 for the new branch number
 
-   > **Script Resolution**: Before running `.devspark/scripts/powershell/create-new-feature.ps1 -Json "$ARGUMENTS"`, apply the 2-tier override check — if `.documentation/scripts/powershell/<filename>` (PowerShell) or `.documentation/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.documentation/scripts/` always take priority over `.devspark/scripts/`.
+   > **Script Resolution**: Before running `{SCRIPT}`, apply the 2-tier override check — if `.knowledge/overrides/scripts/powershell/<filename>` (PowerShell) or `.knowledge/overrides/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.knowledge/overrides/scripts/` always take priority over `.devspark/scripts/`.
 
-   d. Run the script `.devspark/scripts/powershell/create-new-feature.ps1 -Json "$ARGUMENTS"` with the calculated number and short-name:
+   d. Run the script `{SCRIPT}` with the calculated number and short-name:
    - Pass `--number N+1` and `--short-name "your-short-name"` along with the feature description
-   - Bash example: `.devspark/scripts/powershell/create-new-feature.ps1 -Json "$ARGUMENTS" --json --number 5 --short-name "user-auth" "Add user authentication"`
-   - PowerShell example: `.devspark/scripts/powershell/create-new-feature.ps1 -Json "$ARGUMENTS" -Json -Number 5 -ShortName "user-auth" "Add user authentication"`
+   - Bash example: `{SCRIPT} --json --number 5 --short-name "user-auth" "Add user authentication"`
+   - PowerShell example: `{SCRIPT} -Json -Number 5 -ShortName "user-auth" "Add user authentication"`
 
    **IMPORTANT**:
    - Check all three sources (remote branches, local branches, specs directories) to find the highest number
@@ -128,7 +149,7 @@ Given that feature description, do this:
    Pass the following named adapter inputs to the skill:
 
    - `$FEATURE_DESCRIPTION` — the user's feature description text
-   - `$CONSTITUTION_PATH` — the resolved path to `.documentation/memory/constitution.md`
+   - `$CONSTITUTION_PATH` — the resolved path to `.knowledge/governance/constitution.md`
      (null when not found)
    - `$PRIOR_SPEC_SUMMARY` — the JSON output from the skill's context-gathering script
      (null when unavailable)
@@ -206,6 +227,9 @@ Given that feature description, do this:
        4. If still failing after 3 iterations, document remaining issues in checklist notes and warn user
 
    - **If [NEEDS CLARIFICATION] markers remain**:
+
+     **Autonomy override**: if `--auto` (or a standing autonomy instruction) is in effect, skip steps 3-7 below entirely. For each marker, pick the most defensible answer (industry default, or the first suggested option you would have offered), replace the marker with it, and add one line per resolved marker to a `## Assumptions (auto-resolved)` section: the question, the chosen answer, and why. Warn once in the final report that auto-resolved assumptions increase downstream rework risk and should be reviewed before `/devspark.plan` if any are high-stakes (security, data model, or scope boundary). Then go to step 8.
+
      1. Extract all [NEEDS CLARIFICATION: ...] markers from the spec
      2. **LIMIT CHECK**: If more than 3 markers exist, keep only the 3 most critical (by scope/security/UX impact) and make informed guesses for the rest
      3. For each clarification needed (max 3), present options to user in this format:

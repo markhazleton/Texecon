@@ -44,7 +44,7 @@ fi
 # Load constitution summary
 CONSTITUTION_FOUND=false
 for CONST_PATH in \
-    "$REPO_ROOT/.documentation/memory/constitution.md" \
+    "$REPO_ROOT/.knowledge/memory/constitution.md" \
     "$REPO_ROOT/constitution.md"; do
     if [ -f "$CONST_PATH" ]; then
         # Extract first meaningful paragraph — first 10 non-empty, non-heading lines
@@ -83,7 +83,7 @@ if [ "$CONSTITUTION_FOUND" = false ]; then
 fi
 
 # Gather prior specs
-SPECS_DIR="$REPO_ROOT/.documentation/specs"
+SPECS_DIR="$REPO_ROOT/.knowledge/specs"
 if [ -d "$SPECS_DIR" ]; then
     SPECS_JSON=""
     while IFS= read -r -d '' spec_file; do

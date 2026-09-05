@@ -1,6 +1,6 @@
 # migrate-to-documentation.ps1
 # Migrates DevSpark projects from old structure (.specify/, memory/, scripts/, templates/)
-# to new .documentation/ structure
+# to new .knowledge/ structure
 #
 # Usage:
 #   .\migrate-to-documentation.ps1           # Interactive migration
@@ -125,7 +125,7 @@ if ($DryRun) {
     Write-ColorOutput "DRY RUN MODE - No files will be modified" "Cyan"
     Write-ColorOutput "============================================" "Blue"
 } else {
-    Write-ColorOutput "DevSpark Migration to .documentation/" "Blue"
+    Write-ColorOutput "DevSpark Migration to .knowledge/" "Blue"
     Write-ColorOutput "============================================" "Blue"
 }
 Write-Host ""
@@ -159,9 +159,9 @@ if ($inGitRepo) {
     Print-Warning "Not a git repository - cannot preserve history"
 }
 
-# Check if .documentation already exists
-if (Test-Path ".documentation") {
-    Print-Warning ".documentation/ already exists - will merge with existing content"
+# Check if .knowledge already exists
+if (Test-Path ".knowledge") {
+    Print-Warning ".knowledge/ already exists - will merge with existing content"
 }
 
 Write-Host ""
@@ -178,25 +178,25 @@ if (Test-Path ".specify") {
     $oldStructuresFound = $true
 }
 
-if ((Test-Path "memory") -and -not (Test-Path ".documentation\memory")) {
+if ((Test-Path "memory") -and -not (Test-Path ".knowledge\memory")) {
     Print-Status "Found memory/ directory"
     $structuresToMigrate += "memory"
     $oldStructuresFound = $true
 }
 
-if ((Test-Path "scripts") -and -not (Test-Path ".documentation\scripts")) {
+if ((Test-Path "scripts") -and -not (Test-Path ".knowledge\scripts")) {
     Print-Status "Found scripts/ directory"
     $structuresToMigrate += "scripts"
     $oldStructuresFound = $true
 }
 
-if ((Test-Path "templates") -and -not (Test-Path ".documentation\templates")) {
+if ((Test-Path "templates") -and -not (Test-Path ".knowledge\templates")) {
     Print-Status "Found templates/ directory"
     $structuresToMigrate += "templates"
     $oldStructuresFound = $true
 }
 
-if ((Test-Path "specs") -and -not (Test-Path ".documentation\specs")) {
+if ((Test-Path "specs") -and -not (Test-Path ".knowledge\specs")) {
     Print-Status "Found specs/ directory"
     $structuresToMigrate += "specs"
     $oldStructuresFound = $true
@@ -215,14 +215,14 @@ Write-ColorOutput "Migration Plan:" "Blue"
 Write-Host ""
 Write-Host "The following actions will be performed:"
 Write-Host ""
-Write-Host "  1. Create .documentation/ directory structure"
+Write-Host "  1. Create .knowledge/ directory structure"
 Write-Host "  2. Copy files from old locations to new locations:"
 foreach ($struct in $structuresToMigrate) {
-    Write-Host "     - $struct/ → .documentation/"
+    Write-Host "     - $struct/ → .knowledge/"
 }
 Write-Host "  3. Update path references in files:"
 Write-Host "     - Agent command files (.claude/, .github/, etc.)"
-Write-Host "     - Script files (.documentation/scripts/)"
+Write-Host "     - Script files (.knowledge/scripts/)"
 Write-Host "     - Documentation files (README.md, etc.)"
 Write-Host "  4. Rename old directories with .old suffix:"
 foreach ($struct in $structuresToMigrate) {
@@ -230,7 +230,7 @@ foreach ($struct in $structuresToMigrate) {
 }
 Write-Host "  5. Update .gitignore if needed"
 Write-Host ""
-Write-ColorOutput "Your specs/ directory will be moved to .documentation/specs/" "Green"
+Write-ColorOutput "Your specs/ directory will be moved to .knowledge/specs/" "Green"
 Write-Host ""
 
 if (-not $DryRun) {
@@ -240,27 +240,27 @@ if (-not $DryRun) {
 }
 
 Write-Host ""
-Write-ColorOutput "Step 1: Creating .documentation/ structure" "Blue"
+Write-ColorOutput "Step 1: Creating .knowledge/ structure" "Blue"
 
 # Create directory structure
 if ($DryRun) {
-    Print-DryRun "Would create .documentation\memory\"
-    Print-DryRun "Would create .documentation\scripts\bash\"
-    Print-DryRun "Would create .documentation\scripts\powershell\"
-    Print-DryRun "Would create .documentation\templates\"
+    Print-DryRun "Would create .knowledge\memory\"
+    Print-DryRun "Would create .knowledge\scripts\bash\"
+    Print-DryRun "Would create .knowledge\scripts\powershell\"
+    Print-DryRun "Would create .knowledge\templates\"
 } else {
-    New-Item -ItemType Directory -Path ".documentation\memory" -Force | Out-Null
-    Print-Status "Created .documentation\memory\"
+    New-Item -ItemType Directory -Path ".knowledge\memory" -Force | Out-Null
+    Print-Status "Created .knowledge\memory\"
 
-    New-Item -ItemType Directory -Path ".documentation\scripts\bash" -Force | Out-Null
-    New-Item -ItemType Directory -Path ".documentation\scripts\powershell" -Force | Out-Null
-    Print-Status "Created .documentation\scripts\"
+    New-Item -ItemType Directory -Path ".knowledge\scripts\bash" -Force | Out-Null
+    New-Item -ItemType Directory -Path ".knowledge\scripts\powershell" -Force | Out-Null
+    Print-Status "Created .knowledge\scripts\"
 
-    New-Item -ItemType Directory -Path ".documentation\templates" -Force | Out-Null
-    Print-Status "Created .documentation\templates\"
+    New-Item -ItemType Directory -Path ".knowledge\templates" -Force | Out-Null
+    Print-Status "Created .knowledge\templates\"
 
-    New-Item -ItemType Directory -Path ".documentation\specs" -Force | Out-Null
-    Print-Status "Created .documentation\specs\"
+    New-Item -ItemType Directory -Path ".knowledge\specs" -Force | Out-Null
+    Print-Status "Created .knowledge\specs\"
 }
 
 Write-Host ""
@@ -306,16 +306,16 @@ function Copy-Directory {
 # Copy .specify/ if exists
 if (Test-Path ".specify") {
     if ($DryRun) {
-        if (Test-Path ".specify\memory") { Print-DryRun "Would copy .specify\memory\ to .documentation\memory\" }
-        if (Test-Path ".specify\scripts") { Print-DryRun "Would copy .specify\scripts\ to .documentation\scripts\" }
-        if (Test-Path ".specify\templates") { Print-DryRun "Would copy .specify\templates\ to .documentation\templates\" }
-        Print-DryRun "Would copy .specify\ root files to .documentation\"
+        if (Test-Path ".specify\memory") { Print-DryRun "Would copy .specify\memory\ to .knowledge\memory\" }
+        if (Test-Path ".specify\scripts") { Print-DryRun "Would copy .specify\scripts\ to .knowledge\scripts\" }
+        if (Test-Path ".specify\templates") { Print-DryRun "Would copy .specify\templates\ to .knowledge\templates\" }
+        Print-DryRun "Would copy .specify\ root files to .knowledge\"
         Print-DryRun "Would rename .specify to .specify.old"
     } else {
         # .specify might contain memory, scripts, templates subdirectories
         if (Test-Path ".specify\memory") {
             Get-ChildItem ".specify\memory" -Recurse | ForEach-Object {
-                $target = $_.FullName.Replace(".specify\memory", ".documentation\memory")
+                $target = $_.FullName.Replace(".specify\memory", ".knowledge\memory")
                 if ($_.PSIsContainer -eq $false) {
                     $targetDir = Split-Path $target -Parent
                     if (-not (Test-Path $targetDir)) {
@@ -324,12 +324,12 @@ if (Test-Path ".specify") {
                     Copy-Item $_.FullName -Destination $target -Force
                 }
             }
-            Print-Status "Copied .specify\memory\ to .documentation\memory\"
+            Print-Status "Copied .specify\memory\ to .knowledge\memory\"
         }
 
         if (Test-Path ".specify\scripts") {
             Get-ChildItem ".specify\scripts" -Recurse | ForEach-Object {
-                $target = $_.FullName.Replace(".specify\scripts", ".documentation\scripts")
+                $target = $_.FullName.Replace(".specify\scripts", ".knowledge\scripts")
                 if ($_.PSIsContainer -eq $false) {
                     $targetDir = Split-Path $target -Parent
                     if (-not (Test-Path $targetDir)) {
@@ -338,12 +338,12 @@ if (Test-Path ".specify") {
                     Copy-Item $_.FullName -Destination $target -Force
                 }
             }
-            Print-Status "Copied .specify\scripts\ to .documentation\scripts\"
+            Print-Status "Copied .specify\scripts\ to .knowledge\scripts\"
         }
 
         if (Test-Path ".specify\templates") {
             Get-ChildItem ".specify\templates" -Recurse | ForEach-Object {
-                $target = $_.FullName.Replace(".specify\templates", ".documentation\templates")
+                $target = $_.FullName.Replace(".specify\templates", ".knowledge\templates")
                 if ($_.PSIsContainer -eq $false) {
                     $targetDir = Split-Path $target -Parent
                     if (-not (Test-Path $targetDir)) {
@@ -352,12 +352,12 @@ if (Test-Path ".specify") {
                     Copy-Item $_.FullName -Destination $target -Force
                 }
             }
-            Print-Status "Copied .specify\templates\ to .documentation\templates\"
+            Print-Status "Copied .specify\templates\ to .knowledge\templates\"
         }
 
         if (Test-Path ".specify\specs") {
             Get-ChildItem ".specify\specs" -Recurse | ForEach-Object {
-                $target = $_.FullName.Replace(".specify\specs", ".documentation\specs")
+                $target = $_.FullName.Replace(".specify\specs", ".knowledge\specs")
                 if ($_.PSIsContainer -eq $false) {
                     $targetDir = Split-Path $target -Parent
                     if (-not (Test-Path $targetDir)) {
@@ -366,14 +366,14 @@ if (Test-Path ".specify") {
                     Copy-Item $_.FullName -Destination $target -Force
                 }
             }
-            Print-Status "Copied .specify\specs\ to .documentation\specs\"
+            Print-Status "Copied .specify\specs\ to .knowledge\specs\"
         }
 
         # Copy any other files in .specify root
         Get-ChildItem ".specify" -File | ForEach-Object {
-            Copy-Item $_.FullName -Destination ".documentation\" -Force
+            Copy-Item $_.FullName -Destination ".knowledge\" -Force
         }
-        Print-Status "Copied .specify\ root files to .documentation\"
+        Print-Status "Copied .specify\ root files to .knowledge\"
 
         Rename-Item -Path ".specify" -NewName ".specify.old" -Force
         $script:DirsMovedCount++
@@ -382,10 +382,10 @@ if (Test-Path ".specify") {
 }
 
 # Copy top-level directories
-Copy-Directory "memory" ".documentation\memory" "memory\"
-Copy-Directory "scripts" ".documentation\scripts" "scripts\"
-Copy-Directory "templates" ".documentation\templates" "templates\"
-Copy-Directory "specs" ".documentation\specs" "specs\"
+Copy-Directory "memory" ".knowledge\memory" "memory\"
+Copy-Directory "scripts" ".knowledge\scripts" "scripts\"
+Copy-Directory "templates" ".knowledge\templates" "templates\"
+Copy-Directory "specs" ".knowledge\specs" "specs\"
 
 Write-Host ""
 Write-ColorOutput "Step 3: Updating path references in files" "Blue"
@@ -407,11 +407,11 @@ function Update-FileReferences {
     $originalContent = $content
 
     # Update references using regex
-    $content = $content -replace '(/?)\.specify/', '$1.documentation/'
-    $content = $content -replace '(^|\s|`)/memory/', '$1/.documentation/memory/'
-    $content = $content -replace '(^|\s|`)/scripts/', '$1/.documentation/scripts/'
-    $content = $content -replace '(^|\s|`)/templates/', '$1/.documentation/templates/'
-    $content = $content -replace 'memory/constitution\.md', '.documentation/memory/constitution.md'
+    $content = $content -replace '(/?)\.specify/', '$1.knowledge/'
+    $content = $content -replace '(^|\s|`)/memory/', '$1/.knowledge/memory/'
+    $content = $content -replace '(^|\s|`)/scripts/', '$1/.knowledge/scripts/'
+    $content = $content -replace '(^|\s|`)/templates/', '$1/.knowledge/templates/'
+    $content = $content -replace 'memory/constitution\.md', '.knowledge/memory/constitution.md'
 
     # Check if changed
     if ($content -ne $originalContent) {
@@ -439,8 +439,8 @@ foreach ($dir in $agentDirs) {
 }
 
 # Update script files
-if (Test-Path ".documentation\scripts") {
-    Get-ChildItem -Path ".documentation\scripts" -Recurse -Include "*.sh", "*.ps1" -ErrorAction SilentlyContinue | ForEach-Object {
+if (Test-Path ".knowledge\scripts") {
+    Get-ChildItem -Path ".knowledge\scripts" -Recurse -Include "*.sh", "*.ps1" -ErrorAction SilentlyContinue | ForEach-Object {
         Update-FileReferences $_.FullName
     }
 }
@@ -457,9 +457,9 @@ foreach ($file in $docsToUpdate) {
     }
 }
 
-# Update all markdown files in .documentation
-if (Test-Path ".documentation") {
-    Get-ChildItem -Path ".documentation" -Filter "*.md" -ErrorAction SilentlyContinue | ForEach-Object {
+# Update all markdown files in .knowledge
+if (Test-Path ".knowledge") {
+    Get-ChildItem -Path ".knowledge" -Filter "*.md" -ErrorAction SilentlyContinue | ForEach-Object {
         Update-FileReferences $_.FullName
     }
 }
@@ -467,15 +467,15 @@ if (Test-Path ".documentation") {
 Write-Host ""
 Write-ColorOutput "Step 4: Updating .gitignore" "Blue"
 
-# Add .documentation build output to .gitignore if needed
+# Add .knowledge build output to .gitignore if needed
 if (Test-Path ".gitignore") {
     $gitignoreContent = Get-Content ".gitignore" -Raw
-    if ($gitignoreContent -notmatch ".documentation/_site") {
+    if ($gitignoreContent -notmatch ".knowledge/_site") {
         if ($DryRun) {
-            Print-DryRun "Would add .documentation/_site/ to .gitignore"
+            Print-DryRun "Would add .knowledge/_site/ to .gitignore"
         } else {
-            Add-Content -Path ".gitignore" -Value "`n# DevSpark documentation build output`n.documentation/_site/"
-            Print-Status "Added .documentation/_site/ to .gitignore"
+            Add-Content -Path ".gitignore" -Value "`n# DevSpark documentation build output`n.knowledge/_site/"
+            Print-Status "Added .knowledge/_site/ to .gitignore"
         }
     } else {
         Print-Status ".gitignore already configured"
@@ -518,12 +518,12 @@ if ($DryRun) {
     Write-ColorOutput "git diff" "Yellow"
     Write-Host "  2. Test slash commands in your AI assistant"
     Write-Host "  3. Test scripts: " -NoNewline
-    Write-ColorOutput ".\.documentation\scripts\powershell\setup-plan.ps1" "Yellow"
+    Write-ColorOutput ".\.knowledge\scripts\powershell\setup-plan.ps1" "Yellow"
     Write-Host "  4. Verify constitution loads: " -NoNewline
-    Write-ColorOutput "Get-Content .documentation\memory\constitution.md" "Yellow"
+    Write-ColorOutput "Get-Content .knowledge\memory\constitution.md" "Yellow"
     Write-Host "  5. If everything works, commit:"
     Write-ColorOutput "     git add -A" "Yellow"
-    Write-ColorOutput "     git commit -m 'chore: migrate to .documentation/ structure'" "Yellow"
+    Write-ColorOutput "     git commit -m 'chore: migrate to .knowledge/ structure'" "Yellow"
     Write-Host "  6. After verifying and committing, delete old backups:"
     Write-ColorOutput "     .\migrate-to-documentation.ps1 -Cleanup" "Yellow"
     Write-Host ""
@@ -539,5 +539,5 @@ if ($script:WarningsCount -gt 0) {
 if (-not $DryRun) {
     Print-Status "Migration script completed successfully"
     Write-Host ""
-    Write-ColorOutput "Need help? See .documentation\upgrade.md" "Cyan"
+    Write-ColorOutput "Need help? See .knowledge\upgrade.md" "Cyan"
 }

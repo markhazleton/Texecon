@@ -19,7 +19,7 @@ Terminology used by these templates:
 DevSpark ownership is strictly two-tier:
 
 - `.devspark/` is framework-managed stock content
-- `.documentation/` is repository-owned work product and overrides
+- `.knowledge/` is repository-owned work product and overrides
 
 The collection includes 27 active commands plus 1 deprecated compatibility alias.
 

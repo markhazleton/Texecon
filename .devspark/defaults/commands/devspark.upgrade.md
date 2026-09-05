@@ -24,9 +24,9 @@ You **MUST** consider the user input before proceeding (if not empty). Supported
 This command checks whether the consumer project's installed DevSpark matches the
 latest available version and guides you through a safe upgrade. It:
 
-1. Reads `.devspark/VERSION` to find the installed version (fallback: legacy `.documentation/DEVSPARK_VERSION`)
+1. Reads `.devspark/VERSION` to find the installed version (fallback: legacy `.knowledge/DEVSPARK_VERSION`)
 2. Detects the latest version from `CHANGELOG.md` or `pyproject.toml`
-3. Classifies files under `.documentation/` as framework-owned vs. user-owned
+3. Classifies files under `.knowledge/` as framework-owned vs. user-owned
 4. Identifies stale or missing framework files
 5. Runs `devspark upgrade` (or `devspark init --here --force`) to apply updates
 6. Verifies the stamp file was updated after the upgrade
@@ -39,7 +39,7 @@ Use this command in one of two ways:
 
 - Run this prompt directly from your AI agent using:
   `https://raw.githubusercontent.com/markhazleton/devspark/main/templates/commands/upgrade.md`
-- The agent performs the upgrade by refreshing stock files in `.devspark/` and preserving `.documentation/`.
+- The agent performs the upgrade by refreshing stock files in `.devspark/` and preserving `.knowledge/`.
 
 1. **Advanced (optional) — CLI-assisted execution**
 
@@ -77,7 +77,7 @@ agent: <agent-key>
 
 **If the file is missing:**
 
-- Check legacy `.documentation/DEVSPARK_VERSION`
+- Check legacy `.knowledge/DEVSPARK_VERSION`
 - If both are missing, report: `VERSION stamp not found — version unknown`
 - Proceed to Step 2 to determine what version is actually present
 
@@ -89,7 +89,7 @@ agent: <agent-key>
 
 ### 2. Detect Latest Available Version
 
-Read `CHANGELOG.md` at the repo root (or `.documentation/CHANGELOG.md`):
+Read `CHANGELOG.md` at the repo root (or `.knowledge/CHANGELOG.md`):
 
 - Find the most recent `## [X.Y.Z]` heading
 - That is `LATEST_VERSION`
@@ -114,7 +114,7 @@ Status    : UPGRADE AVAILABLE
 
 If up to date, skip to Step 6 (Verify Files).
 
-### 4. Classify Files Under `.documentation/`
+### 4. Classify Files Under `.knowledge/`
 
 Separate framework-owned files (overwritten on upgrade) from user-owned files (never
 touched). Use this classification:
@@ -125,14 +125,14 @@ DevSpark uses a **3-tier override system** for command prompts. When an AI agent
 runs a `/devspark.*` command, it resolves the prompt in this order (first match wins):
 
 ```text
-1. .documentation/{git-user}/commands/   ← Per-user overrides (via /devspark.personalize)
-2. .documentation/commands/              ← Team customizations (yours to edit freely)
+1. .knowledge/{git-user}/commands/   ← Per-user overrides (via /devspark.personalize)
+2. .knowledge/commands/              ← Team customizations (yours to edit freely)
 3. .devspark/defaults/commands/     ← Stock DevSpark prompts (upgrade overwrites ONLY this)
 ```
 
-**Key principle: upgrades NEVER touch `.documentation/commands/`.** They only write
+**Key principle: upgrades NEVER touch `.knowledge/commands/`.** They only write
 to `.devspark/defaults/commands/`. Your team's customizations in
-`.documentation/commands/` always take priority and are never lost.
+`.knowledge/commands/` always take priority and are never lost.
 
 After an upgrade, the team can compare `defaults/commands/` vs `commands/` to see
 what changed and selectively merge improvements they want.
@@ -158,16 +158,16 @@ These are written to `.devspark/` and should match the latest version:
 
 These are written by the project team and must be preserved:
 
-- `.documentation/commands/` — team-customized command prompts (the working copies)
-- `.documentation/{git-user}/commands/` — per-user personalized prompts
-- `.documentation/scripts/` — team-customized script overrides (see Script Resolution below)
-- `.documentation/specs/` — all feature specifications, plans, and tasks
-- `.documentation/memory/constitution.md` — project constitution
-- `.documentation/devspark.json` — platform configuration (github/azdo/gitlab)
-- `.documentation/copilot/` — session artifacts and audit history
-- `.documentation/decisions/` — ADRs
-- `.documentation/releases/` — release archives
-- `.documentation/quickfixes/` — active quickfixes
+- `.knowledge/commands/` — team-customized command prompts (the working copies)
+- `.knowledge/{git-user}/commands/` — per-user personalized prompts
+- `.knowledge/scripts/` — team-customized script overrides (see Script Resolution below)
+- `.knowledge/specs/` — all feature specifications, plans, and tasks
+- `.knowledge/memory/constitution.md` — project constitution
+- `.knowledge/devspark.json` — platform configuration (github/azdo/gitlab)
+- `.knowledge/copilot/` — session artifacts and audit history
+- `.knowledge/decisions/` — ADRs
+- `.knowledge/releases/` — release archives
+- `.knowledge/quickfixes/` — active quickfixes
 - `CHANGELOG.md` (repo root)
 - Any file not listed in the framework-owned category
 
@@ -177,13 +177,13 @@ Scripts use a **2-tier override system**. When a command runs a script, it resol
 the script in this order (first match wins):
 
 ```text
-1. .documentation/scripts/{bash|powershell}/   ← Team overrides (yours to edit freely)
+1. .knowledge/scripts/{bash|powershell}/   ← Team overrides (yours to edit freely)
 2. .devspark/scripts/{bash|powershell}/        ← Stock scripts (upgrade overwrites ONLY this)
 ```
 
-**Key principle: upgrades NEVER touch `.documentation/scripts/`.** They only write
+**Key principle: upgrades NEVER touch `.knowledge/scripts/`.** They only write
 to `.devspark/scripts/`. Your team's script customizations in
-`.documentation/scripts/` always take priority and are never lost.
+`.knowledge/scripts/` always take priority and are never lost.
 
 Common reasons to override a script:
 
@@ -203,7 +203,7 @@ Check for signs that the install needs updating:
 
 Report findings before proceeding.
 
-Also check for `.documentation/commands/` overrides that shadow commands with structural contract changes, especially `/devspark.specify`, `/devspark.plan`, `/devspark.tasks`, `/devspark.implement`, and `/devspark.create-pr`. Warn the user explicitly when an override may mask a stock routing, frontmatter, or lifecycle change and recommend a manual diff/merge.
+Also check for `.knowledge/commands/` overrides that shadow commands with structural contract changes, especially `/devspark.specify`, `/devspark.plan`, `/devspark.tasks`, `/devspark.implement`, and `/devspark.create-pr`. Warn the user explicitly when an override may mask a stock routing, frontmatter, or lifecycle change and recommend a manual diff/merge.
 
 ### 6. Verify Framework Files (even if up to date)
 
@@ -248,7 +248,7 @@ completely. At minimum the following must land:
 
 These directories are framework-owned and safe to overwrite completely.
 
-**Important**: Do NOT write to `.documentation/commands/` or `.documentation/scripts/`.
+**Important**: Do NOT write to `.knowledge/commands/` or `.knowledge/scripts/`.
 Those directories belong to the team. Only `.devspark/defaults/commands/` and
 `.devspark/scripts/` are updated.
 
@@ -276,7 +276,7 @@ Changed prompts (defaults/ vs commands/):
   devspark.release.md   — new prompt (not in commands/ yet)
   devspark.critic.md    — identical (no action needed)
 
-Changed scripts (.devspark/scripts/ vs .documentation/scripts/):
+Changed scripts (.devspark/scripts/ vs .knowledge/scripts/):
   get-pr-context.ps1    — 8 lines differ (team has custom override)
   platform.ps1          — new script (not in team overrides)
   common.ps1            — no team override (stock version used)
@@ -290,13 +290,13 @@ Offer to show diffs for any changed files so the team can decide what to merge.
   and let the team decide whether to merge the upstream improvements
 - If a new stock script was added, inform the team — no action needed unless
   they want to customize it
-- Never silently overwrite `.documentation/scripts/`
+- Never silently overwrite `.knowledge/scripts/`
 
 **Legacy migration collision guidance:**
 
-- If legacy `.documentation/`, root `scripts/`, root `templates/`, or root `specs/` content is migrated and an equivalent file already exists under `.documentation/`, keep the existing `.documentation/` file.
+- If legacy `.knowledge/`, root `scripts/`, root `templates/`, or root `specs/` content is migrated and an equivalent file already exists under `.knowledge/`, keep the existing `.knowledge/` file.
 - Report the skipped legacy file and preserve it in the corresponding `.old/` backup for manual review.
-- Never silently replace active `.documentation/` overrides with legacy content during upgrade.
+- Never silently replace active `.knowledge/` overrides with legacy content during upgrade.
 
 ### 8. Post-Upgrade Verification
 
@@ -304,7 +304,7 @@ After the upgrade completes:
 
 1. **Read `.devspark/VERSION` again** — confirm version updated
 2. **Verify `.devspark/defaults/commands/` has latest prompts**
-3. **Confirm `.documentation/commands/` is untouched** — team customizations preserved
+3. **Confirm `.knowledge/commands/` is untouched** — team customizations preserved
 4. **Confirm `constitution.md` is intact** (never touched by upgrades)
 
 Report a post-upgrade summary:
@@ -334,12 +334,12 @@ DevSpark Upgrade Summary
 
 Stock prompts updated in .devspark/defaults/commands/.
 Stock scripts updated in .devspark/scripts/bash/ and .devspark/scripts/powershell/ (both sets).
-Team customizations in .documentation/commands/ and .documentation/scripts/ are untouched.
+Team customizations in .knowledge/commands/ and .knowledge/scripts/ are untouched.
 
 To merge specific improvements into your team prompts:
-  Compare .devspark/defaults/commands/ vs .documentation/commands/
+  Compare .devspark/defaults/commands/ vs .knowledge/commands/
 To merge script improvements:
-  Compare .devspark/scripts/ vs .documentation/scripts/
+  Compare .devspark/scripts/ vs .knowledge/scripts/
 
 Next steps:
   1. Review changes: git diff
@@ -363,7 +363,7 @@ Dry Run — No changes made.
 
 Would upgrade: <INSTALLED_VERSION> -> <LATEST_VERSION>
 Framework files to update: <N>
-User files preserved: .documentation/specs/, constitution.md, session artifacts
+User files preserved: .knowledge/specs/, constitution.md, session artifacts
 
 To apply:
   devspark upgrade
@@ -377,15 +377,15 @@ To apply:
 
 Never modify or delete:
 
-- `.documentation/commands/` — team-customized prompts
-- `.documentation/{git-user}/commands/` — per-user personalized prompts
-- `.documentation/scripts/` — team-customized script overrides
-- `.documentation/specs/` and all contents
-- `.documentation/devspark.json` — platform configuration
+- `.knowledge/commands/` — team-customized prompts
+- `.knowledge/{git-user}/commands/` — per-user personalized prompts
+- `.knowledge/scripts/` — team-customized script overrides
+- `.knowledge/specs/` and all contents
+- `.knowledge/devspark.json` — platform configuration
 - `constitution.md`
-- `.documentation/copilot/`
-- `.documentation/decisions/`
-- `.documentation/releases/`
+- `.knowledge/copilot/`
+- `.knowledge/decisions/`
+- `.knowledge/releases/`
 - Any file the user created that is not in `.devspark/`
 
 ### Non-Destructive by Default
@@ -396,7 +396,7 @@ produce only the plan — never modify files.
 ### Version Stamp is Authoritative
 
 `.devspark/VERSION` is the primary source of truth for the installed version in a
-consumer project. Legacy `.documentation/DEVSPARK_VERSION` may appear in older
+consumer project. Legacy `.knowledge/DEVSPARK_VERSION` may appear in older
 installs and should be read only as a fallback. After any successful upgrade,
 verify `.devspark/VERSION` was updated. If the stamp is absent after an upgrade,
 warn the user and suggest re-running `devspark upgrade`.

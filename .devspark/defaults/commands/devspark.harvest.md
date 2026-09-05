@@ -19,7 +19,7 @@ You **MUST** consider the user input before proceeding (if not empty).
 
 ## Prerequisites
 
-**Run `/devspark.release` before harvest** if you are closing out a version. Release seals the version, archives completed specs to `/.documentation/releases/v{VERSION}/`, and generates the CHANGELOG entry. Harvest then picks up afterward to clean up stale docs, rewrite spec-linked code comments, and move obsolete files to `/.archive/`.
+**Run `/devspark.release` before harvest** if you are closing out a version. Release seals the version, archives completed specs to `/.knowledge/releases/v{VERSION}/`, and generates the CHANGELOG entry. Harvest then picks up afterward to clean up stale docs, rewrite spec-linked code comments, and move obsolete files to `/.archive/`.
 
 Harvest may also be run standalone (without a preceding release) for routine documentation housekeeping.
 
@@ -27,16 +27,16 @@ Harvest may also be run standalone (without a preceding release) for routine doc
 
 Harvest valuable knowledge from completed specs, stale documentation, and in-process drafts into living project documentation, then archive obsolete source material.
 
-**Scope boundary**: `/devspark.harvest` moves files to `/.archive/` only. It does **not** write to `/.documentation/releases/`, bump versions, or create ADRs — those are `/devspark.release` responsibilities.
+**Scope boundary**: `/devspark.harvest` moves files to `/.archive/` only. It does **not** write to `/.knowledge/releases/`, bump versions, or create ADRs — those are `/devspark.release` responsibilities.
 
 `/devspark.harvest` is the canonical lifecycle cleanup command. `/devspark.archive` is a deprecated compatibility alias and should be treated as an invocation of `/devspark.harvest`, not as a separate workflow.
 
 This command is a **knowledge-preserving cleanup** workflow:
 
-1. Preserve durable knowledge in living documents such as `CHANGELOG.md`, `/.documentation/Guide.md`, and `/.github/copilot-instructions.md`
+1. Preserve durable knowledge in living documents such as `CHANGELOG.md`, `/.knowledge/Guide.md`, and `/.github/copilot-instructions.md`
 2. Rewrite source code comments that reference completed specs, plans, or tasks into self-contained explanations
 3. Move stale artifacts into `/.archive/` while preserving directory structure
-4. Produce a harvest report at `/.documentation/copilot/harvest-YYYY-MM-DD.md`
+4. Produce a harvest report at `/.knowledge/copilot/harvest-YYYY-MM-DD.md`
 
 ## Scope Options
 
@@ -55,7 +55,7 @@ Multiple scopes may be combined: `--scope=specs,comments`
 
 ## Operating Constraints
 
-- Constitution authority comes from `/.documentation/memory/constitution.md`
+- Constitution authority comes from `/.knowledge/memory/constitution.md`
 - Knowledge must be harvested into living docs **before** archival
 - No direct deletion: move files to `/.archive/`
 - CHANGELOG is append-only: add new entries without rewriting older entries
@@ -64,24 +64,24 @@ Multiple scopes may be combined: `--scope=specs,comments`
 
 ## Outline
 
-**Multi-app support**: If this repository uses multi-app mode (`.documentation/devspark.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.documentation/` instead of the repository root `.documentation/`. Print the resolved scope (app name, doc root) at the start of output.
+**Multi-app support**: If this repository uses multi-app mode (`.knowledge/devspark.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.knowledge/` instead of the repository root `.knowledge/`. Print the resolved scope (app name, doc root) at the start of output.
 
 ### 1. Initialize Harvest Context
 
 > **Script Resolution**: Before running `.devspark/scripts/powershell/harvest.ps1 $ARGUMENTS -Json`, apply this ordered resolution chain and preserve all arguments:
 >
-> 1. Team override: `.documentation/scripts/powershell/<filename>` or `.documentation/scripts/bash/<filename>`
+> 1. Team override: `.knowledge/scripts/powershell/<filename>` or `.knowledge/scripts/bash/<filename>`
 > 2. Consumer default: `.devspark/scripts/powershell/<filename>` or `.devspark/scripts/bash/<filename>`
 > 3. Source-repo dogfood fallback: `scripts/powershell/<filename>` or `scripts/bash/<filename>` when `.devspark/scripts/` is absent and `templates/commands/` exists
 >
-> Team overrides in `.documentation/scripts/` always take priority.
+> Team overrides in `.knowledge/scripts/` always take priority.
 
 Run `.devspark/scripts/powershell/harvest.ps1 $ARGUMENTS -Json` and parse its JSON output.
 
 If the tool/output channel truncates or fails to persist JSON, rerun the same script with an explicit context file output:
 
-- PowerShell: `-OutFile .documentation/devspark/harvest-context.json`
-- Bash: `--out-file=.documentation/devspark/harvest-context.json`
+- PowerShell: `-OutFile .knowledge/devspark/harvest-context.json`
+- Bash: `--out-file=.knowledge/devspark/harvest-context.json`
 
 Then parse the saved JSON file instead of relying on stdout capture.
 
@@ -100,16 +100,16 @@ Expected fields include:
 - `archive_existing`
 - `summary`
 
-If the script indicates legacy root-level docs or specs paths, prefer `/.documentation/` as canonical and treat root-level paths as migration or cleanup targets unless the repository is clearly legacy-only.
+If the script indicates legacy root-level docs or specs paths, prefer `/.knowledge/` as canonical and treat root-level paths as migration or cleanup targets unless the repository is clearly legacy-only.
 
 ### 2. Load Governance And Living Docs
 
 Read these sources as needed:
 
-- `/.documentation/memory/constitution.md`
+- `/.knowledge/memory/constitution.md`
 - `CHANGELOG.md`
 - `/.github/copilot-instructions.md` if present
-- Relevant guides under `/.documentation/`
+- Relevant guides under `/.knowledge/`
 
 Use them to determine:
 
@@ -121,7 +121,7 @@ Use them to determine:
 
 #### Specs
 
-Treat spec folders under `/.documentation/specs/` as:
+Treat spec folders under `/.knowledge/specs/` as:
 
 | Status | Criteria | Action |
 |--------|----------|--------|
@@ -132,11 +132,11 @@ Treat spec folders under `/.documentation/specs/` as:
 
 **Lifecycle consistency check**: If the `**Status**:` field in spec.md disagrees with the task completion state (e.g., all tasks checked but status is `Draft`), do not archive. Update the status field to `Complete` first, then re-run. If the spec has not gone through `/devspark.release`, recommend doing so before harvesting — release creates the CHANGELOG entry and versioned archive that makes the spec eligible for `completed` status.
 
-**Archive destination**: Specs archived by harvest go to `/.archive/YYYY-MM-DD/.documentation/specs/{spec-name}/`, not to `/.documentation/releases/`. Specs already moved to `/.documentation/releases/` by a prior release run should not be re-archived by harvest.
+**Archive destination**: Specs archived by harvest go to `/.archive/YYYY-MM-DD/.knowledge/specs/{spec-name}/`, not to `/.knowledge/releases/`. Specs already moved to `/.knowledge/releases/` by a prior release run should not be re-archived by harvest.
 
 #### Documentation
 
-Classify files under `/.documentation/` using category, taxonomy, usefulness score, and disposition.
+Classify files under `/.knowledge/` using category, taxonomy, usefulness score, and disposition.
 
 ##### Taxonomy Scoring Rubric
 
@@ -241,7 +241,7 @@ If the user does not explicitly approve, stop after the plan.
 After approval only:
 
 1. Update `CHANGELOG.md` for completed work not already captured
-2. Update living guides under `/.documentation/` when completed specs introduced durable system knowledge
+2. Update living guides under `/.knowledge/` when completed specs introduced durable system knowledge
 3. Update `/.github/copilot-instructions.md` when the harvested work affects ongoing coding guidance
 
 ### 6. Clean Code Comments

@@ -24,10 +24,10 @@
     Maximum number of items per category to include in output (default: 100).
 
 .EXAMPLE
-    .\.documentation\scripts\powershell\harvest.ps1
-    .\.documentation\scripts\powershell\harvest.ps1 -Scope specs
-    .\.documentation\scripts\powershell\harvest.ps1 -Scope comments
-    .\.documentation\scripts\powershell\harvest.ps1 -Json
+    .\.knowledge\scripts\powershell\harvest.ps1
+    .\.knowledge\scripts\powershell\harvest.ps1 -Scope specs
+    .\.knowledge\scripts\powershell\harvest.ps1 -Scope comments
+    .\.knowledge\scripts\powershell\harvest.ps1 -Json
 #>
 
 param(
@@ -75,7 +75,7 @@ function Get-DocTaxon {
 
     if (
         $normalizedPath -match '^docs/' -or
-        ($normalizedPath -match '^\.documentation/' -and $Content -match $deprecatedPattern)
+        ($normalizedPath -match '^\.knowledge/' -and $Content -match $deprecatedPattern)
     ) {
         return 'STALE_REFERENCE'
     }
@@ -83,17 +83,17 @@ function Get-DocTaxon {
     switch -Regex ($normalizedPath) {
         '^CHANGELOG\.md$' { return 'HISTORICAL_RECORD' }
         '^\.github/copilot-instructions\.md$' { return 'AUTHORITATIVE_REFERENCE' }
-        '^\.documentation/memory/' { return 'AUTHORITATIVE_REFERENCE' }
-        '^\.documentation/decisions/' { return 'ENGINEERING_PATTERN' }
-        '^\.documentation/releases/' { return 'HISTORICAL_RECORD' }
-        '^\.documentation/quickfixes/' { return 'HISTORICAL_RECORD' }
-        '^\.documentation/specs/pr-review/' { return 'HISTORICAL_RECORD' }
-        '^\.documentation/copilot/audit/' { return 'HISTORICAL_RECORD' }
-        '^\.documentation/copilot/' { return 'RESEARCH_OR_CONTEXT' }
-        '^\.documentation/reference-data/' { return 'REFERENCE_DATA' }
-        '^\.documentation/templates/' { return 'ENGINEERING_PATTERN' }
-        '^\.documentation/scripts/' { return 'OPERATIONS_RUNBOOK' }
-        '^\.documentation/' { return 'AUTHORITATIVE_REFERENCE' }
+        '^\.knowledge/memory/' { return 'AUTHORITATIVE_REFERENCE' }
+        '^\.knowledge/decisions/' { return 'ENGINEERING_PATTERN' }
+        '^\.knowledge/releases/' { return 'HISTORICAL_RECORD' }
+        '^\.knowledge/quickfixes/' { return 'HISTORICAL_RECORD' }
+        '^\.knowledge/specs/pr-review/' { return 'HISTORICAL_RECORD' }
+        '^\.knowledge/copilot/audit/' { return 'HISTORICAL_RECORD' }
+        '^\.knowledge/copilot/' { return 'RESEARCH_OR_CONTEXT' }
+        '^\.knowledge/reference-data/' { return 'REFERENCE_DATA' }
+        '^\.knowledge/templates/' { return 'ENGINEERING_PATTERN' }
+        '^\.knowledge/scripts/' { return 'OPERATIONS_RUNBOOK' }
+        '^\.knowledge/' { return 'AUTHORITATIVE_REFERENCE' }
         default { return 'AUTHORITATIVE_REFERENCE' }
     }
 }
@@ -184,7 +184,7 @@ function Get-DocDisposition {
         return 'rewrite'
     }
 
-    if ($RelativePath -match '^\.documentation/copilot/harvest-\d{4}-\d{2}-\d{2}\.md$') {
+    if ($RelativePath -match '^\.knowledge/copilot/harvest-\d{4}-\d{2}-\d{2}\.md$') {
         $daysOld = ((Get-Date) - $LastModified).Days
         if ($daysOld -gt 30) {
             return 'archive'
@@ -210,7 +210,7 @@ $result = @{
     harvest_timestamp = (Get-Date -Format 'yyyy-MM-ddTHH:mm:ssZ')
     repo_root         = $repoRoot
     scope             = $Scope
-    report_path       = '.documentation/copilot/harvest-' + (Get-Date -Format 'yyyy-MM-dd') + '.md'
+    report_path       = '.knowledge/copilot/harvest-' + (Get-Date -Format 'yyyy-MM-dd') + '.md'
     specs             = @()
     docs              = @{
         all                = @()
@@ -234,7 +234,7 @@ $result = @{
     bak_files         = @()
     archive_existing  = @()
     path_roots        = @{
-        canonical_documentation = '.documentation/'
+        canonical_documentation = '.knowledge/'
         legacy_roots = @()
     }
     summary           = @{
@@ -256,7 +256,7 @@ $result = @{
 if ($Scope -in @('full', 'specs', 'scan')) {
     if (-not $Json) { Write-Host "[SPECS] Scanning spec folders..." -ForegroundColor Cyan }
 
-    $specsDir = Join-Path $repoRoot '.documentation/specs'
+    $specsDir = Join-Path $repoRoot '.knowledge/specs'
 
     # Load CHANGELOG to cross-reference
     $changelogPath = Join-Path $repoRoot 'CHANGELOG.md'
@@ -266,7 +266,7 @@ if ($Scope -in @('full', 'specs', 'scan')) {
     }
 
     # Load existing PR reviews
-    $reviewsDir = Join-Path $repoRoot '.documentation/specs/pr-review'
+    $reviewsDir = Join-Path $repoRoot '.knowledge/specs/pr-review'
     $existingReviews = @()
     if (Test-Path $reviewsDir) {
         $existingReviews = Get-ChildItem $reviewsDir -Filter '*.md' -ErrorAction SilentlyContinue |
@@ -436,7 +436,7 @@ if ($Scope -in @('full', 'specs', 'scan')) {
             }
         }
     } else {
-        if (-not $Json) { Write-Host "  No .documentation/specs/ directory found" -ForegroundColor Yellow }
+        if (-not $Json) { Write-Host "  No .knowledge/specs/ directory found" -ForegroundColor Yellow }
     }
 }
 
@@ -448,7 +448,7 @@ if ($Scope -in @('full', 'docs', 'scan', 'changelog')) {
     if (-not $Json) { Write-Host "[DOCS] Scanning documentation..." -ForegroundColor Cyan }
 
     $docRoots = @()
-    $canonicalDocDir = Join-Path $repoRoot '.documentation'
+    $canonicalDocDir = Join-Path $repoRoot '.knowledge'
     $legacyDocsDir = Join-Path $repoRoot 'docs'
 
     if (Test-Path $canonicalDocDir) {
@@ -480,20 +480,20 @@ if ($Scope -in @('full', 'docs', 'scan', 'changelog')) {
                 $result.summary.bak_files_found++
             } elseif ($docRoot.mode -eq 'legacy') {
                 $category = 'legacy_root_doc'
-            } elseif ($relativePath -match '\.documentation/specs/pr-review/') {
+            } elseif ($relativePath -match '\.knowledge/specs/pr-review/') {
                 $category = 'completed_review'
-            } elseif ($relativePath -match '\.documentation/copilot/audit/') {
+            } elseif ($relativePath -match '\.knowledge/copilot/audit/') {
                 $category = 'completed_audit'
-            } elseif ($relativePath -match '\.documentation/drafts/') {
+            } elseif ($relativePath -match '\.knowledge/drafts/') {
                 $category = 'stale_draft'
-            } elseif ($relativePath -match '\.documentation/copilot/session') {
+            } elseif ($relativePath -match '\.knowledge/copilot/session') {
                 $category = 'session_notes'
             } elseif ($relativePath -match '-implementation-plan\.md$' -or
                       ($relativePath -match '-plan\.md$' -and $relativePath -notmatch '/Guide')) {
                 $category = 'impl_plan'
-            } elseif ($relativePath -match '\.documentation/releases/') {
+            } elseif ($relativePath -match '\.knowledge/releases/') {
                 $category = 'release_doc'
-            } elseif ($relativePath -match '\.documentation/quickfixes/') {
+            } elseif ($relativePath -match '\.knowledge/quickfixes/') {
                 $category = 'quickfix_record'
             } elseif ($file.Extension -in @('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg')) {
                 # Check if referenced in any .md file

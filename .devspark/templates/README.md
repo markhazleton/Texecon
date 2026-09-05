@@ -1,0 +1,102 @@
+# DevSpark Prompt Templates
+
+This directory contains the **core deliverable** of DevSpark — prompt templates that give AI coding assistants structured commands for specification-driven development.
+
+## Commands (`commands/`)
+
+Each file in `commands/` is a slash-command prompt (e.g., `/devspark.specify`,
+`/devspark.plan`). Quickstart prompts deploy stock prompts to
+`.devspark/defaults/commands/`. AI shims then resolve prompts via the 3-tier
+order: personal override, team override, then stock default.
+
+Terminology used by these templates:
+
+- **Prompt** files are DevSpark workflow command surfaces.
+- **Agents** are AI runtime or client integrations that execute prompts.
+- **Skills** are portable capability packages prompts may delegate to.
+- **Participants** are human or AI-filled team members responsible for work,
+  review, critique, approval, or decision capture.
+- **Roles** are responsibility labels for participants, such as owner, planner,
+  implementer, reviewer, critic, or scribe.
+
+DevSpark ownership is split by lifecycle:
+
+- `.devspark/` is framework-managed stock content
+- `.knowledge/` is repository-owned current truth, governance, and overrides
+- `.devspark.work/` is ephemeral in-flight work state
+- source and tests are the current executable product behavior
+
+The current source collection includes 30 active commands.
+
+| File | Command | Purpose |
+|------|---------|---------|
+| `specify.md` | `/devspark.specify` | Define requirements and user stories |
+| `plan.md` | `/devspark.plan` | Create technical implementation plan |
+| `tasks.md` | `/devspark.tasks` | Generate actionable task list |
+| `implement.md` | `/devspark.implement` | Execute tasks to build the feature |
+| `verify.md` | `/devspark.verify` | Verify behavioral proof and reject metric-only fixes |
+| `create-pr.md` | `/devspark.create-pr` | Draft or update a pull request with workflow context |
+| `update-pr.md` | `/devspark.update-pr` | Refresh an existing pull request description from the current branch delta |
+| `constitution.md` | `/devspark.constitution` | Establish project principles |
+| `pr-review.md` | `/devspark.pr-review` | Review PRs against constitution |
+| `address-pr-review.md` | `/devspark.address-pr-review` | Address PR review findings with enforced commit isolation |
+| `site-audit.md` | `/devspark.site-audit` | Comprehensive codebase audit |
+| `explain.md` | `/devspark.explain` | Explain existing functionality and verify matching current truth |
+| `next.md` | `/devspark.next` | Detect workflow state and safely dispatch the next command |
+| `commit-audit.md` | `/devspark.commit-audit` | Analyze commit history for workflow, hygiene, and delivery signals |
+| `quickfix.md` | `/devspark.quickfix` | Lightweight bug fix workflow |
+| `fix-score.md` | `/devspark.fix-score` | Diagnose and remediate repository score blockers with verification guardrails |
+| `release.md` | `/devspark.release` | Validate current truth and archive completed work packages |
+| `evolve-constitution.md` | `/devspark.evolve-constitution` | Propose constitution amendments |
+| `repo-story.md` | `/devspark.repo-story` | Narrative from commit history |
+| `critic.md` | `/devspark.critic` | Adversarial risk analysis |
+| `clarify.md` | `/devspark.clarify` | Clarify underspecified areas |
+| `analyze.md` | `/devspark.analyze` | Cross-artifact consistency check |
+| `checklist.md` | `/devspark.checklist` | Quality validation checklists |
+| `personalize.md` | `/devspark.personalize` | Create per-user prompt overrides |
+| `discover-constitution.md` | `/devspark.discover-constitution` | Reverse-engineer principles from code |
+| `discover-knowledge.md` | `/devspark.discover-knowledge` | Discover source-grounded entities and regenerate ontology |
+| `taskstoissues.md` | `/devspark.taskstoissues` | Convert tasks to GitHub issues |
+| `add-application.md` | `/devspark.add-application` | Register a new application in the multi-app registry (optional) |
+| `list-applications.md` | `/devspark.list-applications` | Display all registered applications (optional) |
+| `validate-registry.md` | `/devspark.validate-registry` | Validate registry schema, references, and consistency (optional) |
+
+> **Note**: The three multi-app commands (`add-application`, `list-applications`, `validate-registry`) are only needed for repositories with multiple applications. Single-app repositories can ignore them entirely.
+
+## Helper Templates
+
+| File | Purpose |
+|------|---------|
+| `spec-template.md` | Template structure for feature specifications |
+| `quick-spec-template.md` | Template structure for lightweight quick specifications |
+| `plan-template.md` | Template structure for implementation plans |
+| `tasks-template.md` | Template structure for task breakdowns |
+| `checklist-template.md` | Template structure for quality checklists |
+| `spec-validation-contract.md` | Shared validation contract for spec structure and required content |
+| `command-preamble-contract.md` | Shared command guidance, including Genuine Fix Discipline |
+| `schemas/devspark-evidence.schema.json` | v4 evidence schema |
+| `schemas/devspark-entity.schema.json` | v4 entity metadata schema |
+| `schemas/devspark-decision.schema.json` | v4 governance decision schema |
+| `schemas/devspark-derived.schema.json` | v4 generated ontology metadata schema |
+| `schemas/devspark-task-linkage.schema.json` | v4 task linkage schema |
+| `schemas/devspark-work-package.schema.json` | v4 work-package schema |
+| `agent-file-template.md` | Template for agent configuration files |
+| `vscode-settings.json` | Recommended VS Code settings |
+
+The stock spec, quick-spec, plan, and tasks templates include optional
+`participants` YAML frontmatter examples. This metadata is advisory
+responsibility context only. It is not required for existing artifacts, does
+not affect prompt or script resolution, and does not change command output.
+Customization layers and precedence are unchanged.
+
+## Knowledge and Genuine Fix Contracts
+
+Feature lifecycle prompts update durable current truth under `.knowledge/` while
+ephemeral planning state remains under `.devspark.work/`. Validate entity,
+decision, evidence, derived metadata, and task-linkage contracts with the
+`templates/schemas/devspark-*.schema.json` files.
+
+Commands that fix, review, audit, analyze, or verify findings reference
+`templates/command-preamble-contract.md` §9. Findings must name behavioral
+intent before metric remediation; `/devspark.verify` fails metric-only proof
+when behavior is unchanged.

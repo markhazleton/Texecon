@@ -48,7 +48,7 @@ check_feature_branch "$CURRENT_BRANCH" "$HAS_GIT" || exit 1
 mkdir -p "$FEATURE_DIR"
 
 # Copy plan template if it exists
-TEMPLATE="$REPO_ROOT/.documentation/templates/plan-template.md"
+TEMPLATE="$REPO_ROOT/templates/plan-template.md"
 if [[ -f "$TEMPLATE" ]]; then
     cp "$TEMPLATE" "$IMPL_PLAN"
     echo "Copied plan template to $IMPL_PLAN"
@@ -57,6 +57,7 @@ else
     # Create a basic plan file if template doesn't exist
     touch "$IMPL_PLAN"
 fi
+write_okf_knowledge_document "$FEATURE_DIR" "plan-context" "decision" "Plan Context" "active" "plan.md" 2>/dev/null || true
 
 # Output results
 if $JSON_MODE; then
@@ -69,4 +70,3 @@ else
     echo "BRANCH: $CURRENT_BRANCH"
     echo "HAS_GIT: $HAS_GIT"
 fi
-

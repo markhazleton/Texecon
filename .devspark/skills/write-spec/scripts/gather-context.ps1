@@ -38,7 +38,7 @@ if (-not $repoRoot) {
 
 # Load constitution summary
 $constitutionPaths = @(
-    Join-Path $repoRoot ".documentation/memory/constitution.md"
+    Join-Path $repoRoot ".knowledge/memory/constitution.md"
     Join-Path $repoRoot "constitution.md"
 )
 
@@ -69,7 +69,7 @@ if (-not $constitutionFound) {
 }
 
 # Gather prior specs
-$specsDir = Join-Path $repoRoot ".documentation/specs"
+$specsDir = Join-Path $repoRoot ".knowledge/specs"
 if (Test-Path $specsDir) {
     try {
         $specFolders = Get-ChildItem $specsDir -Directory -ErrorAction Stop |

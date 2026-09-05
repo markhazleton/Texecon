@@ -37,7 +37,7 @@ if (-not (Test-FeatureBranch -Branch $paths.CURRENT_BRANCH -HasGit $paths.HAS_GI
 New-Item -ItemType Directory -Path $paths.FEATURE_DIR -Force | Out-Null
 
 # Copy plan template if it exists, otherwise note it or create empty file
-$template = Join-Path $paths.REPO_ROOT '.documentation/templates/plan-template.md'
+$template = Join-Path $paths.REPO_ROOT 'templates/plan-template.md'
 if (Test-Path $template) { 
     Copy-Item $template $paths.IMPL_PLAN -Force
     Write-Output "Copied plan template to $($paths.IMPL_PLAN)"
@@ -46,6 +46,7 @@ if (Test-Path $template) {
     # Create a basic plan file if template doesn't exist
     New-Item -ItemType File -Path $paths.IMPL_PLAN -Force | Out-Null
 }
+Write-OkfKnowledgeDocument -FeatureDir $paths.FEATURE_DIR -DocumentId 'plan-context' -DocumentType 'decision' -Title 'Plan Context' -Status 'active' -SourceArtifact 'plan.md'
 
 # Output results
 if ($Json) {

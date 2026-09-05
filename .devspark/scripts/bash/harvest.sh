@@ -51,7 +51,7 @@ esac
 repo_root=$(get_repo_root)
 harvest_date=$(date -u +%F)
 harvest_timestamp=$(date -u +%FT%TZ)
-report_path=".documentation/copilot/harvest-${harvest_date}.md"
+report_path=".knowledge/copilot/harvest-${harvest_date}.md"
 
 json_escape() {
   local s="$1"
@@ -94,8 +94,8 @@ if [[ -f "$repo_root/CHANGELOG.md" ]]; then
 fi
 
 if [[ "$scope" == "full" || "$scope" == "specs" || "$scope" == "scan" || "$scope" == "changelog" ]]; then
-  specs_dir="$repo_root/.documentation/specs"
-  reviews_dir="$repo_root/.documentation/specs/pr-review"
+  specs_dir="$repo_root/.knowledge/specs"
+  reviews_dir="$repo_root/.knowledge/specs/pr-review"
   if [[ -d "$specs_dir" ]]; then
     _spec_count=0
     while IFS= read -r -d '' spec_dir; do
@@ -250,7 +250,7 @@ score_doc() {
 
 if [[ "$scope" == "full" || "$scope" == "docs" || "$scope" == "scan" || "$scope" == "changelog" ]]; then
   doc_roots=()
-  [[ -d "$repo_root/.documentation" ]] && doc_roots+=("$repo_root/.documentation:canonical")
+  [[ -d "$repo_root/.knowledge" ]] && doc_roots+=("$repo_root/.knowledge:canonical")
   [[ -d "$repo_root/docs" ]] && doc_roots+=("$repo_root/docs:legacy") && legacy_roots+=("docs/")
 
   for root_info in "${doc_roots[@]:-}"; do
@@ -277,19 +277,19 @@ if [[ "$scope" == "full" || "$scope" == "docs" || "$scope" == "scan" || "$scope"
 
       if [[ "$root_mode" == "legacy" ]]; then
         category="legacy_root_doc"
-      elif [[ "$rel" == .documentation/specs/pr-review/* ]]; then
+      elif [[ "$rel" == .knowledge/specs/pr-review/* ]]; then
         category="completed_review"
-      elif [[ "$rel" == .documentation/copilot/audit/* ]]; then
+      elif [[ "$rel" == .knowledge/copilot/audit/* ]]; then
         category="completed_audit"
-      elif [[ "$rel" == .documentation/drafts/* ]]; then
+      elif [[ "$rel" == .knowledge/drafts/* ]]; then
         category="stale_draft"
-      elif [[ "$rel" == .documentation/copilot/session* ]]; then
+      elif [[ "$rel" == .knowledge/copilot/session* ]]; then
         category="session_notes"
       elif [[ "$rel" == *.md && "$rel" == *-implementation-plan.md ]]; then
         category="impl_plan"
-      elif [[ "$rel" == .documentation/releases/* ]]; then
+      elif [[ "$rel" == .knowledge/releases/* ]]; then
         category="release_doc"
-      elif [[ "$rel" == .documentation/quickfixes/* ]]; then
+      elif [[ "$rel" == .knowledge/quickfixes/* ]]; then
         category="quickfix_record"
       fi
 
@@ -355,7 +355,7 @@ json_output=$(
   printf '"changelog_entries":%s,' "$(join_json_array "${changelog_entries[@]}")"
   printf '"bak_files":%s,' "$(join_json_array "${bak_files[@]}")"
   printf '"archive_existing":%s,' "$(join_json_array "${archive_existing[@]}")"
-  printf '"path_roots":{"canonical_documentation":".documentation/","legacy_roots":%s},' "$(join_json_array "${legacy_roots[@]}")"
+  printf '"path_roots":{"canonical_documentation":".knowledge/","legacy_roots":%s},' "$(join_json_array "${legacy_roots[@]}")"
   printf '"summary":{'
   printf '"specs_completed":%d,' "$specs_completed"
   printf '"specs_in_progress":%d,' "$specs_in_progress"

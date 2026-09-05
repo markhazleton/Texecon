@@ -188,7 +188,7 @@ Script guidance:
 - Prefer JSON or another structured format for output.
 - Include clear diagnostics for missing tools, missing files, or non-repository
   execution.
-- Do not write under `.documentation/` unless the specific workflow and
+- Do not write under `.knowledge/` unless the specific workflow and
   constitution permit it.
 - Do not make script success mandatory unless the feature spec explicitly says
   the skill cannot proceed without that context.
@@ -220,7 +220,7 @@ data files. Add assets only when a reusable artifact is clearer than inline
 Markdown or a reference file.
 
 For DevSpark, assets should be portable with the skill folder. Do not place
-skill assets in `.documentation/`, because `.documentation/` is repository-owned
+skill assets in `.knowledge/`, because `.knowledge/` is repository-owned
 work product and must not be installed or modified by framework operations.
 
 ## Progressive Disclosure

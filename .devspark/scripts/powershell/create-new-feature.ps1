@@ -41,7 +41,7 @@ $featureDesc = ($FeatureDescription -join ' ').Trim()
 function Find-RepositoryRoot {
     param(
         [string]$StartDir,
-        [string[]]$Markers = @('.git', '.documentation')
+        [string[]]$Markers = @('.git', '.devspark', '.knowledge')
     )
     $current = Resolve-Path $StartDir
     while ($true) {
@@ -149,7 +149,7 @@ try {
 
 Set-Location $repoRoot
 
-$specsDir = Join-Path $repoRoot '.documentation' 'specs'
+$specsDir = Join-Path (Join-Path $repoRoot '.devspark.work') 'specs'
 New-Item -ItemType Directory -Path $specsDir -Force | Out-Null
 
 # Multi-app support (T032)
@@ -259,13 +259,14 @@ if ($hasGit) {
 $featureDir = Join-Path $specsDir $branchName
 New-Item -ItemType Directory -Path $featureDir -Force | Out-Null
 
-$template = Join-Path $repoRoot '.documentation/templates/spec-template.md'
+$template = Join-Path $repoRoot 'templates/spec-template.md'
 $specFile = Join-Path $featureDir 'spec.md'
 if (Test-Path $template) { 
     Copy-Item $template $specFile -Force 
 } else { 
     New-Item -ItemType File -Path $specFile | Out-Null 
 }
+Write-OkfKnowledgeDocument -FeatureDir $featureDir -DocumentId 'traceability-index' -DocumentType 'traceability-index' -Title 'Traceability Index' -Status 'draft' -SourceArtifact 'spec.md'
 
 # Set the DEVSPARK_FEATURE environment variable for the current session
 $env:DEVSPARK_FEATURE = $branchName
@@ -285,4 +286,3 @@ if ($Json) {
     Write-Output "HAS_GIT: $hasGit"
     Write-Output "DEVSPARK_FEATURE environment variable set to: $branchName"
 }
-

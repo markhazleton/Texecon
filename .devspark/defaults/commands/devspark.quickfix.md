@@ -7,6 +7,9 @@ handoffs:
   - label: Upgrade to Full Spec
     agent: devspark.specify
     prompt: Create a full specification for this change
+scripts:
+  sh: .devspark/scripts/bash/quickfix-context.sh $ARGUMENTS --json
+  ps: .devspark/scripts/powershell/quickfix-context.ps1 $ARGUMENTS -Json
 ---
 
 ## User Input
@@ -16,6 +19,19 @@ $ARGUMENTS
 ```
 
 You **MUST** consider the user input before proceeding (if not empty).
+
+## DevSpark v4 Override
+
+Quickfix is lightweight, not exempt. When any later section conflicts with this
+section, the v4 section wins.
+
+- Create a minimal ephemeral work package with `context_resolved` and task
+  linkage fields for touched code and knowledge.
+- Update `.knowledge` when the quickfix changes durable behavior or governance.
+- Record code, test, and knowledge linkage and leave the completed quickfix in
+  `.devspark.work/`; only `/devspark.release` validates and archives it.
+- Do not create durable quickfix history; Git is the durable history and
+  `.archive/YYYY-MM-DD/<topic>/` is only a short-term safety buffer.
 
 ## Workflow Position
 
@@ -27,7 +43,14 @@ Alternative entry point to authoring: `[user request] → route decision → { s
 
 ## Constitution Authority
 
-`/.documentation/memory/constitution.md` is **required** — if missing, halt and direct the user to `/devspark.constitution`. The targeted constitution check (§5) loads only principles relevant to the detected classification, but they remain non-negotiable: a FAIL must be surfaced and acknowledged in writing, never silently ignored.
+`/.knowledge/governance/constitution.md` is **required** — if missing, halt and direct the user to `/devspark.constitution`. The targeted constitution check (§5) loads only principles relevant to the detected classification, but they remain non-negotiable: a FAIL must be surfaced and acknowledged in writing, never silently ignored.
+
+## Genuine Fix Discipline
+
+Before applying a quick fix for lint, complexity, coverage, score, or audit
+movement, apply `templates/command-preamble-contract.md` §9. State the behavior
+being repaired first; metric improvement is acceptable only as supporting
+evidence.
 
 ## Overview
 
@@ -47,7 +70,7 @@ Gate results from this workflow are advisory. The agent must surface blocking co
 
 ## Prerequisites
 
-- Project constitution at `/.documentation/memory/constitution.md` (REQUIRED)
+- Project constitution at `/.knowledge/governance/constitution.md` (REQUIRED)
 - Git repository with working branch
 
 ## Actions
@@ -60,15 +83,19 @@ Parse `$ARGUMENTS` for action type:
 | `complete` | `/devspark.quickfix complete QF-YYYY-NNN` | Mark quickfix as completed |
 | `list`     | `/devspark.quickfix list`                 | Show recent quickfixes     |
 
+## Definition of Done
+
+Done when (for `create`): the quickfix record exists at `QUICKFIX_DIR/NEXT_ID.md` with the constitution compliance table filled in, and the step-8 summary (including the Gate Result block and Next Steps) is printed. `list` and `complete` are done as soon as their single action completes — no further narration needed.
+
 ## Outline
 
-**Multi-app support**: If this repository uses multi-app mode (`.documentation/devspark.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.documentation/` instead of the repository root `.documentation/`. Print the resolved scope (app name, doc root) at the start of output.
+**Multi-app support**: If this repository uses multi-app mode (`.knowledge/entities/application-registry/registry.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.knowledge/` instead of the repository root `.knowledge/`. Print the resolved scope (app name, doc root) at the start of output.
 
 ### 1. Initialize Quickfix Context
 
-> **Script Resolution**: Before running `.devspark/scripts/powershell/quickfix-context.ps1 $ARGUMENTS -Json`, apply the 2-tier override check — if `.documentation/scripts/powershell/<filename>` (PowerShell) or `.documentation/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.documentation/scripts/` always take priority over `.devspark/scripts/`.
+> **Script Resolution**: Before running `{SCRIPT}`, apply the 2-tier override check — if `.knowledge/overrides/scripts/powershell/<filename>` (PowerShell) or `.knowledge/overrides/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.knowledge/overrides/scripts/` always take priority over `.devspark/scripts/`.
 
-Run `.devspark/scripts/powershell/quickfix-context.ps1 $ARGUMENTS -Json` to gather context and parse JSON output for:
+Run `{SCRIPT}` to gather context and parse JSON output for:
 
 - `REPO_ROOT`: Repository root path
 - `CONSTITUTION_PATH`: Path to constitution file
@@ -123,6 +150,8 @@ If ACTION is "complete" and QUICKFIX_ID is provided:
    - Set `Completed` timestamp
    - Get current commit SHA: `git rev-parse HEAD`
    - Check for associated PR: `gh pr view --json number 2>/dev/null`
+   - Mark its task complete and populate `code_ref`, `test_ref`, and
+     `knowledge_ref` (or an explained `n/a`) from the implementation
 4. Write updated record
 5. Display completion summary
 6. Stop execution
@@ -158,7 +187,7 @@ Consider upgrading to a full specification:
 
 ### 4. Load Constitution (Targeted)
 
-Read `/.documentation/memory/constitution.md` and extract only principles relevant to the change type:
+Read `/.knowledge/governance/constitution.md` and extract only principles relevant to the change type:
 
 | Classification  | Relevant Principles                 |
 | --------------- | ----------------------------------- |
@@ -180,8 +209,8 @@ For each relevant principle:
 
 **Compliance Decision:**
 
-- If any FAIL: Surface the blocking concern, explain why it matters, recommend `/devspark.specify` or escalation, and ask whether to continue anyway, switch workflows, or stop.
-- If CONDITIONAL: Document required actions in the quickfix record.
+- If any FAIL: Surface the blocking concern, explain why it matters, recommend `/devspark.specify` or escalation, and ask whether to continue anyway, switch workflows, or stop. **Never auto-bypassed** — a FAIL here is a constitution violation by definition, so this always waits for a human regardless of `--auto`.
+- If CONDITIONAL: Document required actions in the quickfix record. Under `--auto` (or a standing autonomy instruction), this is auto-documented and the run proceeds without asking — CONDITIONAL is not a blocker, it's a recorded follow-up.
 - If all PASS: Proceed with quickfix creation.
 
 If the user chooses to continue despite FAIL or CONDITIONAL findings, record that explicit override in the quickfix record under `## Gate Acknowledgements`.
@@ -196,7 +225,7 @@ From user description, extract:
 
 ### 7. Generate Quickfix Record
 
-Ensure directory exists: Create `/.documentation/quickfixes/` if missing.
+Ensure directory exists: Create `/.devspark.work/quickfixes/` if missing.
 
 Create record at `QUICKFIX_DIR/NEXT_ID.md`:
 
@@ -249,6 +278,14 @@ required_gates: { Leave blank for low risk; otherwise checklist }
 - [ ] Relevant tests updated/added (if applicable)
 - [ ] Documentation updated (if applicable)
 
+## Task Linkage
+
+- [ ] T001 Apply and validate this quickfix
+  - code_ref: TODO
+  - test_ref: TODO
+  - knowledge_ref: TODO
+  - governance_ref: n/a — no governance change expected
+
 ## Gate Acknowledgements
 
 {Leave blank unless the user explicitly proceeds past a blocking or conditional concern}
@@ -265,7 +302,7 @@ required_gates: { Leave blank for low risk; otherwise checklist }
 
 ---
 
-_Generated by /devspark.quickfix v1.0_
+_Generated by `/devspark.quickfix`_
 ```
 
 ### 8. Output Summary
@@ -279,7 +316,7 @@ Quickfix Record Created: {NEXT_ID}
 - **Risk Level**: {RISK_LEVEL}
 - **Constitution Check**: PASS ({N} principles validated)
 
-Record saved: /.documentation/quickfixes/{NEXT_ID}.md
+Record saved: /.devspark.work/quickfixes/{NEXT_ID}.md
 
 ## Gate Result
 
@@ -296,8 +333,10 @@ summary: "Targeted constitution check complete"
 1. Implement the fix on your current branch
 2. Run tests to verify the fix
 3. Mark record complete: `/devspark.quickfix complete {NEXT_ID}`
-4. Create PR (optional) — prefer `/devspark.create-pr` so the PR reflects quickfix context and any recorded gate acknowledgements
-5. If creating manually, verify the current branch is in sync with the target branch (usually `main`) before opening the PR
+4. Keep the completed record in `.devspark.work/quickfixes/` until
+   `/devspark.release` validates and archives it
+5. Create PR (optional) — prefer `/devspark.create-pr` so the PR reflects quickfix context and any recorded gate acknowledgements
+6. If creating manually, verify the current branch is in sync with the target branch (usually `main`) before opening the PR
 
 If scope expands beyond {MAX_EFFORT}:
 

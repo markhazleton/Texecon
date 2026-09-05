@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # migrate-to-documentation.sh
 # Migrates DevSpark projects from old structure (.specify/, memory/, scripts/, templates/)
-# to new .documentation/ structure
+# to new .knowledge/ structure
 #
 # Usage:
 #   ./migrate-to-documentation.sh           # Interactive migration
@@ -127,7 +127,7 @@ if [ "$DRY_RUN" = true ]; then
     echo -e "${CYAN}DRY RUN MODE - No files will be modified${NC}"
     echo -e "${BLUE}============================================${NC}"
 else
-    echo -e "${BLUE}DevSpark Migration to .documentation/${NC}"
+    echo -e "${BLUE}DevSpark Migration to .knowledge/${NC}"
     echo -e "${BLUE}============================================${NC}"
 fi
 echo ""
@@ -160,9 +160,9 @@ else
     print_warning "Not a git repository - cannot preserve history"
 fi
 
-# Check if .documentation already exists
-if [ -d ".documentation" ]; then
-    print_warning ".documentation/ already exists - will merge with existing content"
+# Check if .knowledge already exists
+if [ -d ".knowledge" ]; then
+    print_warning ".knowledge/ already exists - will merge with existing content"
 fi
 
 echo ""
@@ -179,25 +179,25 @@ if [ -d ".specify" ]; then
     OLD_STRUCTURES_FOUND=true
 fi
 
-if [ -d "memory" ] && [ ! -d ".documentation/memory" ]; then
+if [ -d "memory" ] && [ ! -d ".knowledge/memory" ]; then
     print_status "Found memory/ directory"
     STRUCTURES_TO_MIGRATE+=("memory")
     OLD_STRUCTURES_FOUND=true
 fi
 
-if [ -d "scripts" ] && [ ! -d ".documentation/scripts" ]; then
+if [ -d "scripts" ] && [ ! -d ".knowledge/scripts" ]; then
     print_status "Found scripts/ directory"
     STRUCTURES_TO_MIGRATE+=("scripts")
     OLD_STRUCTURES_FOUND=true
 fi
 
-if [ -d "templates" ] && [ ! -d ".documentation/templates" ]; then
+if [ -d "templates" ] && [ ! -d ".knowledge/templates" ]; then
     print_status "Found templates/ directory"
     STRUCTURES_TO_MIGRATE+=("templates")
     OLD_STRUCTURES_FOUND=true
 fi
 
-if [ -d "specs" ] && [ ! -d ".documentation/specs" ]; then
+if [ -d "specs" ] && [ ! -d ".knowledge/specs" ]; then
     print_status "Found specs/ directory"
     STRUCTURES_TO_MIGRATE+=("specs")
     OLD_STRUCTURES_FOUND=true
@@ -216,14 +216,14 @@ echo -e "${BLUE}Migration Plan:${NC}"
 echo ""
 echo "The following actions will be performed:"
 echo ""
-echo "  1. Create .documentation/ directory structure"
+echo "  1. Create .knowledge/ directory structure"
 echo "  2. Copy files from old locations to new locations:"
 for struct in "${STRUCTURES_TO_MIGRATE[@]}"; do
-    echo "     - $struct/ → .documentation/"
+    echo "     - $struct/ → .knowledge/"
 done
 echo "  3. Update path references in files:"
 echo "     - Agent command files (.claude/, .github/, etc.)"
-echo "     - Script files (.documentation/scripts/)"
+echo "     - Script files (.knowledge/scripts/)"
 echo "     - Documentation files (README.md, etc.)"
 echo "  4. Rename old directories with .old suffix:"
 for struct in "${STRUCTURES_TO_MIGRATE[@]}"; do
@@ -231,7 +231,7 @@ for struct in "${STRUCTURES_TO_MIGRATE[@]}"; do
 done
 echo "  5. Update .gitignore if needed"
 echo ""
-echo -e "${GREEN}Your specs/ directory will be moved to .documentation/specs/${NC}"
+echo -e "${GREEN}Your specs/ directory will be moved to .knowledge/specs/${NC}"
 echo ""
 
 if [ "$DRY_RUN" = false ]; then
@@ -241,24 +241,24 @@ if [ "$DRY_RUN" = false ]; then
 fi
 
 echo ""
-echo -e "${BLUE}Step 1: Creating .documentation/ structure${NC}"
+echo -e "${BLUE}Step 1: Creating .knowledge/ structure${NC}"
 
 # Create directory structure
 if [ "$DRY_RUN" = true ]; then
-    print_dry_run "Would create .documentation/memory/"
-    print_dry_run "Would create .documentation/scripts/bash/"
-    print_dry_run "Would create .documentation/scripts/powershell/"
-    print_dry_run "Would create .documentation/templates/"
+    print_dry_run "Would create .knowledge/memory/"
+    print_dry_run "Would create .knowledge/scripts/bash/"
+    print_dry_run "Would create .knowledge/scripts/powershell/"
+    print_dry_run "Would create .knowledge/templates/"
 else
-    mkdir -p .documentation/memory
-    print_status "Created .documentation/memory/"
+    mkdir -p .knowledge/memory
+    print_status "Created .knowledge/memory/"
 
-    mkdir -p .documentation/scripts/bash
-    mkdir -p .documentation/scripts/powershell
-    print_status "Created .documentation/scripts/"
+    mkdir -p .knowledge/scripts/bash
+    mkdir -p .knowledge/scripts/powershell
+    print_status "Created .knowledge/scripts/"
 
-    mkdir -p .documentation/templates
-    print_status "Created .documentation/templates/"
+    mkdir -p .knowledge/templates
+    print_status "Created .knowledge/templates/"
 fi
 
 echo ""
@@ -293,33 +293,33 @@ copy_dir() {
 # Move .specify/ if exists
 if [ -d ".specify" ]; then
     if [ "$DRY_RUN" = true ]; then
-        [ -d ".specify/memory" ] && print_dry_run "Would copy .specify/memory/ to .documentation/memory/"
-        [ -d ".specify/scripts" ] && print_dry_run "Would copy .specify/scripts/ to .documentation/scripts/"
-        [ -d ".specify/templates" ] && print_dry_run "Would copy .specify/templates/ to .documentation/templates/"
-        print_dry_run "Would copy .specify/ root files to .documentation/"
+        [ -d ".specify/memory" ] && print_dry_run "Would copy .specify/memory/ to .knowledge/memory/"
+        [ -d ".specify/scripts" ] && print_dry_run "Would copy .specify/scripts/ to .knowledge/scripts/"
+        [ -d ".specify/templates" ] && print_dry_run "Would copy .specify/templates/ to .knowledge/templates/"
+        print_dry_run "Would copy .specify/ root files to .knowledge/"
         print_dry_run "Would rename .specify to .specify.old"
     else
         # .specify might contain memory, scripts, templates subdirectories
         if [ -d ".specify/memory" ]; then
-            cp -r .specify/memory/* .documentation/memory/ 2>/dev/null || true
-            print_status "Copied .specify/memory/ to .documentation/memory/"
+            cp -r .specify/memory/* .knowledge/memory/ 2>/dev/null || true
+            print_status "Copied .specify/memory/ to .knowledge/memory/"
         fi
         if [ -d ".specify/scripts" ]; then
-            cp -r .specify/scripts/* .documentation/scripts/ 2>/dev/null || true
-            print_status "Copied .specify/scripts/ to .documentation/scripts/"
+            cp -r .specify/scripts/* .knowledge/scripts/ 2>/dev/null || true
+            print_status "Copied .specify/scripts/ to .knowledge/scripts/"
         fi
         if [ -d ".specify/templates" ]; then
-            cp -r .specify/templates/* .documentation/templates/ 2>/dev/null || true
-            print_status "Copied .specify/templates/ to .documentation/templates/"
+            cp -r .specify/templates/* .knowledge/templates/ 2>/dev/null || true
+            print_status "Copied .specify/templates/ to .knowledge/templates/"
         fi
         if [ -d ".specify/specs" ]; then
-            mkdir -p .documentation/specs
-            cp -r .specify/specs/* .documentation/specs/ 2>/dev/null || true
-            print_status "Copied .specify/specs/ to .documentation/specs/"
+            mkdir -p .knowledge/specs
+            cp -r .specify/specs/* .knowledge/specs/ 2>/dev/null || true
+            print_status "Copied .specify/specs/ to .knowledge/specs/"
         fi
         # Copy any other files in .specify root
-        find .specify -maxdepth 1 -type f -exec cp {} .documentation/ \; 2>/dev/null || true
-        print_status "Copied .specify/ root files to .documentation/"
+        find .specify -maxdepth 1 -type f -exec cp {} .knowledge/ \; 2>/dev/null || true
+        print_status "Copied .specify/ root files to .knowledge/"
 
         mv .specify .specify.old
         ((DIRS_MOVED++))
@@ -328,10 +328,10 @@ if [ -d ".specify" ]; then
 fi
 
 # Copy top-level directories
-copy_dir "memory" ".documentation/memory" "memory/"
-copy_dir "scripts" ".documentation/scripts" "scripts/"
-copy_dir "templates" ".documentation/templates" "templates/"
-copy_dir "specs" ".documentation/specs" "specs/"
+copy_dir "memory" ".knowledge/memory" "memory/"
+copy_dir "scripts" ".knowledge/scripts" "scripts/"
+copy_dir "templates" ".knowledge/templates" "templates/"
+copy_dir "specs" ".knowledge/specs" "specs/"
 
 echo ""
 echo -e "${BLUE}Step 3: Updating path references in files${NC}"
@@ -348,11 +348,11 @@ update_file_references() {
         # Check if file would be modified
         cp "$file" "$file.bak.tmp"
         sed -E -i.tmp \
-            -e 's@(/?)\.specify/@\1.documentation/@g' \
-            -e 's@(^|[[:space:]]|`)/memory/@\1/.documentation/memory/@g' \
-            -e 's@(^|[[:space:]]|`)/scripts/@\1/.documentation/scripts/@g' \
-            -e 's@(^|[[:space:]]|`)/templates/@\1/.documentation/templates/@g' \
-            -e 's@memory/constitution\.md@.documentation/memory/constitution.md@g' \
+            -e 's@(/?)\.specify/@\1.knowledge/@g' \
+            -e 's@(^|[[:space:]]|`)/memory/@\1/.knowledge/memory/@g' \
+            -e 's@(^|[[:space:]]|`)/scripts/@\1/.knowledge/scripts/@g' \
+            -e 's@(^|[[:space:]]|`)/templates/@\1/.knowledge/templates/@g' \
+            -e 's@memory/constitution\.md@.knowledge/memory/constitution.md@g' \
             "$file" 2>/dev/null || true
 
         if ! cmp -s "$file" "$file.bak.tmp" 2>/dev/null; then
@@ -368,11 +368,11 @@ update_file_references() {
 
         # Update references using sed with regex
         sed -E -i.tmp \
-            -e 's@(/?)\.specify/@\1.documentation/@g' \
-            -e 's@(^|[[:space:]]|`)/memory/@\1/.documentation/memory/@g' \
-            -e 's@(^|[[:space:]]|`)/scripts/@\1/.documentation/scripts/@g' \
-            -e 's@(^|[[:space:]]|`)/templates/@\1/.documentation/templates/@g' \
-            -e 's@memory/constitution\.md@.documentation/memory/constitution.md@g' \
+            -e 's@(/?)\.specify/@\1.knowledge/@g' \
+            -e 's@(^|[[:space:]]|`)/memory/@\1/.knowledge/memory/@g' \
+            -e 's@(^|[[:space:]]|`)/scripts/@\1/.knowledge/scripts/@g' \
+            -e 's@(^|[[:space:]]|`)/templates/@\1/.knowledge/templates/@g' \
+            -e 's@memory/constitution\.md@.knowledge/memory/constitution.md@g' \
             "$file"
 
         # Check if file changed
@@ -396,8 +396,8 @@ for dir in .claude .github .cursor .windsurf .gemini .qwen .opencode .codex .kil
 done
 
 # Update script files
-if [ -d ".documentation/scripts" ]; then
-    find .documentation/scripts -type f \( -name "*.sh" -o -name "*.ps1" \) 2>/dev/null | while read -r file; do
+if [ -d ".knowledge/scripts" ]; then
+    find .knowledge/scripts -type f \( -name "*.sh" -o -name "*.ps1" \) 2>/dev/null | while read -r file; do
         update_file_references "$file"
     done
 fi
@@ -409,9 +409,9 @@ for file in README.md .vscode/settings.json; do
     fi
 done
 
-# Update all markdown files in .documentation
-if [ -d ".documentation" ]; then
-    find .documentation -maxdepth 1 -type f -name "*.md" 2>/dev/null | while read -r file; do
+# Update all markdown files in .knowledge
+if [ -d ".knowledge" ]; then
+    find .knowledge -maxdepth 1 -type f -name "*.md" 2>/dev/null | while read -r file; do
         update_file_references "$file"
     done
 fi
@@ -419,16 +419,16 @@ fi
 echo ""
 echo -e "${BLUE}Step 4: Updating .gitignore${NC}"
 
-# Add .documentation build output to .gitignore if needed
+# Add .knowledge build output to .gitignore if needed
 if [ -f ".gitignore" ]; then
-    if ! grep -q ".documentation/_site" .gitignore; then
+    if ! grep -q ".knowledge/_site" .gitignore; then
         if [ "$DRY_RUN" = true ]; then
-            print_dry_run "Would add .documentation/_site/ to .gitignore"
+            print_dry_run "Would add .knowledge/_site/ to .gitignore"
         else
             echo "" >> .gitignore
             echo "# DevSpark documentation build output" >> .gitignore
-            echo ".documentation/_site/" >> .gitignore
-            print_status "Added .documentation/_site/ to .gitignore"
+            echo ".knowledge/_site/" >> .gitignore
+            print_status "Added .knowledge/_site/ to .gitignore"
         fi
     else
         print_status ".gitignore already configured"
@@ -463,17 +463,17 @@ echo "Next steps:"
 if [ "$DRY_RUN" = true ]; then
     echo "  1. Review the dry run output above"
     echo "  2. Run without --dry-run to perform the migration:"
-    echo "     ${YELLOW}bash .documentation/scripts/migrate-to-documentation.sh${NC}"
+    echo "     ${YELLOW}bash .knowledge/scripts/migrate-to-documentation.sh${NC}"
 else
     echo "  1. Review changes: ${YELLOW}git status${NC} and ${YELLOW}git diff${NC}"
     echo "  2. Test slash commands in your AI assistant"
-    echo "  3. Test scripts: ${YELLOW}bash .documentation/scripts/bash/setup-plan.sh${NC}"
-    echo "  4. Verify constitution loads: ${YELLOW}cat .documentation/memory/constitution.md${NC}"
+    echo "  3. Test scripts: ${YELLOW}bash .knowledge/scripts/bash/setup-plan.sh${NC}"
+    echo "  4. Verify constitution loads: ${YELLOW}cat .knowledge/memory/constitution.md${NC}"
     echo "  5. If everything works, commit:"
     echo "     ${YELLOW}git add -A${NC}"
-    echo "     ${YELLOW}git commit -m 'chore: migrate to .documentation/ structure'${NC}"
+    echo "     ${YELLOW}git commit -m 'chore: migrate to .knowledge/ structure'${NC}"
     echo "  6. After verifying and committing, delete old backups:"
-    echo "     ${YELLOW}bash .documentation/scripts/migrate-to-documentation.sh --cleanup${NC}"
+    echo "     ${YELLOW}bash .knowledge/scripts/migrate-to-documentation.sh --cleanup${NC}"
     echo ""
     echo -e "${YELLOW}⚠ IMPORTANT: Do NOT delete .old directories until you've verified the migration!${NC}"
 fi
@@ -487,5 +487,5 @@ fi
 if [ "$DRY_RUN" = false ]; then
     print_status "Migration script completed successfully"
     echo ""
-    echo -e "${CYAN}Need help? See .documentation/upgrade.md${NC}"
+    echo -e "${CYAN}Need help? See .knowledge/upgrade.md${NC}"
 fi

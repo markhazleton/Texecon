@@ -40,7 +40,7 @@ if ($SampleLimit -lt 1) {
 $repoRoot = Get-RepoRoot
 $archiveBase = Join-Path $repoRoot '.archive'
 $archiveExists = Test-Path $archiveBase
-$guidePath = '.documentation/Guide.md'
+$guidePath = '.knowledge/Guide.md'
 $changelogPath = 'CHANGELOG.md'
 $guideExists = Test-Path (Join-Path $repoRoot $guidePath)
 $changelogExists = Test-Path (Join-Path $repoRoot $changelogPath)

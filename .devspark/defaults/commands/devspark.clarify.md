@@ -4,6 +4,9 @@ handoffs:
   - label: Build Technical Plan
     agent: devspark.plan
     prompt: Create a plan for the spec. I am building with...
+scripts:
+  sh: .devspark/scripts/bash/check-prerequisites.sh --json --paths-only
+  ps: .devspark/scripts/powershell/check-prerequisites.ps1 -Json -PathsOnly
 ---
 
 ## User Input
@@ -22,13 +25,17 @@ You **MUST** consider the user input before proceeding (if not empty).
 - **Does NOT own**: drafting/replacing the spec (→ `/devspark.specify`); deciding stack/architecture/data-store choices (→ `/devspark.plan` — only ask here if the *absence* of the choice blocks functional clarity); generating tasks (→ `/devspark.tasks`); adversarial review (→ `/devspark.critic`, `/devspark.analyze`).
 - **Seed queue**: any `[NEEDS CLARIFICATION: …]` markers left by `/devspark.specify` are the first candidates; resolving them removes the marker in addition to the standard integration.
 
+## Definition of Done
+
+Done when: the questioning loop has ended (5 questions asked, full coverage reached, or the user signaled completion), every accepted answer is written back to the spec file, and the step-8 coverage summary is reported. Already capped at 5 questions / 10 total — that cap is the convergence condition; don't ask "any other questions?" once it's reached.
+
 ## Constitution Authority
 
-If `/.documentation/memory/constitution.md` exists, load it. The constitution is a **non-negotiable ambiguity-detection lens**: any mandated principle (privacy, accessibility, observability, testing, etc.) that the spec omits or leaves vague is a high-priority candidate question. Constitution conflicts cannot be resolved by answer choice — they must trigger a follow-up note in the spec recommending either spec amendment or an explicit constitution update.
+If `/.knowledge/governance/constitution.md` exists, load it. The constitution is a **non-negotiable ambiguity-detection lens**: any mandated principle (privacy, accessibility, observability, testing, etc.) that the spec omits or leaves vague is a high-priority candidate question. Constitution conflicts cannot be resolved by answer choice — they must trigger a follow-up note in the spec recommending either spec amendment or an explicit constitution update.
 
 ## Outline
 
-**Multi-app support**: If this repository uses multi-app mode (`.documentation/devspark.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.documentation/` instead of the repository root `.documentation/`. Print the resolved scope (app name, doc root) at the start of output.
+**Multi-app support**: If this repository uses multi-app mode (`.knowledge/entities/application-registry/registry.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.knowledge/` instead of the repository root `.knowledge/`. Print the resolved scope (app name, doc root) at the start of output.
 
 Goal: Detect and reduce ambiguity or missing decision points in the active feature specification and record the clarifications directly in the spec file.
 
@@ -36,15 +43,15 @@ Note: This clarification workflow is expected to run (and be completed) BEFORE i
 
 Execution steps:
 
-> **Script Resolution**: Before running `.devspark/scripts/powershell/check-prerequisites.ps1 -Json -PathsOnly`, apply the 2-tier override check — if `.documentation/scripts/powershell/<filename>` (PowerShell) or `.documentation/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.documentation/scripts/` always take priority over `.devspark/scripts/`.
+> **Script Resolution**: Before running `{SCRIPT}`, apply the 2-tier override check — if `.knowledge/overrides/scripts/powershell/<filename>` (PowerShell) or `.knowledge/overrides/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.knowledge/overrides/scripts/` always take priority over `.devspark/scripts/`.
 
-1. Run `.devspark/scripts/powershell/check-prerequisites.ps1 -Json -PathsOnly` from repo root **once** (combined `--json --paths-only` mode / `-Json -PathsOnly`). Parse minimal JSON payload fields:
+1. Run `{SCRIPT}` from repo root **once** (combined `--json --paths-only` mode / `-Json -PathsOnly`). Parse minimal JSON payload fields:
    - `FEATURE_DIR`
    - `FEATURE_SPEC`
    - (Optionally capture `IMPL_PLAN`, `TASKS` for future chained flows.)
    - If JSON parsing fails, abort and instruct user to re-run `/devspark.specify` or verify feature branch environment.
    - For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
-   - If `/.documentation/memory/constitution.md` exists, load it. Cross-reference constitution principles when scanning for underspecified areas — flag requirements that conflict with or omit mandated principles.
+   - If `/.knowledge/governance/constitution.md` exists, load it. Cross-reference constitution principles when scanning for underspecified areas — flag requirements that conflict with or omit mandated principles.
    - Load the shared validation contract from `/.devspark/templates/spec-validation-contract.md` in installed repos, or `templates/spec-validation-contract.md` in source repos.
 
 2. Load the current spec file and validate it against the shared specification validation contract before ambiguity scanning.
@@ -117,7 +124,10 @@ Execution steps:
    - Favor clarifications that reduce downstream rework risk or prevent misaligned acceptance tests.
    - If more than 5 categories remain unresolved, select the top 5 by (Impact \* Uncertainty) heuristic.
 
-4. Sequential questioning loop (interactive):
+4. Sequential questioning loop (interactive, unless `--auto`):
+
+   **Autonomy override**: if `--auto` (or a standing autonomy instruction) is in effect, skip the interactive wait for every queued question — compute the Recommended/Suggested answer as below, accept it immediately, record it the same way an explicit "yes" would, and move to the next queued question. Still respect the 5-question/10-total cap and still produce the same `## Clarifications` integration in step 5; only the waiting is skipped. Note in the final report (step 8) that all answers were auto-accepted.
+
    - Present EXACTLY ONE question at a time.
    - For multiple‑choice questions:
      - **Analyze all options** and determine the **most suitable option** based on:
@@ -166,7 +176,7 @@ Execution steps:
      - Data shape / entities → Update Data Model (add fields, types, relationships) preserving ordering; note added constraints succinctly.
      - Non-functional constraint → Add/modify measurable criteria in Non-Functional / Quality Attributes section (convert vague adjective to metric or explicit target).
      - Edge case / negative flow → Add a new bullet under Edge Cases / Error Handling (or create such subsection if template provides placeholder for it).
-     - Terminology conflict → Normalize term across spec; retain original only if necessary by adding `(formerly referred to as "X")` once.
+     - Terminology conflict → Normalize the selected term throughout the spec; do not preserve superseded terminology.
    - If the clarification invalidates an earlier ambiguous statement, replace that statement instead of duplicating; leave no obsolete contradictory text.
    - Save the spec file AFTER each integration to minimize risk of context loss (atomic overwrite).
    - Preserve formatting: do not reorder unrelated sections; keep heading hierarchy intact.
@@ -201,11 +211,11 @@ Behavior rules:
 - If no questions asked due to full coverage, output a compact coverage summary (all categories Clear) then suggest advancing.
 - If quota reached with unresolved high-impact categories remaining, explicitly flag them under Deferred with rationale.
 
-Context for prioritization: $ARGUMENTS
+Context for prioritization: {ARGS}
 
 ## Shared Review Resolution Contract Output
 
-When emitting findings (review observations, issues, recommendations), structure each entry to include the shared resolution contract fields so downstream tools (/devspark.address-pr-review, telemetry, harvest) can act on them deterministically:
+When emitting findings (review observations, issues, recommendations), structure each entry to include the shared resolution contract fields so downstream tools (/devspark.address-pr-review and telemetry) can act on them deterministically:
 
 ```yaml
 findings:

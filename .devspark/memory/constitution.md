@@ -16,8 +16,8 @@ Ambiguous context must produce a clear error, not a guess.
 ### III. Ownership Boundary (NON-NEGOTIABLE)
 
 `.devspark/` is the installed framework payload and the only directory DevSpark installs, upgrades, or
-removes. `.documentation/` directories at repo and app level are repository-owned work product.
-Install and upgrade flows must never add, remove, or modify files under any `.documentation/` directory.
+removes. `.knowledge/` directories at repo and app level are repository-owned work product.
+Install and upgrade flows must never add, remove, or modify files under any `.knowledge/` directory.
 
 ### IV. Governance Authority
 
@@ -40,7 +40,7 @@ Packaged templates, quickstarts, and CLI behavior must stay aligned with source 
 - Python 3.11+ for CLI code, typed with typer/rich/click
 - Markdown linted via markdownlint-cli2
 - Scripts in both PowerShell and Bash; context scripts support GitHub, AzDO, and GitLab
-- Never overwrite `.documentation/` user artifacts during CLI operations
+- Never overwrite `.knowledge/` user artifacts during CLI operations
 
 ## Development Workflow
 

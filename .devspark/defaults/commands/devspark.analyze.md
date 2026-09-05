@@ -7,6 +7,9 @@ handoffs:
   - label: Revise Plan
     agent: devspark.plan
     prompt: Revise plan to address analysis findings
+scripts:
+  sh: .devspark/scripts/bash/check-prerequisites.sh --json --require-tasks --include-tasks
+  ps: .devspark/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks
 ---
 
 ## User Input
@@ -16,6 +19,19 @@ $ARGUMENTS
 ```
 
 You **MUST** consider the user input before proceeding (if not empty).
+
+## DevSpark v4 Override
+
+This command is a hard mechanical gate for current-truth consistency. When any
+later section conflicts with this section, the v4 section wins.
+
+- Validate every `context_resolved` entity, relation, and decision reference
+  against the current ontology.
+- Fail stale or hallucinated current-truth references.
+- Run the ontology generator in `--check` mode before validating resolved
+  context; stale generated reports are a hard mechanical failure.
+- Fail permanent references from code or `.knowledge` back to ephemeral work.
+- Surface missing code-evidence fallback reasons as warnings, not hard stops.
 
 ## Overview
 
@@ -41,21 +57,36 @@ The analysis itself is non-destructive. Do **not** edit `spec.md`, `plan.md`, `t
 
 Read the YAML frontmatter in `spec.md` before analyzing. Treat `classification`, `risk_level`, and `required_gates` as authoritative metadata.
 
-**Constitution Authority**: The project constitution (`/.documentation/memory/constitution.md`) is **non-negotiable** within this analysis scope. Constitution conflicts are automatically CRITICAL and require adjustment of the spec, plan, or tasks—not dilution, reinterpretation, or silent ignoring of the principle. If a principle itself needs to change, that must occur in a separate, explicit constitution update outside `/devspark.analyze`.
+**Constitution Authority**: The project constitution (`/.knowledge/governance/constitution.md`) is **non-negotiable** within this analysis scope. Constitution conflicts are automatically CRITICAL and require adjustment of the spec, plan, or tasks—not dilution, reinterpretation, or silent ignoring of the principle. If a principle itself needs to change, that must occur in a separate, explicit constitution update outside `/devspark.analyze`.
 
 ## Outline
 
-**Multi-app support**: If this repository uses multi-app mode (`.documentation/devspark.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.documentation/` instead of the repository root `.documentation/`. Print the resolved scope (app name, doc root) at the start of output.
+**Multi-app support**: If this repository uses multi-app mode (`.knowledge/entities/application-registry/registry.json` exists with `mode: "multi-app"`), check for `--app <id>` in the user input to scope this workflow to a specific application. When app context is provided, resolve artifacts from `{app.path}/.knowledge/` instead of the repository root `.knowledge/`. Print the resolved scope (app name, doc root) at the start of output.
 
 ### 1. Initialize Analysis Context
 
-> **Script Resolution**: Before running `.devspark/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks`, apply the 2-tier override check — if `.documentation/scripts/powershell/<filename>` (PowerShell) or `.documentation/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.documentation/scripts/` always take priority over `.devspark/scripts/`.
+> **Script Resolution**: Before running `{SCRIPT}`, apply the 2-tier override check — if `.knowledge/overrides/scripts/powershell/<filename>` (PowerShell) or `.knowledge/overrides/scripts/bash/<filename>` (Bash) exists on disk, run that file instead, preserving all arguments. Team overrides in `.knowledge/overrides/scripts/` always take priority over `.devspark/scripts/`.
 
-Run `.devspark/scripts/powershell/check-prerequisites.ps1 -Json -RequireTasks -IncludeTasks` once from repo root and parse JSON for FEATURE_DIR and AVAILABLE_DOCS. Derive absolute paths:
+Run `{SCRIPT}` once from repo root and parse JSON for FEATURE_DIR and AVAILABLE_DOCS. Derive absolute paths:
 
 - SPEC = FEATURE_DIR/spec.md
 - PLAN = FEATURE_DIR/plan.md
 - TASKS = FEATURE_DIR/tasks.md
+
+Run the advisory knowledge coverage validator after resolving `FEATURE_DIR`:
+
+- Run `python .devspark/scripts/python/build_knowledge_index.py --check` if
+  available; otherwise run `python scripts/python/build_knowledge_index.py
+  --check` in source repos.
+- Validate every `context_resolved` entity against `.knowledge/entities/`.
+- Validate every decision reference against `.knowledge/governance/decisions/`.
+- Validate touched knowledge metadata against `templates/schemas/devspark-*.schema.json`.
+
+This pass is additive only when `.knowledge/` is absent. If `.knowledge/` exists
+and the ontology generator reports stale files, dangling relations, missing
+or schema violations, report the issue clearly. Missing evidence is a strong
+warning and must not by itself block analysis; stale or structurally invalid
+ontology data may still block analysis.
 
 Abort with an error message if any required file is missing (instruct the user to run missing prerequisite command).
 For single quotes in args like "I'm Groot", use escape syntax: e.g 'I'\''m Groot' (or double-quote if possible: "I'm Groot").
@@ -89,7 +120,7 @@ Load only the minimal necessary context from each artifact:
 
 **From constitution:**
 
-- Load `/.documentation/memory/constitution.md` for principle validation
+- Load `/.knowledge/governance/constitution.md` for principle validation
 
 ### 3. Build Semantic Models
 
@@ -206,6 +237,8 @@ At end of report, output a concise Next Actions block:
 
 Ask the user: "Would you like me to suggest concrete remediation edits for the top N issues?" (Do NOT apply them automatically.)
 
+**Autonomy override**: if `--auto` (or a standing autonomy instruction) is in effect, skip the ask. Instead, recommend re-running `/devspark.tasks` — its Gate Remediation Merge step (§2a) reads this report's `findings:` block directly, merges it with `/devspark.critic`'s, and appends concrete fix tasks without an extra round-trip through this command.
+
 ### 9. Persist Gate Artifact
 
 After producing the report:
@@ -234,21 +267,22 @@ After producing the report:
 
 ## Context
 
-$ARGUMENTS
+{ARGS}
 
 ## Shared Review Resolution Contract Output
 
-When emitting findings (review observations, issues, recommendations), structure each entry to include the shared resolution contract fields so downstream tools (/devspark.address-pr-review, telemetry, harvest) can act on them deterministically:
+When emitting findings (review observations, issues, recommendations), structure each entry to include the shared resolution contract fields so downstream tools (/devspark.address-pr-review and telemetry) can act on them deterministically:
 
 ```yaml
 findings:
   - finding_id: <stable-id-unique-within-this-command-output> # e.g., analyze-001, clarify-002
     severity: critical | high | medium | low
     description: <1-3 sentence problem statement>
+    intent_cue: <behavioral intent that must be repaired or preserved>
     recommended_action: <machine-actionable next step>
     execution_mode: auto | selective | manual
     status: open # set to `resolved` after remediation
     outcome: "" # populated post-resolution by address-pr-review
 ```
 
-`finding_id` MUST be stable across re-runs when the underlying issue is unchanged. `execution_mode` MUST be one of: `auto` (safe to apply automatically), `selective` (apply with reviewer approval), `manual` (requires human implementation). The `status` and `outcome` fields are written by `/devspark.address-pr-review` (FR-028).
+`finding_id` MUST be stable across re-runs when the underlying issue is unchanged. `intent_cue` MUST name the behavior, contract, or quality outcome the finding protects before any metric-focused remediation. `execution_mode` MUST be one of: `auto` (safe to apply automatically), `selective` (apply with reviewer approval), `manual` (requires human implementation). The `status` and `outcome` fields are written by `/devspark.address-pr-review` (FR-028).

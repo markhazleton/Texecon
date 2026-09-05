@@ -30,7 +30,7 @@ get_current_branch() {
     # For non-git repos, try to find the latest feature directory
     local repo_root
     repo_root=$(get_repo_root)
-    local specs_dir="$repo_root/.documentation/specs"
+    local specs_dir="$repo_root/.devspark.work/specs"
 
     if [[ -d "$specs_dir" ]]; then
         local latest_feature=""
@@ -84,14 +84,50 @@ check_feature_branch() {
     return 0
 }
 
-get_feature_dir() { echo "$1/.documentation/specs/$2"; }
+get_feature_dir() { echo "$1/.devspark.work/specs/$2"; }
+
+archive_devspark_work_path() {
+    local source_path="$1"
+    local repo_root source_abs archive_date target_abs target_dir
+    repo_root=$(get_repo_root)
+
+    if [[ "$source_path" = /* ]]; then
+        source_abs="$source_path"
+    else
+        source_abs="$repo_root/$source_path"
+    fi
+
+    if [[ ! -e "$source_abs" ]]; then
+        echo "ERROR: Archive source does not exist: $source_abs" >&2
+        return 1
+    fi
+
+    source_abs="$(CDPATH="" cd "$(dirname "$source_abs")" && pwd -P)/$(basename "$source_abs")"
+    local work_root
+    work_root="$(CDPATH="" cd "$repo_root/.devspark.work" && pwd -P)"
+
+    case "$source_abs" in
+        "$work_root"|"$work_root"/*) ;;
+        *)
+            echo "ERROR: Refusing to archive a path outside .devspark.work: $source_abs" >&2
+            return 1
+            ;;
+    esac
+
+    archive_date=$(date +"%Y-%m-%d")
+    target_abs="$repo_root/.archive/$archive_date/$(basename "$source_abs")"
+    target_dir="$(dirname "$target_abs")"
+    mkdir -p "$target_dir"
+    mv -T "$source_abs" "$target_abs"
+    echo "${target_abs#"$repo_root/"}"
+}
 
 # Find feature directory by numeric prefix instead of exact branch match
 # This allows multiple branches to work on the same spec (e.g., 004-fix-bug, 004-add-feature)
 find_feature_dir_by_prefix() {
     local repo_root="$1"
     local branch_name="$2"
-    local specs_dir="$repo_root/.documentation/specs"
+    local specs_dir="$repo_root/.devspark.work/specs"
 
     # Extract numeric prefix from branch (e.g., "004" from "004-whatever")
     if [[ ! "$branch_name" =~ ^([0-9]{3})- ]]; then
@@ -102,7 +138,7 @@ find_feature_dir_by_prefix() {
 
     local prefix="${BASH_REMATCH[1]}"
 
-    # Search for directories in .documentation/specs/ that start with this prefix
+    # Search for work-package directories that start with this prefix
     local matches=()
     if [[ -d "$specs_dir" ]]; then
         for dir in "$specs_dir"/"$prefix"-*; do
@@ -154,6 +190,7 @@ RESEARCH='$feature_dir/research.md'
 DATA_MODEL='$feature_dir/data-model.md'
 QUICKSTART='$feature_dir/quickstart.md'
 CONTRACTS_DIR='$feature_dir/contracts'
+KNOWLEDGE_DIR='$feature_dir/knowledge'
 EOF
 }
 
@@ -179,6 +216,45 @@ get_markdown_frontmatter_value() {
     get_markdown_frontmatter "$file_path" | awk -F': ' -v wanted="$key" '$1 == wanted { print $2; exit }'
 }
 
+write_okf_knowledge_document() {
+    local feature_dir="$1"
+    local document_id="$2"
+    local document_type="$3"
+    local title="$4"
+    local status="${5:-active}"
+    local source_artifact="${6:-spec.md}"
+
+    [[ -n "$feature_dir" && -n "$document_id" && -n "$document_type" && -n "$title" ]] || return 0
+
+    local feature_id knowledge_dir output_file updated_at
+    feature_id="$(basename "$feature_dir")"
+    knowledge_dir="$feature_dir/knowledge"
+    output_file="$knowledge_dir/$document_id.md"
+    updated_at="$(date +%Y-%m-%d)"
+
+    mkdir -p "$knowledge_dir" 2>/dev/null || return 0
+    cat > "$output_file" <<EOF
+---
+okf_schema_version: "1.0"
+document_id: "$document_id"
+document_type: "$document_type"
+feature_id: "$feature_id"
+title: "$title"
+status: "$status"
+requirement_ids: []
+task_ids: []
+gate_evidence_ids: []
+source_artifacts:
+  - "$source_artifact"
+updated_at: "$updated_at"
+---
+
+# $title
+
+This OKF knowledge document is emitted alongside existing DevSpark lifecycle artifacts.
+EOF
+}
+
 # ---------------------------------------------------------------------------
 # Multi-app support helpers
 # ---------------------------------------------------------------------------
@@ -187,7 +263,7 @@ get_markdown_frontmatter_value() {
 detect_devspark_mode() {
     local repo_root
     repo_root=$(get_repo_root)
-    local registry="$repo_root/.documentation/devspark.json"
+    local registry="$repo_root/.knowledge/entities/application-registry/registry.json"
 
     if [[ -f "$registry" ]]; then
         local mode
@@ -251,11 +327,11 @@ resolve_app_doc_root() {
     local app_id="$2"
 
     if [[ -z "$app_id" ]]; then
-        echo "$repo_root/.documentation"
+        echo "$repo_root/.knowledge"
         return
     fi
 
-    local registry="$repo_root/.documentation/devspark.json"
+    local registry="$repo_root/.knowledge/entities/application-registry/registry.json"
     if [[ ! -f "$registry" ]]; then
         echo "ERROR: No multi-app registry found" >&2; return 1
     fi
@@ -266,7 +342,7 @@ resolve_app_doc_root() {
         echo "ERROR: Unknown application: $app_id" >&2; return 1
     fi
 
-    echo "$repo_root/$app_path/.documentation"
+    echo "$repo_root/$app_path/.knowledge"
 }
 
 # Parse --app and --repo-scope arguments (T026)
@@ -322,14 +398,14 @@ resolve_app_scope() {
             return 1
         fi
         DEVSPARK_SCOPE="repo"
-        DEVSPARK_DOC_ROOT="$repo_root/.documentation"
+        DEVSPARK_DOC_ROOT="$repo_root/.knowledge"
         return 0
     fi
 
     # Multi-app mode
     if [[ "$DEVSPARK_REPO_SCOPE" == "true" ]]; then
         DEVSPARK_SCOPE="repo"
-        DEVSPARK_DOC_ROOT="$repo_root/.documentation"
+        DEVSPARK_DOC_ROOT="$repo_root/.knowledge"
         return 0
     fi
 
@@ -345,7 +421,7 @@ resolve_app_scope() {
     fi
 
     # No explicit scope — check app count
-    local registry="$repo_root/.documentation/devspark.json"
+    local registry="$repo_root/.knowledge/entities/application-registry/registry.json"
     local app_count
     app_count=$(jq '.apps | length' "$registry" 2>/dev/null || echo "0")
 
@@ -362,12 +438,12 @@ resolve_app_scope() {
         app_path=$(jq -r '.apps[0].path' "$registry")
         DEVSPARK_APP_ID="$app_id"
         DEVSPARK_SCOPE="single-app"
-        DEVSPARK_DOC_ROOT="$repo_root/$app_path/.documentation"
+        DEVSPARK_DOC_ROOT="$repo_root/$app_path/.knowledge"
         return 0
     fi
 
     DEVSPARK_SCOPE="repo"
-    DEVSPARK_DOC_ROOT="$repo_root/.documentation"
+    DEVSPARK_DOC_ROOT="$repo_root/.knowledge"
 }
 
 # Resolve constitution with app overlay (T022)
@@ -375,7 +451,10 @@ resolve_constitution() {
     local repo_root="$1"
     local app_id="${2:-}"
 
-    local repo_constitution="$repo_root/.documentation/memory/constitution.md"
+    local repo_constitution="$repo_root/.knowledge/governance/constitution.md"
+    if [[ ! -f "$repo_constitution" && -f "$repo_root/.knowledge/governance/constitution.md" ]]; then
+        repo_constitution="$repo_root/.knowledge/governance/constitution.md"
+    fi
     if [[ ! -f "$repo_constitution" ]]; then
         echo "ERROR: Repository constitution required at $repo_constitution" >&2
         return 1
@@ -387,7 +466,10 @@ resolve_constitution() {
     if [[ -n "$app_id" ]]; then
         local app_doc_root
         app_doc_root=$(resolve_app_doc_root "$repo_root" "$app_id") || return 1
-        local app_constitution="$app_doc_root/memory/constitution.md"
+        local app_constitution="${app_doc_root%/.knowledge}/.knowledge/governance/constitution.md"
+        if [[ ! -f "$app_constitution" ]]; then
+            app_constitution="$app_doc_root/memory/constitution.md"
+        fi
 
         if [[ -f "$app_constitution" ]]; then
             output="$output
@@ -407,7 +489,7 @@ $(cat "$app_constitution")"
 get_downstream_apps() {
     local repo_root="$1"
     local app_id="$2"
-    local registry="$repo_root/.documentation/devspark.json"
+    local registry="$repo_root/.knowledge/entities/application-registry/registry.json"
 
     if [[ ! -f "$registry" ]]; then
         return
@@ -463,7 +545,7 @@ print_scope_summary() {
 resolve_app_profiles() {
     local repo_root="$1"
     local app_id="$2"
-    local registry="$repo_root/.documentation/devspark.json"
+    local registry="$repo_root/.knowledge/entities/application-registry/registry.json"
 
     if [[ ! -f "$registry" ]]; then
         echo '{"tags":{},"rules":[],"hints":{}}'; return
@@ -511,7 +593,7 @@ get_feature_paths_app_aware() {
     fi
 
     # Determine doc root based on app context
-    local doc_root="$repo_root/.documentation"
+    local doc_root="$repo_root/.knowledge"
     if [[ -n "$DEVSPARK_DOC_ROOT" ]]; then
         doc_root="$DEVSPARK_DOC_ROOT"
     fi
@@ -522,7 +604,7 @@ get_feature_paths_app_aware() {
     if [[ -d "$specs_dir" ]]; then
         feature_dir=$(find_feature_dir_by_prefix "$(dirname "$doc_root")" "$current_branch" 2>/dev/null || echo "$specs_dir/$current_branch")
         # Re-base if we're in app scope
-        if [[ "$doc_root" != "$repo_root/.documentation" ]]; then
+        if [[ "$doc_root" != "$repo_root/.knowledge" ]]; then
             feature_dir="$specs_dir/$current_branch"
         fi
     else
@@ -544,6 +626,6 @@ RESEARCH='$feature_dir/research.md'
 DATA_MODEL='$feature_dir/data-model.md'
 QUICKSTART='$feature_dir/quickstart.md'
 CONTRACTS_DIR='$feature_dir/contracts'
+KNOWLEDGE_DIR='$feature_dir/knowledge'
 EOF
 }
-

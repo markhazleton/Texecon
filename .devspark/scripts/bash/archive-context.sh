@@ -50,7 +50,7 @@ fi
 REPO_ROOT=$(get_repo_root)
 ARCHIVE_BASE="$REPO_ROOT/.archive"
 ARCHIVE_DIR=".archive/$(date +%Y-%m-%d)"
-GUIDE_PATH=".documentation/Guide.md"
+GUIDE_PATH=".knowledge/Guide.md"
 CHANGELOG_PATH="CHANGELOG.md"
 GUIDE_EXISTS=false
 CHANGELOG_EXISTS=false
