@@ -1,0 +1,26 @@
+id: github-pages-publishing
+name: GitHub Pages Publishing
+kind: repository-configuration
+summary: GitHub Actions validates and publishes the generated Texecon target artifact to GitHub Pages with custom-domain and project-pages modes.
+owner: Mark Hazleton
+lifecycle: current
+root: .github/workflows/deploy.yml
+managed_by: mixed
+required_layers:
+  - architecture.md
+relations:
+  - type: supports
+    object: texecon-site
+  - type: uses
+    object: webspark-content-pipeline
+evidence:
+  - type: code
+    ref: .github/workflows/deploy.yml
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Workflow inspection
+  - type: code
+    ref: vite.config.ts
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Build configuration inspection

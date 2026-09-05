@@ -51,20 +51,21 @@ Your TexEcon static web app is now optimized and ready for GitHub Pages deployme
 
 #### Option B: GitHub Pages Subdirectory
 
-```bash
-# If using username.github.io/Texecon/, uncomment in GitHub Actions:
-# env:
-#   VITE_BASE_PATH: '/Texecon/'
-```
+Pull-request builds automatically validate the project-pages configuration using
+`VITE_BASE_PATH=/<repository>/` and `SITE_BASE_URL=https://<owner>.github.io/<repository>`.
+No manual workflow edit is required. Production builds use `/` and the configured
+custom domain when `CUSTOM_DOMAIN` is present.
 
 ## 🏗️ Build Process
 
 ### Current Build Pipeline
 
 1. **Content Refresh** - Fetches latest content from WebSpark API
-2. **Sitemap Generation** - Creates SEO-optimized sitemap.xml
-3. **Vite Build** - Bundles and optimizes static assets
-4. **GitHub Pages Deploy** - Automated deployment via Actions
+2. **Sitemap Generation** - Creates SEO-optimized sitemap.xml and robots.txt
+3. **Vite Build** - Bundles and optimizes static assets into `target/`
+4. **Static Page Generation** - Emits route-specific `index.html` files into `target/`
+5. **Artifact Validation** - Verifies required files and the expected sitemap base URL
+6. **GitHub Pages Deploy** - Uploads `target/` and deploys it via Actions
 
 ### Build Command
 
@@ -74,10 +75,11 @@ npm run build
 
 ### Build Outputs
 
-- `dist/` - Production-ready static files
-- `dist/404.html` - SPA routing fallback
-- `dist/sitemap.xml` - SEO sitemap
-- `dist/robots.txt` - Search engine directives
+- `target/` - Production-ready static files
+- `target/404.html` - SPA routing fallback
+- `target/sitemap.xml` - SEO sitemap
+- `target/robots.txt` - Search engine directives
+- `target/version.json` - Build version metadata
 
 ## 🎯 Technical Stack Advantages
 
@@ -146,7 +148,7 @@ npm run build
 ├── .github/workflows/deploy.yml    # GitHub Actions deployment
 ├── client/public/404.html          # SPA routing fallback
 ├── client/src/                     # React application source
-├── dist/                           # Build output (auto-generated)
+├── target/                         # Build output (auto-generated)
 ├── scripts/                        # Build and content scripts
 └── docs/                          # Documentation
 ```

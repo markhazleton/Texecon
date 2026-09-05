@@ -3,12 +3,12 @@
 ## DevSpark
 
 - DevSpark framework files live in `.devspark/`.
-- Project artifacts and team overrides live in `.documentation/`.
+- Permanent project knowledge and team overrides live in `.knowledge/`.
 - Resolve DevSpark commands through the first existing file:
-  1. `.documentation/{git-user}/commands/devspark.{name}.md`
-  2. `.documentation/commands/devspark.{name}.md`
+  1. `.knowledge/overrides/{git-user}/commands/devspark.{name}.md`
+  2. `.knowledge/overrides/commands/devspark.{name}.md`
   3. `.devspark/defaults/commands/devspark.{name}.md`
-- Preserve user work in `.documentation/`; upgrades refresh `.devspark/` only.
+- Preserve user work in `.knowledge/`; upgrades refresh `.devspark/` only.
 
 ## Project Overview
 - TexEcon is a static-first React + TypeScript site built with Vite and deployed to GitHub Pages (`texecon.com`).

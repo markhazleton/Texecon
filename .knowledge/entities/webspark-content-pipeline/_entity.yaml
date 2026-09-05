@@ -1,0 +1,29 @@
+id: webspark-content-pipeline
+name: WebSpark Content Pipeline
+kind: repository-configuration
+summary: Build scripts fetch WebSpark website data, cache processed content, and provide the inputs used by Texecon navigation and static publishing.
+owner: Mark Hazleton
+lifecycle: current
+root: scripts
+managed_by: mixed
+required_layers:
+  - architecture.md
+relations:
+  - type: supports
+    object: texecon-site
+evidence:
+  - type: code
+    ref: scripts/fetch-content.js
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Build-script inspection
+  - type: code
+    ref: scripts/refresh-content.js
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Build-script inspection
+  - type: code
+    ref: client/src/lib/data.ts
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Consumer inspection
