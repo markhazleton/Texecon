@@ -115,7 +115,12 @@ export default function FamilyMemories() {
         <FadeIn key={`${memory.personName}-${memoryIndex}`}>
           <article className="mb-8 border border-border bg-card px-5 py-7 shadow-sm sm:px-8 sm:py-10 md:px-12">
             <header className="mb-7 border-b border-border/70 pb-6">
-              <h3 className="font-serif text-2xl text-primary sm:text-3xl">{memory.personName}</h3>
+              <h3 className="font-serif text-2xl text-primary sm:text-3xl">
+                {memory.personName}{" "}
+                <span className="font-sans text-sm font-normal text-muted">
+                  ({memory.personPronouns})
+                </span>
+              </h3>
               <p className="mt-1 text-sm font-medium uppercase tracking-[0.14em] text-muted">
                 {memory.relationshipToJared}
               </p>

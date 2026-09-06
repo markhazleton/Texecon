@@ -6,6 +6,7 @@ import {
 
 const memory = {
   personName: "Mark Hazleton",
+  personPronouns: "he/him",
   relationshipToJared: "Youngest son of Jared",
   body: "A family memory.",
 };

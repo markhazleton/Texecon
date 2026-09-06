@@ -1,5 +1,6 @@
 export interface FamilyMemory {
   personName: string;
+  personPronouns: string;
   relationshipToJared: string;
   body: string;
 }
@@ -18,6 +19,7 @@ function isFamilyMemory(value: unknown): value is FamilyMemory {
   return (
     isRecord(value) &&
     typeof value.personName === "string" &&
+    typeof value.personPronouns === "string" &&
     typeof value.relationshipToJared === "string" &&
     typeof value.body === "string"
   );
