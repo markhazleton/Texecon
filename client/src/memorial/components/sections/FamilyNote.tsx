@@ -1,6 +1,7 @@
 import React from "react";
 import { FadeIn } from "../animations";
 import { ExternalLink, PenLine } from "lucide-react";
+import FamilyMemories from "./FamilyMemories";
 
 export default function FamilyNote() {
   return (
@@ -75,6 +76,7 @@ export default function FamilyNote() {
             </div>
           </div>
         </FadeIn>
+        <FamilyMemories />
       </div>
     </section>
   );

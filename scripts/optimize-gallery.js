@@ -17,7 +17,18 @@ async function sourceHash(filePath) {
   return crypto.createHash("sha256").update(contents).digest("hex");
 }
 
+async function readExistingManifest() {
+  try {
+    const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+    return Array.isArray(manifest) ? manifest : [];
+  } catch (error) {
+    if (error.code === "ENOENT") return [];
+    throw error;
+  }
+}
+
 async function optimizeGallery() {
+  const existingManifest = await readExistingManifest();
   const sourceNames = (await fs.readdir(sourceDirectory))
     .filter((name) => supportedExtensions.has(path.extname(name).toLowerCase()))
     .sort((left, right) => left.localeCompare(right, "en", { numeric: true }));
@@ -34,14 +45,48 @@ async function optimizeGallery() {
     uniqueSources.push({ filePath, hash });
   }
 
+  // Preserve existing IDs and display order so adding a source image does not
+  // invalidate every generated asset URL that follows it alphabetically.
+  const sourceByHashPrefix = new Map(
+    uniqueSources.map((source) => [source.hash.slice(0, 8), source])
+  );
+  const existingIdByHashPrefix = new Map();
+  const orderedSources = [];
+  const orderedHashes = new Set();
+
+  for (const photo of existingManifest) {
+    const match = typeof photo.id === "string" ? photo.id.match(/-([a-f0-9]{8})$/) : null;
+    const hashPrefix = match?.[1];
+    const source = hashPrefix ? sourceByHashPrefix.get(hashPrefix) : undefined;
+    if (!source || orderedHashes.has(source.hash)) continue;
+
+    existingIdByHashPrefix.set(hashPrefix, photo.id);
+    orderedSources.push(source);
+    orderedHashes.add(source.hash);
+  }
+
+  for (const source of uniqueSources) {
+    if (orderedHashes.has(source.hash)) continue;
+    orderedSources.push(source);
+    orderedHashes.add(source.hash);
+  }
+
+  const previousNumbers = existingManifest
+    .map((photo) => (typeof photo.id === "string" ? photo.id.match(/^photo-(\d+)-/) : null))
+    .map((match) => Number(match?.[1] ?? 0));
+  let nextNumber = Math.max(0, ...previousNumbers) + 1;
+
   await fs.rm(outputDirectory, { recursive: true, force: true });
   await fs.mkdir(outputDirectory, { recursive: true });
 
   const photos = [];
 
-  for (const [index, source] of uniqueSources.entries()) {
-    const number = String(index + 1).padStart(2, "0");
-    const basename = `photo-${number}-${source.hash.slice(0, 8)}`;
+  for (const [index, source] of orderedSources.entries()) {
+    const hashPrefix = source.hash.slice(0, 8);
+    const existingId = existingIdByHashPrefix.get(hashPrefix);
+    const number = String(nextNumber).padStart(2, "0");
+    const basename = existingId ?? `photo-${number}-${hashPrefix}`;
+    if (!existingId) nextNumber += 1;
     const image = sharp(source.filePath, { failOn: "warning" }).rotate();
     const metadata = await sharp(source.filePath).metadata();
     const swapsDimensions = metadata.orientation && metadata.orientation >= 5;
@@ -84,7 +129,7 @@ async function optimizeGallery() {
 
     photos.push({
       id: basename,
-      alt: `Memorial photograph ${index + 1} of ${uniqueSources.length} from the Hazleton family collection`,
+      alt: `Memorial photograph ${index + 1} of ${orderedSources.length} from the Hazleton family collection`,
       width,
       height,
       placeholder: `data:image/webp;base64,${placeholder.toString("base64")}`,
@@ -94,7 +139,7 @@ async function optimizeGallery() {
       fallback: `images/memorial/${basename}-1600.jpg`,
     });
 
-    process.stdout.write(`Optimized ${index + 1}/${uniqueSources.length}\r`);
+    process.stdout.write(`Optimized ${index + 1}/${orderedSources.length}\r`);
   }
 
   await fs.writeFile(manifestPath, `${JSON.stringify(photos, null, 2)}\n`);
