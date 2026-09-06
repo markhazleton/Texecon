@@ -1,6 +1,6 @@
 import React from "react";
 import { FadeIn } from "../animations";
-import { ExternalLink, PenLine } from "lucide-react";
+import { CalendarPlus, ExternalLink, MapPin, PenLine } from "lucide-react";
 import FamilyMemories from "./FamilyMemories";
 
 export default function FamilyNote() {
@@ -32,10 +32,51 @@ export default function FamilyNote() {
               <p className="text-sm uppercase tracking-[0.18em] text-secondary font-semibold mb-4">
                 Celebration of life
               </p>
-              <p className="text-foreground/70 leading-relaxed">
-                A celebration of life will be held on September 19, 2026, at a church in Fort Worth,
-                Texas. Church name, address, and service time will be added when available.
+              <p className="text-foreground/70 leading-relaxed mb-5">
+                We would like to share the arrangements for{" "}
+                <a
+                  href="https://www.facebook.com/jared.hazleton"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-primary underline decoration-secondary/50 underline-offset-4 transition-colors hover:text-secondary"
+                >
+                  Jared Hazleton
+                </a>
+                &apos;s Celebration of Life.
               </p>
+              <time
+                dateTime="2026-09-19T16:00:00-05:00"
+                className="block font-serif text-lg font-semibold text-primary sm:text-xl"
+              >
+                Saturday, September 19, 2026. 4:00 p.m.
+              </time>
+              <address className="mt-2 not-italic text-foreground/80 leading-relaxed">
+                Celebration Community Church at 908 Pennsylvania Avenue, Fort Worth, Texas 76104
+              </address>
+              <p className="mt-5 text-foreground/70 leading-relaxed">
+                A reception will follow the service at the church. We hope you will join us as we
+                gather to remember Jared, celebrate his life, share stories, and give thanks for the
+                many years we were blessed to have him with us.
+              </p>
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Celebration%20Community%20Church%2C%20908%20Pennsylvania%20Avenue%2C%20Fort%20Worth%2C%20TX%2076104"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-primary/20 bg-background px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:border-secondary hover:text-secondary"
+                >
+                  <MapPin aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
+                  Map &amp; directions
+                </a>
+                <a
+                  href={`${import.meta.env.BASE_URL}jared-hazleton-celebration-of-life.ics`}
+                  download
+                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-primary/20 bg-background px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:border-secondary hover:text-secondary"
+                >
+                  <CalendarPlus aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
+                  Add to calendar
+                </a>
+              </div>
             </div>
 
             <div className="flex flex-col md:flex-row md:flex-wrap items-stretch md:items-center justify-center gap-3">
@@ -66,13 +107,6 @@ export default function FamilyNote() {
                 Add a memory
                 <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
               </a>
-            </div>
-
-            <div className="mt-10 pt-8 border-t border-border/50 text-sm text-foreground/60 font-sans italic">
-              <p>
-                The family may add a personal tribute, shared memories, or memorial service details
-                here when ready.
-              </p>
             </div>
           </div>
         </FadeIn>

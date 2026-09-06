@@ -55,6 +55,28 @@ export default function MemorialHome() {
         isPartOf: { "@type": "WebSite", name: "TexEcon", url: "https://texecon.com/" },
         inLanguage: "en-US",
       },
+      {
+        "@type": "Event",
+        "@id": `${memorialUrl}#celebration-of-life`,
+        name: "Celebration of Life for Dr. Jared Earl Hazleton",
+        description:
+          "A gathering to remember Jared Hazleton, celebrate his life, share stories, and give thanks for the many years his family and friends were blessed to have him.",
+        startDate: "2026-09-19T16:00:00-05:00",
+        eventStatus: "https://schema.org/EventScheduled",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        location: {
+          "@type": "Place",
+          name: "Celebration Community Church",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "908 Pennsylvania Avenue",
+            addressLocality: "Fort Worth",
+            addressRegion: "TX",
+            postalCode: "76104",
+            addressCountry: "US",
+          },
+        },
+      },
     ],
   };
 

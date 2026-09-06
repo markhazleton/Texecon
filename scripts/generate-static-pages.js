@@ -263,6 +263,15 @@ function buildStaticRoot(item, hierarchy) {
       `<h2 style="color:#1e3a5f;">Selected publications and research</h2>` +
       `<p>His published work addressed the sulphur industry, fisheries economics, macroeconomic policy, development in oil-rich countries, environmental policy, land reform, year-round schooling, bank mergers, and regional economic stability.</p>` +
       `<p><strong>Jared Earl Hazleton passed away on September 3, 2026, at age 88.</strong> A family tribute and memorial information are available below, along with the published obituary and funeral-home updates.</p>` +
+      `<section aria-labelledby="celebration-title" style="margin:32px 0;padding:24px;border:1px solid #d9c79e;background:#faf7ef;">` +
+      `<h2 id="celebration-title" style="color:#1e3a5f;margin-top:0;">Celebration of Life</h2>` +
+      `<p>We would like to share the arrangements for <a href="https://www.facebook.com/jared.hazleton"><strong>Jared Hazleton</strong></a>'s Celebration of Life.</p>` +
+      `<p><strong><time datetime="2026-09-19T16:00:00-05:00">Saturday, September 19, 2026. 4:00 p.m.</time></strong></p>` +
+      `<address style="font-style:normal;">Celebration Community Church at 908 Pennsylvania Avenue, Fort Worth, Texas 76104</address>` +
+      `<p>A reception will follow the service at the church. We hope you will join us as we gather to remember Jared, celebrate his life, share stories, and give thanks for the many years we were blessed to have him with us.</p>` +
+      `<p><a href="https://www.google.com/maps/dir/?api=1&amp;destination=Celebration%20Community%20Church%2C%20908%20Pennsylvania%20Avenue%2C%20Fort%20Worth%2C%20TX%2076104">Map &amp; directions</a> · ` +
+      `<a href="${escapeHtmlAttr(withBasePath('/jared-hazleton-celebration-of-life.ics'))}" download>Add to calendar</a></p>` +
+      `</section>` +
       `<p><a href="https://fortworthreport.org/2026/09/04/jared-earl-hazleton-september-12-1937-september-3-2026/">Read the Fort Worth Report remembrance of Dr. Jared Earl Hazleton</a> · ` +
       `<a href="https://www.dignitymemorial.com/obituaries/arlington-tx/jared-hazleton-13026327">View the funeral home obituary</a></p>` +
       `</section>` +
@@ -331,6 +340,28 @@ function memorialStructuredData(url) {
           'https://fortworthreport.org/2026/09/04/jared-earl-hazleton-september-12-1937-september-3-2026/',
           'https://www.dignitymemorial.com/obituaries/arlington-tx/jared-hazleton-13026327',
         ],
+      },
+      {
+        '@type': 'Event',
+        '@id': `${url}#celebration-of-life`,
+        name: 'Celebration of Life for Dr. Jared Earl Hazleton',
+        description:
+          'A gathering to remember Jared Hazleton, celebrate his life, share stories, and give thanks for the many years his family and friends were blessed to have him.',
+        startDate: '2026-09-19T16:00:00-05:00',
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        location: {
+          '@type': 'Place',
+          name: 'Celebration Community Church',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '908 Pennsylvania Avenue',
+            addressLocality: 'Fort Worth',
+            addressRegion: 'TX',
+            postalCode: '76104',
+            addressCountry: 'US',
+          },
+        },
       },
     ],
   };

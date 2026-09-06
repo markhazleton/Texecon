@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//TexEcon//Jared Hazleton Memorial//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:jared-hazleton-celebration-of-life-20260919@texecon.com
+DTSTAMP:20260906T120000Z
+DTSTART:20260919T210000Z
+SUMMARY:Celebration of Life for Jared Hazleton
+LOCATION:Celebration Community Church\, 908 Pennsylvania Avenue\, Fort
+ Worth\, Texas 76104
+DESCRIPTION:We hope you will join us as we gather to remember Jared\,
+ celebrate his life\, share stories\, and give thanks for the many years we
+ were blessed to have him with us. A reception will follow the service at
+ the church.
+URL:https://texecon.com/memorial/jared-earl-hazleton/
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
