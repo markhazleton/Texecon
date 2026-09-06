@@ -132,7 +132,8 @@ npm run build
 ### Routing Considerations
 
 - All routes work with direct access (thanks to 404.html fallback)
-- Client-side routing handles: `/page/:id`, `/content/:slug`, `/topic/:id`, `/section/:slug`
+- The root route renders the memorial experience.
+- Client-side routing also handles `/page/:id`, `/content/:slug`, `/topic/:id`, `/section/:slug`, `/:slug`, and `/:category/:slug`.
 - SEO-friendly URLs with proper meta tag injection
 
 ### Environment Variables

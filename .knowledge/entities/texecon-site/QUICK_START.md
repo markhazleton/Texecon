@@ -18,8 +18,7 @@ cd Texecon
 # Install dependencies
 npm install
 
-# Setup Git hooks
-npm run prepare
+# Pre-commit checks are currently disabled; run quality commands manually.
 ```
 
 ## Development
@@ -66,10 +65,11 @@ npm run clean            # Remove build artifacts
 
 ### Committing Code
 
-Pre-commit hooks automatically run when you commit:
-1. ✅ Type checking
-2. ✅ Linting (with auto-fix)
-3. ✅ Formatting
+The pre-commit hook is currently disabled and exits successfully without
+running checks. Run the quality commands manually before committing:
+1. Type checking
+2. Linting
+3. Formatting
 
 Just commit normally:
 ```bash
@@ -77,7 +77,7 @@ git add .
 git commit -m "Your commit message"
 ```
 
-If hooks fail, fix the issues and commit again.
+If a manually run check fails, fix the issue and run the check again.
 
 **Bypass hooks** (not recommended):
 ```bash
@@ -104,7 +104,6 @@ Texecon/
 │   │   └── pages/     # Route components
 │   └── public/         # Static assets
 ├── scripts/            # Build automation
-├── docs/              # Documentation
 └── target/            # Build output (auto-generated)
 ```
 
@@ -181,23 +180,24 @@ npm run clean
 npm run build
 ```
 
-### Pre-commit hooks not working
-```bash
-npm run prepare         # Reinstall hooks
-```
+### Pre-commit checks
+
+The current `.husky/pre-commit` hook is disabled. Run `npm run type-check`,
+`npm run lint`, and `npm run format:check` manually before committing.
 
 ## CI/CD Pipeline
 
 On push to `main`, GitHub Actions automatically:
-1. ✅ Runs security audit
-2. ✅ Checks code quality (lint + format)
-3. ✅ Validates types
-4. ✅ Runs all tests
-5. ✅ Checks test coverage
-6. ✅ Builds the application
-7. ✅ Validates build artifacts
-8. ✅ Runs Lighthouse performance tests
-9. ✅ Deploys to https://texecon.com
+1. Runs security audit (non-blocking)
+2. Checks generated content types formatting
+3. Checks code quality (lint + format)
+4. Validates types
+5. Runs all tests
+6. Checks test coverage (non-blocking)
+7. Builds the application
+8. Validates build artifacts
+9. Runs Lighthouse on non-PR events
+10. Uploads Pages artifacts on non-PR events; deploys `main`
 
 ## Performance Budgets
 
@@ -212,16 +212,14 @@ Lighthouse CI enforces:
 ## Getting Help
 
 1. **[Developer Guide](DEVELOPER_GUIDE.md)** - Complete documentation
-2. **[Implementation Summary](IMPROVEMENTS_IMPLEMENTED.md)** - What's new
-3. **[GitHub Issues](https://github.com/MarkHazleton/Texecon/issues)** - Report problems
-4. **[GitHub Actions](https://github.com/MarkHazleton/Texecon/actions)** - Build status
+2. **[GitHub Issues](https://github.com/MarkHazleton/Texecon/issues)** - Report problems
+3. **[GitHub Actions](https://github.com/MarkHazleton/Texecon/actions)** - Build status
 
 ## Next Steps
 
 - Read the [Developer Guide](DEVELOPER_GUIDE.md)
-- Review [Implementation Summary](IMPROVEMENTS_IMPLEMENTED.md)
 - Check out the [Deployment Guide](github-pages-deployment.md)
-- Explore [Performance Fixes](performance-fixes.md)
+- Review the current architecture and observability notes in this entity.
 
 ## Live Site
 

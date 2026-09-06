@@ -63,13 +63,12 @@ The site will be available at `http://localhost:5173`
 
 ### Pre-commit Hooks
 
-This project uses Husky to run checks before commits:
+The repository contains a disabled Husky pre-commit hook. It exits successfully
+without running checks, so contributors must run validation commands manually:
 
-1. **Type checking** - Ensures no TypeScript errors
-2. **Linting** - Checks and fixes code quality issues
-3. **Formatting** - Formats code automatically
-
-If any check fails, the commit will be blocked. Fix the issues and try again.
+1. **Type checking** - `npm run type-check`
+2. **Linting** - `npm run lint`
+3. **Formatting** - `npm run format:check`
 
 **To bypass hooks** (not recommended):
 ```bash
@@ -389,15 +388,10 @@ npm run build
 npm run fetch:content
 ```
 
-#### Pre-commit hooks not running
+#### Pre-commit checks
 
-```bash
-# Reinstall Husky
-npm run prepare
-
-# Check .husky directory exists
-ls -la .husky
-```
+The current `.husky/pre-commit` hook is intentionally disabled. Run the
+validation commands directly; there is no `prepare` script in `package.json`.
 
 ### Debug Mode
 
@@ -413,10 +407,8 @@ NODE_ENV=development npm run build
 
 ### Getting Help
 
-1. Check existing [documentation](./):
-   - [IMPROVEMENTS_IMPLEMENTED.md](IMPROVEMENTS_IMPLEMENTED.md)
-   - [create-og-image.md](create-og-image.md)
-   - [performance-fixes.md](performance-fixes.md)
+1. Check the current knowledge documents under `.knowledge/entities/` and
+   `.knowledge/governance/`.
 
 2. Search [GitHub Issues](https://github.com/MarkHazleton/Texecon/issues)
 
@@ -449,10 +441,8 @@ Texecon/
 │   │   ├── main.tsx             # Entry point
 │   │   └── index.css            # Global styles
 │   └── index.html               # HTML template
-├── docs/                        # Documentation
 ├── scripts/                     # Build scripts
-├── .eslintrc.json               # ESLint config
-├── .prettierrc                  # Prettier config
+├── eslint.config.js             # ESLint flat config
 ├── vitest.config.ts             # Test config
 ├── vite.config.ts               # Build config
 ├── tsconfig.json                # TypeScript config

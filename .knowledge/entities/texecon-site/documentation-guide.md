@@ -4,17 +4,13 @@ This is the living orientation document for active project documentation.
 
 ## Directory map
 
-- `.knowledge/commands/` - Team-level command overrides for DevSpark prompt/command behavior.
-- `.knowledge/decisions/` - Architecture and decision records that remain active references.
-- `.knowledge/guides/` - Human-oriented guides, including current and legacy-but-retained reference docs.
-- `.knowledge/memory/` - Project memory documents, including the constitution.
-- `.knowledge/repo-story/` - Repository narrative snapshots and historical project storyline docs retained as active context.
-- `.knowledge/reports/` - Implementation and review reports that remain relevant to current operations.
-- `.knowledge/specs/` - Spec artifacts for planned and active workstreams.
+- `.knowledge/entities/` - Current-truth entities and their architecture or operational documents.
+- `.knowledge/governance/` - Constitution and active architecture decisions.
+- `.knowledge/ontology/` - Generated coverage, evidence, relation, governance, and gap reports.
 
 ## Key files
 
-- `.knowledge/Guide.md` - This file; current-state orientation and usage rules for `.knowledge/`.
+- `AGENTS.md` - Repository and knowledge-management orientation for agents.
 
 ## How to use
 
@@ -26,7 +22,7 @@ This is the living orientation document for active project documentation.
 
 ## Constitution location
 
-- `/.knowledge/memory/constitution.md`
+- `.knowledge/governance/constitution.md`
 
 ## Archive policy
 
