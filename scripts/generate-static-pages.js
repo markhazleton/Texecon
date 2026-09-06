@@ -206,6 +206,7 @@ function generateFooterHTML() {
     `<a href="${escapeHtmlAttr(withBasePath('/arizona/'))}" style="color:#93c5fd;text-decoration:none;">Arizona</a> · ` +
     `<a href="${escapeHtmlAttr(withBasePath('/kansas/'))}" style="color:#93c5fd;text-decoration:none;">Kansas</a> · ` +
     `<a href="${escapeHtmlAttr(withBasePath('/texecon/mark-hazleton/'))}" style="color:#93c5fd;text-decoration:none;">About Mark</a> · ` +
+    `<a href="${escapeHtmlAttr(withBasePath('/memorial/jared-earl-hazleton/'))}" style="color:#93c5fd;text-decoration:none;">Jared Hazleton Memorial</a> · ` +
     `<a href="${escapeHtmlAttr(withBasePath('/sitemap.xml'))}" style="color:#93c5fd;text-decoration:none;">Sitemap</a>` +
     `</p></footer>`
   );
@@ -250,10 +251,20 @@ function buildStaticRoot(item, hierarchy) {
       `<p style="color:#6f8579;letter-spacing:.18em;text-transform:uppercase;font-size:.8rem;">In Loving Memory</p>` +
       `<h1 id="memorial-title" style="color:#0d2b54;margin:12px 0 8px;font-family:Georgia,serif;">Dr. Jared Earl Hazleton</h1>` +
       `<p style="font-family:Georgia,serif;font-style:italic;color:#374151;">September 12, 1937 &mdash; September 3, 2026</p>` +
-      `<img src="${escapeHtmlAttr(withBasePath('/jared-hazleton.png'))}" alt="Dr. Jared Earl Hazleton" width="420" height="525" ` +
+      `<img src="${escapeHtmlAttr(withBasePath('/jared-hazleton.png'))}" alt="Portrait of Dr. Jared Earl Hazleton, Texas economist and educator" width="420" height="525" ` +
       `style="display:block;width:min(100%,420px);height:auto;margin:28px auto;box-shadow:0 20px 40px rgba(13,43,84,.18);" />` +
       `<p style="color:#4b5563;line-height:1.7;font-size:1.05rem;">American economist, educator, public servant, and principal of TexEcon. ` +
       `This memorial honors a life devoted to scholarship, service, and the people and institutions he helped shape.</p>` +
+      `</section>` +
+      `<section aria-labelledby="tribute-summary" style="max-width:860px;margin:0 auto 48px;line-height:1.7;color:#374151;">` +
+      `<h2 id="tribute-summary" style="color:#1e3a5f;">Biography and legacy</h2>` +
+      `<p>Jared Earl Hazleton was born on September 12, 1937, in Oklahoma City, Oklahoma. He earned a Bachelor of Business Administration from the University of Oklahoma in 1959 and a Ph.D. in Economics from Rice University in 1961. His life combined scholarship, teaching, public service, and a lasting commitment to the people and institutions he helped shape.</p>` +
+      `<p>His academic and professional work included service with the University of Texas, University of Washington, Texas A&amp;M, the University of North Texas, the Federal Reserve Bank of Boston, the Texas Research League, and the Southwestern Economics Association. As principal of TexEcon, he continued educating the public through economic analysis and commentary.</p>` +
+      `<h2 style="color:#1e3a5f;">Selected publications and research</h2>` +
+      `<p>His published work addressed the sulphur industry, fisheries economics, macroeconomic policy, development in oil-rich countries, environmental policy, land reform, year-round schooling, bank mergers, and regional economic stability.</p>` +
+      `<p><strong>Jared Earl Hazleton passed away on September 3, 2026, at age 88.</strong> A family tribute and memorial information are available below, along with the published obituary and funeral-home updates.</p>` +
+      `<p><a href="https://fortworthreport.org/2026/09/04/jared-earl-hazleton-september-12-1937-september-3-2026/">Read the Fort Worth Report remembrance of Dr. Jared Earl Hazleton</a> · ` +
+      `<a href="https://www.dignitymemorial.com/obituaries/arlington-tx/jared-hazleton-13026327">View the funeral home obituary</a></p>` +
       `</section>` +
       `<section aria-labelledby="archive-title">` +
       `<h2 id="archive-title" style="color:#1e3a5f;margin:0 0 8px;">Explore the TexEcon archive</h2>` +
@@ -293,6 +304,38 @@ function injectStaticRoot(baseTemplate, item, hierarchy) {
   );
 }
 
+function memorialStructuredData(url) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'ProfilePage',
+        '@id': `${url}#profile`,
+        url,
+        name: 'In Memory of Dr. Jared Earl Hazleton',
+        dateCreated: '2026-09-03',
+        dateModified: '2026-09-06',
+        mainEntity: { '@id': `${url}#jared-hazleton` },
+      },
+      {
+        '@type': 'Person',
+        '@id': `${url}#jared-hazleton`,
+        name: 'Dr. Jared Earl Hazleton',
+        birthDate: '1937-09-12',
+        deathDate: '2026-09-03',
+        description: 'American economist, educator, public servant, and principal of TexEcon.',
+        image: 'https://texecon.com/jared-hazleton.png',
+        jobTitle: ['Economist', 'Educator', 'Public Servant', 'Principal'],
+        worksFor: { '@type': 'Organization', name: 'TexEcon', url: 'https://texecon.com/' },
+        sameAs: [
+          'https://fortworthreport.org/2026/09/04/jared-earl-hazleton-september-12-1937-september-3-2026/',
+          'https://www.dignitymemorial.com/obituaries/arlington-tx/jared-hazleton-13026327',
+        ],
+      },
+    ],
+  };
+}
+
 /**
  * Generate static HTML pages for dynamic routes using exact API URLs
  * This creates actual HTML files that search engines can crawl using the 
@@ -324,9 +367,32 @@ async function generateStaticPages() {
     let totalGenerated = 0;
 
     // Update the home page (target/index.html) with static nav + site map
-    const homeHtml = injectStaticRoot(baseTemplate, null, hierarchy);
+    const homeUrl = 'https://texecon.com/';
+    const memorialUrl = 'https://texecon.com/memorial/jared-earl-hazleton/';
+    const homeHtml = addStructuredData(
+      updateMetaTags(
+        injectStaticRoot(baseTemplate, null, hierarchy),
+        'Dr. Jared Earl Hazleton Obituary & Memorial | TexEcon',
+        'Remembering Dr. Jared Earl Hazleton (September 12, 1937–September 3, 2026), Texas economist, educator, public servant, and principal of TexEcon. Read his biography, legacy, publications, and family tribute.',
+        homeUrl,
+        'Jared Hazleton, obituary, memorial, economist, educator, public service, Texas economist, TexEcon',
+        'profile',
+        'https://texecon.com/jared-hazleton.png',
+        'Dr. Jared Earl Hazleton Obituary & Memorial | TexEcon'
+      ),
+      memorialStructuredData(homeUrl)
+    );
     fs.writeFileSync(baseTemplatePath, homeHtml);
     console.log('✅ Updated home page: /index.html');
+    totalGenerated++;
+
+    const memorialDir = path.join(__dirname, '..', 'target', 'memorial', 'jared-earl-hazleton');
+    fs.mkdirSync(memorialDir, { recursive: true });
+    const memorialHtml = homeHtml
+      .replace(/https:\/\/texecon\.com\/?(?=["'])/g, memorialUrl)
+      .replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${memorialUrl}"`);
+    fs.writeFileSync(path.join(memorialDir, 'index.html'), memorialHtml);
+    console.log('✅ Generated: /memorial/jared-earl-hazleton/index.html');
     totalGenerated++;
 
     // Generate pages for all menu items that have URLs

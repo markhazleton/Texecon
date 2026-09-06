@@ -43,7 +43,7 @@ export default function Hero() {
             <div className="w-full h-full relative z-10 overflow-hidden shadow-2xl bg-card">
               <img
                 src={`${import.meta.env.BASE_URL}jared-hazleton.png`}
-                alt="Dr. Jared Earl Hazleton"
+                alt="Portrait of Dr. Jared Earl Hazleton, Texas economist and educator"
                 className="w-full h-full object-cover object-top grayscale-[20%] sepia-[10%] contrast-[1.05]"
               />
               {/* Overlay for warmth */}

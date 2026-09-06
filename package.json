@@ -11,6 +11,7 @@
     "fetch:content": "node scripts/fetch-content.js",
     "generate:sitemap": "node scripts/generate-sitemap.js",
     "generate:static-pages": "node scripts/generate-static-pages.js",
+    "optimize:gallery": "node scripts/optimize-gallery.js",
     "type-check": "tsc --noEmit",
     "clean": "node scripts/clean.js",
     "start": "npm run clean && npm run fetch:content && npm run generate:sitemap && vite build && npm run generate:static-pages && vite preview",
@@ -60,6 +61,7 @@
     "jsdom": "^29.1.1",
     "prettier": "^3.9.6",
     "rollup-plugin-visualizer": "^7.1.1",
+    "sharp": "^0.35.4",
     "typescript": "^6.0.3",
     "vite": "^8.2.1",
     "vitest": "^4.1.10"

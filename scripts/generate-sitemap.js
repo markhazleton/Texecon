@@ -43,6 +43,7 @@ function generateSiteMapFromData() {
   // Static pages
   const staticPages = [
     { url: baseUrl, priority: '1.0', changefreq: 'daily' },
+    { url: `${baseUrl}/memorial/jared-earl-hazleton/`, priority: '1.0', changefreq: 'monthly' },
   ];
 
   // Generate dynamic pages from actual content data

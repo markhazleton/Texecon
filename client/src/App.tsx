@@ -17,6 +17,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={MemorialHome} />
+      <Route path="/memorial/jared-earl-hazleton/" component={MemorialHome} />
       {/* Dynamic routes for menu items */}
       <Route path="/page/:pageId" component={Home} />
       <Route path="/content/:contentSlug" component={Home} />
