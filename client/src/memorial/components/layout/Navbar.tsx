@@ -32,7 +32,6 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { label: "Deep Dive", id: "video" },
     { label: "Photos", id: "gallery" },
     { label: "Biography", id: "biography" },
     { label: "Academic & Service", id: "legacy" },
