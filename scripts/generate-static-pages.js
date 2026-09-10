@@ -445,6 +445,8 @@ async function generateStaticPages() {
       console.log(`✅ Generated: ${item.url}/index.html`);
       totalGenerated++;
     }
+
+    totalGenerated += generateRedirectPages();
     
     console.log(`🎉 Static page generation complete! Generated ${totalGenerated} pages total.`);
     console.log('ℹ️  All pages now contain real <a href> links and pre-rendered content for crawlers.');
@@ -811,6 +813,57 @@ function addStructuredData(html, structuredData) {
     '</head>',
     `${structuredDataScript}\n  </head>`
   );
+}
+
+function generateRedirectPageHTML(destinationPath, canonicalUrl) {
+  const redirectUrl = withBasePath(destinationPath);
+  const safeRedirectUrl = escapeHtmlAttr(redirectUrl);
+  const safeCanonicalUrl = escapeHtmlAttr(canonicalUrl);
+  const redirectUrlScript = JSON.stringify(redirectUrl);
+
+  return `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting to Dr. Jared Earl Hazleton Memorial | TexEcon</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="${safeCanonicalUrl}" />
+    <meta http-equiv="refresh" content="0; url=${safeRedirectUrl}" />
+    <script>
+      window.location.replace(${redirectUrlScript});
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="${safeRedirectUrl}">Dr. Jared Earl Hazleton Memorial</a>.</p>
+  </body>
+</html>
+`;
+}
+
+function generateRedirectPages() {
+  const redirectPages = [
+    '/texeon/jared-hazleton/',
+    '/texecon/jaredhazleton/',
+  ];
+  const destinationPath = '/';
+  const canonicalUrl = 'https://texecon.com/';
+  const redirectHtml = generateRedirectPageHTML(destinationPath, canonicalUrl);
+
+  redirectPages.forEach((redirectPath) => {
+    const pageDir = path.join(
+      __dirname,
+      '..',
+      'target',
+      redirectPath.replace(/^\/+|\/+$/g, '')
+    );
+
+    fs.mkdirSync(pageDir, { recursive: true });
+    fs.writeFileSync(path.join(pageDir, 'index.html'), redirectHtml);
+    console.log(`✅ Generated redirect: ${redirectPath} -> ${destinationPath}`);
+  });
+
+  return redirectPages.length;
 }
 
 generateStaticPages().catch(console.error);

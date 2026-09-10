@@ -1,10 +1,26 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Expand, Images, X } from "lucide-react";
 import galleryPhotos from "@/data/memorial-gallery.json";
+import photoContext from "@/data/memorial-photo-context.json";
 
 type GalleryPhoto = (typeof galleryPhotos)[number];
+type PhotoContext = (typeof photoContext)[number];
+type GalleryPhotoWithContext = GalleryPhoto &
+  Pick<PhotoContext, "title" | "content" | "date" | "location">;
 
 const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const photoContextById = new Map(photoContext.map((photo) => [photo.id, photo]));
+const photos: GalleryPhotoWithContext[] = galleryPhotos.map((photo) => {
+  const context = photoContextById.get(photo.id);
+
+  return {
+    ...photo,
+    title: context?.title.trim() ?? "",
+    content: context?.content.trim() ?? "",
+    date: context?.date.trim() ?? "",
+    location: context?.location.trim() ?? "",
+  };
+});
 
 function ResponsivePhoto({
   photo,
@@ -44,10 +60,13 @@ export function MemorialGallery() {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const thumbnailRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const pointerStartX = useRef<number | null>(null);
-  const activePhoto = galleryPhotos[activeIndex];
+  const activePhoto = photos[activeIndex];
+  const hasActivePhotoContext = Boolean(
+    activePhoto.title || activePhoto.content || activePhoto.date || activePhoto.location
+  );
 
   const showPhoto = useCallback((index: number) => {
-    const nextIndex = (index + galleryPhotos.length) % galleryPhotos.length;
+    const nextIndex = (index + photos.length) % photos.length;
     setLoadedPhoto(null);
     setActiveIndex(nextIndex);
   }, []);
@@ -80,8 +99,7 @@ export function MemorialGallery() {
     setLoadedPhoto(activePhoto.id);
 
     for (const offset of [-1, 1]) {
-      const neighbor =
-        galleryPhotos[(activeIndex + offset + galleryPhotos.length) % galleryPhotos.length];
+      const neighbor = photos[(activeIndex + offset + photos.length) % photos.length];
       const preload = new Image();
       preload.src = assetUrl(neighbor.webpSmall);
     }
@@ -191,11 +209,34 @@ export function MemorialGallery() {
           </div>
         </div>
 
+        {hasActivePhotoContext && (
+          <div className="mt-5 border-l-2 border-[#e0c17c] bg-black/20 px-5 py-4 text-primary-foreground shadow-xl">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+              {activePhoto.title && (
+                <h3 className="font-serif text-2xl leading-tight text-white">
+                  {activePhoto.title}
+                </h3>
+              )}
+              {(activePhoto.date || activePhoto.location) && (
+                <div className="space-y-1 text-sm font-medium uppercase tracking-[0.16em] text-[#e0c17c] sm:text-right">
+                  {activePhoto.date && <p>{activePhoto.date}</p>}
+                  {activePhoto.location && <p>{activePhoto.location}</p>}
+                </div>
+              )}
+            </div>
+            {activePhoto.content && (
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-primary-foreground/75">
+                {activePhoto.content}
+              </p>
+            )}
+          </div>
+        )}
+
         <div
           className="mt-4 flex snap-x gap-2 overflow-x-auto pb-3 [scrollbar-color:rgba(255,255,255,0.35)_transparent]"
           aria-label="Choose a photograph"
         >
-          {galleryPhotos.map((photo, index) => (
+          {photos.map((photo, index) => (
             <button
               key={photo.id}
               ref={(node) => {

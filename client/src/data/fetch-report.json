@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-08T18:16:20.563Z",
-  "fetchTime": 188,
+  "timestamp": "2026-09-10T12:52:14.463Z",
+  "fetchTime": 220,
   "source": {
     "url": "https://web.makeboldspark.com/api/WebCMS/websites/1",
     "success": true,
@@ -88,12 +88,12 @@
       {
         "title": "From the Grand Canyon to Grand Opportunities: Arizona's Economic Development Story",
         "category": "TECH",
-        "date": "Today"
+        "date": "-1 days ago"
       },
       {
         "title": "Phoenix, Arizona: A Growing Hub of Economic Activity",
         "category": "TECH",
-        "date": "Today"
+        "date": "-1 days ago"
       }
     ]
   },

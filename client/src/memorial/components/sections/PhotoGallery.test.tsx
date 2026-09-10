@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import galleryPhotos from "@/data/memorial-gallery.json";
+import photoContext from "@/data/memorial-photo-context.json";
 import { MemorialGallery } from "./PhotoGallery";
 
 beforeAll(() => {
@@ -7,6 +8,20 @@ beforeAll(() => {
 });
 
 describe("MemorialGallery", () => {
+  it("has editable context placeholders for every gallery photo", () => {
+    expect(photoContext).toHaveLength(galleryPhotos.length);
+
+    galleryPhotos.forEach((photo, index) => {
+      expect(photoContext[index]).toEqual({
+        id: photo.id,
+        title: expect.any(String),
+        content: expect.any(String),
+        date: expect.any(String),
+        location: expect.any(String),
+      });
+    });
+  });
+
   it("supports button and keyboard navigation with an announced position", () => {
     render(<MemorialGallery />);
 
