@@ -1,4 +1,5 @@
 import React from "react";
+import { CalendarPlus, MapPin } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -32,6 +33,55 @@ export default function Hero() {
             American economist, educator, public servant, and principal of TexEcon. A life devoted
             to understanding the world and elevating those within it.
           </p>
+
+          <div className="mt-8 w-full max-w-xl border-l-2 border-secondary bg-card/70 px-5 py-5 text-left shadow-sm sm:px-6">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-secondary">
+              Celebration of Life
+            </p>
+            <p className="mb-4 font-sans text-sm leading-relaxed text-foreground/70 sm:text-base">
+              We would like to share the arrangements for{" "}
+              <a
+                href="https://www.facebook.com/jared.hazleton"
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-primary underline decoration-secondary/50 underline-offset-4 transition-colors hover:text-secondary"
+              >
+                Jared Hazleton
+              </a>
+              &apos;s Celebration of Life.
+            </p>
+            <time
+              dateTime="2026-09-19T16:00:00-05:00"
+              className="block font-serif text-xl font-semibold leading-tight text-primary sm:text-2xl"
+            >
+              Saturday, September 19, 2026. 4:00 p.m.
+            </time>
+            <address className="mt-2 font-sans text-sm not-italic leading-relaxed text-foreground/80 sm:text-base">
+              Celebration Community Church at 908 Pennsylvania Avenue, Fort Worth, Texas 76104
+            </address>
+            <p className="mt-4 font-sans text-sm leading-relaxed text-foreground/70 sm:text-base">
+              A reception will follow the service at the church.
+            </p>
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=Celebration%20Community%20Church%2C%20908%20Pennsylvania%20Avenue%2C%20Fort%20Worth%2C%20TX%2076104"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 border border-primary/20 bg-background px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:border-secondary hover:text-secondary"
+              >
+                <MapPin aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
+                Map &amp; directions
+              </a>
+              <a
+                href={`${import.meta.env.BASE_URL}jared-hazleton-celebration-of-life.ics`}
+                download
+                className="inline-flex min-h-11 items-center justify-center gap-2 border border-primary/20 bg-background px-4 py-2.5 text-sm font-medium text-primary transition-colors hover:border-secondary hover:text-secondary"
+              >
+                <CalendarPlus aria-hidden="true" className="h-4 w-4" strokeWidth={1.5} />
+                Add to calendar
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="order-2 flex justify-center lg:justify-end relative">
@@ -61,12 +111,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-4 text-foreground/40">
-        <span className="text-xs uppercase tracking-[0.3em] font-sans">Scroll</span>
-        <div className="w-px h-16 bg-gradient-to-b from-foreground/40 to-transparent" />
       </div>
     </section>
   );

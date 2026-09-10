@@ -1,6 +1,6 @@
 {
   "index.html": {
-    "file": "assets/index-BX3Ur5q2.js",
+    "file": "assets/index-CrjHSmpM.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -8,11 +8,11 @@
       "src/memorial/components/sections/PhotoGallery.tsx"
     ],
     "css": [
-      "assets/index-DQW4siTb.css"
+      "assets/index-RTPX8OGU.css"
     ]
   },
   "src/memorial/components/sections/PhotoGallery.tsx": {
-    "file": "assets/PhotoGallery-CZHTksiE.js",
+    "file": "assets/PhotoGallery-CfnDrtQ4.js",
     "name": "PhotoGallery",
     "src": "src/memorial/components/sections/PhotoGallery.tsx",
     "isDynamicEntry": true,

@@ -32,11 +32,10 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { label: "Photos", id: "gallery" },
+    { label: "Obituary", id: "tribute" },
     { label: "Biography", id: "biography" },
     { label: "Academic & Service", id: "legacy" },
     { label: "Published Works", id: "publications" },
-    { label: "Family Tribute", id: "tribute" },
   ];
 
   return (
