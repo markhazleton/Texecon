@@ -5,9 +5,31 @@ import { MemorialGallery } from "./PhotoGallery";
 
 beforeAll(() => {
   Element.prototype.scrollIntoView = vi.fn();
+  Element.prototype.scrollTo = vi.fn();
 });
 
 describe("MemorialGallery", () => {
+  it("scrolls only the thumbnail strip on load and photo navigation", () => {
+    const scrollIntoView = vi.mocked(Element.prototype.scrollIntoView);
+    const scrollTo = vi.mocked(Element.prototype.scrollTo);
+    scrollIntoView.mockClear();
+    scrollTo.mockClear();
+
+    render(<MemorialGallery />);
+
+    const strip = screen.getByLabelText("Choose a photograph");
+    expect(scrollTo).toHaveBeenCalledTimes(1);
+    expect(scrollTo.mock.contexts[0]).toBe(strip);
+    expect(scrollIntoView).not.toHaveBeenCalled();
+
+    fireEvent.click(screen.getByRole("button", { name: "Show next photograph" }));
+
+    expect(scrollTo).toHaveBeenCalledTimes(2);
+    expect(scrollTo.mock.contexts[1]).toBe(strip);
+    expect(scrollTo).toHaveBeenLastCalledWith({ left: 0, behavior: "smooth" });
+    expect(scrollIntoView).not.toHaveBeenCalled();
+  });
+
   it("has editable context placeholders for every gallery photo", () => {
     expect(photoContext).toHaveLength(galleryPhotos.length);
 

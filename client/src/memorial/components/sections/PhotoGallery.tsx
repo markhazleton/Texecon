@@ -59,6 +59,7 @@ export function MemorialGallery() {
   const [loadedPhoto, setLoadedPhoto] = useState<string | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const thumbnailRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const thumbnailStripRef = useRef<HTMLDivElement>(null);
   const pointerStartX = useRef<number | null>(null);
   const activePhoto = photos[activeIndex];
   const hasActivePhotoContext = Boolean(
@@ -75,10 +76,22 @@ export function MemorialGallery() {
   const showNext = useCallback(() => showPhoto(activeIndex + 1), [activeIndex, showPhoto]);
 
   useEffect(() => {
-    thumbnailRefs.current[activeIndex]?.scrollIntoView({
+    const strip = thumbnailStripRef.current;
+    const thumbnail = thumbnailRefs.current[activeIndex];
+    if (!strip || !thumbnail) return;
+
+    const stripBounds = strip.getBoundingClientRect();
+    const thumbnailBounds = thumbnail.getBoundingClientRect();
+
+    // Center the thumbnail within its strip without scrolling the page.
+    strip.scrollTo({
+      left:
+        strip.scrollLeft +
+        thumbnailBounds.left -
+        stripBounds.left +
+        thumbnailBounds.width / 2 -
+        strip.clientWidth / 2,
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      block: "nearest",
-      inline: "center",
     });
   }, [activeIndex]);
 
@@ -233,6 +246,7 @@ export function MemorialGallery() {
         )}
 
         <div
+          ref={thumbnailStripRef}
           className="mt-4 flex snap-x gap-2 overflow-x-auto pb-3 [scrollbar-color:rgba(255,255,255,0.35)_transparent]"
           aria-label="Choose a photograph"
         >
