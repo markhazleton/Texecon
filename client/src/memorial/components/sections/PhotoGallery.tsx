@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Expand, Images, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Expand, Images, Pause, Play, X } from "lucide-react";
 import galleryPhotos from "@/data/memorial-gallery.json";
 import photoContext from "@/data/memorial-photo-context.json";
 
@@ -7,6 +7,8 @@ type GalleryPhoto = (typeof galleryPhotos)[number];
 type PhotoContext = (typeof photoContext)[number];
 type GalleryPhotoWithContext = GalleryPhoto &
   Pick<PhotoContext, "title" | "content" | "date" | "location">;
+
+const SLIDESHOW_INTERVAL_MS = 4000;
 
 const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 const photoContextById = new Map(photoContext.map((photo) => [photo.id, photo]));
@@ -58,6 +60,7 @@ export function MemorialGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loadedPhoto, setLoadedPhoto] = useState<string | null>(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [isSlideshowPlaying, setIsSlideshowPlaying] = useState(false);
   const thumbnailRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const thumbnailStripRef = useRef<HTMLDivElement>(null);
   const pointerStartX = useRef<number | null>(null);
@@ -96,17 +99,41 @@ export function MemorialGallery() {
   }, [activeIndex]);
 
   useEffect(() => {
-    if (!isLightboxOpen) return;
+    if (!isLightboxOpen) {
+      setIsSlideshowPlaying(false);
+      return;
+    }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setIsLightboxOpen(false);
       if (event.key === "ArrowLeft") showPrevious();
       if (event.key === "ArrowRight") showNext();
+      if (event.key === " ") {
+        event.preventDefault();
+        setIsSlideshowPlaying((playing) => !playing);
+      }
     };
 
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isLightboxOpen, showNext, showPrevious]);
+
+  useEffect(() => {
+    if (!isLightboxOpen || !isSlideshowPlaying) return;
+
+    const timer = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % photos.length);
+      setLoadedPhoto(null);
+    }, SLIDESHOW_INTERVAL_MS);
+
+    return () => window.clearInterval(timer);
+  }, [isLightboxOpen, isSlideshowPlaying]);
+
+  const openSlideshow = useCallback(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setIsLightboxOpen(true);
+    setIsSlideshowPlaying(!prefersReducedMotion);
+  }, []);
 
   const preloadNeighbors = () => {
     setLoadedPhoto(activePhoto.id);
@@ -206,6 +233,14 @@ export function MemorialGallery() {
             </button>
             <button
               type="button"
+              onClick={openSlideshow}
+              aria-label="Play fullscreen slideshow"
+              className="absolute right-16 top-3 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/45 text-white backdrop-blur-sm transition hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e0c17c] sm:right-20 sm:top-5"
+            >
+              <Play aria-hidden="true" className="h-4 w-4" />
+            </button>
+            <button
+              type="button"
               onClick={() => setIsLightboxOpen(true)}
               aria-label="Enlarge current photograph"
               className="absolute right-3 top-3 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/45 text-white backdrop-blur-sm transition hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e0c17c] sm:right-5 sm:top-5"
@@ -298,6 +333,25 @@ export function MemorialGallery() {
             eager
             className="max-h-[92vh] max-w-[94vw] object-contain"
           />
+          <button
+            type="button"
+            onClick={() => setIsSlideshowPlaying((playing) => !playing)}
+            aria-label={isSlideshowPlaying ? "Pause slideshow" : "Play slideshow"}
+            className="absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-full border border-white/25 bg-black/60 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e0c17c] sm:left-8 sm:top-8"
+          >
+            {isSlideshowPlaying ? (
+              <Pause aria-hidden="true" className="h-5 w-5" />
+            ) : (
+              <Play aria-hidden="true" className="h-5 w-5" />
+            )}
+          </button>
+          <div
+            className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/55 px-3 py-1 text-xs tracking-widest text-white backdrop-blur-sm"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            {activeIndex + 1} / {galleryPhotos.length}
+          </div>
           <button
             type="button"
             onClick={() => setIsLightboxOpen(false)}
