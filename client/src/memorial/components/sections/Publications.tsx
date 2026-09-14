@@ -5,7 +5,7 @@ import { BookMarked } from "lucide-react";
 export default function Publications() {
   const books = [
     "The Economics of the Sulphur Industry",
-    "Recent Research and Developments in Fisheries Economics",
+    "Recent Developments and Research in Fisheries Economics",
     "Managing Macroeconomic Policy: The Johnson Presidency",
     "Planning Development in the Oil-Rich Countries",
     "Public Policy for Controlling the Environment",

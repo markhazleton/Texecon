@@ -1,4 +1,5 @@
 import React from "react";
+import biography from "@/data/jared-biography.json";
 
 export default function Footer() {
   return (
@@ -48,6 +49,12 @@ export default function Footer() {
         <p className="text-xs font-sans text-primary-foreground/80 tracking-wider">
           Preserved with deep respect and gratitude by his family.
         </p>
+        <a
+          href={`${import.meta.env.BASE_URL}${biography.url.slice(1)}`}
+          className="mt-6 text-sm text-secondary underline underline-offset-4 hover:text-primary-foreground"
+        >
+          Read Jared’s full biography
+        </a>
         <a
           href={`${import.meta.env.BASE_URL}texas/`}
           className="mt-6 text-xs font-sans uppercase tracking-[0.16em] text-secondary hover:text-primary-foreground transition-colors"

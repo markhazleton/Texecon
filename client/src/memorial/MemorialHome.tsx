@@ -25,7 +25,7 @@ export default function MemorialHome() {
         url: memorialUrl,
         name: "In Memory of Dr. Jared Earl Hazleton",
         dateCreated: "2026-09-03",
-        dateModified: "2026-09-06",
+        dateModified: "2026-09-14",
         mainEntity: { "@id": `${memorialUrl}#jared-hazleton` },
       },
       {

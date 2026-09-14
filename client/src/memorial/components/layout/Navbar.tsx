@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import biography from "@/data/jared-biography.json";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,8 +33,7 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { label: "Obituary", id: "tribute" },
-    { label: "Biography", id: "biography" },
+    { label: "Tribute", id: "tribute" },
     { label: "Academic & Service", id: "legacy" },
     { label: "Published Works", id: "publications" },
   ];
@@ -71,6 +71,12 @@ export default function Navbar() {
               <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0" />
             </button>
           ))}
+          <a
+            href={`${import.meta.env.BASE_URL}${biography.url.slice(1)}`}
+            className="text-xs xl:text-sm font-sans uppercase tracking-[0.12em] text-primary hover:text-secondary whitespace-nowrap"
+          >
+            Full Biography
+          </a>
           <a
             href={`${import.meta.env.BASE_URL}texas/`}
             className="text-xs xl:text-sm font-sans tracking-[0.12em] xl:tracking-widest uppercase text-primary border-l border-border pl-5 xl:pl-8 hover:text-secondary transition-colors whitespace-nowrap"
@@ -112,6 +118,12 @@ export default function Navbar() {
               </span>
             </button>
           ))}
+          <a
+            href={`${import.meta.env.BASE_URL}${biography.url.slice(1)}`}
+            className="flex min-h-12 items-center border-b border-border/70 py-3 text-sm font-sans uppercase tracking-[0.14em] text-primary"
+          >
+            Full Biography
+          </a>
           <a
             href={`${import.meta.env.BASE_URL}texas/`}
             onClick={() => setMenuOpen(false)}

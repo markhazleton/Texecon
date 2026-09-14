@@ -10,6 +10,8 @@ import { trackException } from "@/lib/analytics";
 import Home from "@/pages/home";
 import NotFound from "@/pages/not-found";
 import MemorialHome from "@/memorial/MemorialHome";
+import JaredBiography from "@/memorial/JaredBiography";
+import biography from "@/data/jared-biography.json";
 
 function LegacyMemorialRedirect() {
   useEffect(() => {
@@ -27,6 +29,9 @@ function Router() {
     <Switch>
       <Route path="/" component={MemorialHome} />
       <Route path="/memorial/jared-earl-hazleton/" component={MemorialHome} />
+      <Route path={biography.url} component={JaredBiography} />
+      <Route path={biography.url.replace(/\/$/, "")} component={JaredBiography} />
+      <Route path={`${biography.url}index.html`} component={JaredBiography} />
       <Route path="/texeon/jared-hazleton" component={LegacyMemorialRedirect} />
       <Route path="/texeon/jared-hazleton/" component={LegacyMemorialRedirect} />
       <Route path="/texecon/jaredhazleton" component={LegacyMemorialRedirect} />

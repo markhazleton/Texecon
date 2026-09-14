@@ -4,6 +4,8 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+// Authored family biography uses the existing API profile URL; never edit the API cache.
+const biography = JSON.parse(fs.readFileSync(path.join(__dirname, '../client/src/data/jared-biography.json'), 'utf8'));
 const configuredBasePath = process.env.VITE_BASE_PATH || process.env.BASE_PATH || '/';
 const basePath = configuredBasePath === '/'
   ? '/'
@@ -253,8 +255,8 @@ function buildStaticRoot(item, hierarchy) {
       `<p style="font-family:Georgia,serif;font-style:italic;color:#374151;">September 12, 1937 &mdash; September 3, 2026</p>` +
       `<img src="${escapeHtmlAttr(withBasePath('/jared-hazleton.png'))}" alt="Portrait of Dr. Jared Earl Hazleton, Texas economist and educator" width="420" height="525" ` +
       `style="display:block;width:min(100%,420px);height:auto;margin:28px auto;box-shadow:0 20px 40px rgba(13,43,84,.18);" />` +
-      `<p style="color:#4b5563;line-height:1.7;font-size:1.05rem;">American economist, educator, public servant, and principal of TexEcon. ` +
-      `This memorial honors a life devoted to scholarship, service, and the people and institutions he helped shape.</p>` +
+      `<p style="color:#4b5563;line-height:1.7;font-size:1.05rem;">${escapeHtml(biography.tribute.opening)}</p>` +
+      `<p><a href="${escapeHtmlAttr(withBasePath(biography.url))}">Read Jared’s full biography</a></p>` +
       `<section aria-labelledby="celebration-title" style="margin:32px auto 0;padding:24px;border-left:4px solid #d9c79e;background:#faf7ef;text-align:left;max-width:720px;">` +
       `<h2 id="celebration-title" style="color:#1e3a5f;margin-top:0;">Celebration of Life</h2>` +
       `<p>We would like to share the arrangements for <a href="https://www.facebook.com/jared.hazleton"><strong>Jared Hazleton</strong></a>'s Celebration of Life.</p>` +
@@ -265,10 +267,14 @@ function buildStaticRoot(item, hierarchy) {
       `<a href="${escapeHtmlAttr(withBasePath('/jared-hazleton-celebration-of-life.ics'))}" download>Add to calendar</a></p>` +
       `</section>` +
       `</section>` +
-      `<section aria-labelledby="tribute-summary" style="max-width:860px;margin:0 auto 48px;line-height:1.7;color:#374151;">` +
+      `<section id="tribute" aria-labelledby="family-tribute-title" style="max-width:860px;margin:0 auto 48px;line-height:1.7;color:#374151;">` +
+      `<h2 id="family-tribute-title">${escapeHtml(biography.tribute.title)}</h2>` +
+      `<p>${escapeHtml(biography.tribute.attribution)}</p>` +
+      biography.tribute.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('') +
       `<h2 id="tribute-summary" style="color:#1e3a5f;">Biography and legacy</h2>` +
-      `<p>Jared Earl Hazleton was born on September 12, 1937, in Oklahoma City, Oklahoma. He earned a Bachelor of Business Administration from the University of Oklahoma in 1959 and a Ph.D. in Economics from Rice University in 1961. His life combined scholarship, teaching, public service, and a lasting commitment to the people and institutions he helped shape.</p>` +
-      `<p>His academic and professional work included service with the University of Texas, University of Washington, Texas A&amp;M, the University of North Texas, the Federal Reserve Bank of Boston, the Texas Research League, and the Southwestern Economics Association. As principal of TexEcon, he continued educating the public through economic analysis and commentary.</p>` +
+      `<p>Jared Earl Hazleton was born on September 12, 1937, in Oklahoma City, Oklahoma, to Alfred Larson Hazleton and Myrtle Hazleton. His sister was Susan Hazleton Swingen. He earned a Bachelor of Business Administration from the University of Oklahoma in 1959 and a Ph.D. in Economics from Rice University. At OU he met Elaine, his wife of sixty-six years. They raised Franci, Alan, and Mark, and became grandparents to Weston, Kendall, Marlis, Berit, and Ian.</p>` +
+      `<p>His work included the Federal Reserve Bank of Boston, economics faculty and LBJ School associate dean responsibilities at UT Austin, and a Ford Foundation assignment in Amman, Jordan, from 1973 to 1975. He was dean of the University of Washington’s Graduate School of Public Affairs, president of the Texas Research League, and vice president for economics at Mesa Limited Partnership. At Texas A&amp;M he directed the Center for Business and Economic Analysis and taught finance. He served as UNT’s business dean from 1999 to 2004 before returning to teaching, and continued economic analysis through TexEcon.</p>` +
+      `<p><a href="${escapeHtmlAttr(withBasePath(biography.url))}">Read the full biography, with sources and family stories</a></p>` +
       `<h2 style="color:#1e3a5f;">Selected publications and research</h2>` +
       `<p>His published work addressed the sulphur industry, fisheries economics, macroeconomic policy, development in oil-rich countries, environmental policy, land reform, year-round schooling, bank mergers, and regional economic stability.</p>` +
       `<p><strong>Jared Earl Hazleton passed away on September 3, 2026, at age 88.</strong> A family tribute is available below, along with the published obituary and funeral-home updates.</p>` +
@@ -323,7 +329,7 @@ function memorialStructuredData(url) {
         url,
         name: 'In Memory of Dr. Jared Earl Hazleton',
         dateCreated: '2026-09-03',
-        dateModified: '2026-09-06',
+        dateModified: biography.updated,
         mainEntity: { '@id': `${url}#jared-hazleton` },
       },
       {
@@ -372,6 +378,58 @@ function memorialStructuredData(url) {
  * This creates actual HTML files that search engines can crawl using the 
  * exact URL structure from the API data
  */
+function generateBiographyHTML(baseTemplate) {
+  const canonicalUrl = `https://texecon.com${biography.url}`;
+  const sourceLinks = ids => ids.map(id => {
+    const source = biography.sources.find(entry => entry.id === id);
+    if (!source) throw new Error(`Unknown biography source: ${id}`);
+    return `<a href="#source-${escapeHtmlAttr(id)}">${escapeHtml(source.title)}</a>`;
+  }).join(' · ');
+  const chapters = biography.sections.map(section =>
+    `<section id="${escapeHtmlAttr(section.id)}" style="margin:40px 0;">` +
+    `<h2>${escapeHtml(section.title)}</h2>` +
+    section.paragraphs.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join('') +
+    `<p>Sources: ${sourceLinks(section.sources)}</p></section>`
+  ).join('');
+  const sources = biography.sources.map(source =>
+    `<li id="source-${escapeHtmlAttr(source.id)}" style="margin-bottom:20px;">` +
+    (source.url
+      ? `<a href="${escapeHtmlAttr(withBasePath(source.url))}">${escapeHtml(source.title)}</a>`
+      : escapeHtml(source.title)) +
+    `<p>${escapeHtml(source.note)}</p></li>`
+  ).join('');
+  const root = `<div id="static-content" style="font-family:system-ui,sans-serif;color:#24334a;background:#f7f6f2;">` +
+    `<header style="padding:24px;"><a href="${escapeHtmlAttr(withBasePath('/'))}">Return to the tribute</a></header>` +
+    `<main style="max-width:820px;margin:auto;padding:24px;line-height:1.8;">` +
+    `<article><h1>Jared Earl Hazleton</h1><p>A Life of Curiosity and Service</p>` +
+    `<p>September 12, 1937 — September 3, 2026</p>` +
+    `<img src="${escapeHtmlAttr(withBasePath('/jared-hazleton.png'))}" alt="Portrait of Jared Earl Hazleton" width="220" height="275" />` +
+    `<p>${escapeHtml(biography.introduction)}</p>` +
+    `<nav aria-label="Biography chapters"><h2>In this story</h2><ol>` +
+    biography.sections.map(section => `<li><a href="#${escapeHtmlAttr(section.id)}">${escapeHtml(section.title)}</a></li>`).join('') +
+    `</ol><a href="#sources">Sources &amp; further reading</a></nav>` + chapters +
+    `<section id="sources"><h2>Sources &amp; further reading</h2>` +
+    `<p>This biography brings together institutional records, published scholarship, and family recollections. The exact year of Jared’s Rice doctorate is omitted because the available accounts disagree. Earlier ancestral relationships remain under review.</p>` +
+    `<ul>${sources}</ul><p>Updated <time datetime="${escapeHtmlAttr(biography.updated)}">September 14, 2026</time></p></section>` +
+    `<p><a href="${escapeHtmlAttr(withBasePath('/'))}">Return to the tribute for family memories, photographs, and Celebration of Life information</a></p>` +
+    `</article></main>${generateFooterHTML()}</div>`;
+  return addStructuredData(updateMetaTags(
+    baseTemplate.replace('<div id="root"></div>', `<div id="root">${root}</div>`),
+    `${biography.title} | TexEcon`, biography.description, canonicalUrl,
+    'Jared Earl Hazleton, biography, Elaine Hazleton, economist, TexEcon', 'profile',
+    'https://texecon.com/jared-hazleton.png', 'Portrait of Jared Earl Hazleton'
+  ), {
+    '@context': 'https://schema.org', '@type': 'ProfilePage',
+    '@id': `${canonicalUrl}#profile`, url: canonicalUrl, name: biography.title,
+    description: biography.description, dateModified: biography.updated,
+    mainEntity: {
+      '@type': 'Person', '@id': 'https://texecon.com/#jared-hazleton',
+      name: 'Jared Earl Hazleton', birthDate: '1937-09-12', deathDate: '2026-09-03',
+      image: 'https://texecon.com/jared-hazleton.png',
+    },
+  });
+}
+
 async function generateStaticPages() {
   console.log('🔧 Generating static pages using API URL structure...');
   
@@ -426,9 +484,15 @@ async function generateStaticPages() {
     console.log('✅ Generated: /memorial/jared-earl-hazleton/index.html');
     totalGenerated++;
 
+    const biographyDir = path.join(__dirname, '..', 'target', biography.url.slice(1));
+    fs.mkdirSync(biographyDir, { recursive: true });
+    fs.writeFileSync(path.join(biographyDir, 'index.html'), generateBiographyHTML(baseTemplate));
+    console.log(`Generated full biography: ${biography.url}index.html`);
+    totalGenerated++;
+
     // Generate pages for all menu items that have URLs
     for (const item of content.menu) {
-      if (!item.url || item.url === '/' || item.isHomePage) {
+      if (!item.url || item.url === '/' || item.isHomePage || withTrailingSlash(item.url) === biography.url) {
         continue; // Skip home page and items without URLs
       }
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { CalendarPlus, MapPin } from "lucide-react";
+import biography from "@/data/jared-biography.json";
 
 export default function Hero() {
   return (
@@ -30,9 +31,14 @@ export default function Hero() {
           </p>
 
           <p className="max-w-md text-[0.98rem] md:text-lg text-foreground/70 font-sans leading-relaxed">
-            American economist, educator, public servant, and principal of TexEcon. A life devoted
-            to understanding the world and elevating those within it.
+            {biography.tribute.opening}
           </p>
+          <a
+            href={`${import.meta.env.BASE_URL}${biography.url.slice(1)}`}
+            className="mt-5 inline-flex min-h-11 items-center text-sm font-semibold text-primary underline underline-offset-4 hover:text-secondary"
+          >
+            Read Jared’s full biography →
+          </a>
 
           <div className="mt-8 w-full max-w-xl border-l-2 border-secondary bg-card/70 px-5 py-5 text-left shadow-sm sm:px-6">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-secondary">

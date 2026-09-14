@@ -1,5 +1,6 @@
 import React from "react";
 import { FadeIn, FadeInStagger, FadeInItem } from "../animations";
+import biography from "@/data/jared-biography.json";
 
 export default function Biography() {
   return (
@@ -42,25 +43,27 @@ export default function Biography() {
               <FadeInItem className="mb-8">
                 <p className="text-lg sm:text-xl font-serif text-primary leading-relaxed">
                   Jared Earl Hazleton was born on September 12, 1937, in Oklahoma City, Oklahoma.
-                  His early life instilled a deep curiosity about how systems function, how
-                  societies structure themselves, and how policy impacts the lives of individuals.
+                  His parents were Alfred Larson Hazleton and Myrtle Hazleton, and his sister was
+                  Susan Hazleton Swingen. Family photographs preserve his childhood and the Smith
+                  family connections on his mother’s side.
                 </p>
               </FadeInItem>
 
               <FadeInItem className="mb-8">
                 <p>
-                  He laid the academic foundation for his life's work at the University of Oklahoma,
-                  where he earned his Bachelor of Business Administration in 1959. Recognizing that
-                  his passion lay in the deeper mechanisms of economics, he pursued advanced study
-                  at Rice University, receiving his Ph.D. in Economics in 1961.
+                  At the University of Oklahoma, Jared studied accounting and earned his Bachelor of
+                  Business Administration in 1959. He also met Elaine, his wife of sixty-six years.
+                  Together they raised Franci, Alan, and Mark, and became grandparents to Weston,
+                  Kendall, Marlis, Berit, and Ian.
                 </p>
               </FadeInItem>
 
               <FadeInItem className="mb-12">
                 <p>
-                  His intellect was matched by a profound sense of duty, reflected in his service in
-                  the U.S. Naval Reserve, which helped shape his disciplined, structural approach to
-                  complex problems.
+                  Jared served as a U.S. Navy officer and earned a Ph.D. in Economics from Rice
+                  University. His work took him from the Federal Reserve Bank of Boston to
+                  university teaching, public service, and an assignment in Amman, Jordan—a chapter
+                  his family remembers as part of the life they explored together.
                 </p>
               </FadeInItem>
 
@@ -83,10 +86,16 @@ export default function Biography() {
                       <span className="text-secondary mt-1">❖</span>
                       <div>
                         <strong className="text-foreground block">Ph.D. Economics</strong>
-                        <span className="text-muted-foreground">Rice University, 1961</span>
+                        <span className="text-muted-foreground">Rice University</span>
                       </div>
                     </li>
                   </ul>
+                  <a
+                    href={`${import.meta.env.BASE_URL}${biography.url.slice(1)}`}
+                    className="mt-8 inline-block text-primary underline underline-offset-4 hover:text-secondary"
+                  >
+                    Read the full biography →
+                  </a>
                 </div>
               </FadeInItem>
             </FadeInStagger>

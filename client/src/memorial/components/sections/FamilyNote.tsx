@@ -2,6 +2,7 @@ import React from "react";
 import { FadeIn } from "../animations";
 import { ExternalLink, PenLine } from "lucide-react";
 import FamilyMemories from "./FamilyMemories";
+import biography from "@/data/jared-biography.json";
 
 export default function FamilyNote() {
   return (
@@ -10,6 +11,29 @@ export default function FamilyNote() {
       className="scroll-mt-20 py-16 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 bg-background relative border-t border-border/50"
     >
       <div className="container mx-auto max-w-3xl">
+        <FadeIn>
+          <article className="mb-14 sm:mb-20">
+            <h2 className="mb-5 text-center font-serif text-3xl text-primary sm:text-4xl">
+              {biography.tribute.title}
+            </h2>
+            <p className="mb-8 text-center text-sm leading-6 text-muted-foreground">
+              {biography.tribute.attribution}
+            </p>
+            <div className="space-y-5 font-serif text-base leading-8 text-foreground/85 sm:text-lg">
+              {biography.tribute.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+            <p className="mt-8 text-center">
+              <a
+                href={`${import.meta.env.BASE_URL}${biography.url.slice(1)}`}
+                className="text-primary underline underline-offset-4 hover:text-secondary"
+              >
+                Explore Jared’s life, family, and career in the full biography →
+              </a>
+            </p>
+          </article>
+        </FadeIn>
         <FadeIn>
           <div className="bg-card border border-border p-5 sm:p-8 md:p-12 lg:p-16 text-center shadow-sm relative">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background p-4 rounded-full border border-border text-primary">

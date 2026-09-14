@@ -3,13 +3,31 @@ import { FadeIn, FadeInStagger, FadeInItem } from "../animations";
 
 export default function Legacy() {
   const institutions = [
-    { name: "University of Texas", role: "Faculty & Leadership", period: "Academic Tenure" },
-    { name: "University of Washington", role: "Faculty", period: "Academic Tenure" },
-    { name: "Texas A&M", role: "Leadership", period: "Academic Tenure" },
-    { name: "University of North Texas", role: "Leadership", period: "Academic Tenure" },
+    {
+      name: "University of Texas at Austin",
+      role: "Economics faculty & LBJ School associate dean",
+    },
+    { name: "University of Washington", role: "Dean, Graduate School of Public Affairs" },
+    {
+      name: "Texas A&M University",
+      role: "Center for Business and Economic Analysis director; professor of finance",
+    },
+    {
+      name: "University of North Texas",
+      role: "Dean, College of Business Administration (1999–2004); later faculty service",
+    },
   ];
 
   const service = [
+    {
+      title: "Ford Foundation · Amman, Jordan",
+      description:
+        "Worked as an economic research specialist assigned to the Royal Scientific Society from 1973 to 1975, while on leave from UT Austin.",
+    },
+    {
+      title: "Mesa Limited Partnership",
+      description: "Served as vice president for economics at the Amarillo-based energy company.",
+    },
     {
       title: "Federal Reserve Bank of Boston",
       description:
@@ -85,11 +103,11 @@ export default function Legacy() {
             <FadeIn delay={0.4}>
               <div className="mt-12 sm:mt-16 p-5 sm:p-8 border border-primary/10 bg-background relative">
                 <span className="absolute -top-3 left-8 bg-background px-2 text-xs font-sans tracking-widest uppercase text-primary font-semibold">
-                  Current Era
+                  Continuing His Work
                 </span>
                 <h4 className="text-xl font-serif text-primary mb-2">TexEcon</h4>
                 <p className="text-sm font-sans text-muted uppercase tracking-widest mb-4">
-                  Principal (2007—2026)
+                  Economist &amp; Principal
                 </p>
                 <p className="text-foreground/80 font-sans text-sm leading-relaxed">
                   As the principal and lead author at TexEcon.com, Dr. Hazleton dedicated his later

@@ -7,6 +7,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const biography = JSON.parse(fs.readFileSync(path.join(__dirname, '../client/src/data/jared-biography.json'), 'utf8'));
 
 // Load the actual content data generated from the API
 function loadContentData() {
@@ -44,6 +45,7 @@ function generateSiteMapFromData() {
   const staticPages = [
     { url: baseUrl, priority: '1.0', changefreq: 'daily' },
     { url: `${baseUrl}/memorial/jared-earl-hazleton/`, priority: '1.0', changefreq: 'monthly' },
+    { url: `${baseUrl}${biography.url}`, priority: '0.9', changefreq: 'monthly', lastModified: biography.updated },
   ];
 
   // Generate dynamic pages from actual content data
@@ -56,6 +58,8 @@ function generateSiteMapFromData() {
       .forEach(item => {
         const seoPath = generateSEOPath(item);
         const fullUrl = `${baseUrl}${seoPath}`;
+        // The authored biography replaces the API profile at its original URL.
+        if (staticPages.some(page => page.url === fullUrl)) return;
         
         // Set priority based on content type
         let priority = '0.7'; // default for content pages
