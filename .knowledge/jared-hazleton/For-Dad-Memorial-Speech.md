@@ -22,7 +22,7 @@ When Dad took the job at the University of Washington, we packed up and set off 
 
 And those car trips had music. Dad would sing songs from his fraternity days at OU, and Tom Lehrer songs like “Be Prepared,” “The Hunting Song,” and “So Long, Mom.” His collection covered a lot of ground.
 
-There were the Mills Brothers and the Kingston Trio—“Greenback Dollar,” “Tom Dooley,” “MTA.” And there were Willie Nelson and Jerry Jeff Walker. As a kid, I learned *Viva Terlingua* and the outlaw albums by heart.
+There were the Mills Brothers and the Kingston Trio—“Greenback Dollar,” “Tom Dooley,” “MTA.” And there were Willie Nelson and Jerry Jeff Walker. As a kid, I learned *Viva Terlingua!* and *Wanted! The Outlaws* by heart.
 
 He was a good piano player, too, with a small but varied repertoire. He'd sit down and play while the rest of us were getting ready to go somewhere. When he got to the boogie-woogie, you knew it was time to go.
 
