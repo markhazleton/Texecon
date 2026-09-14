@@ -1,0 +1,905 @@
+{
+  "title": "Smith History Photos",
+  "source_url": "https://photomyne.com/share?u=E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A&s=21518768-f26d-4229-91db-c83b6cdc053d_sub",
+  "retrieved_at": "2026-09-14T17:44:58.778264+00:00",
+  "count": 39,
+  "photos": [
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961345135_inner_111-35-547-23-8-921-585-941.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961345135_inner_111-35-547-23-8-921-585-941_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961345135_inner_111-35-547-23-8-921-585-941_thumb2.jpg",
+      "key": "album_809961290249/Photo809961345135_inner_111-35-547-23-8-921-585-941.jpg",
+      "title": "This is a photo of Elizabeth Goode and Jared Hazleton her grandson. ",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 1,
+      "files": [
+        {
+          "path": "images/001.jpg",
+          "bytes": 1752408,
+          "sha256": "bc93c546b4effd19656d919e61434a9d9007eac155edaed8fbc9839abd36ab76",
+          "width": 2327,
+          "height": 4279,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961395435_inner_73-195-612-183-43-742-659-726.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961395435_inner_73-195-612-183-43-742-659-726_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961395435_inner_73-195-612-183-43-742-659-726_thumb2.jpg",
+      "key": "album_809961290249/Photo809961395435_inner_73-195-612-183-43-742-659-726.jpg",
+      "title": "Susan Hazleton Swingen",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 2,
+      "files": [
+        {
+          "path": "images/002.jpg",
+          "bytes": 1123737,
+          "sha256": "330d3982510933e0cc0ef64503994268be1c1dce9a9d83f7794cb7227fadc61d",
+          "width": 2484,
+          "height": 2365,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961423416_inner_5-132-738-144-2-980-744-984.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961423416_inner_5-132-738-144-2-980-744-984_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961423416_inner_5-132-738-144-2-980-744-984_thumb2.jpg",
+      "key": "album_809961290249/Photo809961423416_inner_5-132-738-144-2-980-744-984.jpg",
+      "title": "Family Thanksgiving holiday gathering circa 1950s\nO.E. Smith Jr., Al Hazleton, O.E. Smith Sr, Jared Hazleton",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 3,
+      "files": [
+        {
+          "path": "images/003.jpg",
+          "bytes": 2228285,
+          "sha256": "fbd6393224aa32bf5b02fe1be00fbd13897f7a2d2de3acd10b51d24c8ceab6bb",
+          "width": 2991,
+          "height": 3423,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961432434.1_inner_0-0-729-0-0-1000-729-1000.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961432434.1_inner_0-0-729-0-0-1000-729-1000_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961432434.1_inner_0-0-729-0-0-1000-729-1000_thumb2.jpg",
+      "key": "album_809961290249/Photo809961432434.1_inner_0-0-729-0-0-1000-729-1000.jpg",
+      "title": "Besse Mallisie Goode Smith",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 4,
+      "files": [
+        {
+          "path": "images/004.jpg",
+          "bytes": 265885,
+          "sha256": "d7df69f179b2922442487f0ed79b28924f9c63b197b7429e3847430580c669d6",
+          "width": 863,
+          "height": 1184,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961477808_inner_55-62-659-35-76-914-656-890.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961477808_inner_55-62-659-35-76-914-656-890_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961477808_inner_55-62-659-35-76-914-656-890_thumb2.jpg",
+      "key": "album_809961290249/Photo809961477808_inner_55-62-659-35-76-914-656-890.jpg",
+      "title": "Bessie’s Goode Smith wife of O.E.Smith Sr",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 5,
+      "files": [
+        {
+          "path": "images/005.jpg",
+          "bytes": 1674383,
+          "sha256": "9a8f04321239cfe73c35435514a5f05905c56f946e80f6b9cdb8aaa759a020b8",
+          "width": 2437,
+          "height": 3514,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961555444.1_inner_0-0-1000-0-0-666-1000-666.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961555444.1_inner_0-0-1000-0-0-666-1000-666_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961555444.1_inner_0-0-1000-0-0-666-1000-666_thumb2.jpg",
+      "key": "album_809961290249/Photo809961555444.1_inner_0-0-1000-0-0-666-1000-666.jpg",
+      "title": "One of the cleaning shops belonging to the Smith family. Location unknown….",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 6,
+      "files": [
+        {
+          "path": "images/006.jpg",
+          "bytes": 157766,
+          "sha256": "87a1a10fd274112c872b2f57557cdb6715626f0944d0e09681c7981a8295eda5",
+          "width": 1248,
+          "height": 831,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961616199_inner_32-140-741-136-17-851-735-859.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961616199_inner_32-140-741-136-17-851-735-859_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961616199_inner_32-140-741-136-17-851-735-859_thumb2.jpg",
+      "key": "album_809961290249/Photo809961616199_inner_32-140-741-136-17-851-735-859.jpg",
+      "title": "Besse M Smith ",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 7,
+      "files": [
+        {
+          "path": "images/007.jpg",
+          "bytes": 1983292,
+          "sha256": "2e5f8e1873aec86569df0b408a7f8f76e29c46a6e45f956c5d3813a89dbf2e8a",
+          "width": 2895,
+          "height": 2909,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961679116_inner_172-312-559-207-178-777-574-800.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961679116_inner_172-312-559-207-178-777-574-800_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961679116_inner_172-312-559-207-178-777-574-800_thumb2.jpg",
+      "key": "album_809961290249/Photo809961679116_inner_172-312-559-207-178-777-574-800.jpg",
+      "title": "Jack and Lola Livingston (sister of Besse Smith)",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 8,
+      "files": [
+        {
+          "path": "images/008.jpg",
+          "bytes": 293453,
+          "sha256": "08aa880998c01505b0b17abac94a9fdaf8ba926edb5963c8ce7b3f7e24b5c281",
+          "width": 1152,
+          "height": 896,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961693975_inner_29-125-741-136-2-863-744-875.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961693975_inner_29-125-741-136-2-863-744-875_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961693975_inner_29-125-741-136-2-863-744-875_thumb2.jpg",
+      "key": "album_809961290249/Photo809961693975_inner_29-125-741-136-2-863-744-875.jpg",
+      "title": "Myrtle Frances Smith Hazleton daughter O.E. Smith Sr & Besse Smith",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 9,
+      "files": [
+        {
+          "path": "images/009.jpg",
+          "bytes": 269073,
+          "sha256": "dcbb2b72b4c9e9e93962e348e32a089aaa1dcadc5278050dea63f217e5eddc58",
+          "width": 1024,
+          "height": 1024,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961726836_inner_84-50-650-39-38-937-700-929.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961726836_inner_84-50-650-39-38-937-700-929_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961726836_inner_84-50-650-39-38-937-700-929_thumb2.jpg",
+      "key": "album_809961290249/Photo809961726836_inner_84-50-650-39-38-937-700-929.jpg",
+      "title": "O. E. Smith Sr and Besse M Goode Smith\ncirca 1940s",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 10,
+      "files": [
+        {
+          "path": "images/010.jpg",
+          "bytes": 206758,
+          "sha256": "51bd2156867509eeb9cd864124541411bcc023b83f48ddfe74e448a84f7d6677",
+          "width": 832,
+          "height": 1248,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961741217_inner_93-199-700-183-55-812-735-816.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961741217_inner_93-199-700-183-55-812-735-816_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961741217_inner_93-199-700-183-55-812-735-816_thumb2.jpg",
+      "key": "album_809961290249/Photo809961741217_inner_93-199-700-183-55-812-735-816.jpg",
+      "title": "Myrtle and Susan Hazleton with O.E. S Smith Sr and Besse Smith",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 11,
+      "files": [
+        {
+          "path": "images/011.jpg",
+          "bytes": 1458289,
+          "sha256": "1b20364302463a568fc35b17dccd60204568469ee96a14304552dcb6f3e8d911",
+          "width": 2741,
+          "height": 2669,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961777306_inner_52-23-714-23-52-988-714-988.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961777306_inner_52-23-714-23-52-988-714-988_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961777306_inner_52-23-714-23-52-988-714-988_thumb2.jpg",
+      "key": "album_809961290249/Photo809961777306_inner_52-23-714-23-52-988-714-988.jpg",
+      "title": "Name of couple uncertain however it looks like one of the Smith Brothers… maybe Onius, Mills, Russell or Kirby",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 12,
+      "files": [
+        {
+          "path": "images/012.jpg",
+          "bytes": 359218,
+          "sha256": "2b74a9573a4f55ab36f3db2ea4f4085958c2dca7a8711ab50722c73ea3407f9b",
+          "width": 1248,
+          "height": 832,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961806682_inner_35-7-609-7-8-886-600-917.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961806682_inner_35-7-609-7-8-886-600-917_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961806682_inner_35-7-609-7-8-886-600-917_thumb2.jpg",
+      "key": "album_809961290249/Photo809961806682_inner_35-7-609-7-8-886-600-917.jpg",
+      "title": "This is a photo of Mills Smith…. One of the infamous Smith Brothers! Indeed, they did like to party! \nMills was the younger brother O.E. Smith Sr and uncle to O..E. Smith Jr\n\nO.E. Jr and Mills were close in age and became good friends when O.E. Jr worked in Blackwell Oklahoma. They shared an apartment there during the 1930s.",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 13,
+      "files": [
+        {
+          "path": "images/013.jpg",
+          "bytes": 333077,
+          "sha256": "aced050acfbd97514c48837e08b00b781f10cbff027e063850fe40e76244a378",
+          "width": 1248,
+          "height": 832,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961844559_inner_131-152-638-152-79-921-653-941.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961844559_inner_131-152-638-152-79-921-653-941_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961844559_inner_131-152-638-152-79-921-653-941_thumb2.jpg",
+      "key": "album_809961290249/Photo809961844559_inner_131-152-638-152-79-921-653-941.jpg",
+      "title": "Myrtle Frances Smith possibly dressed in her wedding gown",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 14,
+      "files": [
+        {
+          "path": "images/014.jpg",
+          "bytes": 390998,
+          "sha256": "e8be9ec75974151a9ba735d427da248abc3ed4dbadc7af844d7f3ce68d10a319",
+          "width": 832,
+          "height": 1248,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961852271_inner_5-164-738-222-5-820-741-808.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961852271_inner_5-164-738-222-5-820-741-808_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961852271_inner_5-164-738-222-5-820-741-808_thumb2.jpg",
+      "key": "album_809961290249/Photo809961852271_inner_5-164-738-222-5-820-741-808.jpg",
+      "title": "This is a photograph of W.H. Goode…father of Besse Goode Smith.",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 15,
+      "files": [
+        {
+          "path": "images/015.jpg",
+          "bytes": 1403689,
+          "sha256": "e7ffa3a1aecb8e1d322fb8269841a2b1a23f112c41df01fa61613c3f2a9c1f34",
+          "width": 2967,
+          "height": 2493,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961859633_inner_5-15-726-15-8-976-714-984.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961859633_inner_5-15-726-15-8-976-714-984_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961859633_inner_5-15-726-15-8-976-714-984_thumb2.jpg",
+      "key": "album_809961290249/Photo809961859633_inner_5-15-726-15-8-976-714-984.jpg",
+      "title": "This is a restored photo of O.E. Smith. Sr",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 16,
+      "files": [
+        {
+          "path": "images/016.jpg",
+          "bytes": 308989,
+          "sha256": "7841cec66a55c0ba17ac2c46432e528e37387c6576cecd9df0d92e5599bdbcbd",
+          "width": 864,
+          "height": 1184,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961870654_inner_32-31-679-27-64-984-662-980.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961870654_inner_32-31-679-27-64-984-662-980_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961870654_inner_32-31-679-27-64-984-662-980_thumb2.jpg",
+      "key": "album_809961290249/Photo809961870654_inner_32-31-679-27-64-984-662-980.jpg",
+      "title": "This photograph was possibly taken in  Missouri. The rock formations are similar to that area. Besse and OE Smith lived in Carthage for a few years when O.E. helped his son remodel and add an addition to an abandoned service station to turn it into a dry cleaning shop.",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 17,
+      "files": [
+        {
+          "path": "images/017.jpg",
+          "bytes": 295419,
+          "sha256": "0f2b980bd0c5937b42b3729b4280c4524e6f7063b03797d3c4f268daa15bcd8d",
+          "width": 832,
+          "height": 1248,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961885384_inner_79-58-609-58-52-984-624-984.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961885384_inner_79-58-609-58-52-984-624-984_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961885384_inner_79-58-609-58-52-984-624-984_thumb2.jpg",
+      "key": "album_809961290249/Photo809961885384_inner_79-58-609-58-52-984-624-984.jpg",
+      "title": "Jack and Lola Livingston (Besse Smith’s sister)",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 18,
+      "files": [
+        {
+          "path": "images/018.jpg",
+          "bytes": 253406,
+          "sha256": "7b906ddf2d8ad7a497668dddb6419b60f32bba7fe042e83d58fbef75b22b1892",
+          "width": 768,
+          "height": 1344,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961917240_inner_128-74-659-19-46-960-621-984.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961917240_inner_128-74-659-19-46-960-621-984_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809961917240_inner_128-74-659-19-46-960-621-984_thumb2.jpg",
+      "key": "album_809961290249/Photo809961917240_inner_128-74-659-19-46-960-621-984.jpg",
+      "title": "Cousins, Jared Hazleton and Jackie Smith Devore circa 1940s",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 19,
+      "files": [
+        {
+          "path": "images/019.jpg",
+          "bytes": 421302,
+          "sha256": "18521f14c15e52746624fa80f26a33c86a11ca0fabbb569b4856c8b30986696c",
+          "width": 800,
+          "height": 1280,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962014119_inner_17-27-641-19-46-992-665-984.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962014119_inner_17-27-641-19-46-992-665-984_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962014119_inner_17-27-641-19-46-992-665-984_thumb2.jpg",
+      "key": "album_809961290249/Photo809962014119_inner_17-27-641-19-46-992-665-984.jpg",
+      "title": "Elizabeth Goode and Jared Hazleton",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 20,
+      "files": [
+        {
+          "path": "images/020.jpg",
+          "bytes": 2424190,
+          "sha256": "13ca4e172edaae4b6d7add133aa7b9d1110807f2937ec591a7776b3f37d965e0",
+          "width": 2516,
+          "height": 3908,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962033472_inner_49-195-559-183-35-812-547-839.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962033472_inner_49-195-559-183-35-812-547-839_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962033472_inner_49-195-559-183-35-812-547-839_thumb2.jpg",
+      "key": "album_809961290249/Photo809962033472_inner_49-195-559-183-35-812-547-839.jpg",
+      "title": "This is a photo of an old pioneer cemetery 5 miles north of the city of Edmond, Oklahoma. Many early pioneers are found in this cemetery and it is possible that Benjamin Tillman Smith and his wife Sarah Francis “ Frankie” Byrnes Smith are buried there. They were the parents of O.E. Smith Sr and his 10+ siblings…I.e all of the infamous Smith brothers!",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 21,
+      "files": [
+        {
+          "path": "images/021.jpg",
+          "bytes": 476774,
+          "sha256": "0f1677bd4ca0ce6117acfe8352429f560bf1a7c93e482017fb0d014ffa17be63",
+          "width": 1120,
+          "height": 928,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962087919_inner_5-132-738-148-35-980-744-902.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962087919_inner_5-132-738-148-35-980-744-902_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962087919_inner_5-132-738-148-35-980-744-902_thumb2.jpg",
+      "key": "album_809961290249/Photo809962087919_inner_5-132-738-148-35-980-744-902.jpg",
+      "title": "Susan Hazleton, Al Hazleton, Besse, Smith, and O.E. Smith Jr.,",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 22,
+      "files": [
+        {
+          "path": "images/022.jpg",
+          "bytes": 302387,
+          "sha256": "5e5b932de3bd5ffca98ea89ea5369fb69190867b5c36a168624bf0535289f594",
+          "width": 960,
+          "height": 1088,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962098133_inner_5-58-744-11-2-984-744-984.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962098133_inner_5-58-744-11-2-984-744-984_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962098133_inner_5-58-744-11-2-984-744-984_thumb2.jpg",
+      "key": "album_809961290249/Photo809962098133_inner_5-58-744-11-2-984-744-984.jpg",
+      "title": "This is a photograph of Besse Smith standing beside the grave of O.E. Smith circa 1960s \nCemetery north of Edmond, Oklahoma\n\n(she is buried there beside him now)",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 23,
+      "files": [
+        {
+          "path": "images/023.jpg",
+          "bytes": 395395,
+          "sha256": "f1568b418c3381094cc755119ec2fb6f1e79dd5950ec5a8883b3131a221b1345",
+          "width": 896,
+          "height": 1152,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962130654_inner_2-82-747-82-2-917-747-917.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962130654_inner_2-82-747-82-2-917-747-917_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962130654_inner_2-82-747-82-2-917-747-917_thumb2.jpg",
+      "key": "album_809961290249/Photo809962130654_inner_2-82-747-82-2-917-747-917.jpg",
+      "title": "A note O.E. Smith wrote beside this photograph indicated that this was the baby brother of Besse M Smith.. The dates are hard to read however it is likely that he was born in 1897 and died in 1900. ",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 24,
+      "files": [
+        {
+          "path": "images/024.jpg",
+          "bytes": 386365,
+          "sha256": "726dc1295f086ab2cf143e8828fb83577494ad3e2f89b621ee816e8055440f98",
+          "width": 960,
+          "height": 1088,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962169770_inner_5-3-741-11-5-789-741-792.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962169770_inner_5-3-741-11-5-789-741-792_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962169770_inner_5-3-741-11-5-789-741-792_thumb2.jpg",
+      "key": "album_809961290249/Photo809962169770_inner_5-3-741-11-5-789-741-792.jpg",
+      "title": "Jr. Smith, Besse Smith, Susan Hazleton.",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 25,
+      "files": [
+        {
+          "path": "images/025.jpg",
+          "bytes": 2136667,
+          "sha256": "8549dea3cfaef2c0df69c8a0ac0843d5e806761ae4d8c9f15ac6ae46a397dda0",
+          "width": 2967,
+          "height": 3159,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962213306_inner_2-58-618-54-8-992-659-980.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962213306_inner_2-58-618-54-8-992-659-980_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962213306_inner_2-58-618-54-8-992-659-980_thumb2.jpg",
+      "key": "album_809961290249/Photo809962213306_inner_2-58-618-54-8-992-659-980.jpg",
+      "title": "Jared and Elaine Hazleton family wedding",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 26,
+      "files": [
+        {
+          "path": "images/026.jpg",
+          "bytes": 1824654,
+          "sha256": "fb010034224b19430340aa2ce3d0904d27e0b59276ab397a541672a1f8547df5",
+          "width": 3765,
+          "height": 2561,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962232364_inner_17-35-700-35-41-984-711-988.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962232364_inner_17-35-700-35-41-984-711-988_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962232364_inner_17-35-700-35-41-984-711-988_thumb2.jpg",
+      "key": "album_809961290249/Photo809962232364_inner_17-35-700-35-41-984-711-988.jpg",
+      "title": "Jared and Elaine Hazleton family wedding",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 27,
+      "files": [
+        {
+          "path": "images/027.jpg",
+          "bytes": 2201752,
+          "sha256": "785b109602003df98df445e3d4854bc2cd6fc0e26be34021ee270c3b5c233554",
+          "width": 3842,
+          "height": 2732,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962306155_inner_29-7-720-15-2-917-744-925.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962306155_inner_29-7-720-15-2-917-744-925_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962306155_inner_29-7-720-15-2-917-744-925_thumb2.jpg",
+      "key": "album_809961290249/Photo809962306155_inner_29-7-720-15-2-917-744-925.jpg",
+      "title": "Jared and Elaine Hazelton family",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 28,
+      "files": [
+        {
+          "path": "images/028.jpg",
+          "bytes": 330393,
+          "sha256": "0fd9fb710aadbf587edd3f2f2493ca61374bbebdb2bdd09808a5f0bfaa311438",
+          "width": 896,
+          "height": 1152,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962358668_inner_11-5-980-20-3-735-988-738.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962358668_inner_11-5-980-20-3-735-988-738_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962358668_inner_11-5-980-20-3-735-988-738_thumb2.jpg",
+      "key": "album_809961290249/Photo809962358668_inner_11-5-980-20-3-735-988-738.jpg",
+      "title": "Besse and O.E. Smith",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 29,
+      "files": [
+        {
+          "path": "images/029.jpg",
+          "bytes": 432619,
+          "sha256": "5cc0f4d9fca54cafbe69d1b4bb87f4ef2ed006476e74baf63da3d00b29099746",
+          "width": 864,
+          "height": 1184,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962367151_inner_109-14-863-11-109-738-863-738.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962367151_inner_109-14-863-11-109-738-863-738_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962367151_inner_109-14-863-11-109-738-863-738_thumb2.jpg",
+      "key": "album_809961290249/Photo809962367151_inner_109-14-863-11-109-738-863-738.jpg",
+      "title": "Jared and Susan Hazleton circa early 1950s",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 30,
+      "files": [
+        {
+          "path": "images/030.jpg",
+          "bytes": 298710,
+          "sha256": "20ef12e8b3585353a0bca019cc774c6b68eae07fc91a3b9a73d21fad864cf6fe",
+          "width": 992,
+          "height": 1056,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962403302_inner_3-14-746-11-11-738-750-738.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962403302_inner_3-14-746-11-11-738-750-738_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962403302_inner_3-14-746-11-11-738-750-738_thumb2.jpg",
+      "key": "album_809961290249/Photo809962403302_inner_3-14-746-11-11-738-750-738.jpg",
+      "title": "Susan Hazleton circa 1950s",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 31,
+      "files": [
+        {
+          "path": "images/031.jpg",
+          "bytes": 269497,
+          "sha256": "7656493be6704fc4508bfa9a2302827248cbd0edf08da3a5ab709ccb8b80300c",
+          "width": 1024,
+          "height": 1024,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962492794_inner_7-67-984-17-3-679-988-670.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962492794_inner_7-67-984-17-3-679-988-670_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962492794_inner_7-67-984-17-3-679-988-670_thumb2.jpg",
+      "key": "album_809961290249/Photo809962492794_inner_7-67-984-17-3-679-988-670.jpg",
+      "title": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 32,
+      "files": [
+        {
+          "path": "images/032.jpg",
+          "bytes": 377284,
+          "sha256": "faebe83753b08043e5d7d3dd81e57404dfc83e4f8dfa6c7c015aea7cb5288de5",
+          "width": 800,
+          "height": 1280,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962500118_inner_23-41-953-5-11-744-992-732.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962500118_inner_23-41-953-5-11-744-992-732_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962500118_inner_23-41-953-5-11-744-992-732_thumb2.jpg",
+      "key": "album_809961290249/Photo809962500118_inner_23-41-953-5-11-744-992-732.jpg",
+      "title": "Betsy Smith, O.E. Smith Jr, O.E. Smith. Sr",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 33,
+      "files": [
+        {
+          "path": "images/033.jpg",
+          "bytes": 328535,
+          "sha256": "745e025cb95ac77dcc4509f61fd528d967e213c12fe6edc9e520bf3b2ff647ea",
+          "width": 1184,
+          "height": 864,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962516379_inner_35-82-988-76-15-711-984-738.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962516379_inner_35-82-988-76-15-711-984-738_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962516379_inner_35-82-988-76-15-711-984-738_thumb2.jpg",
+      "key": "album_809961290249/Photo809962516379_inner_35-82-988-76-15-711-984-738.jpg",
+      "title": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 34,
+      "files": [
+        {
+          "path": "images/034.jpg",
+          "bytes": 2728679,
+          "sha256": "8fb350980193335aeb87bfce24bebe954513e2dbabf476e779f1df190a3841d3",
+          "width": 2669,
+          "height": 3976,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962631728_inner_62-99-839-120-78-650-851-647.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962631728_inner_62-99-839-120-78-650-851-647_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962631728_inner_62-99-839-120-78-650-851-647_thumb2.jpg",
+      "key": "album_809961290249/Photo809962631728_inner_62-99-839-120-78-650-851-647.jpg",
+      "title": "John Goode 1844-1925 & Susan A Goode 1855-1923 Besse Smith’s Paternal Grandparents It is very likely that they are buried in the pioneer cemetery which is located on the land they used to farm located about 10 miles from Edmond, Oklahoma.",
+      "year": 1844,
+      "month": -1,
+      "day": -1,
+      "tags": null,
+      "location": null,
+      "number": 35,
+      "files": [
+        {
+          "path": "images/035.jpg",
+          "bytes": 578422,
+          "sha256": "90c3ff56988dc7d699d135c97b3f4139f6b3f55612fc433069ef6e79d8ce26d9",
+          "width": 1248,
+          "height": 832,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962672488_inner_242-11-945-5-250-738-988-738.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962672488_inner_242-11-945-5-250-738-988-738_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962672488_inner_242-11-945-5-250-738-988-738_thumb2.jpg",
+      "key": "album_809961290249/Photo809962672488_inner_242-11-945-5-250-738-988-738.jpg",
+      "title": null,
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 36,
+      "files": [
+        {
+          "path": "images/036.jpg",
+          "bytes": 2343279,
+          "sha256": "27385c4c3857166d4c95d526ba8802898800bcffefc8efb7adc7bb6324e8f92f",
+          "width": 2960,
+          "height": 2916,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962742947_inner_35-87-906-123-27-606-906-583.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962742947_inner_35-87-906-123-27-606-906-583_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962742947_inner_35-87-906-123-27-606-906-583_thumb2.jpg",
+      "key": "album_809961290249/Photo809962742947_inner_35-87-906-123-27-606-906-583.jpg",
+      "title": "W.H. Goode Bessie Smith’s father",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 37,
+      "files": [
+        {
+          "path": "images/037.jpg",
+          "bytes": 262036,
+          "sha256": "4990c2e4db4d64a4dfe980c00ae33b432476798cb977e5a7d17a48fd82e623ee",
+          "width": 768,
+          "height": 1344,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962752236_inner_89-178-957-205-82-577-972-553.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962752236_inner_89-178-957-205-82-577-972-553_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962752236_inner_89-178-957-205-82-577-972-553_thumb2.jpg",
+      "key": "album_809961290249/Photo809962752236_inner_89-178-957-205-82-577-972-553.jpg",
+      "title": "Possibilities \nMyrtle Smith\nBessie Smith or one of her sisters Gladys or Lola",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 38,
+      "files": [
+        {
+          "path": "images/038.jpg",
+          "bytes": 263617,
+          "sha256": "9ca4c3037ef054745d2e69402d43a4a72c6d1ead27244f885c59046df0fc44d3",
+          "width": 672,
+          "height": 1536,
+          "format": "JPEG"
+        }
+      ]
+    },
+    {
+      "url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962848928_inner_113-11-925-11-97-735-949-741.jpg",
+      "thumb_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962848928_inner_113-11-925-11-97-735-949-741_thumb.jpg",
+      "thumb2_url": "https://s3.amazonaws.com/com.photomyne.usercontent/E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A/album_809961290249/Photo809962848928_inner_113-11-925-11-97-735-949-741_thumb2.jpg",
+      "key": "album_809961290249/Photo809962848928_inner_113-11-925-11-97-735-949-741.jpg",
+      "title": "O.E Smith and his brother Kirby Smith",
+      "year": null,
+      "month": null,
+      "day": null,
+      "tags": null,
+      "location": null,
+      "number": 39,
+      "files": [
+        {
+          "path": "images/039.jpg",
+          "bytes": 249007,
+          "sha256": "c74c1134a34ddda68a0ac762639872b4090dcc732dcbee9ec901273bd3003a1e",
+          "width": 960,
+          "height": 1088,
+          "format": "JPEG"
+        }
+      ]
+    }
+  ]
+}

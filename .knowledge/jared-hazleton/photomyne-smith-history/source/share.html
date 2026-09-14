@@ -1,0 +1,657 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smith History Photos - 39 Photos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Open Graph meta tags for WhatsApp / Social sharing -->
+    <meta property="og:title" content="Smith History Photos - 39 Photos">
+    <meta property="og:description" content="View 39 photos shared via Photomyne — Smith History Photos">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://photomyne.com/share?u=E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A&amp;s=21518768-f26d-4229-91db-c83b6cdc053d_sub">
+    <meta property="og:image" content="http://photomyne.com/share/api/cover-image?u=E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A&amp;s=21518768-f26d-4229-91db-c83b6cdc053d_sub">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="600">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,600;1,400;1,600&family=Roboto:wght@400;500&family=Open+Sans:wght@400;600&family=Lato:wght@400;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/share/static/css/gallery.css">
+
+    
+
+<style>
+body.webview #INDbtnWrap { display: none !important; }
+</style>
+<script>
+(function () {
+	if (window.__photomyneWebviewHide) return;
+	window.__photomyneWebviewHide = true;
+	if ((location.search || '').toLowerCase().indexOf('webview=true') === -1) return;
+
+	var SELECTORS = [
+		'#INDmenu-btn',
+		'#INDbtnWrap',
+		'#axeptio_overlay',
+		'#axeptio_btn_dialog',
+		'.axeptio_widget',
+		'[id^="axeptio_"]',
+		'[class^="axeptio"]',
+		'iframe[src*="axept.io"]',
+		'.manage-cookies',
+		'.footer-manage-cookies'
+	].join(',');
+
+	function hideBadges() {
+		document.querySelectorAll(SELECTORS).forEach(function (el) {
+			el.style.setProperty('display', 'none', 'important');
+		});
+	}
+
+	function init() {
+		if (document.body) {
+			document.body.classList.add('webview');
+			document.querySelectorAll('.updated-terms').forEach(function (el) {
+				el.classList.add('hidden');
+			});
+		}
+		hideBadges();
+		if (document.body) {
+			new MutationObserver(hideBadges).observe(document.body, { childList: true, subtree: true });
+		}
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+})();
+</script>
+
+<script>
+  window.loadGTM = function () {
+    if (window.__gtmLoaded) return;
+    window.__gtmLoaded = true;
+    const GTM_ID = "GTM-M7QHS9GV";
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = document.getElementsByTagName("script")[0];
+    var j = document.createElement("script");
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
+    f.parentNode.insertBefore(j, f);
+  };
+</script>
+
+<script>
+  window.loadGTM();
+</script>
+
+<script>
+  (function () {
+    if (window.__photomyneDoNotSellInit) return;
+    window.__photomyneDoNotSellInit = true;
+
+    // Toggleable vendors (strictly-necessary cookies are intentionally omitted
+    // so Axeptio leaves them on). Keys must match the Axeptio project config
+    // verbatim, including spaces.
+    var TOGGLEABLE_VENDORS = [
+      // Marketing & Targeted Advertising
+      "google_ads", "google_remarketing", "google_conversion_linker",
+      "Microsoft", "bing", "Paddle", "Paddle Marketing", "adjust",
+      // Social Networks
+      "facebook_pixel", "tiktok", "twitter", "pinterest", "reddit",
+      "facebook_custom_audiences",
+      // Performance & Analytics
+      "Photomyne analytics", "google_analytics", "Paddle Analytics"
+    ];
+
+    function buildVendors() {
+      var vendors = {};
+      for (var i = 0; i < TOGGLEABLE_VENDORS.length; i++) {
+        vendors[TOGGLEABLE_VENDORS[i]] = false;
+      }
+      vendors.$$googleConsentMode = {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        version: 2
+      };
+      return vendors;
+    }
+
+    function getAcceptRejectCount(userChoices) {
+      return Object.keys(userChoices || {}).reduce(
+        function (previousValue, currentValue) {
+          if (!currentValue.startsWith("$$")) {
+            var k = userChoices[currentValue] ? "accept" : "reject";
+            previousValue[k]++;
+            previousValue.total++;
+          } else if (currentValue === "$$googleConsentMode") {
+            Object.values(userChoices.$$googleConsentMode)
+              .filter(function (value) { return ["granted", "denied"].includes(value); })
+              .forEach(function (value) {
+                var k = value === "granted" ? "accept" : "reject";
+                previousValue[k]++;
+                previousValue.total++;
+              });
+          }
+          return Object.assign({}, previousValue);
+        },
+        { accept: 0, reject: 0, total: 0 }
+      );
+    }
+
+    function postConsent(params, sdk) {
+      var choicesStats = getAcceptRejectCount(params);
+
+      var preferences = {
+        vendors: params,
+        config: {
+          name: sdk.cookiesConfig.name,
+          identifier: sdk.cookiesConfig.identifier,
+          language: sdk.cookiesConfig.language
+        }
+      };
+
+      // structuredClone is ES2022 (Safari 15.4+ / iOS WebView 15.4+); older
+      // browsers throw on the call and the consent never posts. Fall back to
+      // a JSON deep-clone, which is sufficient for the preferences payload
+      // (no functions, cycles, or non-JSON-safe values).
+      var deepClone = typeof window.structuredClone === 'function'
+        ? function (v) { return window.structuredClone(v); }
+        : function (v) { return JSON.parse(JSON.stringify(v)); };
+
+      var filterObjKeyStartingWith = function (obj, prefix) {
+        var filteredObj = {};
+        Object.keys(obj || {})
+          .filter(function (k) { return k.indexOf(prefix) !== 0; })
+          .forEach(function (k) { filteredObj[k] = obj[k]; });
+        return deepClone(filteredObj);
+      };
+
+      var preferencesFiltered = filterObjKeyStartingWith(preferences, "$");
+      preferencesFiltered.vendors = filterObjKeyStartingWith(preferencesFiltered.vendors, "$");
+      if (
+        Object.prototype.toString
+          .call(params && params.$$googleConsentMode)
+          .endsWith("Object]")
+      ) {
+        preferencesFiltered.googleConsentMode = params.$$googleConsentMode;
+      }
+
+      var consent = {
+        accept: choicesStats.accept === choicesStats.total,
+        preferences: preferencesFiltered,
+        token: String(sdk.settings.tokenInstance.value)
+      };
+
+      var id = sdk.cookiesConfig.identifier;
+      var url = sdk.settings.postConsentUrl + "/consents/" + sdk.settings.clientId + "/cookies/" + id;
+
+      fetch(url, {
+        method: "post",
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify(consent)
+      })
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          console.log("consent updated");
+          sdk.trigger("consent:saved", {
+            apiUrl: sdk.settings.apiUrl,
+            postConsentUrl: sdk.settings.postConsentUrl,
+            clientId: sdk.settings.clientId,
+            service: "cookies",
+            identifier: sdk.cookiesConfig.identifier,
+            token: consent.token || sdk.settings.tokenInstance.value,
+            consent: data,
+            widget: null
+          });
+        })
+        .catch(function (err) {
+          console.error(
+            "Could not save Axeptio consent, it will be queued into the localStorage and pushed later",
+            err
+          );
+          sdk.trigger("consent:queued", {
+            apiUrl: sdk.settings.apiUrl,
+            postConsentUrl: sdk.settings.postConsentUrl,
+            clientId: sdk.settings.clientId,
+            service: "cookies",
+            identifier: sdk.cookiesConfig.identifier,
+            token: consent.token || sdk.settings.tokenInstance.value,
+            consent: null,
+            widget: null
+          });
+        });
+    }
+
+    window._axcb = window._axcb || [];
+    window._axcb.push(function (sdk) {
+      sdk.on("ready", function () {
+        function rejectAll() {
+          var vendors = buildVendors();
+          if (typeof gtag === "function") {
+            gtag("consent", "update", vendors.$$googleConsentMode);
+          }
+          var newChoices = sdk.userPreferencesManager.prepareChoices(vendors);
+          sdk.userPreferencesManager.setChoices(newChoices);
+          sdk.userPreferencesManager.handleWidgetCompletion(newChoices);
+          postConsent(vendors, sdk);
+        }
+
+        function attach() {
+          var buttons = document.querySelectorAll(".ccpa-opt-out");
+          for (var i = 0; i < buttons.length; i++) {
+            var btn = buttons[i];
+            if (btn.dataset.ccpaAttached === "1") continue;
+            btn.dataset.ccpaAttached = "1";
+            btn.dataset.ccpaOriginal = btn.textContent;
+            btn.addEventListener("click", function () {
+              var el = this;
+              rejectAll();
+              el.textContent = "Done!";
+              setTimeout(function () { el.textContent = el.dataset.ccpaOriginal; }, 2000);
+            });
+          }
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", attach);
+        } else {
+          attach();
+        }
+      });
+    });
+  })();
+</script>
+</head>
+<body>
+    <!-- Landing Overlay (Gate Page) -->
+    
+    <div class="landing-overlay" id="landingOverlay">
+        <div class="landing-content">
+            <div class="landing-brand-top">
+                <img class="landing-logo" src="/share/static/images/photomyne_logo_white.png" alt="Photomyne">
+            </div>
+
+            
+            <div class="landing-cover-wrapper">
+                <img class="landing-cover-img" src="/share/api/cover-image?u=E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A&s=21518768-f26d-4229-91db-c83b6cdc053d_sub" alt="Album Cover">
+            </div>
+
+            <h1 class="landing-title">Smith History Photos</h1>
+
+            
+
+            <div class="landing-stats">
+                
+                <span class="landing-stat">
+                    <span class="landing-stat-number">39</span>
+                    <span class="landing-stat-label" data-i18n="photos">photos</span>
+                </span>
+            </div>
+
+            <button class="landing-enter-btn" id="enterGalleryBtn">
+                
+                <span data-i18n="enterAlbum">Enter Album</span>
+                
+                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+            
+
+            <div class="landing-brand-bottom">
+                <span>Created with</span>
+                <strong>Photomyne</strong>
+            </div>
+            <div class="landing-copyright">&copy; 2015-2026 Photomyne Ltd. All rights reserved.</div>
+        </div>
+    </div>
+    
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        
+        <a href="https://photomyne.com" target="_blank" rel="noopener noreferrer" class="top-bar-logo">
+            <img src="/share/static/images/photomyne.svg" alt="Photomyne">
+        </a>
+        
+        <!-- Left: Back to all albums -->
+        
+
+        
+        <!-- Right: Controls -->
+        <div class="right-controls">
+            <!-- Copy Link Button -->
+            <button class="copy-btn" id="copyBtn" aria-label="Copy link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M16 7L12 3M12 3L8 7M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 12V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="share-tooltip" id="copyTooltip" data-i18n="linkCopied">Link copied!</span>
+            </button>
+
+            <!-- Settings Button -->
+            <button class="settings-btn" id="settingsBtn" aria-label="Settings">
+                <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.488.488 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-title">Gallery Settings</div>
+
+        <div class="settings-section">
+            <span class="settings-label">THEME COLOR</span>
+            <div class="color-options">
+                <div class="color-option selected" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);" data-primary="#8B5CF6" data-secondary="#7C3AED" data-bg="#F5F3FF" title="Purple"></div>
+                <div class="color-option" style="background: linear-gradient(135deg, #6366F1, #4F46E5);" data-primary="#6366F1" data-secondary="#4F46E5" data-bg="#F8F7FF" title="Indigo"></div>
+                <div class="color-option" style="background: linear-gradient(135deg, #14B8A6, #0D9488);" data-primary="#14B8A6" data-secondary="#0D9488" data-bg="#F0FDFA" title="Teal"></div>
+                <div class="color-option" style="background: linear-gradient(135deg, #EC4899, #DB2777);" data-primary="#EC4899" data-secondary="#DB2777" data-bg="#FDF2F8" title="Pink"></div>
+                <div class="color-option" style="background: linear-gradient(135deg, #3B82F6, #2563EB);" data-primary="#3B82F6" data-secondary="#2563EB" data-bg="#EFF6FF" title="Blue"></div>
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <span class="settings-label">FONT STYLE</span>
+            <div class="font-options">
+                <div class="font-option selected" data-font="'Montserrat', sans-serif" style="font-family: 'Montserrat', sans-serif;">Montserrat</div>
+                <div class="font-option" data-font="'Rubik', sans-serif" style="font-family: 'Rubik', sans-serif;">Rubik</div>
+                <div class="font-option" data-font="'Roboto', sans-serif" style="font-family: 'Roboto', sans-serif;">Roboto</div>
+                <div class="font-option" data-font="'Open Sans', sans-serif" style="font-family: 'Open Sans', sans-serif;">Open Sans</div>
+                <div class="font-option" data-font="'Lato', sans-serif" style="font-family: 'Lato', sans-serif;">Lato</div>
+                <div class="font-option" data-font="-apple-system, BlinkMacSystemFont, sans-serif" style="font-family: -apple-system, sans-serif;">System</div>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <div class="container" style="margin-top: 90px; padding: 0 32px 100px;">
+        
+        <span class="loading-progress" id="loadingProgress" style="display:none"></span>
+        <div class="grid" id="gallery"></div>
+        
+    </div>
+
+    
+    <!-- Photo data as JSON -->
+    <script>
+        window.SHARE_USER_ID = "E21C14BE-5AFB-4D2F-ACBC-CC52056DBF4A";
+        window.SHARE_ID = "21518768-f26d-4229-91db-c83b6cdc053d_sub";
+        window.ALBUM_BOUNDARIES = [{"count": 39, "start": 0, "title": "Smith History Photos", "year": "1844"}];
+        window.TOTAL_PHOTOS = 39;
+        window.SKIP_LANDING = false;
+        
+    </script>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <!-- Action Buttons -->
+        <div class="lightbox-actions">
+            <button class="lightbox-action-btn" id="lightboxDownload" title="Download">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M17 10L12 15M12 15L7 10M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 15V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="action-tooltip" data-i18n="downloaded">Downloaded!</span>
+            </button>
+            <button class="lightbox-action-btn" id="lightboxShare" title="Share">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M16 7L12 3M12 3L8 7M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M21 12V16.2C21 17.8802 21 18.7202 20.673 19.362C20.3854 19.9265 19.9265 20.3854 19.362 20.673C18.7202 21 17.8802 21 16.2 21H7.8C6.11984 21 5.27976 21 4.63803 20.673C4.07354 20.3854 3.6146 19.9265 3.32698 19.362C3 18.7202 3 17.8802 3 16.2V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="action-tooltip" data-i18n="linkCopied">Link copied!</span>
+            </button>
+            <button class="lightbox-action-btn" id="lightboxInfo" title="Info" style="display:none">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </button>
+            <button class="lightbox-action-btn" id="lightboxRotate" title="Rotate">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M15.7366 7.06908L13.6956 4.57158L16.3482 2.64822" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.0131 4.73959C18.4908 4.59229 22.2395 8.19069 22.3823 12.7766C22.5266 17.3626 19.0124 21.2 14.5332 21.3473C13.9921 21.3653 13.463 21.3292 12.9474 21.242" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.14031 18.8816L1.25871 12L8.14031 5.1184L15.0219 12L8.14031 18.8816Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="lightbox-action-btn" id="lightboxFlip" title="Flip to back" style="display:none">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.597 14.2967V14.2967V19.9631C21.597 21.533 20.369 22.8055 18.8543 22.8055H5.63964C4.12491 22.8055 2.89697 21.533 2.89697 19.9631V4.65295C2.89697 3.08313 4.12491 1.81055 5.63964 1.81055H8.53615V1.81055" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8413 3.13477L19.7238 12.0173H13.6837C12.1139 12.0173 10.8413 10.7447 10.8413 9.17487V3.13477Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="action-tooltip">Flip photo</span>
+            </button>
+        </div>
+
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="transform: scaleX(-1);">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <div class="lightbox-photo-info" id="lightboxPhotoInfo">
+                <div class="lightbox-photo-year" id="lightboxPhotoYear"></div>
+                <div class="lightbox-photo-title" id="lightboxPhotoTitle"></div>
+            </div>
+        </div>
+
+        <!-- Thumbnail Strip -->
+        <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+
+        <!-- Photo Details Panel -->
+        <div class="lightbox-details" id="lightboxDetails">
+            <div class="lightbox-details-row">
+                <div class="lightbox-detail-item" id="detailDate" style="display:none;">
+                    <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM9 10H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+                    <span class="lightbox-detail-label" data-i18n="date">Date:</span>
+                    <span class="lightbox-detail-value" id="detailDateValue"></span>
+                </div>
+                <div class="lightbox-detail-item" id="detailTitle" style="display:none;">
+                    <svg viewBox="0 0 24 24"><path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/></svg>
+                    <span class="lightbox-detail-label" data-i18n="title">Title:</span>
+                    <span class="lightbox-detail-value" id="detailTitleValue"></span>
+                </div>
+                <div class="lightbox-detail-item" id="detailSize" style="display:none;">
+                    <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zm-5-7l-3 3.72L10 12l-4 5h14l-4-5z"/></svg>
+                    <span class="lightbox-detail-value" id="detailSizeValue"></span>
+                </div>
+                <div class="lightbox-detail-item" id="detailOrientation" style="display:none;">
+                    <svg viewBox="0 0 24 24"><path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h1.5C23.44 4.84 18.29 0 12 0l-.66.03 3.81 3.81 1.33-1.32zm-6.25-.77c-.59-.59-1.54-.59-2.12 0L1.75 8.11c-.59.59-.59 1.54 0 2.12l12.02 12.02c.59.59 1.54.59 2.12 0l6.36-6.36c.59-.59.59-1.54 0-2.12L10.23 1.75zm4.6 19.44L2.81 9.17l6.36-6.36 12.02 12.02-6.36 6.38zm-7.31.29C4.25 19.94 1.91 16.76 1.55 13H.05C.56 19.16 5.71 24 12 24l.66-.03-3.81-3.81-1.33 1.32z"/></svg>
+                    <span class="lightbox-detail-value" id="detailOrientationValue"></span>
+                </div>
+                <div class="lightbox-detail-item" id="detailLocation" style="display:none;">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span class="lightbox-detail-label" data-i18n="location">Location:</span>
+                    <span class="lightbox-detail-value" id="detailLocationValue"></span>
+                </div>
+                <div class="lightbox-detail-item" id="detailTags" style="display:none;">
+                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <span class="lightbox-detail-label" data-i18n="people">People:</span>
+                    <span class="lightbox-detail-value" id="detailTagsValue"></span>
+                </div>
+                <div class="photomyne-badge">
+                    <span data-i18n="createdWith">Created with Photomyne</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="pm-footer">
+        <div class="pm-footer-logo">
+            <span class="pm-footer-logo-img" role="img" aria-label="Photomyne"></span>
+        </div>
+        <p data-i18n="footerDesc">This gallery was created with Photomyne - the app that brings your photo memories back to life.</p>
+
+        <!-- Stats -->
+        <div class="pm-footer-stats">
+            <div class="pm-footer-stat">
+                <span class="pm-footer-stat-number">&nbsp;&nbsp;50M+</span>
+                <span class="pm-footer-stat-label" data-i18n="users">Users</span>
+            </div>
+            <div class="pm-footer-stat">
+                <span class="pm-footer-stat-number">600M+</span>
+                <span class="pm-footer-stat-label" data-i18n="photos">Photos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </div>
+        </div>
+
+        <p class="pm-footer-cta" data-i18n="joinUs">Join millions of users preserving their memories</p>
+
+        <!-- Get Photomyne Button -->
+        <a href="https://photomyne.com/join?utm_source=share_page_new&utm_medium=share_page_new&utm_campaign=share_page_new" target="_blank" rel="noopener noreferrer" class="footer-get-photomyne">
+            <span>Get Photomyne</span>
+        </a>
+
+        <!-- Privacy Links -->
+        <div class="pm-footer-legal">
+            <a href="https://photomyne.com/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</a>
+            <span class="divider">|</span>
+            <a href="https://photomyne.com/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            <span class="divider">|</span>
+            <a href="https://photomyne.com/notice-collection" target="_blank" rel="noopener noreferrer">Notice at Collection</a>
+            <span class="divider">|</span>
+            <a href="https://photomyne.com/terms-of-use#ai" target="_blank" rel="noopener noreferrer">AI Terms of Use</a>
+            <span class="divider">|</span>
+            <a href="https://photomyne.com/out-of-sale" target="_blank" rel="noopener noreferrer">Opt Out of Sale</a>
+            <span class="divider">|</span>
+            <button class="ccpa-opt-out">Do not sell</button>
+            <span class="divider">|</span>
+            <a href="https://photomyne.com/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a>
+            <span class="divider">|</span>
+            <a href="https://photomyne.com/accessibility-statement" target="_blank" rel="noopener noreferrer">Accessibility Statement</a>
+        </div>
+        <p class="pm-footer-copyright">&copy; 2015-2026 Photomyne Ltd. All rights reserved (v. 1.6)</p>
+    </div>
+
+    <script src="/share/static/js/core/campaign_events.js"></script>
+    <script src="/share/static/js/gallery.js"></script>
+    
+
+
+<style>
+body.webview #INDbtnWrap { display: none !important; }
+</style>
+<script>
+(function () {
+	if (window.__photomyneWebviewHide) return;
+	window.__photomyneWebviewHide = true;
+	if ((location.search || '').toLowerCase().indexOf('webview=true') === -1) return;
+
+	var SELECTORS = [
+		'#INDmenu-btn',
+		'#INDbtnWrap',
+		'#axeptio_overlay',
+		'#axeptio_btn_dialog',
+		'.axeptio_widget',
+		'[id^="axeptio_"]',
+		'[class^="axeptio"]',
+		'iframe[src*="axept.io"]',
+		'.manage-cookies',
+		'.footer-manage-cookies'
+	].join(',');
+
+	function hideBadges() {
+		document.querySelectorAll(SELECTORS).forEach(function (el) {
+			el.style.setProperty('display', 'none', 'important');
+		});
+	}
+
+	function init() {
+		if (document.body) {
+			document.body.classList.add('webview');
+			document.querySelectorAll('.updated-terms').forEach(function (el) {
+				el.classList.add('hidden');
+			});
+		}
+		hideBadges();
+		if (document.body) {
+			new MutationObserver(hideBadges).observe(document.body, { childList: true, subtree: true });
+		}
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+})();
+</script>
+
+
+<style>
+    #INDmenu-btn {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 20px !important;
+        right: 9px !important;
+    }
+</style>
+<script>
+    window.interdeal = {
+        get sitekey() { return "45ccd5b70f903cef2fe29f3ec1d7c839" },
+        get domains() {
+            return {
+                "js": "https://cdn.nagich.co.il/",
+                "acc": "https://access.nagich.co.il/"
+            }
+        },
+        "Position": "Right",
+        "Menulang": "EN",
+        "btnStyle": {
+            "vPosition": [
+                "100%",
+                "100%"
+            ],
+            "margin": [
+                "0",
+                "0"
+            ],
+            "scale": [
+                "0.6",
+                "0.5"
+            ],
+            "color": {
+                "main": "#0a2a50",
+                "second": "#ffffff"
+            },
+            "icon": {
+                "outline": false,
+                "outlineColor": "#ffffff",
+                "type": 11,
+                "shape": "circle"
+            }
+        },
+
+    };
+    (function (doc, head, body) {
+        if ((location.search || '').toLowerCase().indexOf('webview=true') !== -1) return;
+        var coreCall = doc.createElement('script');
+        coreCall.src = interdeal.domains.js + 'core/5.2.0/accessibility.js';
+        coreCall.defer = true;
+        coreCall.integrity = 'sha512-fHF4rKIzByr1XeM6stpnVdiHrJUOZsKN2/Pm0jikdTQ9uZddgq15F92kUptMnyYmjIVNKeMIa67HRFnBNTOXsQ==';
+        coreCall.crossOrigin = 'anonymous';
+        coreCall.setAttribute('data-cfasync', true);
+        body ? body.appendChild(coreCall) : head.appendChild(coreCall);
+    })(document, document.head, document.body);
+</script>
+
+</body>
+</html>

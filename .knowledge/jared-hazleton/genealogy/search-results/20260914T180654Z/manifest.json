@@ -1,0 +1,130 @@
+[
+  {
+    "id": "ohs-all-Hazleton",
+    "url": "https://www.okhistory.org/research/marrresults?fname=&lname=Hazleton&year=&action=Search",
+    "retrieved_at": "2026-09-14T18:06:54.018464+00:00",
+    "http_status": 200,
+    "final_url": "https://www.okhistory.org/research/marrresults?fname=&lname=Hazleton&year=&action=Search",
+    "status": "retrieved_requires_review",
+    "sha256": "67293da6892711beec756297a00526a7dd4e282a39b12e28ee11cd1f9e25268a",
+    "text_file": "ohs-all-Hazleton.txt",
+    "links": [],
+    "candidate_excerpts": [
+      "Menu | Search Marriage Records | No matches found, please try again. | Search Tips | Try including less information | Try alternate spellings | Enter only first name or last name, or enter the first letter of a name | Search without middle names or middle initials"
+    ]
+  },
+  {
+    "id": "ohs-all-Hazelton",
+    "url": "https://www.okhistory.org/research/marrresults?fname=&lname=Hazelton&year=&action=Search",
+    "retrieved_at": "2026-09-14T18:06:54.802344+00:00",
+    "http_status": 200,
+    "final_url": "https://www.okhistory.org/research/marrresults?fname=&lname=Hazelton&year=&action=Search",
+    "status": "retrieved_requires_review",
+    "sha256": "4fc7055c7ef8c5a5844adfb254abf706e2bbcb7224beb13366b963aeb314d19b",
+    "text_file": "ohs-all-Hazelton.txt",
+    "links": [],
+    "candidate_excerpts": [
+      "Spouse | Date | Acie E. Hazelton | Lena Pearl Walker | 31 Jan 1911 | Donald E. Hazelton | Beverly Louise Sloan | 5 June 1937",
+      "Lena Pearl Walker | 31 Jan 1911 | Donald E. Hazelton | Beverly Louise Sloan | 5 June 1937 | Eugene Hazelton | Ester Nash | 17 Sept 1927",
+      "Beverly Louise Sloan | 5 June 1937 | Eugene Hazelton | Ester Nash | 17 Sept 1927 | Fred Kimball Hazelton | Agnes Mars | 24 Mar 1927",
+      "Ester Nash | 17 Sept 1927 | Fred Kimball Hazelton | Agnes Mars | 24 Mar 1927 | Hazel Hazelton | Barnes Ellsworth | 27 July 1911",
+      "Agnes Mars | 24 Mar 1927 | Hazel Hazelton | Barnes Ellsworth | 27 July 1911 | J. Virgil Hazelton | Maude Vanover | 18 Feb 1949",
+      "Barnes Ellsworth | 27 July 1911 | J. Virgil Hazelton | Maude Vanover | 18 Feb 1949 | James H. Hazelton | Elizabeth Maiman | 2 Aug 1912",
+      "Maude Vanover | 18 Feb 1949 | James H. Hazelton | Elizabeth Maiman | 2 Aug 1912 | Lee M. H. Hazelton | Lloyd J. Williamson | 13 Aug 1932",
+      "Elizabeth Maiman | 2 Aug 1912 | Lee M. H. Hazelton | Lloyd J. Williamson | 13 Aug 1932 | Mary Jane Hazelton | Basil Harrison | 5 June 1931",
+      "Lloyd J. Williamson | 13 Aug 1932 | Mary Jane Hazelton | Basil Harrison | 5 June 1931 | William Earl Hazelton | Margaret Evelyn Roedder | 7 Feb 1931",
+      "Basil Harrison | 5 June 1931 | William Earl Hazelton | Margaret Evelyn Roedder | 7 Feb 1931 | (Page 1 of 1) | First Name | Last Name"
+    ]
+  },
+  {
+    "id": "ohs-Myrtle-Smith",
+    "url": "https://www.okhistory.org/research/marrresults?fname=Myrtle&lname=Smith&year=&action=Search",
+    "retrieved_at": "2026-09-14T18:06:55.158458+00:00",
+    "http_status": 200,
+    "final_url": "https://www.okhistory.org/research/marrresults?fname=Myrtle&lname=Smith&year=&action=Search",
+    "status": "retrieved_requires_review",
+    "sha256": "3437b14365d6d312b90c5bdba1571d0802de4eb8bf19766be4542f2c6773e7ab",
+    "text_file": "ohs-Myrtle-Smith.txt",
+    "links": [],
+    "candidate_excerpts": []
+  },
+  {
+    "id": "gateway-Jared-Hazleton",
+    "url": "https://gateway.okhistory.org/search/?q=%22Jared+Hazleton%22&t=fulltext",
+    "retrieved_at": "2026-09-14T18:06:55.503915+00:00",
+    "http_status": 200,
+    "final_url": "https://gateway.okhistory.org/dam/?next=%2Fsearch%2F%3Fq%3D%2522Jared%2BHazleton%2522%26t%3Dfulltext",
+    "status": "verification_page_not_results",
+    "sha256": "ebfd2a35448bddd312a710f2a0f502fe0afe16f2b61e0cd7db5f9a5c4beffcab",
+    "text_file": "gateway-Jared-Hazleton.txt",
+    "links": [],
+    "candidate_excerpts": []
+  },
+  {
+    "id": "gateway-Jared-Hazelton",
+    "url": "https://gateway.okhistory.org/search/?q=%22Jared+Hazelton%22&t=fulltext",
+    "retrieved_at": "2026-09-14T18:06:56.032444+00:00",
+    "http_status": 200,
+    "final_url": "https://gateway.okhistory.org/dam/?next=%2Fsearch%2F%3Fq%3D%2522Jared%2BHazelton%2522%26t%3Dfulltext",
+    "status": "verification_page_not_results",
+    "sha256": "439e28ea5ef463ce42cbcca3a486362f7447eaa512dcbd23ccf9e8a5155ffec9",
+    "text_file": "gateway-Jared-Hazelton.txt",
+    "links": [],
+    "candidate_excerpts": []
+  },
+  {
+    "id": "gateway-Alfred-Hazelton",
+    "url": "https://gateway.okhistory.org/search/?q=%22Alfred+Hazelton%22&t=fulltext",
+    "retrieved_at": "2026-09-14T18:06:56.108145+00:00",
+    "http_status": 200,
+    "final_url": "https://gateway.okhistory.org/dam/?next=%2Fsearch%2F%3Fq%3D%2522Alfred%2BHazelton%2522%26t%3Dfulltext",
+    "status": "verification_page_not_results",
+    "sha256": "70f4b53725a6fdc1ba64c7546acb2e3bab65e558ea6b61ac4d38f6f6ee154675",
+    "text_file": "gateway-Alfred-Hazelton.txt",
+    "links": [],
+    "candidate_excerpts": []
+  },
+  {
+    "id": "gateway-Myrtle-Hazleton",
+    "url": "https://gateway.okhistory.org/search/?q=%22Myrtle+Hazleton%22&t=fulltext",
+    "retrieved_at": "2026-09-14T18:06:56.179515+00:00",
+    "http_status": 200,
+    "final_url": "https://gateway.okhistory.org/dam/?next=%2Fsearch%2F%3Fq%3D%2522Myrtle%2BHazleton%2522%26t%3Dfulltext",
+    "status": "verification_page_not_results",
+    "sha256": "71ce39896e90f72c3956c86db0dff1bf33c30e5b6964b00d7e7f2d1b23748b15",
+    "text_file": "gateway-Myrtle-Hazleton.txt",
+    "links": [],
+    "candidate_excerpts": []
+  },
+  {
+    "id": "tulsa-myrtle-index",
+    "url": "https://www.tulsalibrary.org/research/death-notices-index?page=952",
+    "retrieved_at": "2026-09-14T18:06:56.244474+00:00",
+    "http_status": 200,
+    "final_url": "https://www.tulsalibrary.org/research/death-notices-index?page=952",
+    "status": "retrieved_requires_review",
+    "sha256": "6c915a90112827b70e0aa7562faba9efb938bfcd989a252e5d7f27bb25ac1fab",
+    "text_file": "tulsa-myrtle-index.txt",
+    "links": [],
+    "candidate_excerpts": [
+      "04/06/1976 | Tulsa Tribune | Hazelton, Arch W. | 01/03/1975 | Tulsa World | Hazelton, Elsie | 08/30/1975 | Tulsa World",
+      "01/03/1975 | Tulsa World | Hazelton, Elsie | 08/30/1975 | Tulsa World | Hazelton, James C. | 05/18/1970 | Tulsa Tribune",
+      "08/30/1975 | Tulsa World | Hazelton, James C. | 05/18/1970 | Tulsa Tribune | Hazelton, Margaret | 07/20/1964 | Tulsa World",
+      "05/18/1970 | Tulsa Tribune | Hazelton, Margaret | 07/20/1964 | Tulsa World | 2 | Hazelton, Myrtle | 07/14/1977",
+      "Tulsa World | 2 | Hazelton, Myrtle | 07/14/1977 | Tulsa World | Hazelton, Royal A. | 05/08/1972 | Tulsa World",
+      "07/14/1977 | Tulsa World | Hazelton, Royal A. | 05/08/1972 | Tulsa World | Hazelwood, Andra Jean | 04/03/1974 | Tulsa World"
+    ]
+  },
+  {
+    "id": "familysearch-jared",
+    "url": "https://www.familysearch.org/search/record/results?q=givenname%3AJared+surname%3AHazleton+birth_year%3A1937+birth_place%3AOklahoma",
+    "retrieved_at": "2026-09-14T18:06:59.199945+00:00",
+    "http_status": 200,
+    "final_url": "https://www.familysearch.org/en/search/record/results?q=givenname%3AJared+surname%3AHazleton+birth_year%3A1937+birth_place%3AOklahoma",
+    "status": "javascript_shell_not_results",
+    "sha256": "2dbada39eb161df77e8b33cb34c77ec691e3963552db02e54f6302e82d450c69",
+    "text_file": "familysearch-jared.txt",
+    "links": [],
+    "candidate_excerpts": []
+  }
+]

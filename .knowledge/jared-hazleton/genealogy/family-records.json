@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "updated": "2026-09-14",
+  "scope": "Working evidence ledger; not a verified or complete pedigree",
+  "sources": [
+    {
+      "id": "S001",
+      "title": "Smith History Photos captions",
+      "path": "../photomyne-smith-history/manifest.json",
+      "type": "family_captions",
+      "reviewed": "2026-09-14"
+    },
+    {
+      "id": "S002",
+      "title": "Saved ChatGPT genealogy research",
+      "path": "../ChatGPT-JaredHazletonGeneology.md",
+      "type": "ai_research_notes"
+    },
+    {
+      "id": "S003",
+      "title": "Saved Claude research",
+      "path": "../Anthropic-Claude-JaredEarlHazletonResearch.md",
+      "type": "ai_research_notes"
+    },
+    {
+      "id": "S004",
+      "title": "Jared Earl Hazleton funeral-home obituary",
+      "url": "https://www.dignitymemorial.com/obituaries/arlington-tx/jared-hazleton-13026327",
+      "type": "published_obituary",
+      "access": "full_page_read",
+      "reviewed": "2026-09-14"
+    },
+    {
+      "id": "S005",
+      "title": "Photo 035 Goode marker",
+      "path": "../photomyne-smith-history/images/035.jpg",
+      "type": "photographed_inscription",
+      "reviewed": "2026-09-14"
+    },
+    {
+      "id": "S006",
+      "title": "Photo 024 child marker",
+      "path": "../photomyne-smith-history/images/024.jpg",
+      "type": "photographed_inscription",
+      "reviewed": "2026-09-14"
+    },
+    {
+      "id": "S007",
+      "title": "Waterloo Cemetery index",
+      "url": "https://www.okcemeteries.net/oklahoma/waterloo/waterloo.htm",
+      "type": "cemetery_transcription",
+      "access": "search_index_only; full page returned HTTP 429",
+      "reviewed": "2026-09-14"
+    },
+    {
+      "id": "S008",
+      "title": "Photo 032 James Louis Allan funeral notice",
+      "path": "../photomyne-smith-history/images/032.jpg",
+      "type": "photographed_document",
+      "reviewed": "2026-09-14"
+    },
+    {
+      "id": "S009",
+      "title": "Photo 036 Stanley Lee Haggard marker",
+      "path": "../photomyne-smith-history/images/036.jpg",
+      "type": "photographed_inscription",
+      "reviewed": "2026-09-14"
+    }
+  ],
+  "people": [
+    {
+      "id": "P001",
+      "name": "Alfred Larson Hazleton",
+      "search_variants": [
+        "Alfred L. Hazelton",
+        "Alfred Hazleton"
+      ],
+      "notes": "Al Hazleton in captions may refer to him; not independently matched."
+    },
+    {
+      "id": "P002",
+      "name": "Myrtle Frances Smith Hazleton",
+      "search_variants": [
+        "Myrtle Francis",
+        "Myrtle Frances Smith",
+        "Myrtle Hazelton"
+      ],
+      "caption_photos": [
+        9,
+        11,
+        14
+      ]
+    },
+    {
+      "id": "P003",
+      "name": "Jared Earl Hazleton",
+      "search_variants": [
+        "Jared Hazelton",
+        "Jared E. Hazleton"
+      ],
+      "caption_photos": [
+        1,
+        3,
+        19,
+        20,
+        26,
+        27,
+        28,
+        30
+      ]
+    },
+    {
+      "id": "P004",
+      "name": "Susan Hazleton Swingen",
+      "search_variants": [
+        "Susan Hazleton",
+        "Susan Swingen"
+      ],
+      "caption_photos": [
+        2,
+        11,
+        22,
+        25,
+        30,
+        31
+      ]
+    },
+    {
+      "id": "P005",
+      "name": "Elaine Hazleton",
+      "search_variants": [
+        "Elaine Hazelton"
+      ],
+      "notes": "Upton is a prior-report claim, not a verified maiden surname.",
+      "caption_photos": [
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "id": "P006",
+      "name": "O.E. Smith Sr.",
+      "search_variants": [
+        "O. E. Smith",
+        "O E Smith"
+      ],
+      "notes": "Do not expand initials."
+    },
+    {
+      "id": "P007",
+      "name": "Besse M. Goode Smith",
+      "search_variants": [
+        "Bessie Smith",
+        "Besse Smith",
+        "Besse Mallisie Goode Smith"
+      ]
+    },
+    {
+      "id": "P008",
+      "name": "O.E. Smith Jr.",
+      "search_variants": [
+        "O. E. Smith Jr",
+        "Jr. Smith"
+      ]
+    },
+    {
+      "id": "P009",
+      "name": "Mills Smith",
+      "caption_photos": [
+        13
+      ]
+    },
+    {
+      "id": "P010",
+      "name": "Kirby Smith",
+      "caption_photos": [
+        39
+      ]
+    },
+    {
+      "id": "P011",
+      "name": "Benjamin Tillman Smith",
+      "notes": "Mentioned in caption 021; not identified in a photograph."
+    },
+    {
+      "id": "P012",
+      "name": "Sarah Francis Byrnes Smith",
+      "search_variants": [
+        "Frankie Smith",
+        "Sarah Frances Smith"
+      ],
+      "notes": "Francis and Byrnes follow caption; Frances is a search variant only."
+    },
+    {
+      "id": "P013",
+      "name": "W.H. Goode",
+      "caption_photos": [
+        15,
+        37
+      ],
+      "notes": "Do not expand initials."
+    },
+    {
+      "id": "P014",
+      "name": "John Goode",
+      "caption_photos": [
+        35
+      ]
+    },
+    {
+      "id": "P015",
+      "name": "Susan A. Goode",
+      "caption_photos": [
+        35
+      ]
+    },
+    {
+      "id": "P016",
+      "name": "Lola Livingston",
+      "caption_photos": [
+        8,
+        18
+      ]
+    },
+    {
+      "id": "P017",
+      "name": "Jack Livingston",
+      "caption_photos": [
+        8,
+        18
+      ]
+    },
+    {
+      "id": "P018",
+      "name": "Gladys (surname unverified)",
+      "notes": "One of the alternative identities in caption 038; no positive photo identification."
+    },
+    {
+      "id": "P019",
+      "name": "Elizabeth Goode",
+      "caption_photos": [
+        1,
+        20
+      ]
+    },
+    {
+      "id": "P020",
+      "name": "Jackie Smith Devore",
+      "caption_photos": [
+        19
+      ]
+    },
+    {
+      "id": "P021",
+      "name": "Unresolved child in photo 024",
+      "notes": "William J. Bryan Goode is a candidate match only."
+    },
+    {
+      "id": "P022",
+      "name": "Frances Hazleton"
+    },
+    {
+      "id": "P023",
+      "name": "Alan Hazleton"
+    },
+    {
+      "id": "P024",
+      "name": "Mark Hazleton"
+    },
+    {
+      "id": "P025",
+      "name": "James Louis Allan",
+      "notes": "Named in photo 032 funeral notice; no known relationship to the family."
+    },
+    {
+      "id": "P026",
+      "name": "Stanley Lee Haggard",
+      "notes": "Named on photo 036 marker; no known relationship to the family."
+    }
+  ],
+  "claims": [
+    {
+      "id": "C001",
+      "subject": "P003",
+      "predicate": "birth",
+      "value": "1937-09-12; Oklahoma City, Oklahoma",
+      "status": "source_checked",
+      "sources": [
+        "S004"
+      ]
+    },
+    {
+      "id": "C002",
+      "subject": "P003",
+      "predicate": "death",
+      "value": "2026-09-03",
+      "status": "source_checked",
+      "sources": [
+        "S004"
+      ]
+    },
+    {
+      "id": "C003",
+      "subject": "P001",
+      "predicate": "parent_of",
+      "object": "P003",
+      "status": "source_checked",
+      "sources": [
+        "S004"
+      ]
+    },
+    {
+      "id": "C004",
+      "subject": "P002",
+      "predicate": "parent_of",
+      "object": "P003",
+      "status": "source_checked",
+      "sources": [
+        "S004"
+      ],
+      "note": "Obituary names Myrtle Francis without Smith."
+    },
+    {
+      "id": "C005",
+      "subject": "P002",
+      "predicate": "name",
+      "value": "Myrtle Frances Smith Hazleton",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 9
+    },
+    {
+      "id": "C006",
+      "subject": "P006",
+      "predicate": "parent_of",
+      "object": "P002",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 9
+    },
+    {
+      "id": "C007",
+      "subject": "P007",
+      "predicate": "parent_of",
+      "object": "P002",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 9
+    },
+    {
+      "id": "C008",
+      "subject": "P007",
+      "predicate": "spouse_of",
+      "object": "P006",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 5
+    },
+    {
+      "id": "C009",
+      "subject": "P004",
+      "predicate": "sibling_of",
+      "object": "P003",
+      "status": "prior_report_only",
+      "sources": [
+        "S002"
+      ]
+    },
+    {
+      "id": "C010",
+      "subject": "P003",
+      "predicate": "spouse_of",
+      "object": "P005",
+      "status": "prior_report_only",
+      "sources": [
+        "S002"
+      ]
+    },
+    {
+      "id": "C011",
+      "subject": "P003",
+      "predicate": "children_with_elaine",
+      "people": [
+        "P005",
+        "P022",
+        "P023",
+        "P024"
+      ],
+      "value": "Frances, Alan, Mark",
+      "status": "prior_report_only",
+      "sources": [
+        "S002"
+      ]
+    },
+    {
+      "id": "C012",
+      "subject": "P005",
+      "predicate": "maiden_name_and_marriage_date",
+      "value": "Elaine Upton; 1959-11-27",
+      "status": "prior_report_only",
+      "sources": [
+        "S003"
+      ],
+      "note": "Exact details not established by S002; underlying record needed."
+    },
+    {
+      "id": "C013",
+      "subject": "P009",
+      "predicate": "younger_sibling_of",
+      "object": "P006",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 13
+    },
+    {
+      "id": "C014",
+      "subject": "P009",
+      "predicate": "uncle_of",
+      "object": "P008",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 13
+    },
+    {
+      "id": "C015",
+      "subject": "P009",
+      "predicate": "shared_residence",
+      "object": "P008",
+      "value": "Blackwell, Oklahoma; 1930s",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 13
+    },
+    {
+      "id": "C016",
+      "subject": "P010",
+      "predicate": "sibling_of_unresolved_person",
+      "value": "O.E. Smith; Sr./Jr. unspecified",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 39
+    },
+    {
+      "id": "C017",
+      "subject": "P011",
+      "predicate": "parent_of",
+      "object": "P006",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 21
+    },
+    {
+      "id": "C018",
+      "subject": "P012",
+      "predicate": "parent_of",
+      "object": "P006",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 21
+    },
+    {
+      "id": "C019",
+      "subject": "P013",
+      "predicate": "parent_of",
+      "object": "P007",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 15
+    },
+    {
+      "id": "C020",
+      "subject": "P014",
+      "predicate": "paternal_grandparent_of",
+      "object": "P007",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 35
+    },
+    {
+      "id": "C021",
+      "subject": "P015",
+      "predicate": "paternal_grandparent_of",
+      "object": "P007",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 35
+    },
+    {
+      "id": "C022",
+      "subject": "P016",
+      "predicate": "sibling_of",
+      "object": "P007",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 8
+    },
+    {
+      "id": "C023",
+      "subject": "P018",
+      "predicate": "sibling_of",
+      "object": "P007",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 38,
+      "note": "Photo identity itself is uncertain."
+    },
+    {
+      "id": "C024",
+      "subject": "P019",
+      "predicate": "grandparent_of",
+      "object": "P003",
+      "status": "disputed",
+      "sources": [
+        "S001"
+      ],
+      "photo": 1,
+      "note": "Relationship reported by caption; place in Goode line unknown."
+    },
+    {
+      "id": "C025",
+      "subject": "P020",
+      "predicate": "cousin_of",
+      "object": "P003",
+      "status": "caption_reported",
+      "sources": [
+        "S001"
+      ],
+      "photo": 19,
+      "note": "Degree and parents unspecified."
+    },
+    {
+      "id": "C026",
+      "subject": "P015",
+      "predicate": "inscribed_years",
+      "value": "1855–1928",
+      "status": "visual_reading",
+      "sources": [
+        "S005"
+      ],
+      "note": "Caption says 1855–1923; preserve both."
+    },
+    {
+      "id": "C027",
+      "subject": "P015",
+      "predicate": "caption_years",
+      "value": "1855–1923",
+      "status": "disputed",
+      "sources": [
+        "S001"
+      ],
+      "photo": 35
+    },
+    {
+      "id": "C028",
+      "subject": "P014",
+      "predicate": "death_year",
+      "value": "1925 in caption; 1923 in cemetery search index",
+      "status": "disputed",
+      "sources": [
+        "S001",
+        "S007"
+      ],
+      "photo": 35
+    },
+    {
+      "id": "C029",
+      "subject": "P014",
+      "predicate": "cemetery",
+      "value": "Waterloo Cemetery, Oklahoma County",
+      "status": "candidate",
+      "sources": [
+        "S005",
+        "S007"
+      ],
+      "note": "Names and paired marker dates suggest a match; linked index photos not inspected."
+    },
+    {
+      "id": "C030",
+      "subject": "P021",
+      "predicate": "identity",
+      "value": "William J. Bryan Goode; indexed 1897-05-23 to 1900-05-10; son of J. and S. A. Goode",
+      "status": "candidate",
+      "sources": [
+        "S006",
+        "S007"
+      ],
+      "note": "Full index page unavailable; exact dates not independently read from local photo."
+    },
+    {
+      "id": "C031",
+      "subject": "P021",
+      "predicate": "younger_sibling_of",
+      "object": "P007",
+      "status": "disputed",
+      "sources": [
+        "S001"
+      ],
+      "photo": 24,
+      "note": "Conditional conflict with candidate parents and caption 035 grandparent claim; do not assign parents yet."
+    },
+    {
+      "id": "C032",
+      "subject": "P025",
+      "predicate": "funeral_notice",
+      "value": "Winchester, Kentucky; notice dated 1895-07-19; funeral and interment scheduled for following Saturday at 3 p.m.",
+      "status": "visual_reading",
+      "sources": [
+        "S008"
+      ]
+    },
+    {
+      "id": "C033",
+      "subject": "P026",
+      "predicate": "inscribed_dates",
+      "value": "1898-06-11 to 1969-04-17",
+      "status": "visual_reading",
+      "sources": [
+        "S009"
+      ]
+    },
+    {
+      "id": "C034",
+      "subject": "P026",
+      "predicate": "cemetery",
+      "value": "Waterloo Cemetery, Oklahoma County",
+      "status": "candidate",
+      "sources": [
+        "S007",
+        "S009"
+      ],
+      "note": "Name and both dates match index result; linked cemetery photo not inspected."
+    }
+  ]
+}
