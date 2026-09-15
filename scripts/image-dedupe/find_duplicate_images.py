@@ -714,12 +714,15 @@ def export_unique(
     clusters: list[Cluster],
     dest: Path,
     hardlink: bool,
+    refresh: bool = False,
 ) -> dict:
     """Write one copy of every distinct image into `dest` as a flat library.
 
-    Every group contributes its keeper; images in no group are distinct and are
-    copied as-is. The manifest's alias table maps every original path (and bare
-    filename) to its surviving file so callers can resolve stale references.
+    The library is treated as curated, not as build output: a file that is
+    already there is never overwritten, because it may have been cropped or
+    retouched by hand, and a file the previous manifest listed but that is now
+    gone is not resurrected, because its absence was a deliberate removal.
+    Pass refresh=True to overrule both and rebuild from the originals.
     """
     superseded: dict[str, list[ImageRecord]] = {}
     dropped: set[str] = set()
@@ -733,12 +736,23 @@ def export_unique(
     survivors.sort(key=lambda r: r.rel)
 
     dest.mkdir(parents=True, exist_ok=True)
+    manifest_path = dest / "manifest.json"
+    previously_exported: set[str] = set()
+    if manifest_path.is_file() and not refresh:
+        try:
+            previous = json.loads(manifest_path.read_text(encoding="utf-8"))
+            previously_exported = {e["name"] for e in previous.get("files", [])}
+        except (json.JSONDecodeError, KeyError, OSError):
+            pass
+
     existing = {p.name for p in dest.iterdir() if p.is_file() and p.name != "manifest.json"}
     taken: set[str] = set()
     taken_lower: set[str] = set()
     entries: list[dict] = []
     aliases: dict[str, str] = {}
     metadata_gaps: list[tuple[str, str]] = []
+    edited: list[str] = []
+    withheld: list[str] = []
     copied = 0
 
     for record in survivors:
@@ -751,7 +765,13 @@ def export_unique(
         taken_lower.add(name.lower())
 
         target = dest / name
-        if not target.exists() or target.stat().st_size != record.size_bytes:
+        present = target.is_file()
+        if present and not refresh:
+            if target.stat().st_size != record.size_bytes:
+                edited.append(name)
+        elif not present and name in previously_exported and not refresh:
+            withheld.append(name)
+        else:
             if hardlink:
                 try:
                     if target.exists():
@@ -762,6 +782,7 @@ def export_unique(
             else:
                 shutil.copy2(record.path, target)
             copied += 1
+            present = True
 
         replaces = superseded.get(record.rel, [])
         # The best pixels and the surviving EXIF are not always the same file.
@@ -770,19 +791,29 @@ def export_unique(
         )
         if metadata_from:
             metadata_gaps.append((name, metadata_from))
-        entries.append(
-            {
-                "name": name,
-                "source": record.rel,
-                "sha256": record.sha256,
-                "bytes": record.size_bytes,
-                "dimensions": f"{record.width}x{record.height}",
-                "quality": round(record.quality, 1),
-                "exif": record.has_exif,
-                "metadata_from": metadata_from,
-                "replaces": [{"source": m.rel, "sha256": m.sha256} for m in replaces],
-            }
-        )
+        entry = {
+            "name": name,
+            "source": record.rel,
+            "sha256": record.sha256,
+            "bytes": record.size_bytes,
+            "dimensions": f"{record.width}x{record.height}",
+            "quality": round(record.quality, 1),
+            "exif": record.has_exif,
+            "metadata_from": metadata_from,
+            "present": present,
+            "replaces": [{"source": m.rel, "sha256": m.sha256} for m in replaces],
+        }
+        if name in edited:
+            # Describe the file that is actually in the library, not the original.
+            entry["edited"] = True
+            entry["sha256"] = sha256_of(target)
+            entry["bytes"] = target.stat().st_size
+            try:
+                with Image.open(target) as image:
+                    entry["dimensions"] = f"{image.size[0]}x{image.size[1]}"
+            except OSError:
+                pass
+        entries.append(entry)
         for alias_source in [record, *replaces]:
             aliases[alias_source.rel] = name
             aliases.setdefault(Path(alias_source.rel).name, name)
@@ -791,18 +822,36 @@ def export_unique(
     manifest = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%S"),
         "count": len(entries),
+        "on_disk": sum(1 for e in entries if e["present"]),
         "superseded": len(dropped),
+        "edited": sorted(edited),
+        "withheld": sorted(withheld),
         "files": entries,
         "aliases": dict(sorted(aliases.items())),
     }
-    (dest / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
-    print(f"  wrote {copied} file(s), library now holds {len(entries)} unique images")
+    print(f"  wrote {copied} file(s), library now holds "
+          f"{sum(1 for e in entries if e['present'])} images")
+    if edited:
+        print(f"  kept {len(edited)} hand-edited file(s) instead of overwriting them:")
+        for name in edited[:5]:
+            print(f"      {name}")
+        if len(edited) > 5:
+            print(f"      ... and {len(edited) - 5} more")
+    if withheld:
+        print(f"  did not restore {len(withheld)} file(s) you had removed:")
+        for name in withheld[:5]:
+            print(f"      {name}")
+        if len(withheld) > 5:
+            print(f"      ... and {len(withheld) - 5} more")
+    if edited or withheld:
+        print("    (run with --refresh to rebuild these from the originals)")
     if metadata_gaps:
         print(f"  ! {len(metadata_gaps)} kept file(s) have better pixels but lost EXIF to a")
         print("    superseded copy; see \"metadata_from\" in the manifest before deleting originals")
     if stale:
-        print(f"  ! {len(stale)} file(s) in {dest.name}/ are no longer produced by this scan:")
+        print(f"  ! {len(stale)} file(s) in {dest.name}/ are not produced by this scan:")
         for name in sorted(stale)[:10]:
             print(f"      {name}")
     return manifest
@@ -899,6 +948,11 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         "--hardlink",
         action="store_true",
         help="Hard-link into the export directory instead of copying (saves disk, same volume only).",
+    )
+    parser.add_argument(
+        "--refresh",
+        action="store_true",
+        help="Overwrite hand-edited files and restore removed ones. Destroys manual crops.",
     )
     parser.add_argument("--no-cache", action="store_true", help="Ignore and overwrite the feature cache.")
     return parser.parse_args(argv)
@@ -1015,7 +1069,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         if not dest.is_absolute():
             dest = repo_root / dest
         print(f"\nExporting unique library to {dest}")
-        export_unique(records, clusters, dest, args.hardlink)
+        export_unique(records, clusters, dest, args.hardlink, args.refresh)
 
     failures = [r for r in records if r.error]
     flagged = sum(1 for c in clusters if framing_note(c))
