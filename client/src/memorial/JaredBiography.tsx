@@ -4,6 +4,7 @@ import Footer from "./components/layout/Footer";
 import "./memorial.css";
 
 const canonicalUrl = `https://texecon.com${biography.url}`;
+const genealogyHref = `${import.meta.env.BASE_URL}memorial/jared-earl-hazleton/genealogy/`;
 const sourceUrl = (url: string) =>
   url.startsWith("/") ? `${import.meta.env.BASE_URL}${url.slice(1)}` : url;
 
@@ -47,6 +48,9 @@ export default function JaredBiography() {
           </a>
           <a className="underline underline-offset-4" href="#sources">
             Sources &amp; further reading
+          </a>
+          <a className="underline underline-offset-4" href={genealogyHref}>
+            Family genealogy
           </a>
         </nav>
       </header>
@@ -173,6 +177,12 @@ export default function JaredBiography() {
                   className="font-medium text-primary underline underline-offset-4"
                 >
                   Return to the tribute →
+                </a>
+                <a
+                  href={genealogyHref}
+                  className="mt-4 block font-medium text-primary underline underline-offset-4"
+                >
+                  Explore the Hazleton family genealogy →
                 </a>
               </aside>
             </div>

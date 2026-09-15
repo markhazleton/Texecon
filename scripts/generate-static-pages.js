@@ -458,6 +458,7 @@ async function generateStaticPages() {
     // Update the home page (target/index.html) with static nav + site map
     const homeUrl = 'https://texecon.com/';
     const memorialUrl = 'https://texecon.com/memorial/jared-earl-hazleton/';
+    const genealogyUrl = 'https://texecon.com/memorial/jared-earl-hazleton/genealogy/';
     const homeHtml = addStructuredData(
       updateMetaTags(
         injectStaticRoot(baseTemplate, null, hierarchy),
@@ -488,6 +489,22 @@ async function generateStaticPages() {
     fs.mkdirSync(biographyDir, { recursive: true });
     fs.writeFileSync(path.join(biographyDir, 'index.html'), generateBiographyHTML(baseTemplate));
     console.log(`Generated full biography: ${biography.url}index.html`);
+    totalGenerated++;
+
+    const genealogyDir = path.join(
+      __dirname,
+      '..',
+      'target',
+      'memorial',
+      'jared-earl-hazleton',
+      'genealogy'
+    );
+    fs.mkdirSync(genealogyDir, { recursive: true });
+    const genealogyHtml = baseTemplate
+      .replace(/https:\/\/texecon\.com\/?(?=["'])/g, genealogyUrl)
+      .replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${genealogyUrl}"`);
+    fs.writeFileSync(path.join(genealogyDir, 'index.html'), genealogyHtml);
+    console.log(`Generated genealogy page: ${genealogyUrl}`);
     totalGenerated++;
 
     // Generate pages for all menu items that have URLs

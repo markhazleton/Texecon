@@ -37,12 +37,21 @@ def main():
                 width, height = img.size
                 image_format = img.format
             record['files'].append(dict(path=relative, bytes=len(content), sha256=hashlib.sha256(content).hexdigest(), width=width, height=height, format=image_format))
+            record[field] = relative
+        for field in ('url', 'thumb_url', 'thumb2_url'):
+            if record.get(field):
+                record[field] = record['files'][0]['path']
         return record
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
         records = list(pool.map(download, enumerate(data['photos'], 1)))
     # Preserve every source field, but omit temporary signed URL query credentials.
     data['photos'] = [{key: value.split('?')[0] if isinstance(value, str) and key.endswith('url') else value for key, value in p.items()} for p in data['photos']]
+    for index, photo in enumerate(data['photos'], 1):
+        local_path = f'images/{index:03}.jpg'
+        for field in ('url', 'thumb_url', 'thumb2_url'):
+            if photo.get(field):
+                photo[field] = local_path
     (ROOT / 'source/photos-000.json').write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
     manifest = dict(title='Smith History Photos', source_url=SOURCE, retrieved_at=captured, count=len(records), photos=records)
     (ROOT / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding='utf-8')
