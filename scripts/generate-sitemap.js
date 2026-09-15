@@ -46,6 +46,7 @@ function generateSiteMapFromData() {
     { url: baseUrl, priority: '1.0', changefreq: 'daily' },
     { url: `${baseUrl}/memorial/jared-earl-hazleton/`, priority: '1.0', changefreq: 'monthly' },
     { url: `${baseUrl}${biography.url}`, priority: '0.9', changefreq: 'monthly', lastModified: biography.updated },
+    { url: `${baseUrl}/jared-hazleton/genealogy/`, priority: '0.6', changefreq: 'monthly', lastModified: biography.updated },
   ];
 
   // Generate dynamic pages from actual content data

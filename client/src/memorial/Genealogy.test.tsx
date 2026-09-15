@@ -7,7 +7,7 @@ describe("Hazleton genealogy route", () => {
   afterEach(() => window.history.replaceState({}, "", "/"));
 
   it("renders the evidence-aware family groups and local photographs", () => {
-    window.history.replaceState({}, "", "/memorial/jared-earl-hazleton/genealogy/");
+    window.history.replaceState({}, "", "/jared-hazleton/genealogy/");
     render(<App />);
 
     expect(screen.getByRole("heading", { level: 1, name: "Hazleton Family Genealogy" })).toBeInTheDocument();
@@ -16,11 +16,11 @@ describe("Hazleton genealogy route", () => {
     expect(screen.getAllByRole("img")).toHaveLength(8);
     expect(screen.getByRole("link", { name: /Return to Jared's biography/ })).toHaveAttribute(
       "href",
-      "/texecon/jared-hazleton/"
+      "/jared-hazleton/biography/"
     );
     expect(document.querySelector('link[rel="canonical"]')).toHaveAttribute(
       "href",
-      "https://texecon.com/memorial/jared-earl-hazleton/genealogy/"
+      "https://texecon.com/jared-hazleton/genealogy/"
     );
   });
 });

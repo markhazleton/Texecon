@@ -4,7 +4,7 @@ import Footer from "./components/layout/Footer";
 import "./memorial.css";
 
 const canonicalUrl = `https://texecon.com${biography.url}`;
-const genealogyHref = `${import.meta.env.BASE_URL}memorial/jared-earl-hazleton/genealogy/`;
+const genealogyHref = `${import.meta.env.BASE_URL}jared-hazleton/genealogy/`;
 const sourceUrl = (url: string) =>
   url.startsWith("/") ? `${import.meta.env.BASE_URL}${url.slice(1)}` : url;
 

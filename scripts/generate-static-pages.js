@@ -458,7 +458,7 @@ async function generateStaticPages() {
     // Update the home page (target/index.html) with static nav + site map
     const homeUrl = 'https://texecon.com/';
     const memorialUrl = 'https://texecon.com/memorial/jared-earl-hazleton/';
-    const genealogyUrl = 'https://texecon.com/memorial/jared-earl-hazleton/genealogy/';
+    const genealogyUrl = 'https://texecon.com/jared-hazleton/genealogy/';
     const homeHtml = addStructuredData(
       updateMetaTags(
         injectStaticRoot(baseTemplate, null, hierarchy),
@@ -495,8 +495,7 @@ async function generateStaticPages() {
       __dirname,
       '..',
       'target',
-      'memorial',
-      'jared-earl-hazleton',
+      'jared-hazleton',
       'genealogy'
     );
     fs.mkdirSync(genealogyDir, { recursive: true });
@@ -896,10 +895,11 @@ function addStructuredData(html, structuredData) {
   );
 }
 
-function generateRedirectPageHTML(destinationPath, canonicalUrl) {
+function generateRedirectPageHTML(destinationPath, canonicalUrl, linkText = 'Dr. Jared Earl Hazleton Memorial') {
   const redirectUrl = withBasePath(destinationPath);
   const safeRedirectUrl = escapeHtmlAttr(redirectUrl);
   const safeCanonicalUrl = escapeHtmlAttr(canonicalUrl);
+  const safeLinkText = escapeHtml(linkText);
   const redirectUrlScript = JSON.stringify(redirectUrl);
 
   return `<!DOCTYPE html>
@@ -907,7 +907,7 @@ function generateRedirectPageHTML(destinationPath, canonicalUrl) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting to Dr. Jared Earl Hazleton Memorial | TexEcon</title>
+    <title>Redirecting to ${safeLinkText} | TexEcon</title>
     <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="${safeCanonicalUrl}" />
     <meta http-equiv="refresh" content="0; url=${safeRedirectUrl}" />
@@ -916,22 +916,38 @@ function generateRedirectPageHTML(destinationPath, canonicalUrl) {
     </script>
   </head>
   <body>
-    <p>Redirecting to <a href="${safeRedirectUrl}">Dr. Jared Earl Hazleton Memorial</a>.</p>
+    <p>Redirecting to <a href="${safeRedirectUrl}">${safeLinkText}</a>.</p>
   </body>
 </html>
 `;
 }
 
 function generateRedirectPages() {
-  const redirectPages = [
+  const memorialRedirects = [
     '/texeon/jared-hazleton/',
     '/texecon/jaredhazleton/',
   ];
-  const destinationPath = '/';
-  const canonicalUrl = 'https://texecon.com/';
-  const redirectHtml = generateRedirectPageHTML(destinationPath, canonicalUrl);
+  const memorialDestination = '/';
+  const memorialCanonicalUrl = 'https://texecon.com/';
+  const memorialRedirectHtml = generateRedirectPageHTML(memorialDestination, memorialCanonicalUrl);
 
-  redirectPages.forEach((redirectPath) => {
+  // The genealogy page moved out from under /memorial/jared-earl-hazleton/
+  // to its own /jared-hazleton/genealogy/ route; keep the old URL working.
+  const genealogyRedirects = ['/memorial/jared-earl-hazleton/genealogy/'];
+  const genealogyDestination = '/jared-hazleton/genealogy/';
+  const genealogyCanonicalUrl = 'https://texecon.com/jared-hazleton/genealogy/';
+  const genealogyRedirectHtml = generateRedirectPageHTML(
+    genealogyDestination,
+    genealogyCanonicalUrl,
+    'the Hazleton family genealogy'
+  );
+
+  const redirects = [
+    ...memorialRedirects.map((redirectPath) => ({ redirectPath, html: memorialRedirectHtml, destinationPath: memorialDestination })),
+    ...genealogyRedirects.map((redirectPath) => ({ redirectPath, html: genealogyRedirectHtml, destinationPath: genealogyDestination })),
+  ];
+
+  redirects.forEach(({ redirectPath, html, destinationPath }) => {
     const pageDir = path.join(
       __dirname,
       '..',
@@ -940,11 +956,11 @@ function generateRedirectPages() {
     );
 
     fs.mkdirSync(pageDir, { recursive: true });
-    fs.writeFileSync(path.join(pageDir, 'index.html'), redirectHtml);
+    fs.writeFileSync(path.join(pageDir, 'index.html'), html);
     console.log(`✅ Generated redirect: ${redirectPath} -> ${destinationPath}`);
   });
 
-  return redirectPages.length;
+  return redirects.length;
 }
 
 generateStaticPages().catch(console.error);

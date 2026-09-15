@@ -22,6 +22,14 @@ function LegacyMemorialRedirect() {
   return <p>Redirecting to Dr. Jared Earl Hazleton Memorial...</p>;
 }
 
+function LegacyGenealogyRedirect() {
+  useEffect(() => {
+    window.location.replace(`${import.meta.env.BASE_URL || "/"}jared-hazleton/genealogy/`);
+  }, []);
+
+  return <p>Redirecting to the Hazleton family genealogy...</p>;
+}
+
 function Router() {
   // Track page views with Google Analytics
   useAnalytics();
@@ -30,8 +38,8 @@ function Router() {
     <Switch>
       <Route path="/" component={MemorialHome} />
       <Route path="/memorial/jared-earl-hazleton/" component={MemorialHome} />
-      <Route path="/memorial/jared-earl-hazleton/genealogy/" component={Genealogy} />
-      <Route path="/memorial/jared-earl-hazleton/genealogy" component={Genealogy} />
+      <Route path="/jared-hazleton/genealogy/" component={Genealogy} />
+      <Route path="/jared-hazleton/genealogy" component={Genealogy} />
       <Route path={biography.url} component={JaredBiography} />
       <Route path={biography.url.replace(/\/$/, "")} component={JaredBiography} />
       <Route path={`${biography.url}index.html`} component={JaredBiography} />
@@ -39,6 +47,8 @@ function Router() {
       <Route path="/texeon/jared-hazleton/" component={LegacyMemorialRedirect} />
       <Route path="/texecon/jaredhazleton" component={LegacyMemorialRedirect} />
       <Route path="/texecon/jaredhazleton/" component={LegacyMemorialRedirect} />
+      <Route path="/memorial/jared-earl-hazleton/genealogy/" component={LegacyGenealogyRedirect} />
+      <Route path="/memorial/jared-earl-hazleton/genealogy" component={LegacyGenealogyRedirect} />
       {/* Dynamic routes for menu items */}
       <Route path="/page/:pageId" component={Home} />
       <Route path="/content/:contentSlug" component={Home} />

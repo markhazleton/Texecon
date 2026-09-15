@@ -3,7 +3,7 @@ import biography from "@/data/jared-biography.json";
 import Footer from "./components/layout/Footer";
 import "./memorial.css";
 
-const genealogyUrl = "https://texecon.com/memorial/jared-earl-hazleton/genealogy/";
+const genealogyUrl = "https://texecon.com/jared-hazleton/genealogy/";
 const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 const biographyHref = `${import.meta.env.BASE_URL}${biography.url.slice(1)}`;
 

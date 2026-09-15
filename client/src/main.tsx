@@ -27,7 +27,10 @@ function startVersionWatcher() {
 
   async function check() {
     try {
-      const res = await fetch(`${import.meta.env.BASE_URL || "/"}version.json`, {
+      // Append a unique query param so the CDN (not just the browser) treats
+      // this as a fresh URL instead of serving an edge-cached version.json.
+      const versionUrl = `${import.meta.env.BASE_URL || "/"}version.json?_=${Date.now()}`;
+      const res = await fetch(versionUrl, {
         cache: "no-store",
         signal: controller.signal,
         headers: { "cache-control": "no-cache" },
@@ -47,8 +50,26 @@ function startVersionWatcher() {
   }
 
   // Initial check shortly after load, then poll
-  setTimeout(check, 5_000);
+  setTimeout(check, 1_000);
   const timer = setInterval(check, intervalMs);
+
+  // A normal reload or new tab reruns this module, but a page restored from
+  // the browser's back/forward cache (bfcache) does not — that's the case
+  // that otherwise requires a manual Ctrl+F5 to pick up new content.
+  window.addEventListener("pageshow", (event: PageTransitionEvent) => {
+    if (event.persisted) check();
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") check();
+  });
+
+  // Firefox and Safari skip bfcache entirely for pages with an `unload`
+  // listener, forcing a real network navigation (and therefore a fresh
+  // HTTP cache check) on every back/forward instead of restoring a frozen
+  // snapshot. Chrome ignores this (its bfcache is handled by the pageshow
+  // listener above instead), so this is a no-op there, not a regression.
+  window.addEventListener("unload", () => {});
+
   window.addEventListener("beforeunload", () => {
     controller.abort();
     clearInterval(timer);
