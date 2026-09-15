@@ -9,6 +9,8 @@ import tempfile
 import imageio_ffmpeg
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
+from collage_project import photo_aliases, primary_library
+
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'videos' / 'jared-e-hazleton-documentary.mp4'
@@ -16,6 +18,11 @@ FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 SIZE = (1920, 1080)
 FPS = 30
 FOCUS_PHOTO = '2019-07-14 18.07.33.jpg'
+
+
+def focus_name():
+    """FOCUS_PHOTO may have been superseded by a better copy during dedupe."""
+    return photo_aliases().get(FOCUS_PHOTO, FOCUS_PHOTO)
 
 
 def run(arguments):
@@ -27,7 +34,7 @@ def prepare(photo, card=False, closing=False, heading='Jared E Hazleton', subtit
     frame = Image.new('RGB', SIZE, '#101419')
     with Image.open(photo) as original:
         picture = ImageOps.exif_transpose(original).convert('RGB')
-        if card and photo.name == FOCUS_PHOTO:
+        if card and photo.name == focus_name():
             width, height = picture.size
             picture = picture.crop((int(width * 0.15), int(height * 0.36),
                                     int(width * 0.52), int(height * 0.97)))
@@ -60,10 +67,13 @@ def prepare(photo, card=False, closing=False, heading='Jared E Hazleton', subtit
 def main():
     if OUTPUT.exists():
         raise SystemExit(f'Output already exists: {OUTPUT}')
-    photos = sorted((p for p in (ROOT / 'images').iterdir()
+    library = primary_library()
+    photos = sorted((p for p in library.iterdir()
                      if p.suffix.lower() in {'.jpg', '.jpeg', '.png', '.webp'}),
                     key=lambda p: p.name.casefold())
-    portrait = ROOT / 'images' / FOCUS_PHOTO
+    portrait = library / focus_name()
+    if portrait not in photos:
+        raise SystemExit(f'Focus photo not found in {library.name}/: {FOCUS_PHOTO}')
     photos.remove(portrait)
     photos.insert(0, portrait)
     slides = [(portrait, True, False), *[(p, False, False) for p in photos],

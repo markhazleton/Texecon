@@ -1,0 +1,15 @@
+# Core comparison pipeline (required)
+numpy>=1.26
+Pillow>=10.3
+ImageHash>=4.3.1
+PyWavelets>=1.4
+
+# Optional: adds .heic / .heif decoding
+pillow-heif>=0.16 ; platform_system != "Emscripten"
+
+# Optional: ML semantic pass (CLIP embeddings). Skip with --no-semantic.
+# CPU-only install:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+torch>=2.2
+torchvision>=0.17
+transformers>=4.40

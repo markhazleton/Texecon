@@ -30,6 +30,35 @@ def audio_names():
                    {'.mp3', '.wav', '.m4a', '.aac', '.ogg', '.flac'}), key=str.casefold)
 
 
+def primary_library():
+    """The deduplicated unique/ library, falling back to the legacy images/ folder."""
+    unique = ROOT / 'unique'
+    return unique if unique.is_dir() else ROOT / 'images'
+
+
+def photo_libraries():
+    primary = primary_library()
+    if primary.name == 'unique':
+        return ((primary, ''),)
+    return ((primary, ''), (ROOT / 'videos/published', 'videos/published/'))
+
+
+def library_label():
+    primary = primary_library()
+    return primary.name if primary.name == 'unique' else 'images or videos/published'
+
+
+def photo_aliases():
+    """Map superseded photo names to their surviving file in unique/."""
+    manifest = primary_library() / 'manifest.json'
+    key = (str(manifest), manifest.stat().st_mtime_ns if manifest.is_file() else None)
+    if getattr(photo_aliases, '_key', object()) != key:
+        data = json.loads(manifest.read_text(encoding='utf-8')) if key[1] else {}
+        photo_aliases._key = key
+        photo_aliases._value = data.get('aliases', {})
+    return photo_aliases._value
+
+
 def background(value):
     if not isinstance(value, dict):
         raise ValueError('Background must be an object.')
@@ -66,20 +95,24 @@ def photo_animation(value):
 
 def photo_names():
     names = []
-    for folder, prefix in ((ROOT / 'images', ''),
-                           (ROOT / 'videos/published', 'videos/published/')):
+    for folder, prefix in photo_libraries():
         names.extend(prefix + p.name for p in folder.glob('*')
                      if p.is_file() and p.suffix.lower() in {'.jpg', '.jpeg', '.png', '.webp'})
     return sorted(names, key=str.casefold)
 
 
 def photo_path(name):
-    """Resolve library IDs while retaining legacy images/ basenames."""
-    if not isinstance(name, str) or name not in photo_names():
-        raise ValueError(f'Photo not found in images or videos/published: {name!r}')
-    if name.startswith('videos/published/'):
+    """Resolve library IDs, retaining legacy basenames via the unique manifest."""
+    if not isinstance(name, str):
+        raise ValueError(f'Photo not found in {library_label()}: {name!r}')
+    if name not in photo_names():
+        alias = photo_aliases().get(name) or photo_aliases().get(Path(name).name)
+        if alias is None or alias not in photo_names():
+            raise ValueError(f'Photo not found in {library_label()}: {name!r}')
+        name = alias
+    if '/' in name:
         return ROOT / name
-    return ROOT / 'images' / name
+    return primary_library() / name
 
 
 def number(value, label, minimum, maximum):
@@ -127,6 +160,7 @@ def normalize_project(raw):
     if not 1 <= len(scenes) <= 500:
         raise ValueError('A project must contain 1–500 scenes.')
     available = set(photo_names())
+    aliases = photo_aliases()
     used = set()
     for index, scene in enumerate(scenes):
         label = f'Scene {index + 1}'
@@ -135,9 +169,16 @@ def normalize_project(raw):
         photos = scene.get('photos')
         if not isinstance(photos, list) or not 1 <= len(photos) <= 4:
             raise ValueError(f'{label} needs 1–4 photos.')
-        for name in photos:
-            if not isinstance(name, str) or name not in available:
-                raise ValueError(f'{label}: photo does not exist in images or videos/published: {name!r}')
+        for position, name in enumerate(photos):
+            if not isinstance(name, str):
+                raise ValueError(f'{label}: photo does not exist in {library_label()}: {name!r}')
+            if name not in available:
+                # Rewrite photos that dedupe superseded onto their surviving file.
+                resolved = aliases.get(name) or aliases.get(Path(name).name)
+                if resolved not in available:
+                    raise ValueError(
+                        f'{label}: photo does not exist in {library_label()}: {name!r}')
+                photos[position] = resolved
         used.update(photos)
         duration = number(scene.get('duration'), f'{label} duration', 1, 120)
         duration = round(duration * 30) / 30

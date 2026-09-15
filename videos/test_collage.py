@@ -57,6 +57,31 @@ class ProjectTests(unittest.TestCase):
                         photo_path(invalid)
             editor.thumbnail.cache_clear()
 
+    def test_unique_library_supersedes_legacy_folders_and_rewrites_aliases(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / 'images').mkdir()
+            unique = root / 'unique'
+            unique.mkdir()
+            Image.new('RGB', (40, 30), 'red').save(root / 'images/retired.png')
+            Image.new('RGB', (40, 30), 'blue').save(unique / 'kept.png')
+            (unique / 'manifest.json').write_text(json.dumps(
+                {'aliases': {'retired.png': 'kept.png',
+                             'videos/published/retired.webp': 'kept.png'}}))
+            with patch('collage_project.ROOT', root):
+                self.assertEqual(photo_names(), ['kept.png'])
+                self.assertEqual(photo_path('kept.png'), unique / 'kept.png')
+                # Names dedupe retired still resolve through the manifest.
+                self.assertEqual(photo_path('retired.png'), unique / 'kept.png')
+                self.assertEqual(photo_path('videos/published/retired.webp'), unique / 'kept.png')
+                project = deepcopy(self.project)
+                project['scenes'] = [project['scenes'][0]]
+                project['scenes'][0]['photos'] = ['retired.png']
+                self.assertEqual(normalize_project(project)['scenes'][0]['photos'], ['kept.png'])
+                for invalid in ['../kept.png', 'missing.png', 'unique/manifest.json']:
+                    with self.assertRaises(ValueError):
+                        photo_path(invalid)
+
     def test_scene_titles_are_optional_and_validated(self):
         for scene in self.project['scenes']:
             scene.pop('title', None)
@@ -72,7 +97,12 @@ class ProjectTests(unittest.TestCase):
         raw = json.loads(DEFAULT_CONFIG.read_text())
         raw['editor_note'] = 'Keep this note'
         normalized = normalize_project(raw)
-        self.assertEqual([s['photos'] for s in raw['scenes']], [s['photos'] for s in normalized['scenes']])
+        available = set(photo_names())
+        self.assertEqual([len(s['photos']) for s in raw['scenes']],
+                         [len(s['photos']) for s in normalized['scenes']])
+        for scene in normalized['scenes']:
+            # Superseded names are rewritten, but every result must exist.
+            self.assertTrue(available.issuperset(scene['photos']))
         self.assertEqual(normalized['editor_note'], 'Keep this note')
         self.assertEqual(normalized['duration_seconds'], round(sum(s['duration'] for s in raw['scenes']) - (len(raw['scenes']) - 1) * raw['transition_seconds'], 3))
         self.assertEqual(normalized['scenes'][1]['transition'], raw['scenes'][1].get('transition', 'smoothleft'))

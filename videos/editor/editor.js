@@ -259,12 +259,22 @@ function openPicker(slot) {
   $("picker").showModal();
   $("photo-search").focus();
 }
+function usedPhotos() {
+  return new Set(project.scenes.flatMap((scene) => scene.photos));
+}
 function library() {
-  const names = catalog.photos.filter((name) =>
-    name.toLowerCase().includes($("photo-search").value.toLowerCase())
+  const term = $("photo-search").value.toLowerCase();
+  const unusedOnly = $("unused-only").checked;
+  // The photo currently in this slot stays listed so it reads as the selection.
+  const used = usedPhotos();
+  used.delete(project.scenes[selected].photos[pickSlot]);
+  const names = catalog.photos.filter(
+    (name) => name.toLowerCase().includes(term) && !(unusedOnly && used.has(name))
   );
-  $("library-count").textContent =
-    `${names.length} photographs · choose one for slot ${pickSlot + 1}`;
+  const available = catalog.photos.length - used.size;
+  $("library-count").textContent = unusedOnly
+    ? `${names.length} of ${available} unused photographs · choose one for slot ${pickSlot + 1}`
+    : `${names.length} photographs · ${available} not yet used · choose one for slot ${pickSlot + 1}`;
   $("library").replaceChildren(
     ...names.map((name) => {
       const item = button("", () => {
@@ -437,6 +447,7 @@ $("delete").onclick = () =>
 $("add-photo").onclick = () => openPicker(project.scenes[selected].photos.length);
 $("close-picker").onclick = () => $("picker").close();
 $("photo-search").oninput = library;
+$("unused-only").onchange = library;
 $("save").onclick = save;
 $("render").onclick = async () => {
   if (await save()) {
@@ -493,6 +504,7 @@ window.addEventListener("beforeunload", (event) => {
     revision = catalog.revision;
     saved = JSON.stringify(project);
     $("file").textContent = catalog.file;
+    if (catalog.library) $("library-name").textContent = `${catalog.library}/`;
     setOptions("motion", catalog.motions);
     setOptions("transition", catalog.effects);
     refresh();

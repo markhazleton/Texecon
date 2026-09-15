@@ -12,6 +12,8 @@
     "generate:sitemap": "node scripts/generate-sitemap.js",
     "generate:static-pages": "node scripts/generate-static-pages.js",
     "optimize:gallery": "node scripts/optimize-gallery.js",
+    "images:dedupe": "\".\\scripts\\image-dedupe\\.venv\\Scripts\\python.exe\" scripts/image-dedupe/find_duplicate_images.py --sources",
+    "images:unique": "\".\\scripts\\image-dedupe\\.venv\\Scripts\\python.exe\" scripts/image-dedupe/find_duplicate_images.py --sources --export-unique",
     "video:editor": "python videos/collage-editor.py",
     "video:render": "python videos/create-collage.py",
     "type-check": "tsc --noEmit",

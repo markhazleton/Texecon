@@ -43,5 +43,14 @@ yarn-error.log*
 # Archive files
 *.tar.gz
 *.zip
+
+# Python tooling
+__pycache__/
+*.pyc
+scripts/**/.venv/
+
+# Image dedupe reports (scripts/image-dedupe)
+.image-dedupe/
+
 # DevSpark — personal overrides (never commit)
 .documentation/*/commands/

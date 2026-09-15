@@ -18,7 +18,7 @@ import threading
 from urllib.parse import unquote, urlsplit
 
 from PIL import Image, ImageOps
-from collage_project import AUDIO_DIR, DEFAULT_CONFIG, EFFECTS, LAYOUTS, MOTIONS, ROOT, audio_names, load_project, normalize_project, number, photo_names, photo_path
+from collage_project import AUDIO_DIR, DEFAULT_CONFIG, EFFECTS, LAYOUTS, MOTIONS, ROOT, audio_names, library_label, load_project, normalize_project, number, photo_names, photo_path
 
 spec = importlib.util.spec_from_file_location('collage_renderer', ROOT / 'videos/create-collage.py')
 renderer = importlib.util.module_from_spec(spec)
@@ -135,6 +135,7 @@ class Handler(BaseHTTPRequestHandler):
                     self.send({'project': load_project(self.server.config), 'revision': revision(self.server.config),
                                'file': str(self.server.config), 'token': self.server.token,
                                'photos': photo_names(), 'layouts': LAYOUTS, 'audio_files': audio_names(),
+                               'library': library_label(),
                                'effects': list(dict.fromkeys(EFFECTS)), 'motions': MOTIONS})
             elif route == '/api/status':
                 with self.server.lock:

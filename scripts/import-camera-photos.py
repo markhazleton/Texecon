@@ -15,7 +15,12 @@ import pillow_heif
 
 def main():
     pillow_heif.register_heif_opener()
-    source = Path(__file__).resolve().parents[1] / "images"
+    root = Path(__file__).resolve().parents[1]
+    # unique/ is the deduplicated library; images/ is the pre-consolidation fallback.
+    override = os.environ.get("GALLERY_SOURCE_DIR")
+    source = (root / override).resolve() if override else root / "unique"
+    if not source.is_dir():
+        source = root / "images"
     files = sorted(source.iterdir(), key=lambda item: item.name.lower())
     still_stems = {
         item.stem.lower()

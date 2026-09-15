@@ -98,6 +98,28 @@ test(
       assert.equal(document.querySelectorAll(".scene-item").length, 58);
       change("layout", "Four photos");
       $("add-photo").click();
+      const everything = document.querySelectorAll(".library-photo").length;
+      const inScene = [...document.querySelectorAll(".photo-card p")].map((p) => p.textContent);
+      $("unused-only").checked = true;
+      $("unused-only").dispatchEvent(new dom.window.Event("change"));
+      const unused = [...document.querySelectorAll(".library-photo span")].map(
+        (span) => span.textContent
+      );
+      assert.ok(unused.length < everything, "unused filter hides photos already in the video");
+      assert.ok(
+        inScene.length > 0 && inScene.every((name) => !unused.includes(name)),
+        "unused filter never lists a photo the video already uses"
+      );
+      $("photo-search").value = "zzz-no-such-photo";
+      $("photo-search").dispatchEvent(new dom.window.Event("input"));
+      assert.equal(
+        document.querySelectorAll(".library-photo").length,
+        0,
+        "search and unused filter combine"
+      );
+      $("unused-only").checked = false;
+      $("unused-only").dispatchEvent(new dom.window.Event("change"));
+
       $("photo-search").value = "2019-08-04";
       $("photo-search").dispatchEvent(new dom.window.Event("input"));
       assert.equal(document.querySelectorAll(".library-photo").length, 1);

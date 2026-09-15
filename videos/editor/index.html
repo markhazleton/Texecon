@@ -327,14 +327,19 @@
     <dialog id="picker">
       <div class="section-head">
         <div>
-          <span class="eyebrow">PHOTO LIBRARY</span>
+          <span class="eyebrow">PHOTO LIBRARY <span id="library-name"></span></span>
           <h2>Choose a photograph</h2>
         </div>
         <button id="close-picker" aria-label="Close photo library">Close ✕</button>
       </div>
-      <label
-        >Search photos<input id="photo-search" type="search" placeholder="Search by filename…"
-      /></label>
+      <div class="library-filters">
+        <label
+          >Search photos<input id="photo-search" type="search" placeholder="Search by filename…"
+        /></label>
+        <label class="toggle"
+          ><input id="unused-only" type="checkbox" />Only photos not used in this video</label
+        >
+      </div>
       <p id="library-count" class="hint"></p>
       <div id="library"></div>
     </dialog>

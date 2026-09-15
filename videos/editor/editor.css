@@ -504,6 +504,26 @@ dialog::backdrop {
   max-height: 56vh;
   overflow-y: auto;
 }
+.library-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  align-items: flex-end;
+}
+.library-filters label:first-child {
+  flex: 1 1 260px;
+}
+.library-filters .toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 7px;
+  white-space: nowrap;
+}
+.library-filters .toggle input {
+  width: auto;
+  margin: 0;
+}
 .library-photo {
   padding: 7px;
   min-width: 0;
