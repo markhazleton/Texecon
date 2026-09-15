@@ -1,7 +1,30 @@
 {
-  "generated": "2026-09-15T15:26:06",
-  "count": 326,
+  "generated": "2026-09-15T16:29:02",
+  "count": 327,
+  "on_disk": 320,
   "superseded": 266,
+  "edited": [
+    "2022-12-25 18.05.16.jpg",
+    "514418601_10234118469054711_8389408400784202616_n.jpg",
+    "515494346_10162780655171885_3143170232676664437_n.jpg",
+    "517105509_10234553372087015_7682731035186231215_n.jpg",
+    "525239308_10162971946751885_5093288004849165794_n (1).jpg",
+    "525559265_10162971950561885_5027374173522006110_n.jpg",
+    "555699042_10163261500291885_7351861173755401191_n.jpg",
+    "796746855_10245339134278771_1603458350521901141_n.jpg",
+    "81936544_10157577832486885_6868750487059955712_n.jpg",
+    "DSC01217.jpg",
+    "IMAG1062.jpg"
+  ],
+  "withheld": [
+    "071-texecon-55228af5.webp",
+    "072-texecon-7f92108f.webp",
+    "1496507874547.png",
+    "DSC00617.jpg",
+    "IMAG1061.jpg",
+    "IMAG1680.jpg",
+    "dad photo .jpg"
+  ],
   "files": [
     {
       "name": "1496507874547.png",
@@ -12,6 +35,7 @@
       "quality": 100.0,
       "exif": false,
       "metadata_from": "",
+      "present": false,
       "replaces": [
         {
           "source": "videos/published/109-texecon-235c91cb.webp",
@@ -28,6 +52,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/046-texecon-18bc8aa4.webp",
@@ -44,6 +69,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/048-texecon-e6ebc828.webp",
@@ -64,6 +90,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/050-texecon-60bea1a8.webp",
@@ -84,6 +111,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/038-texecon-17256eb2.webp",
@@ -104,6 +132,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/526358680_10162971951891885_1842128728022218828_n.jpg",
@@ -136,6 +165,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/135-texecon-7559c0ab.webp",
@@ -160,6 +190,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/137-texecon-2a3ba9a3.webp",
@@ -176,6 +207,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/67555575_10217605455359689_8991401441608335360_n.jpg",
@@ -192,6 +224,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/IMG_8153.jpg",
@@ -208,6 +241,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -219,6 +253,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/IMG_2106.JPG",
@@ -239,6 +274,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -250,6 +286,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/IMG_4298.JPG",
@@ -270,6 +307,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/IMG_4299.JPG",
@@ -284,12 +322,13 @@
     {
       "name": "2022-12-25 18.05.16.jpg",
       "source": "images/2022-12-25 18.05.16.jpg",
-      "sha256": "d65076ed7b932043dd1410d4cf1b02f69b36c7308faaa2d962ba0522d6f86f14",
-      "bytes": 6063397,
-      "dimensions": "4032x3024",
+      "sha256": "7fa82eb1bcb698dd96767d20f254c5fce9bbfeff42d6956d1759c1b42c8dd2fa",
+      "bytes": 4229856,
+      "dimensions": "3543x1814",
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/IMG_3971.jpg",
@@ -299,7 +338,8 @@
           "source": "videos/published/154-texecon-3998db63.webp",
           "sha256": "d9298879ef255d9f6ce22192af8449ae25607d65c78735a270aa44615a0bcdb4"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "31961628_10212109453348538_580289127237287936_n.jpg",
@@ -310,6 +350,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/239-texecon-d7b760a7.webp",
@@ -326,6 +367,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/266-texecon-c89c2eb2.webp",
@@ -342,6 +384,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/250-texecon-0bc3337f.webp",
@@ -358,6 +401,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -369,6 +413,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/177-texecon-760fb2d1.webp",
@@ -385,6 +430,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/221-texecon-09058f35.webp",
@@ -401,6 +447,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/242-texecon-cd8a55fd.webp",
@@ -417,6 +464,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/223-texecon-8645c5de.webp",
@@ -433,6 +481,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/225-texecon-ad603916.webp",
@@ -457,6 +506,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/263-texecon-5937f570.webp",
@@ -473,6 +523,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/173-texecon-1d7097f4.webp",
@@ -489,6 +540,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -500,6 +552,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/176-texecon-70f64661.webp",
@@ -516,6 +569,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/172-texecon-1d521101.webp",
@@ -526,50 +580,56 @@
     {
       "name": "514418601_10234118469054711_8389408400784202616_n.jpg",
       "source": "images/514418601_10234118469054711_8389408400784202616_n.jpg",
-      "sha256": "f9cb7ffe52fab141f125ce6362a67966e0173c1e3f751540ec09b9c3a52a56e0",
-      "bytes": 61731,
-      "dimensions": "960x790",
+      "sha256": "b3f0e4efc26b73f3cef2dceb47ea5f5ec35f28541bc551fa87cd3a6175fcdeff",
+      "bytes": 132154,
+      "dimensions": "894x660",
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/258-texecon-79601df3.webp",
           "sha256": "c803170a1b17ec4ea046edfeddec0c6c74de74cedfa3cc7558ae70cf21302d89"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "515494346_10162780655171885_3143170232676664437_n.jpg",
       "source": "images/515494346_10162780655171885_3143170232676664437_n.jpg",
-      "sha256": "1e061e69c69c76ff23b8d84e9390c0d356baadb9893db0dac11da86055488e03",
-      "bytes": 204426,
-      "dimensions": "2048x1365",
+      "sha256": "ecc69a3828ee05d41bc0ad1f1f05da12958a8056d21398698925dc2be784fc84",
+      "bytes": 708462,
+      "dimensions": "1390x1365",
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/178-texecon-8636888d.webp",
           "sha256": "20bbbecaa580fbe6a5dc4494e5495f950b2531aa98ab78f7412fb93e6b588790"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "517105509_10234553372087015_7682731035186231215_n.jpg",
       "source": "images/517105509_10234553372087015_7682731035186231215_n.jpg",
-      "sha256": "15211970c769d2d382dc7b7971c2c00ef4df36e3c61793e500e18ba7ee89e2fd",
-      "bytes": 95348,
-      "dimensions": "960x720",
+      "sha256": "6d5cf7ac1837628cef83849afab290f70a3a7ed12c1d5944578c488fde4e8e4d",
+      "bytes": 404113,
+      "dimensions": "894x615",
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/181-texecon-aa95b4e8.webp",
           "sha256": "0d0474932eb0d8ba144de34bda320424bd92b3e98756b5049ec54e0b48bcb053"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "517620945_10232335744076045_770954903699066913_n.jpg",
@@ -580,6 +640,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/182-texecon-ba766def.webp",
@@ -596,6 +657,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/252-texecon-2c6fbd0b.webp",
@@ -616,6 +678,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/256-texecon-6bb376b9.webp",
@@ -632,6 +695,7 @@
       "quality": 89.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/113-texecon-23311704.webp",
@@ -648,6 +712,7 @@
       "quality": 89.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/114-texecon-a7181d01.webp",
@@ -664,6 +729,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/001-texecon-dbb5a8c4.webp",
@@ -684,6 +750,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/145-texecon-a48bb2a2.webp",
@@ -712,6 +779,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/229-texecon-cd427e6b.webp",
@@ -732,6 +800,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/217-texecon-90126b5f.webp",
@@ -746,23 +815,26 @@
     {
       "name": "525239308_10162971946751885_5093288004849165794_n (1).jpg",
       "source": "images/525239308_10162971946751885_5093288004849165794_n (1).jpg",
-      "sha256": "fc8720048382a2662987bf36ab04e04056ac1b698c1b05a82656304ef1715558",
-      "bytes": 287150,
-      "dimensions": "1232x1856",
+      "sha256": "5b2ea53659c65145d6727a3e54fcfe125cd0d2b31a8b65dcc39b4e851a50d1e5",
+      "bytes": 683230,
+      "dimensions": "1139x1130",
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
-      "replaces": []
+      "present": true,
+      "replaces": [],
+      "edited": true
     },
     {
       "name": "525559265_10162971950561885_5027374173522006110_n.jpg",
       "source": "images/525559265_10162971950561885_5027374173522006110_n.jpg",
-      "sha256": "f62547439b1ae9b4d51a8c449740531c7ec6fe7ded90f27ec312215515d1bc36",
-      "bytes": 195903,
-      "dimensions": "1856x1232",
+      "sha256": "c72a9d98acfbf2b4b5e694fa82cae2deaa93a14f55c71e421ac10a1b0735a221",
+      "bytes": 439106,
+      "dimensions": "1407x1232",
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/228-texecon-a050439d.webp",
@@ -776,7 +848,8 @@
           "source": "videos/published/079-texecon-4b7d653d.webp",
           "sha256": "825c1b9c5b917a12676695f56cee8b41faac3c8efe039393e47d4baac67c60ac"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "526363420_10162971952226885_2770104262047157045_n.jpg",
@@ -787,6 +860,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/012-texecon-4fc014e6.webp",
@@ -807,6 +881,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/170-texecon-052be5c7.webp",
@@ -823,6 +898,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/261-texecon-3b86e977.webp",
@@ -833,18 +909,20 @@
     {
       "name": "555699042_10163261500291885_7351861173755401191_n.jpg",
       "source": "images/555699042_10163261500291885_7351861173755401191_n.jpg",
-      "sha256": "12c3a5058b17b008de18114923a552f41db2d514d21f19d01e3b973d6480711b",
-      "bytes": 71109,
-      "dimensions": "960x543",
+      "sha256": "da2f9364d2d39851121c42f0edd82cd31d81fd9903f19f019ae8e788669ed907",
+      "bytes": 206197,
+      "dimensions": "691x417",
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/254-texecon-afec3120.webp",
           "sha256": "d76351b310ac303c411854d19d2060e67376884dfd67b74c89c06f3586454b3f"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "555901186_10163263744056885_7264837113606985968_n.jpg",
@@ -855,6 +933,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -866,6 +945,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/184-texecon-c6a8a549.webp",
@@ -882,6 +962,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/259-texecon-ab687cdc.webp",
@@ -892,34 +973,38 @@
     {
       "name": "796746855_10245339134278771_1603458350521901141_n.jpg",
       "source": "images/796746855_10245339134278771_1603458350521901141_n.jpg",
-      "sha256": "b980d41290497588dcfcfe8396d97befcbce86a997fbc55104de0e82bdfa6b7c",
-      "bytes": 391466,
-      "dimensions": "2048x1536",
+      "sha256": "c2f915250d4a4d5ec02d006003756d76643cb0de6dbd12a563467e73b3512156",
+      "bytes": 1086382,
+      "dimensions": "1849x1129",
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/216-texecon-a6478511.webp",
           "sha256": "146e856b7facf59f5efc165c945a4dedaac6ce4f4bd74ea9f5f780af1f604f76"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "81936544_10157577832486885_6868750487059955712_n.jpg",
       "source": "images/81936544_10157577832486885_6868750487059955712_n.jpg",
-      "sha256": "111cc54c52c0ff14e6d21a5ce8ec2909dde304aac7497dc97a31f6904fa4c92a",
-      "bytes": 186207,
-      "dimensions": "2048x1152",
+      "sha256": "a1c5bf6bc13c23c3e34ae0d823094cc10b4bdfd08a3ce67c98d0cfd080e86e40",
+      "bytes": 613139,
+      "dimensions": "1729x945",
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/231-texecon-ff2156d3.webp",
           "sha256": "242117a349adc34bff751a066f8252b57d1b7c15635a864bdf63262524b9648e"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "DSC00010.jpg",
@@ -930,6 +1015,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "videos/published/DSC00010.JPG",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/DSC00010.JPG",
@@ -950,6 +1036,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -961,6 +1048,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/268-texecon-d951a7ea.webp",
@@ -977,6 +1065,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -988,6 +1077,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "videos/published/DSC00076.JPG",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/DSC00076.JPG",
@@ -1004,6 +1094,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1015,6 +1106,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "videos/published/DSC00521.JPG",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/DSC00521.JPG",
@@ -1035,6 +1127,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": false,
       "replaces": []
     },
     {
@@ -1046,6 +1139,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/211-texecon-0a52f0fe.webp",
@@ -1062,6 +1156,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/210-texecon-a1df41e6.webp",
@@ -1078,6 +1173,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/203-texecon-3c14126d.webp",
@@ -1094,6 +1190,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/011-texecon-a67d36fb.webp",
@@ -1110,6 +1207,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/518373316_10162916941816885_613253632621633755_n.jpg",
@@ -1128,18 +1226,20 @@
     {
       "name": "DSC01217.jpg",
       "source": "images/DSC01217.jpg",
-      "sha256": "45fe6247a932d38f1827adcfd69903ee0b8872d5b5b011462d4e8bfe42c45edb",
-      "bytes": 1318526,
-      "dimensions": "1392x1856",
+      "sha256": "6592646cf7f3899cb39b144160014f0f1ed9196a502f1f46841cf59661955011",
+      "bytes": 884474,
+      "dimensions": "1392x983",
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/518367775_10162916942311885_5482327206683296591_n.jpg",
           "sha256": "663ddfe5dbabdc855e25a3195861584c5f2c2bd64e8494d214f425f6adb82c74"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "DSC01772.jpg",
@@ -1150,6 +1250,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1161,6 +1262,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/525956957_10162971946591885_6972064043367378151_n.jpg",
@@ -1189,6 +1291,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/202-texecon-4634fa8b.webp",
@@ -1205,6 +1308,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1216,6 +1320,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/035-texecon-f3582655.webp",
@@ -1232,6 +1337,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/201-texecon-4db37369.webp",
@@ -1248,6 +1354,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1259,6 +1366,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/525311407_10162971956036885_5485339514947878451_n.jpg",
@@ -1275,6 +1383,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/520267814_10162916945356885_6304416315548264681_n.jpg",
@@ -1291,6 +1400,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/66314461884.jpg",
@@ -1307,6 +1417,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1318,6 +1429,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/518355726_10162916944916885_6795886980915164359_n.jpg",
@@ -1334,6 +1446,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/197-texecon-d8780a26.webp",
@@ -1350,6 +1463,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/097-texecon-b1b396fa.webp",
@@ -1366,6 +1480,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/525318410_10162971950421885_7803210916887012138_n.jpg",
@@ -1394,6 +1509,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/016-texecon-160e4fc8.webp",
@@ -1410,6 +1526,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/020-texecon-41eda121.webp",
@@ -1426,6 +1543,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1437,6 +1555,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1448,6 +1567,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/199-texecon-72267f2c.webp",
@@ -1464,6 +1584,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/026-texecon-efed9aa6.webp",
@@ -1492,6 +1613,7 @@
       "quality": 82.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1503,6 +1625,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "videos/published/IMAG0345.jpg",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/IMAG0345.jpg",
@@ -1519,6 +1642,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1530,6 +1654,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "videos/published/IMAG1032.jpg",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/IMAG1032.jpg",
@@ -1550,17 +1675,19 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": false,
       "replaces": []
     },
     {
       "name": "IMAG1062.jpg",
       "source": "images/IMAG1062.jpg",
-      "sha256": "962e9314cf599644d065a1ab3d582b4921f216576534cd101783b4524976ef5e",
-      "bytes": 1938989,
-      "dimensions": "2688x1520",
+      "sha256": "7f53b80ed3dc90a085a431a76e6b877df771689827078028d8535b3ba9b80602",
+      "bytes": 1474818,
+      "dimensions": "1946x1217",
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/191-texecon-c551daef.webp",
@@ -1570,7 +1697,8 @@
           "source": "videos/published/088-texecon-d987d6b7.webp",
           "sha256": "887ecd82321aa5bacc121252db24430d188c65fef27bd0321760fbfed64b22e6"
         }
-      ]
+      ],
+      "edited": true
     },
     {
       "name": "IMAG1362.jpg",
@@ -1581,6 +1709,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1592,6 +1721,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "videos/published/IMAG1680.jpg",
+      "present": false,
       "replaces": [
         {
           "source": "videos/published/IMAG1680.jpg",
@@ -1612,6 +1742,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/200-texecon-3506afa0.webp",
@@ -1636,6 +1767,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1647,6 +1779,7 @@
       "quality": 81.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1658,6 +1791,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/060-texecon-855e778d.webp",
@@ -1674,6 +1808,7 @@
       "quality": 71.1,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1685,6 +1820,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/IMGP0281.jpg",
@@ -1705,6 +1841,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/IMGP0289.jpg",
@@ -1725,6 +1862,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/IMGP0296.jpg",
@@ -1741,6 +1879,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/IMGP0357.jpg",
@@ -1761,6 +1900,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/194-texecon-832955c0.webp",
@@ -1777,6 +1917,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/195-texecon-aa3f87a9.webp",
@@ -1793,6 +1934,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1804,6 +1946,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/41598685_2301902809824864_862920940504219648_n.jpg",
@@ -1824,6 +1967,7 @@
       "quality": 91.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/089-texecon-548b48f0.webp",
@@ -1840,6 +1984,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/100-texecon-014c532c.webp",
@@ -1856,6 +2001,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1867,6 +2013,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/198-texecon-5023a8a6.webp",
@@ -1883,6 +2030,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1894,6 +2042,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1905,6 +2054,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -1916,6 +2066,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/187-texecon-1fd90e37.webp",
@@ -1932,6 +2083,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/130-texecon-e824954b.webp",
@@ -1948,6 +2100,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/131-texecon-f6850eb0.webp",
@@ -1972,6 +2125,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/132-texecon-774f1f1c.webp",
@@ -1988,6 +2142,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/502602058_10233861515751039_5027917266912054711_n.jpg",
@@ -2012,6 +2167,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/IMG_1258.JPG",
@@ -2032,6 +2188,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/096-texecon-5c52c2da.webp",
@@ -2048,6 +2205,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/133-texecon-34f20972.webp",
@@ -2064,6 +2222,7 @@
       "quality": 89.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/134-texecon-bc1fd130.webp",
@@ -2080,6 +2239,7 @@
       "quality": 92.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2091,6 +2251,7 @@
       "quality": 86.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/098-texecon-6edcb02c.webp",
@@ -2107,6 +2268,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/099-texecon-828503b7.webp",
@@ -2123,6 +2285,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2134,6 +2297,7 @@
       "quality": 89.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/143-texecon-6bfa1b45.webp",
@@ -2150,6 +2314,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2161,6 +2326,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/106-texecon-836d6a00.webp",
@@ -2177,6 +2343,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/107-texecon-9e354615.webp",
@@ -2193,6 +2360,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2204,6 +2372,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/517325908_10234396295040187_4043663906038516839_n.jpg",
@@ -2224,6 +2393,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/151-texecon-b2b0aa53.webp",
@@ -2244,6 +2414,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/102-texecon-af3e0594.webp",
@@ -2268,6 +2439,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/110-texecon-3360f3f6.webp",
@@ -2300,6 +2472,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2311,6 +2484,7 @@
       "quality": 89.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/112-texecon-84861f5d.webp",
@@ -2327,6 +2501,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2338,6 +2513,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/115-texecon-4347af9c.webp",
@@ -2362,6 +2538,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/116-texecon-96f7779e.webp",
@@ -2378,6 +2555,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/157-texecon-c1a35572.webp",
@@ -2394,6 +2572,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/117-texecon-515b535f.webp",
@@ -2410,6 +2589,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/090-texecon-7fdbc345.webp",
@@ -2426,6 +2606,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/111-texecon-e9cb288f.webp",
@@ -2442,6 +2623,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2453,6 +2635,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2464,6 +2647,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2475,6 +2659,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2486,6 +2671,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2497,6 +2683,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2508,6 +2695,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2519,6 +2707,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2530,6 +2719,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2541,6 +2731,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2552,6 +2743,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2563,6 +2755,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -2574,6 +2767,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/121-texecon-70334bd0.webp",
@@ -2590,6 +2784,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/147-texecon-f6886c0d.webp",
@@ -2606,6 +2801,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/093-texecon-9ec10181.webp",
@@ -2622,6 +2818,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/094-texecon-c53f95af.webp",
@@ -2638,6 +2835,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/095-texecon-291e7be0.webp",
@@ -2654,6 +2852,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/dad 2.jpeg",
@@ -2674,6 +2873,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/118-texecon-10f95ed3.webp",
@@ -2690,6 +2890,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/119-texecon-71e79200.webp",
@@ -2706,6 +2907,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/120-texecon-50eca2de.webp",
@@ -2722,6 +2924,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/149-texecon-ed8cb015.webp",
@@ -2738,6 +2941,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/148-texecon-2642bb28.webp",
@@ -2770,6 +2974,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/167-texecon-8d55ae66.webp",
@@ -2786,6 +2991,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/474051074_10232069628274972_6202376802500031470_n.jpg",
@@ -2814,6 +3020,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/150-texecon-aaaf4a15.webp",
@@ -2830,6 +3037,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/101-texecon-c55b29e7.webp",
@@ -2862,6 +3070,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/122-texecon-65ddfe8f.webp",
@@ -2878,6 +3087,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/123-texecon-bd6ae3c6.webp",
@@ -2894,6 +3104,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/124-texecon-9ee2e1d2.webp",
@@ -2910,6 +3121,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/125-texecon-d6aded3d.webp",
@@ -2934,6 +3146,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/126-texecon-163c4697.webp",
@@ -2958,6 +3171,7 @@
       "quality": 89.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/105-texecon-db3bcd1e.webp",
@@ -2974,6 +3188,7 @@
       "quality": 89.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/104-texecon-76ca14a0.webp",
@@ -2990,6 +3205,7 @@
       "quality": 89.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/103-texecon-37d47854.webp",
@@ -3006,6 +3222,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/128-texecon-da786ad2.webp",
@@ -3030,6 +3247,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/129-texecon-709200b8.webp",
@@ -3054,6 +3272,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/152-texecon-8b752f5a.webp",
@@ -3070,6 +3289,7 @@
       "quality": 82.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/IMG_5891.JPG",
@@ -3086,6 +3306,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/2019-09-02 10.46.33.jpg",
@@ -3106,6 +3327,7 @@
       "quality": 82.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3117,6 +3339,7 @@
       "quality": 82.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3128,6 +3351,7 @@
       "quality": 82.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3139,6 +3363,7 @@
       "quality": 82.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3150,6 +3375,7 @@
       "quality": 82.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3161,6 +3387,7 @@
       "quality": 82.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3172,6 +3399,7 @@
       "quality": 82.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3183,6 +3411,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/153-texecon-bd72fc80.webp",
@@ -3199,6 +3428,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/155-texecon-99a87de6.webp",
@@ -3215,6 +3445,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3226,6 +3457,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/138-texecon-3f0ec8b0.webp",
@@ -3242,6 +3474,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3253,6 +3486,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3264,6 +3498,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/141-texecon-ce2f344a.webp",
@@ -3288,6 +3523,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3299,6 +3535,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/504712530_10233675995593151_6402958732944629934_n.jpg",
@@ -3323,6 +3560,7 @@
       "quality": 87.5,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/212-texecon-7005a7fc.webp",
@@ -3339,6 +3577,7 @@
       "quality": 88.7,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3350,6 +3589,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/207-texecon-71fa6b5b.webp",
@@ -3366,6 +3606,7 @@
       "quality": 46.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3377,6 +3618,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3388,6 +3630,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/190-texecon-94bba221.webp",
@@ -3404,6 +3647,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/508559355_10229365072248226_7516478557909184707_n.jpg",
@@ -3424,6 +3668,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/508818078_10229365072648236_8547015322403497834_n.jpg",
@@ -3444,6 +3689,7 @@
       "quality": 82.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3455,6 +3701,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3466,6 +3713,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3477,6 +3725,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/276-texecon-b8bfc6fe.webp",
@@ -3493,6 +3742,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3504,6 +3754,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3515,6 +3766,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3526,6 +3778,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3537,6 +3790,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3548,6 +3802,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3559,6 +3814,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3570,6 +3826,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3581,6 +3838,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3592,6 +3850,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3603,6 +3862,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3614,6 +3874,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3625,6 +3886,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3636,6 +3898,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3647,6 +3910,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3658,6 +3922,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3669,6 +3934,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/275-texecon-0e50a6d4.webp",
@@ -3685,6 +3951,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/274-texecon-53e90c2b.webp",
@@ -3701,6 +3968,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3712,6 +3980,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3723,6 +3992,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3734,6 +4004,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3745,6 +4016,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/272-texecon-56be4495.webp",
@@ -3761,6 +4033,7 @@
       "quality": 86.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/271-texecon-51a15b3b.webp",
@@ -3777,6 +4050,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/273-texecon-c2b8d3fa.webp",
@@ -3793,6 +4067,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3804,6 +4079,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/270-texecon-23095790.webp",
@@ -3820,6 +4096,7 @@
       "quality": 91.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3831,6 +4108,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3842,6 +4120,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3853,6 +4132,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3864,6 +4144,7 @@
       "quality": 86.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3875,6 +4156,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3886,6 +4168,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3897,6 +4180,7 @@
       "quality": 91.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3908,6 +4192,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/034-texecon-24f0826b.webp",
@@ -3928,6 +4213,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3939,6 +4225,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/029-texecon-dedd7fa4.webp",
@@ -3959,6 +4246,7 @@
       "quality": 85.5,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -3970,6 +4258,7 @@
       "quality": 82.0,
       "exif": true,
       "metadata_from": "",
+      "present": false,
       "replaces": []
     },
     {
@@ -3981,6 +4270,7 @@
       "quality": 75.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/508856918_10229365072328228_2064151185194432872_n.jpg",
@@ -4001,6 +4291,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/174-texecon-49f1b0fe.webp",
@@ -4017,6 +4308,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/036-texecon-1c55b0df.webp",
@@ -4037,6 +4329,7 @@
       "quality": 13.5,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4048,6 +4341,7 @@
       "quality": 13.5,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4059,6 +4353,7 @@
       "quality": 7.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4070,6 +4365,7 @@
       "quality": 7.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4081,6 +4377,7 @@
       "quality": 8.3,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4092,6 +4389,7 @@
       "quality": 8.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4103,6 +4401,7 @@
       "quality": 10.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4114,6 +4413,7 @@
       "quality": 14.0,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/517596897_10162831965526885_2998687818246271938_n.jpg",
@@ -4138,6 +4438,7 @@
       "quality": 22.5,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4149,6 +4450,7 @@
       "quality": 15.3,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4160,6 +4462,7 @@
       "quality": 24.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4171,6 +4474,7 @@
       "quality": 24.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4182,6 +4486,7 @@
       "quality": 12.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4193,6 +4498,7 @@
       "quality": 15.7,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4204,6 +4510,7 @@
       "quality": 13.1,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/525489136_10162971942691885_1177325386639225460_n.jpg",
@@ -4228,6 +4535,7 @@
       "quality": 19.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4239,6 +4547,7 @@
       "quality": 22.7,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4250,6 +4559,7 @@
       "quality": 20.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4261,6 +4571,7 @@
       "quality": 13.7,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4272,6 +4583,7 @@
       "quality": 16.0,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4283,6 +4595,7 @@
       "quality": 29.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4294,6 +4607,7 @@
       "quality": 21.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/041-texecon-f4ce0b87.webp",
@@ -4310,6 +4624,7 @@
       "quality": 21.1,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4321,6 +4636,7 @@
       "quality": 15.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4332,6 +4648,7 @@
       "quality": 21.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4343,6 +4660,7 @@
       "quality": 12.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4354,6 +4672,7 @@
       "quality": 11.0,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4365,6 +4684,7 @@
       "quality": 6.3,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4376,6 +4696,7 @@
       "quality": 7.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4387,6 +4708,7 @@
       "quality": 14.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4398,6 +4720,7 @@
       "quality": 9.5,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4409,6 +4732,7 @@
       "quality": 20.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4420,6 +4744,7 @@
       "quality": 20.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4431,6 +4756,7 @@
       "quality": 11.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4442,6 +4768,7 @@
       "quality": 12.0,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4453,6 +4780,7 @@
       "quality": 16.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4464,6 +4792,7 @@
       "quality": 57.1,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4475,6 +4804,7 @@
       "quality": 13.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4486,6 +4816,7 @@
       "quality": 14.2,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4497,6 +4828,7 @@
       "quality": 14.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4508,6 +4840,7 @@
       "quality": 8.4,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4519,6 +4852,7 @@
       "quality": 15.1,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "videos/published/084-texecon-d25107a2.webp",
@@ -4535,6 +4869,7 @@
       "quality": 14.9,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4546,6 +4881,7 @@
       "quality": 10.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4557,6 +4893,7 @@
       "quality": 23.0,
       "exif": false,
       "metadata_from": "",
+      "present": false,
       "replaces": []
     },
     {
@@ -4568,6 +4905,7 @@
       "quality": 32.9,
       "exif": false,
       "metadata_from": "",
+      "present": false,
       "replaces": []
     },
     {
@@ -4579,6 +4917,7 @@
       "quality": 22.1,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4590,6 +4929,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4601,6 +4941,7 @@
       "quality": 22.6,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4612,6 +4953,19 @@
       "quality": 14.0,
       "exif": false,
       "metadata_from": "",
+      "present": true,
+      "replaces": []
+    },
+    {
+      "name": "2022-12-25 18.05.16-7fa82eb1.jpg",
+      "source": "videos/published/2022-12-25 18.05.16.jpg",
+      "sha256": "7fa82eb1bcb698dd96767d20f254c5fce9bbfeff42d6956d1759c1b42c8dd2fa",
+      "bytes": 4229856,
+      "dimensions": "3543x1814",
+      "quality": 98.4,
+      "exif": false,
+      "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4623,6 +4977,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4634,6 +4989,7 @@
       "quality": 63.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4645,6 +5001,7 @@
       "quality": 63.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4656,6 +5013,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4667,6 +5025,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4678,6 +5037,7 @@
       "quality": 72.8,
       "exif": false,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4689,6 +5049,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4700,6 +5061,7 @@
       "quality": 95.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4711,6 +5073,7 @@
       "quality": 95.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4722,6 +5085,7 @@
       "quality": 94.6,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4733,6 +5097,7 @@
       "quality": 95.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4744,6 +5109,7 @@
       "quality": 98.4,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": [
         {
           "source": "images/DSC03422.jpg",
@@ -4760,6 +5126,7 @@
       "quality": 88.3,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4771,6 +5138,7 @@
       "quality": 92.9,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4782,6 +5150,7 @@
       "quality": 91.0,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4793,6 +5162,7 @@
       "quality": 98.4,
       "exif": false,
       "metadata_from": "images/IMGP0209.jpg",
+      "present": true,
       "replaces": [
         {
           "source": "images/IMGP0209.jpg",
@@ -4809,6 +5179,7 @@
       "quality": 78.2,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     },
     {
@@ -4820,6 +5191,7 @@
       "quality": 96.8,
       "exif": true,
       "metadata_from": "",
+      "present": true,
       "replaces": []
     }
   ],
@@ -5897,6 +6269,7 @@
     "videos/published/200-texecon-3506afa0.webp": "IMAG1681.jpg",
     "videos/published/201-texecon-4db37369.webp": "DSC01872.jpg",
     "videos/published/202-texecon-4634fa8b.webp": "DSC01790.jpg",
+    "videos/published/2022-12-25 18.05.16.jpg": "2022-12-25 18.05.16-7fa82eb1.jpg",
     "videos/published/203-texecon-3c14126d.webp": "DSC00648.jpg",
     "videos/published/204-texecon-b5766538.webp": "IMAG1680.jpg",
     "videos/published/205-texecon-66c21740.webp": "2007-535.jpg",
