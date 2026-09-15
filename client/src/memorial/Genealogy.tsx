@@ -90,7 +90,12 @@ export default function Genealogy() {
         url={genealogyUrl}
         image="https://texecon.com/images/genealogy/smith-history-009.jpg"
         type="article"
-        keywords={["Hazleton genealogy", "Jared Hazleton family", "Smith family history", "Goode family"]}
+        keywords={[
+          "Hazleton genealogy",
+          "Jared Hazleton family",
+          "Smith family history",
+          "Goode family",
+        ]}
       />
       <header className="border-b border-border bg-card px-5 py-5 sm:px-8">
         <nav
@@ -126,11 +131,20 @@ export default function Genealogy() {
           </p>
         </header>
 
-        <section id="family-groups" aria-labelledby="family-groups-title" className="scroll-mt-8 py-14 sm:py-20">
+        <section
+          id="family-groups"
+          aria-labelledby="family-groups-title"
+          className="scroll-mt-8 py-14 sm:py-20"
+        >
           <div className="grid gap-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:gap-16">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">The working tree</p>
-              <h2 id="family-groups-title" className="mt-3 font-serif text-3xl text-primary sm:text-4xl">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+                The working tree
+              </p>
+              <h2
+                id="family-groups-title"
+                className="mt-3 font-serif text-3xl text-primary sm:text-4xl"
+              >
                 Family groups
               </h2>
             </div>
@@ -148,15 +162,23 @@ export default function Genealogy() {
           </div>
         </section>
 
-        <section aria-labelledby="photographs-title" className="border-t border-border py-14 sm:py-20">
+        <section
+          aria-labelledby="photographs-title"
+          className="border-t border-border py-14 sm:py-20"
+        >
           <div className="mb-10 max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">Preserved album images</p>
-            <h2 id="photographs-title" className="mt-3 font-serif text-3xl text-primary sm:text-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+              Preserved album images
+            </p>
+            <h2
+              id="photographs-title"
+              className="mt-3 font-serif text-3xl text-primary sm:text-4xl"
+            >
               Faces and family places
             </h2>
             <p className="mt-4 leading-7 text-muted-foreground">
-              These local copies come from the Smith History Photos archive. Captions are retained as
-              family testimony and are not treated as facial recognition or independent proof.
+              These local copies come from the Smith History Photos archive. Captions are retained
+              as family testimony and are not treated as facial recognition or independent proof.
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -186,7 +208,10 @@ export default function Genealogy() {
             The underlying research ledger and source notes remain in the project's family-history
             archive.
           </p>
-          <a href={biographyHref} className="mt-6 inline-block font-medium text-primary underline underline-offset-4">
+          <a
+            href={biographyHref}
+            className="mt-6 inline-block font-medium text-primary underline underline-offset-4"
+          >
             Read Jared's full biography &rarr;
           </a>
         </aside>
