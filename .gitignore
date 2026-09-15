@@ -4,8 +4,8 @@ node_modules/
 # Build output
 dist/
 
-# Local video sources and generated videos
-/videos/
+# Video pipeline code and configs are tracked; generated output is
+# excluded via videos/.gitignore
 
 # OS generated files
 .DS_Store
