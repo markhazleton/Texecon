@@ -59,8 +59,8 @@ def prepare(photo, card=False, closing=False, heading='Jared E Hazleton', subtit
             width, height = picture.size
             picture = picture.crop((int(width * 0.15), int(height * 0.36),
                                     int(width * 0.52), int(height * 0.97)))
-        picture.thumbnail((760, 800) if card else (1740, 920), Image.Resampling.LANCZOS)
-        x = 1060 + (760 - picture.width) // 2 if card else (1920 - picture.width) // 2
+        picture.thumbnail((880, 900) if card else (1740, 920), Image.Resampling.LANCZOS)
+        x = 980 + (880 - picture.width) // 2 if card else (1920 - picture.width) // 2
         frame.paste(picture, (x, (1080 - picture.height) // 2))
     if card:
         draw = ImageDraw.Draw(frame)

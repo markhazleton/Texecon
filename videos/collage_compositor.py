@@ -77,7 +77,7 @@ def backdrop(project, scene):
 
 
 def geometry(scene, index, progress):
-    start_box = ([1060, 140, 760, 800] if scene.get('card') else scene['layout'][index])
+    start_box = ([980, 90, 880, 900] if scene.get('card') else scene['layout'][index])
     end_box = scene.get('layout_end', scene.get('layout', [start_box]))[index] if not scene.get('card') else start_box
     t = ease(progress)
     x, y, width, height = [mix(a, b, t) for a, b in zip(start_box, end_box)]

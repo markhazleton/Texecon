@@ -33,26 +33,21 @@ class ProjectTests(unittest.TestCase):
     def test_photo_sources_support_collisions_thumbnails_and_rendering(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            (root / 'images').mkdir()
-            published = root / 'videos/published'
-            published.mkdir(parents=True)
-            Image.new('RGB', (40, 30), 'red').save(root / 'images/shared.png')
-            Image.new('RGB', (40, 30), 'blue').save(published / 'shared.png')
-            (published / 'manifest.json').write_text('{}')
+            unique = root / 'unique'
+            unique.mkdir()
+            Image.new('RGB', (40, 30), 'blue').save(unique / 'shared.png')
             with patch('collage_project.ROOT', root):
-                self.assertEqual(photo_names(), ['shared.png', 'videos/published/shared.png'])
-                self.assertEqual(photo_path('shared.png'), root / 'images/shared.png')
-                self.assertEqual(photo_path('videos/published/shared.png'), published / 'shared.png')
+                self.assertEqual(photo_names(), ['shared.png'])
+                self.assertEqual(photo_path('shared.png'), unique / 'shared.png')
                 project = deepcopy(self.project)
                 project['scenes'] = [project['scenes'][0]]
-                project['scenes'][0]['photos'] = ['videos/published/shared.png']
+                project['scenes'][0]['photos'] = ['shared.png']
                 normalized = normalize_project(project)
                 self.assertEqual(scene_frame(normalized, normalized['scenes'][0]).size, (1920, 1080))
-                with Image.open(BytesIO(editor.thumbnail('videos/published/shared.png', 0))) as thumb:
+                with Image.open(BytesIO(editor.thumbnail('shared.png', 0))) as thumb:
                     self.assertEqual(thumb.size, (40, 30))
                     self.assertGreater(thumb.getpixel((0, 0))[2], 240)
-                for invalid in ['../shared.png', 'videos/published/../../shared.png',
-                                'videos/published/manifest.json']:
+                for invalid in ['../shared.png', 'videos/published/shared.png', 'unique/manifest.json']:
                     with self.assertRaises(ValueError):
                         photo_path(invalid)
             editor.thumbnail.cache_clear()

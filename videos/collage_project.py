@@ -31,21 +31,16 @@ def audio_names():
 
 
 def primary_library():
-    """The deduplicated unique/ library, falling back to the legacy images/ folder."""
-    unique = ROOT / 'unique'
-    return unique if unique.is_dir() else ROOT / 'images'
+    """The complete, deduplicated image library used by the video editor."""
+    return ROOT / 'unique'
 
 
 def photo_libraries():
-    primary = primary_library()
-    if primary.name == 'unique':
-        return ((primary, ''),)
-    return ((primary, ''), (ROOT / 'videos/published', 'videos/published/'))
+    return ((primary_library(), ''),)
 
 
 def library_label():
-    primary = primary_library()
-    return primary.name if primary.name == 'unique' else 'images or videos/published'
+    return primary_library().name
 
 
 def photo_aliases():
@@ -102,16 +97,16 @@ def photo_names():
 
 
 def photo_path(name):
-    """Resolve library IDs, retaining legacy basenames via the unique manifest."""
+    """Resolve image IDs from unique/, retaining aliases via its manifest."""
     if not isinstance(name, str):
         raise ValueError(f'Photo not found in {library_label()}: {name!r}')
+    if name.startswith('unique/'):
+        name = name.removeprefix('unique/')
     if name not in photo_names():
         alias = photo_aliases().get(name) or photo_aliases().get(Path(name).name)
         if alias is None or alias not in photo_names():
             raise ValueError(f'Photo not found in {library_label()}: {name!r}')
         name = alias
-    if '/' in name:
-        return ROOT / name
     return primary_library() / name
 
 
@@ -172,6 +167,9 @@ def normalize_project(raw):
         for position, name in enumerate(photos):
             if not isinstance(name, str):
                 raise ValueError(f'{label}: photo does not exist in {library_label()}: {name!r}')
+            if name.startswith('unique/'):
+                name = name.removeprefix('unique/')
+                photos[position] = name
             if name not in available:
                 # Rewrite photos that dedupe superseded onto their surviving file.
                 resolved = aliases.get(name) or aliases.get(Path(name).name)

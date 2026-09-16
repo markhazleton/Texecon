@@ -1,4 +1,4 @@
-"""Create a silent full-screen slideshow from both local photo libraries."""
+"""Create a silent full-screen slideshow from the unique photo library."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 import json

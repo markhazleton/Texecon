@@ -48,9 +48,8 @@ node --test videos/editor/editor.test.mjs
 ```
 
 The renderer creates 1920 × 1080, 30 fps H.264 MP4s, with optional AAC audio. Photo names must match
-files directly inside `images/` or `videos/published/`. The photo picker includes both
-folders. Existing image names stay unchanged; published images are stored as
-`videos/published/filename.webp` to avoid filename collisions. Each scene needs 1–4 photos; cards need one.
+files directly inside `unique/`. The photo picker uses this complete deduplicated
+library. Each scene needs 1–4 photos; cards need one.
 Layouts use `[x, y, width, height]` pixel coordinates, and custom coordinates are
 preserved. Preset layout selection replaces them explicitly. Durations are rounded
 to frames; each scene must exceed twice the shared transition duration.
@@ -131,8 +130,8 @@ it, or launch with `--config videos/examples/cinematic-demo.json` to edit it sep
 
 Run `python videos/create-slideshow.py` to make
 `renders/JaredHazleton-AllPhotos-Slideshow.mp4` from every JPG, JPEG, PNG,
-or WebP directly inside `images/` and `videos/published/`. Each file appears once,
-sorted by its library name. The output JSON records the complete photo order.
+or WebP directly inside `unique/`. Each file appears once, sorted by filename.
+The output JSON records the complete photo order.
 
 Each photo holds for three seconds, followed by a half-second transition.
 Fades, dissolves, slides, wipes, and circular reveals alternate. Portraits retain
