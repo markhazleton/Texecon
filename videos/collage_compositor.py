@@ -3,11 +3,22 @@
 from functools import lru_cache
 import math
 import random
+from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 from collage_project import ROOT, BACKGROUND, POSE, photo_path
 
 SIZE = (1920, 1080)
+TITLE_FONTS = (
+    'C:/Windows/Fonts/georgia.ttf',
+    '/System/Library/Fonts/Supplemental/Georgia.ttf',
+    '/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf',
+)
+SMALL_FONTS = (
+    'C:/Windows/Fonts/segoeui.ttf',
+    '/System/Library/Fonts/Supplemental/Arial.ttf',
+    '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+)
 
 
 def ease(t):
@@ -29,7 +40,11 @@ def picture(name):
 
 @lru_cache(maxsize=64)
 def font(size, serif=False):
-    return ImageFont.truetype('C:/Windows/Fonts/' + ('georgia.ttf' if serif else 'segoeui.ttf'), size)
+    for candidate in (TITLE_FONTS if serif else SMALL_FONTS):
+        path = Path(candidate)
+        if path.is_file():
+            return ImageFont.truetype(str(path), size)
+    return ImageFont.load_default(size=size)
 
 
 def text_fit(draw, text, position, width, size=36, color='#f4f0e8', serif=False):

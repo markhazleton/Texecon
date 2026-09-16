@@ -1,15 +1,16 @@
 {
   "title": "Jared E Hazleton",
-  "duration_seconds": 258.7,
+  "duration_seconds": 259.2,
   "resolution": [
     1920,
     1080
   ],
   "fps": 30,
   "audio": true,
-  "unique_photos": 186,
+  "unique_photos": 184,
   "transition_seconds": 0.5,
   "transitions": [
+    "circleopen",
     "dissolve",
     "fade",
     "smoothleft"
@@ -21,13 +22,34 @@
       ],
       "card": true,
       "closing": false,
-      "duration": 4.0,
-      "transition": "fade",
+      "duration": 4.5,
+      "transition": "circleopen",
       "motion": "still",
       "subtitle": "A LIFE IN PHOTOGRAPHS",
       "caption": "",
       "chapter": "",
-      "photo_motion": [],
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": -41,
+            "y": 6,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
       "title": "Jared E Hazleton"
     },
     {
@@ -428,7 +450,7 @@
       "photos": [
         "IMG_0833.jpeg",
         "IMG_0835.jpeg",
-        "IMG_0235.jpg",
+        "IMG_0831.jpeg",
         "IMG_0828.jpeg"
       ],
       "layout": [
@@ -457,7 +479,7 @@
           382
         ]
       ],
-      "duration": 9.766667,
+      "duration": 9.766666666666667,
       "transition": "fade",
       "motion": "push-in",
       "caption": "Granddad with the kids",
@@ -729,7 +751,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "dissolve",
       "motion": "pull-out",
       "caption": "",
@@ -1096,7 +1118,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "Inks Lake",
@@ -1108,7 +1130,7 @@
       "photos": [
         "IMG_0571.jpg",
         "64475531884.jpg",
-        "2022-06-19 13.00.32.jpg"
+        "DSC02068.jpg"
       ],
       "layout": [
         [
@@ -1232,7 +1254,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -1605,7 +1627,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "fade",
       "motion": "push-in",
       "caption": "Halloween",
@@ -1616,7 +1638,7 @@
     {
       "photos": [
         "IMG_0568.jpg",
-        "IMG_5902.jpg"
+        "IMGP0128.jpg"
       ],
       "layout": [
         [
@@ -1745,8 +1767,8 @@
     {
       "photos": [
         "59929693_10214528555784587_384484561804853248_n.jpg",
-        "2022-09-11 21.21.44.jpg",
-        "IMG_0093.jpg",
+        "DSC03552.jpg",
+        "IMG_0067.jpg",
         "2019-08-04 16.16.49.jpg"
       ],
       "layout": [
@@ -1775,7 +1797,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -1875,7 +1897,28 @@
       "motion": "push-in",
       "caption": "",
       "chapter": "Adventures Together",
-      "photo_motion": [],
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.55,
+            "y": 0.42
+          }
+        }
+      ],
       "title": "Adventures Together 07"
     },
     {
@@ -1909,14 +1952,35 @@
       "motion": "pull-out",
       "caption": "",
       "chapter": "Adventures Together",
-      "photo_motion": [],
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.6,
+            "y": 0.37
+          }
+        }
+      ],
       "title": "Adventures Together 08"
     },
     {
       "photos": [
         "IMG_0140.jpg",
         "IMG_0173.jpg",
-        "IMG_0367.jpg"
+        "IMG_0832.jpeg"
       ],
       "layout": [
         [
@@ -1943,7 +2007,28 @@
       "motion": "push-in",
       "caption": "",
       "chapter": "Adventures Together",
-      "photo_motion": [],
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.81,
+            "y": 0.63
+          }
+        }
+      ],
       "title": "Adventures Together 09"
     },
     {
@@ -1951,7 +2036,7 @@
         "IMG_0696.jpg",
         "IMG_0697.jpg",
         "IMG_0703.jpg",
-        "IMG_0745.jpg"
+        "P7310085.jpg"
       ],
       "layout": [
         [
@@ -1979,7 +2064,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2020,7 +2105,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -2064,7 +2149,7 @@
     },
     {
       "photos": [
-        "IMG_6459.jpg",
+        "Photo_12.jpg",
         "IMG_6461.jpg",
         "IMG_6467.jpg"
       ],
@@ -2098,7 +2183,7 @@
     },
     {
       "photos": [
-        "Smith_History_Photos_034.jpg",
+        "PICT0136.jpg",
         "DSC00076.jpg"
       ],
       "layout": [
@@ -2142,7 +2227,7 @@
           800
         ]
       ],
-      "duration": 3.566667,
+      "duration": 3.566666666666667,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2169,7 +2254,7 @@
           800
         ]
       ],
-      "duration": 3.566667,
+      "duration": 3.566666666666667,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2210,7 +2295,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -2271,7 +2356,7 @@
           800
         ]
       ],
-      "duration": 3.566667,
+      "duration": 3.566666666666667,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2346,7 +2431,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2356,7 +2441,7 @@
     },
     {
       "photos": [
-        "Smith_History_Photos_036.jpg",
+        "DSC03537.jpg",
         "DSC00309.jpg",
         "Jared Hazleton- for flyer.jpg"
       ],
@@ -2407,7 +2492,7 @@
           800
         ]
       ],
-      "duration": 3.566667,
+      "duration": 3.566666666666667,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -2475,7 +2560,7 @@
           800
         ]
       ],
-      "duration": 4.466667,
+      "duration": 4.466666666666667,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2509,7 +2594,7 @@
           382
         ]
       ],
-      "duration": 4.466667,
+      "duration": 4.466666666666667,
       "transition": "smoothleft",
       "motion": "pull-out",
       "caption": "",
@@ -2543,7 +2628,7 @@
           382
         ]
       ],
-      "duration": 4.466667,
+      "duration": 4.466666666666667,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2638,7 +2723,7 @@
           800
         ]
       ],
-      "duration": 4.466667,
+      "duration": 4.466666666666667,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2665,7 +2750,7 @@
           800
         ]
       ],
-      "duration": 3.566667,
+      "duration": 3.566666666666667,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -2699,7 +2784,7 @@
           800
         ]
       ],
-      "duration": 4.466667,
+      "duration": 4.466666666666667,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2753,7 +2838,7 @@
           382
         ]
       ],
-      "duration": 5.366667,
+      "duration": 5.366666666666666,
       "transition": "smoothleft",
       "motion": "push-in",
       "caption": "",

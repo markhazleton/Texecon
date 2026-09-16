@@ -105,6 +105,7 @@ export default function MemorialHome() {
 
       <main className="flex-grow">
         <Hero />
+        <FamilyNote />
         <DeferredPhotoGallery />
         <FamilyNote />
         <Biography />

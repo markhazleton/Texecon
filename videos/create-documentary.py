@@ -20,6 +20,27 @@ FPS = 30
 FOCUS_PHOTO = '2019-07-14 18.07.33.jpg'
 
 
+def font(candidates, size):
+    """Load the first available font across Windows, macOS, and Linux."""
+    for candidate in candidates:
+        path = Path(candidate)
+        if path.is_file():
+            return ImageFont.truetype(str(path), size)
+    return ImageFont.load_default(size=size)
+
+
+TITLE_FONTS = (
+    'C:/Windows/Fonts/georgia.ttf',
+    '/System/Library/Fonts/Supplemental/Georgia.ttf',
+    '/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf',
+)
+SMALL_FONTS = (
+    'C:/Windows/Fonts/segoeui.ttf',
+    '/System/Library/Fonts/Supplemental/Arial.ttf',
+    '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+)
+
+
 def focus_name():
     """FOCUS_PHOTO may have been superseded by a better copy during dedupe."""
     return photo_aliases().get(FOCUS_PHOTO, FOCUS_PHOTO)
@@ -47,16 +68,16 @@ def prepare(photo, card=False, closing=False, heading='Jared E Hazleton', subtit
         split = min(range(1, len(words)), key=lambda i: abs(len(' '.join(words[:i])) - len(' '.join(words[i:])))) if len(words) > 1 else 0
         lines = [' '.join(words[:split]), ' '.join(words[split:])] if split else [heading]
         font_size = 78
-        title = ImageFont.truetype('C:/Windows/Fonts/georgia.ttf', font_size)
+        title = font(TITLE_FONTS, font_size)
         while max(draw.textlength(line, font=title) for line in lines) > 850 and font_size > 8:
             font_size -= 2
-            title = ImageFont.truetype('C:/Windows/Fonts/georgia.ttf', font_size)
+            title = font(TITLE_FONTS, font_size)
         subtitle = subtitle if subtitle is not None else ('MOMENTS TO REMEMBER' if closing else 'A LIFE IN PHOTOGRAPHS')
         small_size = 28
-        small = ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf', small_size)
+        small = font(SMALL_FONTS, small_size)
         while draw.textlength(subtitle, font=small) > 850 and small_size > 12:
             small_size -= 1
-            small = ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf', small_size)
+            small = font(SMALL_FONTS, small_size)
         draw.line((140, 350, 280, 350), fill='#bba67b', width=3)
         for index, line in enumerate(lines):
             draw.text((140, 400 + index * 95), line, font=title, fill='#f4f0e8')
