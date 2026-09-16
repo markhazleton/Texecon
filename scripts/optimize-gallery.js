@@ -8,13 +8,8 @@ import sharp from "sharp";
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDirectory, "..");
 const uniqueDirectory = path.join(projectRoot, "unique");
-// unique/ is the deduplicated library; images/ is the pre-consolidation fallback.
-const sourceDirectory =
-  process.env.GALLERY_SOURCE_DIR
-    ? path.resolve(projectRoot, process.env.GALLERY_SOURCE_DIR)
-    : existsSync(uniqueDirectory)
-      ? uniqueDirectory
-      : path.join(projectRoot, "images");
+// unique/ is the canonical photo library for the tribute gallery.
+const sourceDirectory = uniqueDirectory;
 const outputDirectory = path.join(projectRoot, "client", "public", "images", "memorial");
 const manifestPath = path.join(projectRoot, "client", "src", "data", "memorial-gallery.json");
 const photoContextPath = path.join(projectRoot, "client", "src", "data", "memorial-photo-context.json");
@@ -75,6 +70,9 @@ async function readSupersededHashes() {
 }
 
 async function optimizeGallery() {
+  if (!existsSync(sourceDirectory)) {
+    throw new Error(`Canonical photo library not found: ${sourceDirectory}`);
+  }
   const existingManifest = await readExistingManifest();
   const existingPhotoContext = await readExistingPhotoContext();
   const supersededBy = await readSupersededHashes();
