@@ -114,15 +114,18 @@ def deduplicate(scenes, library, identity):
     return swaps, exhausted, len(spare)
 
 
-def refit(scenes, target_seconds, transition, fps):
+def refit(scenes, target_seconds, transition, fps, minimum_seconds=3, opening_seconds=6):
     """Distribute the target runtime across scenes, preserving their proportions."""
     overlap = (len(scenes) - 1) * transition
     target_frames = round((target_seconds + overlap) * fps)
-    minimum = int(round(2 * transition * fps)) + 1
+    minimum = max(int(round(2 * transition * fps)) + 1, int(round(minimum_seconds * fps)))
 
     current = [max(1, round(scene['duration'] * fps)) for scene in scenes]
-    total = sum(current)
-    scaled = [frames * target_frames / total for frames in current]
+    opening = min(int(round(opening_seconds * fps)), target_frames - minimum * (len(scenes) - 2))
+    current_rest = current[2:]
+    rest_target = target_frames - opening * 2
+    total = sum(current_rest)
+    scaled = [opening, opening] + [frames * rest_target / total for frames in current_rest]
     frames = [max(minimum, int(value)) for value in scaled]
 
     # Largest-remainder allocation so the frames sum exactly to the target.
@@ -147,6 +150,8 @@ def main() -> int:
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('config', type=Path)
     parser.add_argument('--apply', action='store_true', help='Write the changes to the config.')
+    parser.add_argument('--minimum-scene-seconds', type=float, default=3)
+    parser.add_argument('--opening-seconds', type=float, default=6)
     parser.add_argument('--similar', type=Path, action='append', default=None,
                         help='Dedupe report naming photos that look alike (repeatable).')
     args = parser.parse_args()
@@ -186,7 +191,7 @@ def main() -> int:
     if exhausted:
         print('  ! ran out of unused photos; some repeats remain')
 
-    achieved = refit(scenes, target, transition, fps)
+    achieved = refit(scenes, target, transition, fps, args.minimum_scene_seconds, args.opening_seconds)
     raw['duration_seconds'] = round(achieved, 3)
     raw['unique_photos'] = len({name for scene in scenes for name in scene['photos']})
 

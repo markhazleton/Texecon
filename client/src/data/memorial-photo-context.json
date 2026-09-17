@@ -259,13 +259,6 @@
     "location": ""
   },
   {
-    "id": "photo-84-3a581148",
-    "title": "",
-    "content": "",
-    "date": "2026-09-11",
-    "location": ""
-  },
-  {
     "id": "photo-85-f740a433",
     "title": "",
     "content": "",
@@ -341,13 +334,6 @@
     "content": "",
     "date": "2017-04-28",
     "location": "30.760203, -98.342200"
-  },
-  {
-    "id": "photo-97-acc6787a",
-    "title": "",
-    "content": "",
-    "date": "2017-04-28",
-    "location": "30.760211, -98.342208"
   },
   {
     "id": "photo-101-842ee7f8",
@@ -593,13 +579,6 @@
     "content": "",
     "date": "2017-12-15",
     "location": "32.931919, -97.223533"
-  },
-  {
-    "id": "photo-143-edd9060b",
-    "title": "",
-    "content": "",
-    "date": "2017-12-24",
-    "location": "33.070358, -97.306733"
   },
   {
     "id": "photo-144-317782e4",
@@ -1128,13 +1107,6 @@
   },
   {
     "id": "photo-229-e2df49f6",
-    "title": "",
-    "content": "",
-    "date": "2026-09-16",
-    "location": ""
-  },
-  {
-    "id": "photo-230-24b59468",
     "title": "",
     "content": "",
     "date": "2026-09-16",
@@ -2150,6 +2122,230 @@
   },
   {
     "id": "photo-375-c74c1134",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-376-7b15cdbc",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-377-aab37363",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-378-e1393446",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-379-d6d16110",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-380-5e5fa1b1",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-381-e8b5d620",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-382-6ae3b67c",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-383-d73677d0",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-384-d1756e8b",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-385-b98a1571",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-386-0638326f",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-387-f6444a6a",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-388-d05d2611",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-389-488002b2",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-390-59f19257",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-391-639b8580",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-392-d69a3ec5",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-393-113ae5d3",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-394-3fdf4959",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-395-0ee8c613",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-396-a2292891",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-397-878168df",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-398-33c212ad",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-399-6f749f8d",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-400-72237e0d",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-401-3810c97f",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-402-a06c4aa0",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-403-568d1b0c",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-404-6ed56687",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-405-30346678",
+    "title": "",
+    "content": "",
+    "date": "2026-09-16",
+    "location": ""
+  },
+  {
+    "id": "photo-406-4ef81576",
+    "title": "",
+    "content": "",
+    "date": "2017-12-24",
+    "location": "33.070358, -97.306733"
+  },
+  {
+    "id": "photo-407-43c59dbe",
     "title": "",
     "content": "",
     "date": "2026-09-16",

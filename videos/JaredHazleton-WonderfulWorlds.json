@@ -1,13 +1,13 @@
 {
   "title": "Jared E Hazleton",
-  "duration_seconds": 259.2,
+  "duration_seconds": 258.7,
   "resolution": [
     1920,
     1080
   ],
   "fps": 30,
   "audio": true,
-  "unique_photos": 184,
+  "unique_photos": 182,
   "transition_seconds": 0.5,
   "transitions": [
     "circleopen",
@@ -18,11 +18,11 @@
   "scenes": [
     {
       "photos": [
-        "2019-07-14 18.07.33.jpg"
+        "Photo811288754051_inner_35-2-992-11-3-738-984-714.jpg"
       ],
       "card": true,
       "closing": false,
-      "duration": 4.5,
+      "duration": 6.0,
       "transition": "circleopen",
       "motion": "still",
       "subtitle": "A LIFE IN PHOTOGRAPHS",
@@ -38,19 +38,87 @@
             "zoom": 1
           },
           "end": {
-            "x": -41,
-            "y": 6,
+            "x": 0,
+            "y": 0,
             "scale": 1,
             "rotation": 0,
             "zoom": 1
           },
           "focal": {
-            "x": 0.44,
-            "y": 0.45
+            "x": 0.5,
+            "y": 0.5
           }
         }
       ],
       "title": "Jared E Hazleton"
+    },
+    {
+      "photos": [
+        "Photo811287497540_inner_55-89-641-74-55-968-662-945.jpg",
+        "Photo811183208250_inner_9-23-798-15-22-964-779-953.jpg"
+      ],
+      "layout": [
+        [
+          90,
+          170,
+          852,
+          800
+        ],
+        [
+          978,
+          170,
+          852,
+          800
+        ]
+      ],
+      "duration": 6.0,
+      "transition": "dissolve",
+      "motion": "push-in",
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "caption": "Jared Grows Up",
+      "chapter": "Growing Together",
+      "title": "Jared Growing Up"
     },
     {
       "photos": [
@@ -71,7 +139,7 @@
           800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "dissolve",
       "motion": "push-in",
       "photo_motion": [
@@ -139,13 +207,230 @@
           800
         ]
       ],
-      "duration": 2.7,
+      "duration": 3.0,
       "transition": "fade",
       "motion": "still",
       "title": "Early Memories",
       "caption": "",
       "chapter": "Growing Together",
       "photo_motion": []
+    },
+    {
+      "photos": [
+        "Photo811288937461_inner_11-32-984-29-3-679-980-711.jpg",
+        "Smith_History_Photos_003.jpg",
+        "2019-07-14 18.07.33.jpg"
+      ],
+      "layout": [
+        [
+          90,
+          170,
+          1100,
+          800
+        ],
+        [
+          1226,
+          170,
+          604,
+          382
+        ],
+        [
+          1226,
+          588,
+          604,
+          382
+        ]
+      ],
+      "duration": 4.133333,
+      "transition": "dissolve",
+      "motion": "pull-out",
+      "caption": "",
+      "chapter": "Growing Up",
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "title": "Around the Table 06"
+    },
+    {
+      "photos": [
+        "51909053981__EF1A8137-6B08-4F99-A359-08DC9CFD63F3.jpg",
+        "Smith_History_Photos_028.jpg"
+      ],
+      "layout": [
+        [
+          90,
+          170,
+          852,
+          800
+        ],
+        [
+          978,
+          170,
+          852,
+          800
+        ]
+      ],
+      "duration": 3.0,
+      "transition": "dissolve",
+      "motion": "push-in",
+      "caption": "Married Life with Kids",
+      "chapter": "Growing Together",
+      "photo_motion": [],
+      "title": "Married Life with Kids"
+    },
+    {
+      "photos": [
+        "Photo811287807732_inner_3-84-957-84-39-711-960-723.jpg",
+        "Photo811287841835_inner_11-58-972-49-42-708-976-714.jpg",
+        "Photo811287823614_inner_39-73-984-73-39-694-984-694.jpg"
+      ],
+      "layout": [
+        [
+          90,
+          170,
+          1100,
+          800
+        ],
+        [
+          1226,
+          170,
+          604,
+          382
+        ],
+        [
+          1226,
+          588,
+          604,
+          382
+        ]
+      ],
+      "duration": 8.433333,
+      "transition": "fade",
+      "motion": "pull-out",
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "caption": "Train Ride ",
+      "layout_end": [
+        [
+          90,
+          170,
+          1100,
+          800
+        ],
+        [
+          1226,
+          170,
+          604,
+          382
+        ],
+        [
+          1226,
+          588,
+          604,
+          382
+        ]
+      ],
+      "title": "",
+      "chapter": ""
     },
     {
       "photos": [
@@ -166,7 +451,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "push-in",
       "photo_motion": [
@@ -217,33 +502,6 @@
     },
     {
       "photos": [
-        "51909053981__EF1A8137-6B08-4F99-A359-08DC9CFD63F3.jpg",
-        "Smith_History_Photos_028.jpg"
-      ],
-      "layout": [
-        [
-          90,
-          170,
-          852,
-          800
-        ],
-        [
-          978,
-          170,
-          852,
-          800
-        ]
-      ],
-      "duration": 2.7,
-      "transition": "dissolve",
-      "motion": "push-in",
-      "caption": "Married Life with Kids",
-      "chapter": "Growing Together",
-      "photo_motion": [],
-      "title": "Married Life with Kids"
-    },
-    {
-      "photos": [
         "IMG_5898.jpg",
         "Smith_History_Photos_027.jpg",
         "Smith_History_Photos_026.jpg"
@@ -268,7 +526,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "push-in",
       "photo_motion": [
@@ -363,7 +621,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "push-in",
       "caption": "Family Gatherings Get Bigger",
@@ -397,7 +655,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "dissolve",
       "motion": "pull-out",
       "caption": "",
@@ -407,9 +665,102 @@
     },
     {
       "photos": [
+        "RenderedImage.jpg",
         "DSC01787.jpg",
+        "DSC03422.jpg"
+      ],
+      "layout": [
+        [
+          90,
+          170,
+          1100,
+          800
+        ],
+        [
+          1226,
+          170,
+          604,
+          382
+        ],
+        [
+          1226,
+          588,
+          604,
+          382
+        ]
+      ],
+      "duration": 4.133333,
+      "transition": "smoothleft",
+      "motion": "push-in",
+      "caption": "Loving Grandad Life",
+      "title": "Granddad Life",
+      "chapter": "Growing Together",
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "photos": [
         "DSC02039.jpg",
-        "DSC03422.jpg",
         "DSC02038.jpg"
       ],
       "layout": [
@@ -417,28 +768,16 @@
           90,
           170,
           852,
-          382
+          800
         ],
         [
           978,
           170,
           852,
-          382
-        ],
-        [
-          90,
-          588,
-          852,
-          382
-        ],
-        [
-          978,
-          588,
-          852,
-          382
+          800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "smoothleft",
       "motion": "push-in",
       "caption": "Loving Grandad Life",
@@ -479,7 +818,7 @@
           382
         ]
       ],
-      "duration": 9.766666666666667,
+      "duration": 8.433333,
       "transition": "fade",
       "motion": "push-in",
       "caption": "Granddad with the kids",
@@ -520,7 +859,7 @@
           382
         ]
       ],
-      "duration": 5.4,
+      "duration": 4.966667,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "Finding Grandkids all over the world",
@@ -547,7 +886,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "push-in",
       "caption": "Cruise With Friends",
@@ -574,7 +913,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "dissolve",
       "motion": "pull-out",
       "caption": "Cruise With Friends",
@@ -642,7 +981,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "push-in",
       "title": "Travel With Friends",
@@ -669,7 +1008,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "pull-out",
       "title": "Travel With Friends",
@@ -751,7 +1090,7 @@
           382
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "dissolve",
       "motion": "pull-out",
       "caption": "",
@@ -763,7 +1102,7 @@
       "photos": [
         "PICT0210.jpg",
         "IMG_0481.jpg",
-        "IMG_0831.jpeg"
+        "IMG_0235.jpg"
       ],
       "layout": [
         [
@@ -785,7 +1124,7 @@
           382
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "push-in",
       "caption": "Travel With Alan's Family",
@@ -819,7 +1158,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "smoothleft",
       "motion": "pull-out",
       "caption": "Big Wine Anniversary",
@@ -874,7 +1213,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "still",
       "caption": "Jared and Frances",
@@ -976,7 +1315,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "still",
       "photo_motion": [
@@ -1077,7 +1416,7 @@
           800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "Texas Rangers Games",
@@ -1087,9 +1426,7 @@
     },
     {
       "photos": [
-        "DSC02068.jpg",
         "013-texecon-0cfd3936.webp",
-        "66314456884.jpg",
         "66314441884.jpg"
       ],
       "layout": [
@@ -1097,28 +1434,64 @@
           90,
           170,
           852,
-          382
+          800
         ],
         [
           978,
           170,
           852,
-          382
-        ],
+          800
+        ]
+      ],
+      "duration": 4.933333,
+      "transition": "fade",
+      "motion": "pull-out",
+      "caption": "Inks Lake",
+      "chapter": "Family Memories",
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "title": "Inks Lake"
+    },
+    {
+      "photos": [
+        "66314456884.jpg",
+        "Photo811288444643_inner_0-26-955-37-0-537-940-538.jpg"
+      ],
+      "layout": [
         [
           90,
-          588,
+          170,
           852,
-          382
+          800
         ],
         [
           978,
-          588,
+          170,
           852,
-          382
+          800
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "Inks Lake",
@@ -1128,9 +1501,9 @@
     },
     {
       "photos": [
-        "IMG_0571.jpg",
         "64475531884.jpg",
-        "DSC02068.jpg"
+        "DSC02068.jpg",
+        "IMG_0571.jpg"
       ],
       "layout": [
         [
@@ -1152,7 +1525,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "smoothleft",
       "motion": "push-in",
       "caption": "Inks Lake",
@@ -1254,7 +1627,7 @@
           382
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -1281,7 +1654,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -1308,7 +1681,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -1342,7 +1715,7 @@
           800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "dissolve",
       "motion": "pull-out",
       "caption": "",
@@ -1376,7 +1749,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -1387,7 +1760,6 @@
     {
       "photos": [
         "DSC00642.jpg",
-        "DSC00648.jpg",
         "DSC00649.jpg",
         "DSC00636.jpg"
       ],
@@ -1395,54 +1767,28 @@
         [
           90,
           170,
-          852,
-          382
+          1100,
+          800
         ],
         [
-          978,
+          1226,
           170,
-          852,
+          604,
           382
         ],
         [
-          90,
+          1226,
           588,
-          852,
-          382
-        ],
-        [
-          978,
-          588,
-          852,
+          604,
           382
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "push-in",
       "caption": "Teaching In Poland",
       "chapter": "Family & Togetherness",
       "photo_motion": [
-        {
-          "start": {
-            "x": 0,
-            "y": 0,
-            "scale": 1,
-            "rotation": 0,
-            "zoom": 1
-          },
-          "end": {
-            "x": 0,
-            "y": 0,
-            "scale": 1,
-            "rotation": 0,
-            "zoom": 1
-          },
-          "focal": {
-            "x": 0.5,
-            "y": 0.5
-          }
-        },
         {
           "start": {
             "x": 0,
@@ -1532,7 +1878,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "dissolve",
       "motion": "pull-out",
       "caption": "",
@@ -1603,6 +1949,33 @@
     },
     {
       "photos": [
+        "Photo811288792819.1_inner_0-0-1000-0-0-731-1000-731.jpg",
+        "Photo811288262013_inner_3-14-988-8-3-714-957-729.jpg"
+      ],
+      "layout": [
+        [
+          90,
+          170,
+          852,
+          800
+        ],
+        [
+          978,
+          170,
+          852,
+          800
+        ]
+      ],
+      "duration": 8.466667,
+      "transition": "fade",
+      "motion": "push-in",
+      "title": "",
+      "caption": "",
+      "chapter": "",
+      "photo_motion": []
+    },
+    {
+      "photos": [
         "053-texecon-2dddb9df.webp",
         "054-texecon-cc20f880.webp",
         "055-texecon-3b4c9328.webp"
@@ -1627,40 +2000,13 @@
           382
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "fade",
       "motion": "push-in",
       "caption": "Halloween",
       "chapter": "Family & Togetherness",
       "photo_motion": [],
       "title": "Halloweeen"
-    },
-    {
-      "photos": [
-        "IMG_0568.jpg",
-        "IMGP0128.jpg"
-      ],
-      "layout": [
-        [
-          90,
-          170,
-          852,
-          800
-        ],
-        [
-          978,
-          170,
-          852,
-          800
-        ]
-      ],
-      "duration": 3.6,
-      "transition": "smoothleft",
-      "motion": "pull-out",
-      "caption": "",
-      "chapter": "Family & Togetherness",
-      "photo_motion": [],
-      "title": "Family & Togetherness 10"
     },
     {
       "photos": [
@@ -1688,7 +2034,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -1698,8 +2044,8 @@
     },
     {
       "photos": [
-        "2007-712.jpg",
-        "526363420_10162971952226885_2770104262047157045_n.jpg",
+        "Photo811287923651_inner_11-32-972-32-7-676-960-670.jpg",
+        "Photo811287870554_inner_11-82-988-82-35-723-976-726.jpg",
         "IMG_5555.jpg"
       ],
       "layout": [
@@ -1722,18 +2068,59 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
       "chapter": "Adventures Together",
-      "photo_motion": [],
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
       "title": "Adventures Together 02"
     },
     {
       "photos": [
         "555699042_10163261500291885_7351861173755401191_n.jpg",
-        "555901186_10163263744056885_7264837113606985968_n.jpg",
+        "IMG_1334.jpg",
         "IMAG1681.jpg"
       ],
       "layout": [
@@ -1756,7 +2143,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "dissolve",
       "motion": "pull-out",
       "caption": "",
@@ -1797,7 +2184,7 @@
           382
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -1831,7 +2218,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -1865,7 +2252,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "dissolve",
       "motion": "pull-out",
       "caption": "",
@@ -1892,7 +2279,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -1947,7 +2334,7 @@
           800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2002,7 +2389,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -2064,54 +2451,13 @@
           382
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
       "chapter": "Adventures Together",
       "photo_motion": [],
       "title": "Adventures Together 11"
-    },
-    {
-      "photos": [
-        "IMG_3142.jpg",
-        "IMG_0364.jpg",
-        "IMG_3329.jpg",
-        "DSC00521.jpg"
-      ],
-      "layout": [
-        [
-          90,
-          170,
-          852,
-          382
-        ],
-        [
-          978,
-          170,
-          852,
-          382
-        ],
-        [
-          90,
-          588,
-          852,
-          382
-        ],
-        [
-          978,
-          588,
-          852,
-          382
-        ]
-      ],
-      "duration": 5.366666666666666,
-      "transition": "dissolve",
-      "motion": "push-in",
-      "caption": "",
-      "chapter": "Adventures Together",
-      "photo_motion": [],
-      "title": "Adventures Together 12"
     },
     {
       "photos": [
@@ -2139,7 +2485,7 @@
           800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2149,7 +2495,6 @@
     },
     {
       "photos": [
-        "Photo_12.jpg",
         "IMG_6461.jpg",
         "IMG_6467.jpg"
       ],
@@ -2157,26 +2502,20 @@
         [
           90,
           170,
-          556,
+          852,
           800
         ],
         [
-          682,
+          978,
           170,
-          556,
-          800
-        ],
-        [
-          1274,
-          170,
-          556,
+          852,
           800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
-      "caption": "",
+      "caption": "Russian Tea Room",
       "chapter": "Adventures Together",
       "photo_motion": [],
       "title": "Adventures Together 14"
@@ -2200,7 +2539,7 @@
           800
         ]
       ],
-      "duration": 3.6,
+      "duration": 3.3,
       "transition": "smoothleft",
       "motion": "push-in",
       "caption": "",
@@ -2227,7 +2566,7 @@
           800
         ]
       ],
-      "duration": 3.566666666666667,
+      "duration": 3.266667,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2237,65 +2576,31 @@
     },
     {
       "photos": [
-        "81936544_10157577832486885_6868750487059955712_n.jpg",
-        "a6mVGyqvTLGqnywGJRrxMQ.jpeg"
-      ],
-      "layout": [
-        [
-          90,
-          170,
-          852,
-          800
-        ],
-        [
-          978,
-          170,
-          852,
-          800
-        ]
-      ],
-      "duration": 3.566666666666667,
-      "transition": "fade",
-      "motion": "push-in",
-      "caption": "",
-      "chapter": "Around the Table",
-      "photo_motion": [],
-      "title": "Around the Table 02"
-    },
-    {
-      "photos": [
         "IMG_0005.jpg",
         "IMG_0009.jpg",
-        "IMG_0016.jpeg",
         "IMG_0063.jpg"
       ],
       "layout": [
         [
           90,
           170,
-          852,
-          382
+          556,
+          800
         ],
         [
-          978,
+          682,
           170,
-          852,
-          382
+          556,
+          800
         ],
         [
-          90,
-          588,
-          852,
-          382
-        ],
-        [
-          978,
-          588,
-          852,
-          382
+          1274,
+          170,
+          556,
+          800
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -2329,7 +2634,7 @@
           800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2356,47 +2661,13 @@
           800
         ]
       ],
-      "duration": 3.566666666666667,
+      "duration": 3.266667,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
       "chapter": "Around the Table",
       "photo_motion": [],
       "title": "Around the Table 05"
-    },
-    {
-      "photos": [
-        "Smith_History_Photos_003.jpg",
-        "IMG_1338.jpg",
-        "Smith_History_Photos_025.jpg"
-      ],
-      "layout": [
-        [
-          90,
-          170,
-          1100,
-          800
-        ],
-        [
-          1226,
-          170,
-          604,
-          382
-        ],
-        [
-          1226,
-          588,
-          604,
-          382
-        ]
-      ],
-      "duration": 4.5,
-      "transition": "dissolve",
-      "motion": "pull-out",
-      "caption": "",
-      "chapter": "Around the Table",
-      "photo_motion": [],
-      "title": "Around the Table 06"
     },
     {
       "photos": [
@@ -2431,7 +2702,7 @@
           382
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2465,7 +2736,7 @@
           382
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2492,7 +2763,7 @@
           800
         ]
       ],
-      "duration": 3.566666666666667,
+      "duration": 3.266667,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -2526,7 +2797,7 @@
           800
         ]
       ],
-      "duration": 4.5,
+      "duration": 4.133333,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2560,7 +2831,7 @@
           800
         ]
       ],
-      "duration": 4.466666666666667,
+      "duration": 4.1,
       "transition": "fade",
       "motion": "push-in",
       "caption": "",
@@ -2594,7 +2865,7 @@
           382
         ]
       ],
-      "duration": 4.466666666666667,
+      "duration": 4.1,
       "transition": "smoothleft",
       "motion": "pull-out",
       "caption": "",
@@ -2628,7 +2899,7 @@
           382
         ]
       ],
-      "duration": 4.466666666666667,
+      "duration": 4.1,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2723,7 +2994,7 @@
           800
         ]
       ],
-      "duration": 4.466666666666667,
+      "duration": 4.1,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2750,7 +3021,7 @@
           800
         ]
       ],
-      "duration": 3.566666666666667,
+      "duration": 3.266667,
       "transition": "dissolve",
       "motion": "push-in",
       "caption": "",
@@ -2784,7 +3055,7 @@
           800
         ]
       ],
-      "duration": 4.466666666666667,
+      "duration": 4.1,
       "transition": "fade",
       "motion": "pull-out",
       "caption": "",
@@ -2797,7 +3068,7 @@
       "photos": [
         "Smith_History_Photos_005.jpg"
       ],
-      "duration": 2.7,
+      "duration": 3.0,
       "motion": "still",
       "transition": "dissolve",
       "layout": [
@@ -2815,75 +3086,28 @@
     {
       "photos": [
         "IMG_0838.jpeg",
-        "UrTM8WG-QSOnkhn2QTBqMA.jpeg",
-        "IMG_9086-video-still.jpg"
+        "Photo811287528241_inner_35-74-676-74-64-988-694-976.jpg"
       ],
       "layout": [
         [
           90,
           170,
-          1100,
+          852,
           800
         ],
         [
-          1226,
+          978,
           170,
-          604,
-          382
-        ],
-        [
-          1226,
-          588,
-          604,
-          382
+          852,
+          800
         ]
       ],
-      "duration": 5.366666666666666,
+      "duration": 4.933333,
       "transition": "smoothleft",
       "motion": "push-in",
       "caption": "",
       "chapter": "Celebrating Life",
       "photo_motion": [
-        {
-          "start": {
-            "x": 0,
-            "y": 0,
-            "scale": 1,
-            "rotation": 0,
-            "zoom": 1
-          },
-          "end": {
-            "x": 0,
-            "y": 0,
-            "scale": 1,
-            "rotation": 0,
-            "zoom": 1
-          },
-          "focal": {
-            "x": 0.5,
-            "y": 0.5
-          }
-        },
-        {
-          "start": {
-            "x": 0,
-            "y": 0,
-            "scale": 1,
-            "rotation": 0,
-            "zoom": 1
-          },
-          "end": {
-            "x": 0,
-            "y": 0,
-            "scale": 1,
-            "rotation": 0,
-            "zoom": 1
-          },
-          "focal": {
-            "x": 0.5,
-            "y": 0.5
-          }
-        },
         {
           "start": {
             "x": 0,
@@ -2919,7 +3143,7 @@
           800
         ]
       ],
-      "duration": 2.7,
+      "duration": 3.0,
       "transition": "fade",
       "motion": "still",
       "caption": "A Family Christmas",
@@ -2939,7 +3163,7 @@
           800
         ]
       ],
-      "duration": 2.7,
+      "duration": 3.0,
       "transition": "dissolve",
       "motion": "still",
       "caption": "",
@@ -2950,9 +3174,9 @@
     {
       "title": "Remembering Jared",
       "photos": [
-        "IMGP0166.jpg"
+        "Toast.png"
       ],
-      "duration": 5.0,
+      "duration": 4.6,
       "motion": "still",
       "transition": "fade",
       "card": true,
