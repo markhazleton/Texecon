@@ -14,6 +14,7 @@ import JaredBiography from "@/memorial/JaredBiography";
 import Genealogy from "./memorial/Genealogy";
 import PhotoGalleryPage from "./memorial/PhotoGalleryPage";
 import biography from "@/data/jared-biography.json";
+import PhotoCollagePage from "@/pages/photo-collage";
 
 function LegacyMemorialRedirect() {
   useEffect(() => {
@@ -46,6 +47,8 @@ function Router() {
       <Route path={biography.url} component={JaredBiography} />
       <Route path={biography.url.replace(/\/$/, "")} component={JaredBiography} />
       <Route path={`${biography.url}index.html`} component={JaredBiography} />
+      <Route path="/photo-collage/" component={PhotoCollagePage} />
+      <Route path="/photo-collage" component={PhotoCollagePage} />
       <Route path="/texeon/jared-hazleton" component={LegacyMemorialRedirect} />
       <Route path="/texeon/jared-hazleton/" component={LegacyMemorialRedirect} />
       <Route path="/texecon/jaredhazleton" component={LegacyMemorialRedirect} />

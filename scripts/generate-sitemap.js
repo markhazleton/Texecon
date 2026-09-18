@@ -48,6 +48,7 @@ function generateSiteMapFromData() {
     { url: `${baseUrl}${biography.url}`, priority: '0.9', changefreq: 'monthly', lastModified: biography.updated },
     { url: `${baseUrl}/jared-hazleton/genealogy/`, priority: '0.6', changefreq: 'monthly', lastModified: biography.updated },
     { url: `${baseUrl}/jared-hazleton/gallery/`, priority: '0.8', changefreq: 'monthly', lastModified: biography.updated },
+    { url: `${baseUrl}/photo-collage/`, priority: '0.8', changefreq: 'monthly' },
   ];
 
   // Generate dynamic pages from actual content data

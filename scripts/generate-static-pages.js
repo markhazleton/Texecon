@@ -460,6 +460,7 @@ async function generateStaticPages() {
     const memorialUrl = 'https://texecon.com/memorial/jared-earl-hazleton/';
     const genealogyUrl = 'https://texecon.com/jared-hazleton/genealogy/';
     const galleryUrl = 'https://texecon.com/jared-hazleton/gallery/';
+    const photoCollageUrl = 'https://texecon.com/photo-collage/';
     const homeHtml = addStructuredData(
       updateMetaTags(
         injectStaticRoot(baseTemplate, null, hierarchy),
@@ -514,6 +515,32 @@ async function generateStaticPages() {
       .replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${galleryUrl}"`);
     fs.writeFileSync(path.join(galleryDir, 'index.html'), galleryHtml);
     console.log(`Generated gallery page: ${galleryUrl}`);
+    totalGenerated++;
+
+    const photoCollageDir = path.join(__dirname, '..', 'target', 'photo-collage');
+    fs.mkdirSync(photoCollageDir, { recursive: true });
+    const photoCollageRoot = `<div id="static-content" style="font-family:system-ui,sans-serif;color:#24334a;">` +
+      `<header style="background:#1e3a5f;color:#fff;padding:24px;"><a href="/" style="color:#fff;text-decoration:none;font-weight:700;">TexEcon</a></header>` +
+      `<main style="max-width:900px;margin:auto;padding:56px 24px;line-height:1.7;">` +
+      `<p style="color:#1e3a5f;font-weight:700;text-transform:uppercase;letter-spacing:.15em;">Collage Studio</p>` +
+      `<h1>Turn a folder of photographs into a story worth watching.</h1>` +
+      `<p>Create cinematic photo collages, add music or narration, preview motion, and render a finished MP4 with the local Windows app.</p>` +
+      `<h2>How to make your first collage</h2><ol>` +
+      `<li>Install and open the app from the Windows Start Menu.</li>` +
+      `<li>Open or create a JSON project.</li>` +
+      `<li>Select image and optional audio folders.</li>` +
+      `<li>Edit scenes, timing, transitions, captions, and motion.</li>` +
+      `<li>Render the finished MP4 and open the output.</li></ol>` +
+      `<h2>What you need</h2><p>Windows 10 or 11 on a 64-bit computer, photographs in JPG, JPEG, PNG, or WebP format, and optional audio in MP3, WAV, M4A, AAC, OGG, or FLAC format.</p>` +
+      `<h2>Download for Windows</h2><p><a href="https://github.com/markhazleton/Texecon/releases/latest/download/CollageStudioSetup.exe">Download CollageStudioSetup.exe</a></p>` +
+      `<p>Your photos, projects, and renders stay on your computer. No account or media upload is required.</p>` +
+      `</main><footer style="background:#1e3a5f;color:#e2e8f0;padding:28px 24px;text-align:center;">TexEcon · Collage Studio</footer></div>`;
+    const photoCollageHtml = baseTemplate
+      .replace('<div id="root"></div>', photoCollageRoot)
+      .replace(/https:\/\/texecon\.com\/?(?=["'])/g, photoCollageUrl)
+      .replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${photoCollageUrl}"`);
+    fs.writeFileSync(path.join(photoCollageDir, 'index.html'), photoCollageHtml);
+    console.log(`Generated photo collage page: ${photoCollageUrl}`);
     totalGenerated++;
 
     // Generate pages for all menu items that have URLs
