@@ -10,27 +10,23 @@ Mom and Dad met at the University of Oklahoma. They shared sixty-six years of ma
 
 Mom, thank you for that life.
 
+Lesley and I have spent thirty years building one like it. We moved our family across creation, and Marlis, Ian, and Berit grew up the way I did — in the car, on the way to somewhere new. Lesley made a home out of every place we landed.
+
+Lesley put it best. He worked to understand her, and he did not tell us he loved us nearly as often as he showed us. He backed us every time we moved, and he never once asked why. He just showed up. He visited every house we ever lived in. Łódź. Balsall Common. Grayson. Wheaton. I could keep going.
+
 ---
 
-One of the gifts Dad gave me was a curiosity about the world.
+I was born in Concord, Massachusetts. Then Austin. Then Amman, Jordan. Then Austin. Then Seattle. Then Austin. We drove to most of them.
 
-When I was in second grade, we lived in Amman, Jordan. We drove from Texas through Mexico to Acapulco for Christmas — as a family, in a car. We spent summers camping on a piece of land he'd bought outside Nederland, Colorado. When he took the job at the University of Washington, we set off from Austin for Seattle in a caravan: a car pulling a boat, my brother's truck and camper, a dog and a cat along for the ride.
+We drove Austin to Acapulco for Christmas — as a family, in a car. We camped every summer on a piece of land he'd bought outside Nederland, Colorado. And when he took the job in Seattle, we left in a caravan.
 
-And those drives had music. Fraternity songs from OU. Tom Lehrer. The Mills Brothers and the Kingston Trio. Willie Nelson and Jerry Jeff Walker — as a kid I knew *Viva Terlingua!* by heart. He was a good piano player, too, and when he got to the boogie-woogie, you knew it was time to go.
+Those drives had music. Fraternity songs from OU. Tom Lehrer. The Mills Brothers and the Kingston Trio. Willie Nelson and Jerry Jeff Walker — as a kid I knew *Viva Terlingua!* by heart. He was a good piano player, too, and when he got to the boogie-woogie, you knew it was time to go.
 
 He gave me places I wanted to go back to, and music that still takes me there.
 
 He never stopped, either. When he and Mom marked their anniversaries, they took the whole family along — a cruise, Hawaii, Greece.
 
-He had a PhD in economics from Rice. He spent his life studying how things work. But the lesson I carry every day reached far beyond a classroom:
-
-**The world is one of the best educations you can get. Go see it.**
-
----
-
-Here is what I've come to understand, listening to our family remember him.
-
-He didn't just encourage us to see the world. He encouraged us to make up our own minds about it.
+He had a PhD in economics from Rice. That move to Seattle was a deanship at the University of Washington. And years after I graduated from North Texas, he became dean of its business school. But what he taught me had nothing to do with a classroom: go see the world for yourself, and then make up your own mind about it.
 
 Ask my daughter Marlis. During the BLM marches, her grandfather asked her what she thought — not to correct her, to hear it. The argument that followed emptied the lake house. Everyone else left; the two of them kept going. He came out of it convinced she should be a lawyer.
 
@@ -40,22 +36,22 @@ Ask my son Ian. They disagreed often, and Ian says that's what made him proud to
 
 Ask Berit. Chess lessons, terrible jokes, arguments for sport. A week at sea with Grandpa, Grandma, and Aunt Franci — just the four of them, for no occasion at all. And their last conversation: good luck with your show, I'm proud of you, and I hope the Rangers make the playoffs.
 
-That's the whole man in one sentence.
-
 ---
 
-He visited every house we ever lived in — including Łódź, Poland. He did not tell us he loved us nearly as often as he showed us.
+My father taught me to be curious. To have an opinion, and a reason for it. To go see what was around the next corner.
 
----
+There is a poem I keep coming back to — "Ithaka," by Constantine Cavafy. It is about a man sailing home, and it says the destination was never the point. Ithaka gave him the voyage. Without her he would never have set out.
 
-Dad —
+So here is what I want for my kids, and for his.
 
-You taught me to be curious. To have an opinion, and a reason for it. To go see what was around the next corner.
+I hope your roads are long.
 
-I promise I'll keep going. And your grandchildren will, too.
+I hope you pull in after dark and wake up to a mountainside you didn't know was there.
 
-Marlis, Ian, and Berit are the best of what you taught me, and I see you in them every single day.
+I hope there's music in the car.
 
-I love you.
+And I hope that somewhere along the way, somebody asks you what you think — and then argues with you about it.
 
-Safe travels.
+He was my Ithaka. He gave me the journey.
+
+Marlis, Ian, and Berit are the best of what he taught me, and I see him in them every single day.

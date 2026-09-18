@@ -39,6 +39,12 @@ export default function Hero() {
           >
             Read Jared’s full biography →
           </a>
+          <a
+            href="#gallery"
+            className="mt-3 inline-flex min-h-11 items-center justify-center border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-secondary hover:text-primary"
+          >
+            View the photo gallery →
+          </a>
 
           <div className="mt-8 w-full max-w-xl border-l-2 border-secondary bg-card/70 px-5 py-5 text-left shadow-sm sm:px-6">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-secondary">

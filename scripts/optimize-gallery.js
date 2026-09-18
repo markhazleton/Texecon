@@ -1,12 +1,15 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDirectory, "..");
-const sourceDirectory = path.join(projectRoot, "images");
+const uniqueDirectory = path.join(projectRoot, "unique");
+// unique/ is the canonical photo library for the tribute gallery.
+const sourceDirectory = uniqueDirectory;
 const outputDirectory = path.join(projectRoot, "client", "public", "images", "memorial");
 const manifestPath = path.join(projectRoot, "client", "src", "data", "memorial-gallery.json");
 const photoContextPath = path.join(projectRoot, "client", "src", "data", "memorial-photo-context.json");
@@ -48,9 +51,31 @@ async function readExistingPhotoContext() {
   }
 }
 
+async function readSupersededHashes() {
+  // unique/manifest.json records which source files dedupe replaced, so a photo
+  // that lost its original keeps the caption written against that original.
+  try {
+    const manifest = JSON.parse(await fs.readFile(path.join(sourceDirectory, "manifest.json"), "utf8"));
+    const remap = new Map();
+    for (const entry of manifest.files ?? []) {
+      for (const replaced of entry.replaces ?? []) {
+        if (replaced?.sha256) remap.set(replaced.sha256.slice(0, 8), entry.sha256.slice(0, 8));
+      }
+    }
+    return remap;
+  } catch (error) {
+    if (error.code === "ENOENT") return new Map();
+    throw error;
+  }
+}
+
 async function optimizeGallery() {
+  if (!existsSync(sourceDirectory)) {
+    throw new Error(`Canonical photo library not found: ${sourceDirectory}`);
+  }
   const existingManifest = await readExistingManifest();
   const existingPhotoContext = await readExistingPhotoContext();
+  const supersededBy = await readSupersededHashes();
   const contextById = new Map(
     existingPhotoContext
       .filter((photo) => typeof photo.id === "string")
@@ -84,10 +109,14 @@ async function optimizeGallery() {
   for (const photo of existingManifest) {
     const match = typeof photo.id === "string" ? photo.id.match(/-([a-f0-9]{8})$/) : null;
     const hashPrefix = match?.[1];
-    const source = hashPrefix ? sourceByHashPrefix.get(hashPrefix) : undefined;
+    const resolvedPrefix =
+      hashPrefix && !sourceByHashPrefix.has(hashPrefix)
+        ? supersededBy.get(hashPrefix)
+        : hashPrefix;
+    const source = resolvedPrefix ? sourceByHashPrefix.get(resolvedPrefix) : undefined;
     if (!source || orderedHashes.has(source.hash)) continue;
 
-    existingIdByHashPrefix.set(hashPrefix, photo.id);
+    existingIdByHashPrefix.set(resolvedPrefix, photo.id);
     orderedSources.push(source);
     orderedHashes.add(source.hash);
   }

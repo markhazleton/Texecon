@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Collage Studio</title>
+    <link rel="stylesheet" href="/editor.css" />
+    <script src="/editor.js" defer></script>
+    <script src="/enhancements.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark">▦</span>
+        <div><strong>Collage Studio</strong><small>A life in photographs</small></div>
+      </div>
+      <div class="actions">
+        <button id="import">Open JSON</button><button id="export">Export JSON</button
+        ><button id="save">Save project</button
+        ><button id="render" class="primary">Render MP4 ↗</button>
+      </div>
+    </header>
+    <div class="projectbar">
+      <div>
+        <span class="eyebrow">YOUR PROJECT</span>
+        <h1 id="project-name">Loading project…</h1>
+      </div>
+      <div class="project-meta">
+        <span id="summary"></span><span id="dirty" class="badge">Saved</span>
+      </div>
+    </div>
+    <div id="message" role="status" aria-live="polite">Connecting to your photo library…</div>
+    <main class="workspace">
+      <aside class="storyboard">
+        <div class="section-head">
+          <h2>Storyboard <span id="scene-count"></span></h2>
+          <button id="add-scene" aria-label="Add scene">＋ Add</button>
+        </div>
+        <div id="scenes" aria-label="Scenes"></div>
+      </aside>
+      <section class="stage-section" aria-label="Scene preview">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" id="scene-number"></span>
+            <h2 id="scene-name"></h2>
+          </div>
+          <div class="actions">
+            <button id="undo" disabled>Undo</button><button id="duplicate">Duplicate</button
+            ><button id="delete">Remove</button>
+          </div>
+        </div>
+        <div class="stage">
+          <svg
+            id="motion-overlay"
+            viewBox="0 0 1920 1080"
+            aria-label="Drag selected photo"
+            hidden
+          ></svg>
+          <img id="preview" alt="Selected scene preview" /><span id="preview-status"
+            >Loading preview…</span
+          >
+        </div>
+        <div class="preview-footer">
+          <span
+            >1920 × 1080 <span class="dot">·</span> 30 fps <span class="dot">·</span>
+            <span id="sound-badge">Silent</span></span
+          ><span id="preview-mode">Scene preview</span>
+        </div>
+        <section class="timeline-panel" aria-label="Motion timeline">
+          <div class="section-head">
+            <h2>Motion timeline</h2>
+            <div class="actions">
+              <button id="play-scrub">▶ Play</button><button id="scene-start">Scene start</button
+              ><output id="timecode">0:00</output>
+            </div>
+          </div>
+          <label
+            >Film playhead<input
+              id="scrub"
+              type="range"
+              min="0"
+              max="1"
+              step="0.0333333333"
+              value="0"
+          /></label>
+          <div id="film-timeline" aria-label="Film scenes"></div>
+          <label
+            >Selected scene duration <output id="trim-time"></output
+            ><input id="trim-duration" type="range" min="1" max="120" step="0.0333333333"
+          /></label>
+          <div class="two-fields">
+            <label
+              >Preview from (seconds)<input
+                id="preview-from"
+                type="number"
+                min="0"
+                step="0.1"
+                value="0" /></label
+            ><label
+              >Preview length (seconds)<input
+                id="preview-length"
+                type="number"
+                min="0.1"
+                max="30"
+                step="0.1"
+                value="6"
+            /></label>
+          </div>
+          <button id="preview-section">Render this section (up to 30s)</button>
+          <p class="hint">
+            Scrub to inspect motion. Section previews include transitions and your audio mix,
+            without saving changes.
+          </p>
+          <video id="preview-player" controls preload="metadata" hidden></video>
+        </section>
+        <div class="section-head photos-heading">
+          <div>
+            <span class="eyebrow">COMPOSE THIS SCENE</span>
+            <h2>Photos</h2>
+          </div>
+          <button id="add-photo">＋ Add photo</button>
+        </div>
+        <div id="scene-photos"></div>
+        <section class="motion-panel" aria-label="Photo animation">
+          <div class="section-head">
+            <h2>Move each photograph</h2>
+            <button id="animate-all">Animate all photos</button>
+          </div>
+          <div class="two-fields">
+            <label>Selected photo<select id="animated-photo"></select></label
+            ><label
+              >Motion preset<select id="photo-preset">
+                <option value="custom">Custom keyframes</option>
+                <option value="still">Still</option>
+                <option value="float">Gentle float</option>
+                <option value="push">Focal push-in</option>
+                <option value="slide-left">Slide in from left</option>
+                <option value="slide-right">Slide in from right</option>
+                <option value="tilt">Slow tilt</option>
+              </select></label
+            >
+          </div>
+          <div class="actions">
+            <button id="pose-start">Edit start position</button
+            ><button id="pose-end">Edit end position</button
+            ><button id="reset-photo">Reset photo</button>
+          </div>
+          <p class="hint">
+            Edit a keyframe, then drag the outlined photo on the preview. All movement eases between
+            the start and end positions.
+          </p>
+          <div class="pose-fields">
+            <label
+              >Horizontal offset<input
+                id="pose-x"
+                type="number"
+                min="-960"
+                max="960"
+                step="1" /></label
+            ><label
+              >Vertical offset<input
+                id="pose-y"
+                type="number"
+                min="-540"
+                max="540"
+                step="1" /></label
+            ><label
+              >Photo scale<input
+                id="pose-scale"
+                type="number"
+                min="0.3"
+                max="2"
+                step="0.05" /></label
+            ><label
+              >Rotation (degrees)<input
+                id="pose-rotation"
+                type="number"
+                min="-30"
+                max="30"
+                step="1" /></label
+            ><label
+              >Zoom within photo<input id="pose-zoom" type="number" min="1" max="3" step="0.05"
+            /></label>
+          </div>
+          <div class="focal-controls">
+            <div>
+              <h2>Camera focal point</h2>
+              <p class="hint">
+                Click the photograph to mark Jared or another subject. The zoom moves toward this
+                point.
+              </p>
+              <div class="two-fields">
+                <label
+                  >Focal X (0–1)<input
+                    id="focal-x"
+                    type="number"
+                    min="0"
+                    max="1"
+                    step="0.01" /></label
+                ><label
+                  >Focal Y (0–1)<input id="focal-y" type="number" min="0" max="1" step="0.01"
+                /></label>
+              </div>
+            </div>
+            <button id="focal-picker" aria-label="Set focal point on photo">
+              <img id="focal-image" alt="Click to position the camera focal point" /><svg
+                id="focal-marker"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                <circle id="focal-dot" r="4" cx="50" cy="50" />
+              </svg>
+            </button>
+          </div>
+        </section>
+        <section class="sound-panel" aria-label="Soundtrack and narration">
+          <div class="section-head">
+            <h2>Sound &amp; storytelling</h2>
+            <button id="upload-audio">Import audio</button>
+          </div>
+          <p class="hint">
+            Use your own music and recorded narration. Files stay on this computer.
+          </p>
+          <div id="audio-tracks"></div>
+          <label class="check-label"
+            ><input id="duck-music" type="checkbox" />Lower music under narration</label
+          ><audio id="audio-audition" controls hidden></audio>
+        </section>
+        <section class="render-panel" aria-label="Render progress">
+          <div class="section-head">
+            <h2>Video export</h2>
+            <a id="download" href="/render/video" hidden>Download MP4 ↗</a>
+          </div>
+          <p id="render-status">Save your changes, then render a new version.</p>
+          <pre id="render-log" hidden></pre>
+        </section>
+      </section>
+      <aside class="inspector">
+        <h2>Scene settings</h2>
+        <label>Scene title<input id="scene-title" maxlength="80" placeholder="Name this scene" /></label>
+        <div class="two-fields">
+          <label
+            >Duration (seconds)<input
+              id="duration"
+              type="number"
+              min="1"
+              max="120"
+              step="0.1" /></label
+          ><label>Position<input id="position" type="number" min="1" step="1" /></label>
+        </div>
+        <label
+          >Scene type<select id="scene-type">
+            <option value="collage">Photo collage</option>
+            <option value="opening">Opening card</option>
+            <option value="closing">Closing card</option>
+          </select></label
+        ><label id="layout-label">Layout<select id="layout"></select></label
+        ><label id="subtitle-label" hidden
+          >Card subtitle<input id="subtitle" maxlength="80" /></label
+        ><label>Camera motion<select id="motion"></select></label
+        ><label>Transition to next scene<select id="transition"></select></label>
+        <p class="hint" id="transition-hint">Applies at the end of this scene.</p>
+        <label id="end-layout-label">Animate toward layout<select id="end-layout"></select></label>
+        <button id="continue-layout">Continue photos in next scene</button>
+        <p class="hint">
+          A layout morph keeps shared photos visible as they move into the next scene's layout.
+        </p>
+        <label
+          >Chapter heading<input
+            id="chapter"
+            maxlength="60"
+            placeholder="Family, Travels, Celebrations…"
+        /></label>
+        <label
+          >Caption<input id="caption" maxlength="160" placeholder="A date, a place, a memory…"
+        /></label>
+        <hr />
+        <h2>Background</h2>
+        <label
+          >Apply to<select id="background-scope">
+            <option value="project">Whole film</option>
+            <option value="scene">This scene</option>
+          </select></label
+        >
+        <label
+          >Style<select id="background-style">
+            <option value="solid">Solid color</option>
+            <option value="gradient">Cinematic gradient</option>
+            <option value="paper">Warm paper texture</option>
+            <option value="blur">Blurred featured photo</option>
+          </select></label
+        >
+        <div class="two-fields">
+          <label>Color<input id="background-color" type="color" /></label
+          ><label>Second color<input id="background-color2" type="color" /></label>
+        </div>
+        <label>Blur<input id="background-blur" type="range" min="0" max="80" step="1" /></label>
+        <label
+          >Brightness<input id="background-brightness" type="range" min="0.1" max="1.5" step="0.05"
+        /></label>
+        <button id="inherit-background">Use film background for this scene</button>
+        <hr />
+        <h2>Project settings</h2>
+        <label>Film title<input id="title" maxlength="80" /></label
+        ><label
+          >Transition length (seconds)<input
+            id="transition-length"
+            type="number"
+            min="0.1"
+            max="2"
+            step="0.1"
+        /></label>
+        <p class="hint">
+          Scenes overlap during transitions. Each scene must be longer than twice the transition
+          length.
+        </p>
+        <hr />
+        <span class="eyebrow">PROJECT FILE</span>
+        <p id="file" class="filepath"></p>
+        <p class="hint">
+          Save updates this file and keeps a backup. Open JSON imports another collage into this
+          project. Export JSON downloads a copy.
+        </p>
+      </aside>
+    </main>
+    <dialog id="picker">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">PHOTO LIBRARY <span id="library-name"></span></span>
+          <h2>Choose a photograph</h2>
+        </div>
+        <button id="close-picker" aria-label="Close photo library">Close ✕</button>
+      </div>
+      <div class="library-filters">
+        <label
+          >Search photos<input id="photo-search" type="search" placeholder="Search by filename…"
+        /></label>
+        <label class="toggle"
+          ><input id="unused-only" type="checkbox" />Only photos not used in this video</label
+        >
+      </div>
+      <p id="library-count" class="hint"></p>
+      <div id="library"></div>
+    </dialog>
+    <input id="json-file" type="file" accept=".json,application/json" hidden />
+    <input id="audio-file" type="file" accept=".mp3,.wav,.m4a,.aac,.ogg,.flac" hidden />
+  </body>
+</html>

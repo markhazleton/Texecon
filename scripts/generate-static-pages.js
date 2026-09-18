@@ -459,6 +459,7 @@ async function generateStaticPages() {
     const homeUrl = 'https://texecon.com/';
     const memorialUrl = 'https://texecon.com/memorial/jared-earl-hazleton/';
     const genealogyUrl = 'https://texecon.com/jared-hazleton/genealogy/';
+    const galleryUrl = 'https://texecon.com/jared-hazleton/gallery/';
     const homeHtml = addStructuredData(
       updateMetaTags(
         injectStaticRoot(baseTemplate, null, hierarchy),
@@ -504,6 +505,15 @@ async function generateStaticPages() {
       .replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${genealogyUrl}"`);
     fs.writeFileSync(path.join(genealogyDir, 'index.html'), genealogyHtml);
     console.log(`Generated genealogy page: ${genealogyUrl}`);
+    totalGenerated++;
+
+    const galleryDir = path.join(__dirname, '..', 'target', 'jared-hazleton', 'gallery');
+    fs.mkdirSync(galleryDir, { recursive: true });
+    const galleryHtml = baseTemplate
+      .replace(/https:\/\/texecon\.com\/?(?=["'])/g, galleryUrl)
+      .replace(/<link rel="canonical" href="[^"]*"/, `<link rel="canonical" href="${galleryUrl}"`);
+    fs.writeFileSync(path.join(galleryDir, 'index.html'), galleryHtml);
+    console.log(`Generated gallery page: ${galleryUrl}`);
     totalGenerated++;
 
     // Generate pages for all menu items that have URLs
