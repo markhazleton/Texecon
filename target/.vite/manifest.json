@@ -1,23 +1,11 @@
 {
   "index.html": {
-    "file": "assets/index-BwyV1AR-.js",
+    "file": "assets/index-DzuabCNQ.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
-    "dynamicImports": [
-      "src/memorial/components/sections/PhotoGallery.tsx"
-    ],
     "css": [
-      "assets/index-BtznQ8II.css"
-    ]
-  },
-  "src/memorial/components/sections/PhotoGallery.tsx": {
-    "file": "assets/PhotoGallery-COJSMGRc.js",
-    "name": "PhotoGallery",
-    "src": "src/memorial/components/sections/PhotoGallery.tsx",
-    "isDynamicEntry": true,
-    "imports": [
-      "index.html"
+      "assets/index-CvtlT4oy.css"
     ]
   }
 }

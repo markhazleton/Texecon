@@ -72,6 +72,12 @@ export default function Navbar() {
             </button>
           ))}
           <a
+            href={`${import.meta.env.BASE_URL}jared-hazleton/gallery/`}
+            className="text-xs xl:text-sm font-sans uppercase tracking-[0.12em] text-primary hover:text-secondary whitespace-nowrap"
+          >
+            Photo Gallery
+          </a>
+          <a
             href={`${import.meta.env.BASE_URL}${biography.url.slice(1)}`}
             className="text-xs xl:text-sm font-sans uppercase tracking-[0.12em] text-primary hover:text-secondary whitespace-nowrap"
           >
@@ -118,6 +124,13 @@ export default function Navbar() {
               </span>
             </button>
           ))}
+          <a
+            href={`${import.meta.env.BASE_URL}jared-hazleton/gallery/`}
+            onClick={() => setMenuOpen(false)}
+            className="flex min-h-12 items-center border-b border-border/70 py-3 text-sm font-sans uppercase tracking-[0.14em] text-primary"
+          >
+            Photo Gallery
+          </a>
           <a
             href={`${import.meta.env.BASE_URL}${biography.url.slice(1)}`}
             className="flex min-h-12 items-center border-b border-border/70 py-3 text-sm font-sans uppercase tracking-[0.14em] text-primary"
