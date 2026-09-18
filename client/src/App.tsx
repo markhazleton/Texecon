@@ -12,6 +12,7 @@ import NotFound from "@/pages/not-found";
 import MemorialHome from "@/memorial/MemorialHome";
 import JaredBiography from "@/memorial/JaredBiography";
 import Genealogy from "./memorial/Genealogy";
+import PhotoGalleryPage from "./memorial/PhotoGalleryPage";
 import biography from "@/data/jared-biography.json";
 
 function LegacyMemorialRedirect() {
@@ -40,6 +41,8 @@ function Router() {
       <Route path="/memorial/jared-earl-hazleton/" component={MemorialHome} />
       <Route path="/jared-hazleton/genealogy/" component={Genealogy} />
       <Route path="/jared-hazleton/genealogy" component={Genealogy} />
+      <Route path="/jared-hazleton/gallery/" component={PhotoGalleryPage} />
+      <Route path="/jared-hazleton/gallery" component={PhotoGalleryPage} />
       <Route path={biography.url} component={JaredBiography} />
       <Route path={biography.url.replace(/\/$/, "")} component={JaredBiography} />
       <Route path={`${biography.url}index.html`} component={JaredBiography} />

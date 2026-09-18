@@ -1,0 +1,239 @@
+{
+  "title": "Jared E Hazleton",
+  "duration_seconds": 11.0,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "audio": false,
+  "unique_photos": 3,
+  "transition_seconds": 1.0,
+  "transitions": [
+    "morph"
+  ],
+  "scenes": [
+    {
+      "photos": [
+        "2019-07-14 18.07.33.jpg",
+        "IMG_2106.JPG",
+        "51909053981__EF1A8137-6B08-4F99-A359-08DC9CFD63F3.JPG"
+      ],
+      "layout": [
+        [
+          90,
+          170,
+          556,
+          800
+        ],
+        [
+          682,
+          170,
+          556,
+          800
+        ],
+        [
+          1274,
+          170,
+          556,
+          800
+        ]
+      ],
+      "duration": 6.0,
+      "transition": "morph",
+      "motion": "still",
+      "chapter": "Memories",
+      "caption": "A life in photographs",
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": 15,
+            "scale": 1,
+            "rotation": -1,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": -15,
+            "scale": 1,
+            "rotation": 1,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1.12
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": -10,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 10,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "photos": [
+        "2019-07-14 18.07.33.jpg",
+        "IMG_2106.JPG",
+        "51909053981__EF1A8137-6B08-4F99-A359-08DC9CFD63F3.JPG"
+      ],
+      "layout": [
+        [
+          90,
+          170,
+          1100,
+          800
+        ],
+        [
+          1226,
+          170,
+          604,
+          382
+        ],
+        [
+          1226,
+          588,
+          604,
+          382
+        ]
+      ],
+      "duration": 6.0,
+      "transition": "fade",
+      "motion": "still",
+      "chapter": "Together",
+      "caption": "Jared E Hazleton",
+      "photo_motion": [
+        {
+          "start": {
+            "x": 0,
+            "y": -15,
+            "scale": 1,
+            "rotation": 1,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": -15,
+            "scale": 1,
+            "rotation": 1,
+            "zoom": 1.3
+          },
+          "focal": {
+            "x": 0.4,
+            "y": 0.65
+          }
+        },
+        {
+          "end": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1.12
+          },
+          "start": {
+            "x": 0,
+            "y": 0,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1.12
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        },
+        {
+          "start": {
+            "x": 0,
+            "y": 10,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "end": {
+            "x": 0,
+            "y": 10,
+            "scale": 1,
+            "rotation": 0,
+            "zoom": 1
+          },
+          "focal": {
+            "x": 0.5,
+            "y": 0.5
+          }
+        }
+      ],
+      "background": {
+        "style": "blur",
+        "color": "#101419",
+        "color2": "#394655",
+        "blur": 40,
+        "brightness": 0.4
+      }
+    }
+  ],
+  "schema_version": 1,
+  "background": {
+    "style": "gradient",
+    "color": "#202a38",
+    "color2": "#58422f",
+    "blur": 30,
+    "brightness": 0.75
+  },
+  "sound": {
+    "music": {
+      "file": "",
+      "volume": 0.3,
+      "start": 0,
+      "fade_in": 2,
+      "fade_out": 3,
+      "loop": true
+    },
+    "narration": {
+      "file": "",
+      "volume": 1,
+      "start": 0,
+      "fade_in": 0.1,
+      "fade_out": 0.1,
+      "loop": false
+    },
+    "duck_music": true
+  }
+}

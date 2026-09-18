@@ -32,8 +32,8 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "client/src"),
-      "@assets": path.resolve(__dirname, "attached_assets"),
+      "@": path.resolve(import.meta.dirname, "client/src"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
 });

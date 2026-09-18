@@ -21,6 +21,19 @@ Texecon.com delivers expert analysis and commentary on the Texas economy, featur
 
 ## Development
 
+### Curated photo library
+
+The root `unique/` directory is the manually curated canonical photo library. No
+repository process adds, removes, or rewrites files there. After adding, replacing,
+or removing photos, regenerate the tribute gallery assets with:
+
+```bash
+npm run optimize:gallery
+```
+
+The command reads `unique/` and updates only the generated files under
+`client/public/images/memorial/` and the gallery metadata under `client/src/data/`.
+
 ```bash
 # Install dependencies
 npm install

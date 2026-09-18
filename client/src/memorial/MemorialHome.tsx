@@ -3,7 +3,7 @@ import SEOHead from "@/components/seo-head";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import Hero from "./components/sections/Hero";
-import DeferredPhotoGallery from "./components/sections/DeferredPhotoGallery";
+import PhotoGallery from "./components/sections/PhotoGallery";
 import Biography from "./components/sections/Biography";
 import Legacy from "./components/sections/Legacy";
 import Publications from "./components/sections/Publications";
@@ -105,7 +105,8 @@ export default function MemorialHome() {
 
       <main className="flex-grow">
         <Hero />
-        <DeferredPhotoGallery />
+        <FamilyNote />
+        <PhotoGallery />
         <FamilyNote />
         <Biography />
         <Legacy />

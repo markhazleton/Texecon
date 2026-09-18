@@ -1,0 +1,4148 @@
+{
+  "format": "WebP",
+  "quality": 82,
+  "max_dimension": 1920,
+  "metadata_removed": true,
+  "images": [
+    {
+      "source": "001-texecon-dbb5a8c4.jpg",
+      "output": "001-texecon-dbb5a8c4.webp",
+      "source_dimensions": [
+        1280,
+        960
+      ],
+      "output_dimensions": [
+        1280,
+        960
+      ],
+      "source_bytes": 574827,
+      "output_bytes": 64298,
+      "savings_percent": 88.8
+    },
+    {
+      "source": "002-texecon-369f0304.jpg",
+      "output": "002-texecon-369f0304.webp",
+      "source_dimensions": [
+        1280,
+        960
+      ],
+      "output_dimensions": [
+        960,
+        1280
+      ],
+      "source_bytes": 557249,
+      "output_bytes": 66338,
+      "savings_percent": 88.1
+    },
+    {
+      "source": "003-texecon-6e12a4e2.jpg",
+      "output": "003-texecon-6e12a4e2.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1232,
+        1856
+      ],
+      "source_bytes": 1069214,
+      "output_bytes": 140532,
+      "savings_percent": 86.9
+    },
+    {
+      "source": "004-texecon-068275ea.jpg",
+      "output": "004-texecon-068275ea.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 1071204,
+      "output_bytes": 142708,
+      "savings_percent": 86.7
+    },
+    {
+      "source": "005-texecon-a5b44268.jpg",
+      "output": "005-texecon-a5b44268.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 987453,
+      "output_bytes": 123384,
+      "savings_percent": 87.5
+    },
+    {
+      "source": "006-texecon-2cfe19a3.jpg",
+      "output": "006-texecon-2cfe19a3.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 898627,
+      "output_bytes": 66022,
+      "savings_percent": 92.7
+    },
+    {
+      "source": "007-texecon-475119b5.jpg",
+      "output": "007-texecon-475119b5.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 929796,
+      "output_bytes": 69070,
+      "savings_percent": 92.6
+    },
+    {
+      "source": "008-texecon-aeeae777.jpg",
+      "output": "008-texecon-aeeae777.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 964639,
+      "output_bytes": 76282,
+      "savings_percent": 92.1
+    },
+    {
+      "source": "009-texecon-51569439.jpg",
+      "output": "009-texecon-51569439.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 918227,
+      "output_bytes": 80580,
+      "savings_percent": 91.2
+    },
+    {
+      "source": "010-texecon-887cd5a3.jpg",
+      "output": "010-texecon-887cd5a3.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1346534,
+      "output_bytes": 119284,
+      "savings_percent": 91.1
+    },
+    {
+      "source": "011-texecon-a67d36fb.jpg",
+      "output": "011-texecon-a67d36fb.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1430066,
+      "output_bytes": 111016,
+      "savings_percent": 92.2
+    },
+    {
+      "source": "012-texecon-4fc014e6.jpg",
+      "output": "012-texecon-4fc014e6.webp",
+      "source_dimensions": [
+        1856,
+        1392
+      ],
+      "output_dimensions": [
+        1392,
+        1856
+      ],
+      "source_bytes": 1166455,
+      "output_bytes": 269808,
+      "savings_percent": 76.9
+    },
+    {
+      "source": "013-texecon-0cfd3936.jpg",
+      "output": "013-texecon-0cfd3936.webp",
+      "source_dimensions": [
+        1856,
+        1392
+      ],
+      "output_dimensions": [
+        1856,
+        1392
+      ],
+      "source_bytes": 1020442,
+      "output_bytes": 144250,
+      "savings_percent": 85.9
+    },
+    {
+      "source": "014-texecon-1a925398.jpg",
+      "output": "014-texecon-1a925398.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1555044,
+      "output_bytes": 221260,
+      "savings_percent": 85.8
+    },
+    {
+      "source": "015-texecon-c4143ed6.jpg",
+      "output": "015-texecon-c4143ed6.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1550274,
+      "output_bytes": 248376,
+      "savings_percent": 84.0
+    },
+    {
+      "source": "016-texecon-160e4fc8.jpg",
+      "output": "016-texecon-160e4fc8.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1419353,
+      "output_bytes": 160870,
+      "savings_percent": 88.7
+    },
+    {
+      "source": "017-texecon-56efa56e.jpg",
+      "output": "017-texecon-56efa56e.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1624957,
+      "output_bytes": 268088,
+      "savings_percent": 83.5
+    },
+    {
+      "source": "018-texecon-1382cbc2.jpg",
+      "output": "018-texecon-1382cbc2.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1446713,
+      "output_bytes": 169758,
+      "savings_percent": 88.3
+    },
+    {
+      "source": "019-texecon-9d57c393.jpg",
+      "output": "019-texecon-9d57c393.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1625369,
+      "output_bytes": 267950,
+      "savings_percent": 83.5
+    },
+    {
+      "source": "020-texecon-41eda121.jpg",
+      "output": "020-texecon-41eda121.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1547385,
+      "output_bytes": 235170,
+      "savings_percent": 84.8
+    },
+    {
+      "source": "021-texecon-db39e99f.jpg",
+      "output": "021-texecon-db39e99f.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1603070,
+      "output_bytes": 269840,
+      "savings_percent": 83.2
+    },
+    {
+      "source": "022-texecon-1299889a.jpg",
+      "output": "022-texecon-1299889a.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1414087,
+      "output_bytes": 141700,
+      "savings_percent": 90.0
+    },
+    {
+      "source": "023-texecon-6af21afc.jpg",
+      "output": "023-texecon-6af21afc.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1306180,
+      "output_bytes": 104616,
+      "savings_percent": 92.0
+    },
+    {
+      "source": "024-texecon-84016cbc.jpg",
+      "output": "024-texecon-84016cbc.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1458104,
+      "output_bytes": 173580,
+      "savings_percent": 88.1
+    },
+    {
+      "source": "025-texecon-70f5feb8.jpg",
+      "output": "025-texecon-70f5feb8.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1500459,
+      "output_bytes": 144842,
+      "savings_percent": 90.3
+    },
+    {
+      "source": "026-texecon-efed9aa6.jpg",
+      "output": "026-texecon-efed9aa6.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1424059,
+      "output_bytes": 113454,
+      "savings_percent": 92.0
+    },
+    {
+      "source": "027-texecon-e3168aa1.jpg",
+      "output": "027-texecon-e3168aa1.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2077293,
+      "output_bytes": 220346,
+      "savings_percent": 89.4
+    },
+    {
+      "source": "028-texecon-915045a6.jpg",
+      "output": "028-texecon-915045a6.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2289097,
+      "output_bytes": 250912,
+      "savings_percent": 89.0
+    },
+    {
+      "source": "029-texecon-dedd7fa4.jpg",
+      "output": "029-texecon-dedd7fa4.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2254976,
+      "output_bytes": 258854,
+      "savings_percent": 88.5
+    },
+    {
+      "source": "030-texecon-5bbb31c0.jpg",
+      "output": "030-texecon-5bbb31c0.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2209840,
+      "output_bytes": 231426,
+      "savings_percent": 89.5
+    },
+    {
+      "source": "031-texecon-a33c237e.jpg",
+      "output": "031-texecon-a33c237e.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2257693,
+      "output_bytes": 151602,
+      "savings_percent": 93.3
+    },
+    {
+      "source": "032-texecon-948d46eb.jpg",
+      "output": "032-texecon-948d46eb.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2021283,
+      "output_bytes": 176614,
+      "savings_percent": 91.3
+    },
+    {
+      "source": "033-texecon-af42c042.jpg",
+      "output": "033-texecon-af42c042.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2200921,
+      "output_bytes": 329954,
+      "savings_percent": 85.0
+    },
+    {
+      "source": "034-texecon-24f0826b.jpg",
+      "output": "034-texecon-24f0826b.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2279626,
+      "output_bytes": 212818,
+      "savings_percent": 90.7
+    },
+    {
+      "source": "035-texecon-f3582655.jpg",
+      "output": "035-texecon-f3582655.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2173063,
+      "output_bytes": 299106,
+      "savings_percent": 86.2
+    },
+    {
+      "source": "036-texecon-1c55b0df.jpg",
+      "output": "036-texecon-1c55b0df.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2065220,
+      "output_bytes": 200930,
+      "savings_percent": 90.3
+    },
+    {
+      "source": "037-texecon-02d44724.jpg",
+      "output": "037-texecon-02d44724.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1350971,
+      "output_bytes": 241248,
+      "savings_percent": 82.1
+    },
+    {
+      "source": "038-texecon-17256eb2.jpg",
+      "output": "038-texecon-17256eb2.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1350008,
+      "output_bytes": 251438,
+      "savings_percent": 81.4
+    },
+    {
+      "source": "039-texecon-416d5dea.jpg",
+      "output": "039-texecon-416d5dea.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1362099,
+      "output_bytes": 232928,
+      "savings_percent": 82.9
+    },
+    {
+      "source": "040-texecon-eaf49dbc.jpg",
+      "output": "040-texecon-eaf49dbc.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1883018,
+      "output_bytes": 244986,
+      "savings_percent": 87.0
+    },
+    {
+      "source": "041-texecon-f4ce0b87.jpg",
+      "output": "041-texecon-f4ce0b87.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1866757,
+      "output_bytes": 234626,
+      "savings_percent": 87.4
+    },
+    {
+      "source": "042-texecon-5d87da5e.jpg",
+      "output": "042-texecon-5d87da5e.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1486943,
+      "output_bytes": 168130,
+      "savings_percent": 88.7
+    },
+    {
+      "source": "043-texecon-1ad54302.jpg",
+      "output": "043-texecon-1ad54302.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1298847,
+      "output_bytes": 240890,
+      "savings_percent": 81.5
+    },
+    {
+      "source": "044-texecon-460bf58f.jpg",
+      "output": "044-texecon-460bf58f.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1342438,
+      "output_bytes": 268072,
+      "savings_percent": 80.0
+    },
+    {
+      "source": "045-texecon-ac245c76.jpg",
+      "output": "045-texecon-ac245c76.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1888365,
+      "output_bytes": 258642,
+      "savings_percent": 86.3
+    },
+    {
+      "source": "046-texecon-18bc8aa4.jpg",
+      "output": "046-texecon-18bc8aa4.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1981249,
+      "output_bytes": 310888,
+      "savings_percent": 84.3
+    },
+    {
+      "source": "047-texecon-731ffdc5.jpg",
+      "output": "047-texecon-731ffdc5.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1263467,
+      "output_bytes": 139436,
+      "savings_percent": 89.0
+    },
+    {
+      "source": "048-texecon-e6ebc828.jpg",
+      "output": "048-texecon-e6ebc828.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1315379,
+      "output_bytes": 165548,
+      "savings_percent": 87.4
+    },
+    {
+      "source": "049-texecon-a3fc0335.jpg",
+      "output": "049-texecon-a3fc0335.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1707317,
+      "output_bytes": 122132,
+      "savings_percent": 92.8
+    },
+    {
+      "source": "050-texecon-60bea1a8.jpg",
+      "output": "050-texecon-60bea1a8.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1246404,
+      "output_bytes": 106122,
+      "savings_percent": 91.5
+    },
+    {
+      "source": "051-texecon-7d8302e5.jpg",
+      "output": "051-texecon-7d8302e5.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1451675,
+      "output_bytes": 69250,
+      "savings_percent": 95.2
+    },
+    {
+      "source": "052-texecon-5edc5156.jpg",
+      "output": "052-texecon-5edc5156.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1225547,
+      "output_bytes": 86716,
+      "savings_percent": 92.9
+    },
+    {
+      "source": "053-texecon-2dddb9df.jpg",
+      "output": "053-texecon-2dddb9df.webp",
+      "source_dimensions": [
+        1944,
+        2592
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2643746,
+      "output_bytes": 161310,
+      "savings_percent": 93.9
+    },
+    {
+      "source": "054-texecon-cc20f880.jpg",
+      "output": "054-texecon-cc20f880.webp",
+      "source_dimensions": [
+        1944,
+        2592
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2447484,
+      "output_bytes": 105338,
+      "savings_percent": 95.7
+    },
+    {
+      "source": "055-texecon-3b4c9328.jpg",
+      "output": "055-texecon-3b4c9328.webp",
+      "source_dimensions": [
+        1944,
+        2592
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2751875,
+      "output_bytes": 225780,
+      "savings_percent": 91.8
+    },
+    {
+      "source": "056-texecon-f7851cfa.jpg",
+      "output": "056-texecon-f7851cfa.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2239719,
+      "output_bytes": 231416,
+      "savings_percent": 89.7
+    },
+    {
+      "source": "057-texecon-ff11b228.jpg",
+      "output": "057-texecon-ff11b228.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2116073,
+      "output_bytes": 124302,
+      "savings_percent": 94.1
+    },
+    {
+      "source": "058-texecon-021be716.jpg",
+      "output": "058-texecon-021be716.webp",
+      "source_dimensions": [
+        2592,
+        1944
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2095523,
+      "output_bytes": 132686,
+      "savings_percent": 93.7
+    },
+    {
+      "source": "059-texecon-4146d1da.jpg",
+      "output": "059-texecon-4146d1da.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 3090578,
+      "output_bytes": 179194,
+      "savings_percent": 94.2
+    },
+    {
+      "source": "060-texecon-855e778d.jpg",
+      "output": "060-texecon-855e778d.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1695869,
+      "output_bytes": 261420,
+      "savings_percent": 84.6
+    },
+    {
+      "source": "061-texecon-072b3a1f.jpg",
+      "output": "061-texecon-072b3a1f.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1822781,
+      "output_bytes": 631050,
+      "savings_percent": 65.4
+    },
+    {
+      "source": "062-texecon-a4223753.jpg",
+      "output": "062-texecon-a4223753.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1730116,
+      "output_bytes": 146516,
+      "savings_percent": 91.5
+    },
+    {
+      "source": "063-texecon-ef47546c.jpg",
+      "output": "063-texecon-ef47546c.webp",
+      "source_dimensions": [
+        2848,
+        2134
+      ],
+      "output_dimensions": [
+        1920,
+        1439
+      ],
+      "source_bytes": 701000,
+      "output_bytes": 157234,
+      "savings_percent": 77.6
+    },
+    {
+      "source": "064-texecon-0c0798ed.jpg",
+      "output": "064-texecon-0c0798ed.webp",
+      "source_dimensions": [
+        2848,
+        2134
+      ],
+      "output_dimensions": [
+        1920,
+        1439
+      ],
+      "source_bytes": 1248445,
+      "output_bytes": 65060,
+      "savings_percent": 94.8
+    },
+    {
+      "source": "065-texecon-7d8e46ba.jpg",
+      "output": "065-texecon-7d8e46ba.webp",
+      "source_dimensions": [
+        2848,
+        2134
+      ],
+      "output_dimensions": [
+        1920,
+        1439
+      ],
+      "source_bytes": 1970602,
+      "output_bytes": 164552,
+      "savings_percent": 91.6
+    },
+    {
+      "source": "066-texecon-2081bacd.jpg",
+      "output": "066-texecon-2081bacd.webp",
+      "source_dimensions": [
+        224,
+        250
+      ],
+      "output_dimensions": [
+        224,
+        250
+      ],
+      "source_bytes": 13698,
+      "output_bytes": 4268,
+      "savings_percent": 68.8
+    },
+    {
+      "source": "067-texecon-93e89f1c.jpg",
+      "output": "067-texecon-93e89f1c.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 3151076,
+      "output_bytes": 92992,
+      "savings_percent": 97.0
+    },
+    {
+      "source": "068-texecon-0ed67857.jpg",
+      "output": "068-texecon-0ed67857.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 3212317,
+      "output_bytes": 166850,
+      "savings_percent": 94.8
+    },
+    {
+      "source": "069-texecon-54509cc8.jpg",
+      "output": "069-texecon-54509cc8.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 3289491,
+      "output_bytes": 165222,
+      "savings_percent": 95.0
+    },
+    {
+      "source": "070-texecon-93c96791.jpg",
+      "output": "070-texecon-93c96791.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2948267,
+      "output_bytes": 118954,
+      "savings_percent": 96.0
+    },
+    {
+      "source": "071-texecon-55228af5.jpg",
+      "output": "071-texecon-55228af5.webp",
+      "source_dimensions": [
+        1766,
+        2230
+      ],
+      "output_dimensions": [
+        1521,
+        1920
+      ],
+      "source_bytes": 472175,
+      "output_bytes": 268176,
+      "savings_percent": 43.2
+    },
+    {
+      "source": "072-texecon-7f92108f.jpg",
+      "output": "072-texecon-7f92108f.webp",
+      "source_dimensions": [
+        2560,
+        1920
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1245879,
+      "output_bytes": 364092,
+      "savings_percent": 70.8
+    },
+    {
+      "source": "073-texecon-0b0a8983.jpg",
+      "output": "073-texecon-0b0a8983.webp",
+      "source_dimensions": [
+        800,
+        534
+      ],
+      "output_dimensions": [
+        800,
+        534
+      ],
+      "source_bytes": 173811,
+      "output_bytes": 104384,
+      "savings_percent": 39.9
+    },
+    {
+      "source": "074-texecon-5834bd8f.jpg",
+      "output": "074-texecon-5834bd8f.webp",
+      "source_dimensions": [
+        2560,
+        1920
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1070569,
+      "output_bytes": 244154,
+      "savings_percent": 77.2
+    },
+    {
+      "source": "075-texecon-093c6a67.jpg",
+      "output": "075-texecon-093c6a67.webp",
+      "source_dimensions": [
+        370,
+        277
+      ],
+      "output_dimensions": [
+        370,
+        277
+      ],
+      "source_bytes": 24150,
+      "output_bytes": 13604,
+      "savings_percent": 43.7
+    },
+    {
+      "source": "076-texecon-1747ba82.jpg",
+      "output": "076-texecon-1747ba82.webp",
+      "source_dimensions": [
+        800,
+        600
+      ],
+      "output_dimensions": [
+        800,
+        600
+      ],
+      "source_bytes": 76729,
+      "output_bytes": 49962,
+      "savings_percent": 34.9
+    },
+    {
+      "source": "077-texecon-2675b6c4.jpg",
+      "output": "077-texecon-2675b6c4.webp",
+      "source_dimensions": [
+        604,
+        453
+      ],
+      "output_dimensions": [
+        604,
+        453
+      ],
+      "source_bytes": 62306,
+      "output_bytes": 33164,
+      "savings_percent": 46.8
+    },
+    {
+      "source": "078-texecon-2f27d2a7.jpg",
+      "output": "078-texecon-2f27d2a7.webp",
+      "source_dimensions": [
+        224,
+        250
+      ],
+      "output_dimensions": [
+        224,
+        250
+      ],
+      "source_bytes": 11354,
+      "output_bytes": 4286,
+      "savings_percent": 62.3
+    },
+    {
+      "source": "079-texecon-4b7d653d.jpg",
+      "output": "079-texecon-4b7d653d.webp",
+      "source_dimensions": [
+        813,
+        540
+      ],
+      "output_dimensions": [
+        813,
+        540
+      ],
+      "source_bytes": 68481,
+      "output_bytes": 41592,
+      "savings_percent": 39.3
+    },
+    {
+      "source": "080-texecon-4f78a08f.jpg",
+      "output": "080-texecon-4f78a08f.webp",
+      "source_dimensions": [
+        800,
+        600
+      ],
+      "output_dimensions": [
+        800,
+        600
+      ],
+      "source_bytes": 56658,
+      "output_bytes": 31628,
+      "savings_percent": 44.2
+    },
+    {
+      "source": "081-texecon-5ef6367f.jpg",
+      "output": "081-texecon-5ef6367f.webp",
+      "source_dimensions": [
+        800,
+        600
+      ],
+      "output_dimensions": [
+        800,
+        600
+      ],
+      "source_bytes": 95682,
+      "output_bytes": 72478,
+      "savings_percent": 24.3
+    },
+    {
+      "source": "082-texecon-6bfbc124.jpg",
+      "output": "082-texecon-6bfbc124.webp",
+      "source_dimensions": [
+        800,
+        600
+      ],
+      "output_dimensions": [
+        800,
+        600
+      ],
+      "source_bytes": 46351,
+      "output_bytes": 24414,
+      "savings_percent": 47.3
+    },
+    {
+      "source": "083-texecon-77405d03.jpg",
+      "output": "083-texecon-77405d03.webp",
+      "source_dimensions": [
+        800,
+        600
+      ],
+      "output_dimensions": [
+        800,
+        600
+      ],
+      "source_bytes": 100933,
+      "output_bytes": 80492,
+      "savings_percent": 20.3
+    },
+    {
+      "source": "084-texecon-d25107a2.jpg",
+      "output": "084-texecon-d25107a2.webp",
+      "source_dimensions": [
+        800,
+        600
+      ],
+      "output_dimensions": [
+        800,
+        600
+      ],
+      "source_bytes": 81117,
+      "output_bytes": 50550,
+      "savings_percent": 37.7
+    },
+    {
+      "source": "085-texecon-f8d9e9bd.jpg",
+      "output": "085-texecon-f8d9e9bd.webp",
+      "source_dimensions": [
+        800,
+        600
+      ],
+      "output_dimensions": [
+        800,
+        600
+      ],
+      "source_bytes": 106729,
+      "output_bytes": 81714,
+      "savings_percent": 23.4
+    },
+    {
+      "source": "086-texecon-fb6a8eb0.jpg",
+      "output": "086-texecon-fb6a8eb0.webp",
+      "source_dimensions": [
+        800,
+        600
+      ],
+      "output_dimensions": [
+        800,
+        600
+      ],
+      "source_bytes": 58905,
+      "output_bytes": 31352,
+      "savings_percent": 46.8
+    },
+    {
+      "source": "087-texecon-9c813d0f.jpg",
+      "output": "087-texecon-9c813d0f.webp",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output_dimensions": [
+        1920,
+        1086
+      ],
+      "source_bytes": 1223553,
+      "output_bytes": 194526,
+      "savings_percent": 84.1
+    },
+    {
+      "source": "088-texecon-d987d6b7.jpg",
+      "output": "088-texecon-d987d6b7.webp",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output_dimensions": [
+        1920,
+        1086
+      ],
+      "source_bytes": 1200355,
+      "output_bytes": 183098,
+      "savings_percent": 84.7
+    },
+    {
+      "source": "089-texecon-548b48f0.jpg",
+      "output": "089-texecon-548b48f0.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1328809,
+      "output_bytes": 83258,
+      "savings_percent": 93.7
+    },
+    {
+      "source": "090-texecon-7fdbc345.jpg",
+      "output": "090-texecon-7fdbc345.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1212493,
+      "output_bytes": 125430,
+      "savings_percent": 89.7
+    },
+    {
+      "source": "091-texecon-11c5d98d.jpg",
+      "output": "091-texecon-11c5d98d.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1463570,
+      "output_bytes": 202766,
+      "savings_percent": 86.1
+    },
+    {
+      "source": "092-texecon-be7b0c97.jpg",
+      "output": "092-texecon-be7b0c97.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1461322,
+      "output_bytes": 202766,
+      "savings_percent": 86.1
+    },
+    {
+      "source": "093-texecon-9ec10181.jpg",
+      "output": "093-texecon-9ec10181.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1731007,
+      "output_bytes": 242558,
+      "savings_percent": 86.0
+    },
+    {
+      "source": "094-texecon-c53f95af.jpg",
+      "output": "094-texecon-c53f95af.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1303494,
+      "output_bytes": 103972,
+      "savings_percent": 92.0
+    },
+    {
+      "source": "095-texecon-291e7be0.jpg",
+      "output": "095-texecon-291e7be0.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1657737,
+      "output_bytes": 235132,
+      "savings_percent": 85.8
+    },
+    {
+      "source": "096-texecon-5c52c2da.jpg",
+      "output": "096-texecon-5c52c2da.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1538177,
+      "output_bytes": 208984,
+      "savings_percent": 86.4
+    },
+    {
+      "source": "097-texecon-b1b396fa.jpg",
+      "output": "097-texecon-b1b396fa.webp",
+      "source_dimensions": [
+        1656,
+        1228
+      ],
+      "output_dimensions": [
+        1656,
+        1228
+      ],
+      "source_bytes": 212359,
+      "output_bytes": 226454,
+      "savings_percent": -6.6
+    },
+    {
+      "source": "098-texecon-6edcb02c.jpg",
+      "output": "098-texecon-6edcb02c.webp",
+      "source_dimensions": [
+        3072,
+        2304
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1795109,
+      "output_bytes": 204580,
+      "savings_percent": 88.6
+    },
+    {
+      "source": "099-texecon-828503b7.jpg",
+      "output": "099-texecon-828503b7.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1228916,
+      "output_bytes": 176798,
+      "savings_percent": 85.6
+    },
+    {
+      "source": "100-texecon-014c532c.jpg",
+      "output": "100-texecon-014c532c.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1434154,
+      "output_bytes": 170750,
+      "savings_percent": 88.1
+    },
+    {
+      "source": "101-texecon-c55b29e7.jpg",
+      "output": "101-texecon-c55b29e7.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2365697,
+      "output_bytes": 237130,
+      "savings_percent": 90.0
+    },
+    {
+      "source": "102-texecon-af3e0594.jpg",
+      "output": "102-texecon-af3e0594.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 894384,
+      "output_bytes": 181172,
+      "savings_percent": 79.7
+    },
+    {
+      "source": "103-texecon-37d47854.jpg",
+      "output": "103-texecon-37d47854.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1977558,
+      "output_bytes": 158506,
+      "savings_percent": 92.0
+    },
+    {
+      "source": "104-texecon-76ca14a0.jpg",
+      "output": "104-texecon-76ca14a0.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 3132585,
+      "output_bytes": 394084,
+      "savings_percent": 87.4
+    },
+    {
+      "source": "105-texecon-db3bcd1e.jpg",
+      "output": "105-texecon-db3bcd1e.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2449503,
+      "output_bytes": 256388,
+      "savings_percent": 89.5
+    },
+    {
+      "source": "106-texecon-836d6a00.jpg",
+      "output": "106-texecon-836d6a00.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2885792,
+      "output_bytes": 358966,
+      "savings_percent": 87.6
+    },
+    {
+      "source": "107-texecon-9e354615.jpg",
+      "output": "107-texecon-9e354615.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2523416,
+      "output_bytes": 286782,
+      "savings_percent": 88.6
+    },
+    {
+      "source": "108-texecon-bb2637e0.jpg",
+      "output": "108-texecon-bb2637e0.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1607932,
+      "output_bytes": 103918,
+      "savings_percent": 93.5
+    },
+    {
+      "source": "109-texecon-235c91cb.png",
+      "output": "109-texecon-235c91cb.webp",
+      "source_dimensions": [
+        2507,
+        2634
+      ],
+      "output_dimensions": [
+        1827,
+        1920
+      ],
+      "source_bytes": 6052581,
+      "output_bytes": 166812,
+      "savings_percent": 97.2
+    },
+    {
+      "source": "110-texecon-3360f3f6.jpg",
+      "output": "110-texecon-3360f3f6.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2057813,
+      "output_bytes": 208562,
+      "savings_percent": 89.9
+    },
+    {
+      "source": "111-texecon-e9cb288f.jpg",
+      "output": "111-texecon-e9cb288f.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1934899,
+      "output_bytes": 155620,
+      "savings_percent": 92.0
+    },
+    {
+      "source": "112-texecon-84861f5d.jpg",
+      "output": "112-texecon-84861f5d.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2379371,
+      "output_bytes": 241164,
+      "savings_percent": 89.9
+    },
+    {
+      "source": "113-texecon-23311704.jpg",
+      "output": "113-texecon-23311704.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2246069,
+      "output_bytes": 175278,
+      "savings_percent": 92.2
+    },
+    {
+      "source": "114-texecon-a7181d01.jpg",
+      "output": "114-texecon-a7181d01.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1501165,
+      "output_bytes": 66444,
+      "savings_percent": 95.6
+    },
+    {
+      "source": "115-texecon-4347af9c.jpg",
+      "output": "115-texecon-4347af9c.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1572992,
+      "output_bytes": 247036,
+      "savings_percent": 84.3
+    },
+    {
+      "source": "116-texecon-96f7779e.jpg",
+      "output": "116-texecon-96f7779e.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2574691,
+      "output_bytes": 339990,
+      "savings_percent": 86.8
+    },
+    {
+      "source": "117-texecon-515b535f.jpg",
+      "output": "117-texecon-515b535f.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2450932,
+      "output_bytes": 300394,
+      "savings_percent": 87.7
+    },
+    {
+      "source": "118-texecon-10f95ed3.heic",
+      "output": "118-texecon-10f95ed3.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1555452,
+      "output_bytes": 186772,
+      "savings_percent": 88.0
+    },
+    {
+      "source": "119-texecon-71e79200.heic",
+      "output": "119-texecon-71e79200.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1366389,
+      "output_bytes": 175514,
+      "savings_percent": 87.2
+    },
+    {
+      "source": "120-texecon-50eca2de.heic",
+      "output": "120-texecon-50eca2de.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1810849,
+      "output_bytes": 326190,
+      "savings_percent": 82.0
+    },
+    {
+      "source": "121-texecon-70334bd0.jpg",
+      "output": "121-texecon-70334bd0.webp",
+      "source_dimensions": [
+        1280,
+        960
+      ],
+      "output_dimensions": [
+        960,
+        1280
+      ],
+      "source_bytes": 306318,
+      "output_bytes": 61398,
+      "savings_percent": 80.0
+    },
+    {
+      "source": "122-texecon-65ddfe8f.heic",
+      "output": "122-texecon-65ddfe8f.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1591382,
+      "output_bytes": 311200,
+      "savings_percent": 80.4
+    },
+    {
+      "source": "123-texecon-bd6ae3c6.heic",
+      "output": "123-texecon-bd6ae3c6.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1719642,
+      "output_bytes": 265358,
+      "savings_percent": 84.6
+    },
+    {
+      "source": "124-texecon-9ee2e1d2.heic",
+      "output": "124-texecon-9ee2e1d2.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1722400,
+      "output_bytes": 345296,
+      "savings_percent": 80.0
+    },
+    {
+      "source": "125-texecon-d6aded3d.heic",
+      "output": "125-texecon-d6aded3d.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1653424,
+      "output_bytes": 297940,
+      "savings_percent": 82.0
+    },
+    {
+      "source": "126-texecon-163c4697.heic",
+      "output": "126-texecon-163c4697.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1004581,
+      "output_bytes": 232738,
+      "savings_percent": 76.8
+    },
+    {
+      "source": "127-texecon-2d292b9c.jpg",
+      "output": "127-texecon-2d292b9c.webp",
+      "source_dimensions": [
+        604,
+        450
+      ],
+      "output_dimensions": [
+        604,
+        450
+      ],
+      "source_bytes": 86262,
+      "output_bytes": 56100,
+      "savings_percent": 35.0
+    },
+    {
+      "source": "128-texecon-da786ad2.heic",
+      "output": "128-texecon-da786ad2.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 3315782,
+      "output_bytes": 498722,
+      "savings_percent": 85.0
+    },
+    {
+      "source": "129-texecon-709200b8.heic",
+      "output": "129-texecon-709200b8.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1360831,
+      "output_bytes": 274554,
+      "savings_percent": 79.8
+    },
+    {
+      "source": "130-texecon-e824954b.heic",
+      "output": "130-texecon-e824954b.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2129062,
+      "output_bytes": 339184,
+      "savings_percent": 84.1
+    },
+    {
+      "source": "131-texecon-f6850eb0.heic",
+      "output": "131-texecon-f6850eb0.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2363723,
+      "output_bytes": 431046,
+      "savings_percent": 81.8
+    },
+    {
+      "source": "132-texecon-774f1f1c.heic",
+      "output": "132-texecon-774f1f1c.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1462078,
+      "output_bytes": 287846,
+      "savings_percent": 80.3
+    },
+    {
+      "source": "133-texecon-34f20972.heic",
+      "output": "133-texecon-34f20972.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 995893,
+      "output_bytes": 144816,
+      "savings_percent": 85.5
+    },
+    {
+      "source": "134-texecon-bc1fd130.heic",
+      "output": "134-texecon-bc1fd130.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1626427,
+      "output_bytes": 313026,
+      "savings_percent": 80.8
+    },
+    {
+      "source": "135-texecon-7559c0ab.jpg",
+      "output": "135-texecon-7559c0ab.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 6195293,
+      "output_bytes": 303404,
+      "savings_percent": 95.1
+    },
+    {
+      "source": "136-texecon-d0cf44ab.heic",
+      "output": "136-texecon-d0cf44ab.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1345081,
+      "output_bytes": 166370,
+      "savings_percent": 87.6
+    },
+    {
+      "source": "137-texecon-2a3ba9a3.jpg",
+      "output": "137-texecon-2a3ba9a3.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 6584395,
+      "output_bytes": 288088,
+      "savings_percent": 95.6
+    },
+    {
+      "source": "138-texecon-3f0ec8b0.heic",
+      "output": "138-texecon-3f0ec8b0.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1841449,
+      "output_bytes": 341098,
+      "savings_percent": 81.5
+    },
+    {
+      "source": "139-texecon-2a1465db.heic",
+      "output": "139-texecon-2a1465db.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1746275,
+      "output_bytes": 266830,
+      "savings_percent": 84.7
+    },
+    {
+      "source": "140-texecon-a47653c0.heic",
+      "output": "140-texecon-a47653c0.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1768355,
+      "output_bytes": 251834,
+      "savings_percent": 85.8
+    },
+    {
+      "source": "141-texecon-ce2f344a.heic",
+      "output": "141-texecon-ce2f344a.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1376766,
+      "output_bytes": 251872,
+      "savings_percent": 81.7
+    },
+    {
+      "source": "142-texecon-ac0e7f83.jpeg",
+      "output": "142-texecon-ac0e7f83.webp",
+      "source_dimensions": [
+        3088,
+        2320
+      ],
+      "output_dimensions": [
+        1442,
+        1920
+      ],
+      "source_bytes": 1376284,
+      "output_bytes": 238948,
+      "savings_percent": 82.6
+    },
+    {
+      "source": "143-texecon-6bfa1b45.jpg",
+      "output": "143-texecon-6bfa1b45.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2114101,
+      "output_bytes": 150470,
+      "savings_percent": 92.9
+    },
+    {
+      "source": "144-texecon-13950351.jpg",
+      "output": "144-texecon-13950351.webp",
+      "source_dimensions": [
+        360,
+        480
+      ],
+      "output_dimensions": [
+        360,
+        480
+      ],
+      "source_bytes": 44341,
+      "output_bytes": 25270,
+      "savings_percent": 43.0
+    },
+    {
+      "source": "145-texecon-a48bb2a2.jpg",
+      "output": "145-texecon-a48bb2a2.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 182926,
+      "output_bytes": 116516,
+      "savings_percent": 36.3
+    },
+    {
+      "source": "146-texecon-ac5c8093.jpg",
+      "output": "146-texecon-ac5c8093.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 73101,
+      "output_bytes": 61648,
+      "savings_percent": 15.7
+    },
+    {
+      "source": "147-texecon-f6886c0d.heic",
+      "output": "147-texecon-f6886c0d.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2034536,
+      "output_bytes": 379476,
+      "savings_percent": 81.3
+    },
+    {
+      "source": "148-texecon-2642bb28.heic",
+      "output": "148-texecon-2642bb28.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2031925,
+      "output_bytes": 498932,
+      "savings_percent": 75.4
+    },
+    {
+      "source": "149-texecon-ed8cb015.heic",
+      "output": "149-texecon-ed8cb015.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2132495,
+      "output_bytes": 440446,
+      "savings_percent": 79.3
+    },
+    {
+      "source": "150-texecon-aaaf4a15.heic",
+      "output": "150-texecon-aaaf4a15.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1894148,
+      "output_bytes": 294370,
+      "savings_percent": 84.5
+    },
+    {
+      "source": "151-texecon-b2b0aa53.heic",
+      "output": "151-texecon-b2b0aa53.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1325568,
+      "output_bytes": 358858,
+      "savings_percent": 72.9
+    },
+    {
+      "source": "152-texecon-8b752f5a.heic",
+      "output": "152-texecon-8b752f5a.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2243943,
+      "output_bytes": 343732,
+      "savings_percent": 84.7
+    },
+    {
+      "source": "153-texecon-bd72fc80.heic",
+      "output": "153-texecon-bd72fc80.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2369803,
+      "output_bytes": 310472,
+      "savings_percent": 86.9
+    },
+    {
+      "source": "154-texecon-3998db63.heic",
+      "output": "154-texecon-3998db63.webp",
+      "source_dimensions": [
+        4032,
+        3024
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1753015,
+      "output_bytes": 362024,
+      "savings_percent": 79.3
+    },
+    {
+      "source": "155-texecon-99a87de6.heic",
+      "output": "155-texecon-99a87de6.webp",
+      "source_dimensions": [
+        2316,
+        3088
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1909718,
+      "output_bytes": 457778,
+      "savings_percent": 76.0
+    },
+    {
+      "source": "156-texecon-02a3f53e.heic",
+      "output": "156-texecon-02a3f53e.webp",
+      "source_dimensions": [
+        5712,
+        4284
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2632368,
+      "output_bytes": 262726,
+      "savings_percent": 90.0
+    },
+    {
+      "source": "157-texecon-c1a35572.heic",
+      "output": "157-texecon-c1a35572.webp",
+      "source_dimensions": [
+        3024,
+        4032
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2377723,
+      "output_bytes": 355978,
+      "savings_percent": 85.0
+    },
+    {
+      "source": "158-texecon-f57f7736.heic",
+      "output": "158-texecon-f57f7736.webp",
+      "source_dimensions": [
+        4284,
+        5712
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1947120,
+      "output_bytes": 211184,
+      "savings_percent": 89.2
+    },
+    {
+      "source": "159-texecon-06495551.jpg",
+      "output": "159-texecon-06495551.webp",
+      "source_dimensions": [
+        4080,
+        3072
+      ],
+      "output_dimensions": [
+        1920,
+        1446
+      ],
+      "source_bytes": 4526463,
+      "output_bytes": 251410,
+      "savings_percent": 94.4
+    },
+    {
+      "source": "160-texecon-3b113f9b.jpg",
+      "output": "160-texecon-3b113f9b.webp",
+      "source_dimensions": [
+        4080,
+        3072
+      ],
+      "output_dimensions": [
+        1920,
+        1446
+      ],
+      "source_bytes": 6303302,
+      "output_bytes": 274438,
+      "savings_percent": 95.6
+    },
+    {
+      "source": "161-texecon-741bef43.jpg",
+      "output": "161-texecon-741bef43.webp",
+      "source_dimensions": [
+        4080,
+        3072
+      ],
+      "output_dimensions": [
+        1920,
+        1446
+      ],
+      "source_bytes": 8317644,
+      "output_bytes": 277932,
+      "savings_percent": 96.7
+    },
+    {
+      "source": "162-texecon-a875d496.jpg",
+      "output": "162-texecon-a875d496.webp",
+      "source_dimensions": [
+        4080,
+        3072
+      ],
+      "output_dimensions": [
+        1920,
+        1446
+      ],
+      "source_bytes": 3013100,
+      "output_bytes": 287722,
+      "savings_percent": 90.5
+    },
+    {
+      "source": "163-texecon-6bd42afb.jpg",
+      "output": "163-texecon-6bd42afb.webp",
+      "source_dimensions": [
+        3648,
+        2736
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2033637,
+      "output_bytes": 154320,
+      "savings_percent": 92.4
+    },
+    {
+      "source": "164-texecon-c3334035.jpg",
+      "output": "164-texecon-c3334035.webp",
+      "source_dimensions": [
+        3648,
+        2736
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 4782891,
+      "output_bytes": 157310,
+      "savings_percent": 96.7
+    },
+    {
+      "source": "165-texecon-e441488d.jpg",
+      "output": "165-texecon-e441488d.webp",
+      "source_dimensions": [
+        3648,
+        2736
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 6198069,
+      "output_bytes": 196102,
+      "savings_percent": 96.8
+    },
+    {
+      "source": "166-texecon-11b536a6.heic",
+      "output": "166-texecon-11b536a6.webp",
+      "source_dimensions": [
+        5712,
+        4284
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2971085,
+      "output_bytes": 347372,
+      "savings_percent": 88.3
+    },
+    {
+      "source": "167-texecon-8d55ae66.heic",
+      "output": "167-texecon-8d55ae66.webp",
+      "source_dimensions": [
+        4284,
+        5712
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2304119,
+      "output_bytes": 264240,
+      "savings_percent": 88.5
+    },
+    {
+      "source": "168-texecon-675e3e6b.heic",
+      "output": "168-texecon-675e3e6b.webp",
+      "source_dimensions": [
+        4896,
+        3672
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2581236,
+      "output_bytes": 123270,
+      "savings_percent": 95.2
+    },
+    {
+      "source": "169-texecon-bf3be841.heic",
+      "output": "169-texecon-bf3be841.webp",
+      "source_dimensions": [
+        4284,
+        5712
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 2296898,
+      "output_bytes": 158198,
+      "savings_percent": 93.1
+    },
+    {
+      "source": "170-texecon-052be5c7.jpg",
+      "output": "170-texecon-052be5c7.webp",
+      "source_dimensions": [
+        2048,
+        1152
+      ],
+      "output_dimensions": [
+        1920,
+        1080
+      ],
+      "source_bytes": 222647,
+      "output_bytes": 143430,
+      "savings_percent": 35.6
+    },
+    {
+      "source": "171-texecon-19bce64c.jpeg",
+      "output": "171-texecon-19bce64c.webp",
+      "source_dimensions": [
+        2362,
+        1772
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 567236,
+      "output_bytes": 198384,
+      "savings_percent": 65.0
+    },
+    {
+      "source": "172-texecon-1d521101.jpg",
+      "output": "172-texecon-1d521101.webp",
+      "source_dimensions": [
+        1536,
+        2048
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 456526,
+      "output_bytes": 390452,
+      "savings_percent": 14.5
+    },
+    {
+      "source": "173-texecon-1d7097f4.jpg",
+      "output": "173-texecon-1d7097f4.webp",
+      "source_dimensions": [
+        604,
+        483
+      ],
+      "output_dimensions": [
+        604,
+        483
+      ],
+      "source_bytes": 43545,
+      "output_bytes": 26134,
+      "savings_percent": 40.0
+    },
+    {
+      "source": "174-texecon-49f1b0fe.jpeg",
+      "output": "174-texecon-49f1b0fe.webp",
+      "source_dimensions": [
+        2362,
+        1772
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 611371,
+      "output_bytes": 218670,
+      "savings_percent": 64.2
+    },
+    {
+      "source": "175-texecon-6655847a.jpg",
+      "output": "175-texecon-6655847a.webp",
+      "source_dimensions": [
+        481,
+        603
+      ],
+      "output_dimensions": [
+        481,
+        603
+      ],
+      "source_bytes": 48838,
+      "output_bytes": 34480,
+      "savings_percent": 29.4
+    },
+    {
+      "source": "176-texecon-70f64661.jpg",
+      "output": "176-texecon-70f64661.webp",
+      "source_dimensions": [
+        603,
+        483
+      ],
+      "output_dimensions": [
+        603,
+        483
+      ],
+      "source_bytes": 54805,
+      "output_bytes": 33570,
+      "savings_percent": 38.7
+    },
+    {
+      "source": "177-texecon-760fb2d1.jpg",
+      "output": "177-texecon-760fb2d1.webp",
+      "source_dimensions": [
+        1200,
+        800
+      ],
+      "output_dimensions": [
+        1200,
+        800
+      ],
+      "source_bytes": 185894,
+      "output_bytes": 178504,
+      "savings_percent": 4.0
+    },
+    {
+      "source": "178-texecon-8636888d.jpg",
+      "output": "178-texecon-8636888d.webp",
+      "source_dimensions": [
+        2048,
+        1365
+      ],
+      "output_dimensions": [
+        1920,
+        1280
+      ],
+      "source_bytes": 210772,
+      "output_bytes": 113202,
+      "savings_percent": 46.3
+    },
+    {
+      "source": "179-texecon-8d9cb78f.jpg",
+      "output": "179-texecon-8d9cb78f.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 81945,
+      "output_bytes": 63468,
+      "savings_percent": 22.5
+    },
+    {
+      "source": "180-texecon-a4599da8.jpeg",
+      "output": "180-texecon-a4599da8.webp",
+      "source_dimensions": [
+        2362,
+        1772
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 622980,
+      "output_bytes": 206142,
+      "savings_percent": 66.9
+    },
+    {
+      "source": "181-texecon-aa95b4e8.jpg",
+      "output": "181-texecon-aa95b4e8.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 101730,
+      "output_bytes": 86822,
+      "savings_percent": 14.7
+    },
+    {
+      "source": "182-texecon-ba766def.jpg",
+      "output": "182-texecon-ba766def.webp",
+      "source_dimensions": [
+        1510,
+        934
+      ],
+      "output_dimensions": [
+        1510,
+        934
+      ],
+      "source_bytes": 228868,
+      "output_bytes": 189346,
+      "savings_percent": 17.3
+    },
+    {
+      "source": "183-texecon-bda3ee08.jpg",
+      "output": "183-texecon-bda3ee08.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 303729,
+      "output_bytes": 233722,
+      "savings_percent": 23.0
+    },
+    {
+      "source": "184-texecon-c6a8a549.jpg",
+      "output": "184-texecon-c6a8a549.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 102124,
+      "output_bytes": 95418,
+      "savings_percent": 6.6
+    },
+    {
+      "source": "185-texecon-d449324c.jpg",
+      "output": "185-texecon-d449324c.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 109174,
+      "output_bytes": 89806,
+      "savings_percent": 17.7
+    },
+    {
+      "source": "186-texecon-f1082552.jpg",
+      "output": "186-texecon-f1082552.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 194833,
+      "output_bytes": 101886,
+      "savings_percent": 47.7
+    },
+    {
+      "source": "187-texecon-1fd90e37.jpg",
+      "output": "187-texecon-1fd90e37.webp",
+      "source_dimensions": [
+        1024,
+        768
+      ],
+      "output_dimensions": [
+        1024,
+        768
+      ],
+      "source_bytes": 187608,
+      "output_bytes": 57124,
+      "savings_percent": 69.6
+    },
+    {
+      "source": "188-texecon-4fbf314c.jpg",
+      "output": "188-texecon-4fbf314c.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 190428,
+      "output_bytes": 91154,
+      "savings_percent": 52.1
+    },
+    {
+      "source": "189-texecon-e0924eef.jpg",
+      "output": "189-texecon-e0924eef.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 122096,
+      "output_bytes": 47384,
+      "savings_percent": 61.2
+    },
+    {
+      "source": "190-texecon-94bba221.jpg",
+      "output": "190-texecon-94bba221.webp",
+      "source_dimensions": [
+        2304,
+        1728
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1870935,
+      "output_bytes": 507010,
+      "savings_percent": 72.9
+    },
+    {
+      "source": "191-texecon-c551daef.jpg",
+      "output": "191-texecon-c551daef.webp",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output_dimensions": [
+        1920,
+        1086
+      ],
+      "source_bytes": 1944661,
+      "output_bytes": 204278,
+      "savings_percent": 89.5
+    },
+    {
+      "source": "192-texecon-5fd4a6d7.jpg",
+      "output": "192-texecon-5fd4a6d7.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 4649526,
+      "output_bytes": 299358,
+      "savings_percent": 93.6
+    },
+    {
+      "source": "193-texecon-9856837e.jpg",
+      "output": "193-texecon-9856837e.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 4495201,
+      "output_bytes": 602206,
+      "savings_percent": 86.6
+    },
+    {
+      "source": "194-texecon-832955c0.jpg",
+      "output": "194-texecon-832955c0.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 4046214,
+      "output_bytes": 321576,
+      "savings_percent": 92.1
+    },
+    {
+      "source": "195-texecon-aa3f87a9.jpg",
+      "output": "195-texecon-aa3f87a9.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 3620789,
+      "output_bytes": 201438,
+      "savings_percent": 94.4
+    },
+    {
+      "source": "196-texecon-8a99c967.jpg",
+      "output": "196-texecon-8a99c967.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 3089423,
+      "output_bytes": 114142,
+      "savings_percent": 96.3
+    },
+    {
+      "source": "197-texecon-d8780a26.jpg",
+      "output": "197-texecon-d8780a26.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2177552,
+      "output_bytes": 294302,
+      "savings_percent": 86.5
+    },
+    {
+      "source": "198-texecon-5023a8a6.jpeg",
+      "output": "198-texecon-5023a8a6.webp",
+      "source_dimensions": [
+        3264,
+        2448
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 2105751,
+      "output_bytes": 251286,
+      "savings_percent": 88.1
+    },
+    {
+      "source": "199-texecon-72267f2c.jpg",
+      "output": "199-texecon-72267f2c.webp",
+      "source_dimensions": [
+        1536,
+        2048
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 1914054,
+      "output_bytes": 204590,
+      "savings_percent": 89.3
+    },
+    {
+      "source": "200-texecon-3506afa0.jpg",
+      "output": "200-texecon-3506afa0.webp",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output_dimensions": [
+        1920,
+        1086
+      ],
+      "source_bytes": 1864990,
+      "output_bytes": 190362,
+      "savings_percent": 89.8
+    },
+    {
+      "source": "201-texecon-4db37369.jpg",
+      "output": "201-texecon-4db37369.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1857350,
+      "output_bytes": 126586,
+      "savings_percent": 93.2
+    },
+    {
+      "source": "202-texecon-4634fa8b.jpg",
+      "output": "202-texecon-4634fa8b.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1817591,
+      "output_bytes": 153676,
+      "savings_percent": 91.5
+    },
+    {
+      "source": "203-texecon-3c14126d.jpg",
+      "output": "203-texecon-3c14126d.webp",
+      "source_dimensions": [
+        2240,
+        1680
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1739122,
+      "output_bytes": 95194,
+      "savings_percent": 94.5
+    },
+    {
+      "source": "204-texecon-b5766538.jpg",
+      "output": "204-texecon-b5766538.webp",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output_dimensions": [
+        1920,
+        1086
+      ],
+      "source_bytes": 1702361,
+      "output_bytes": 140982,
+      "savings_percent": 91.7
+    },
+    {
+      "source": "205-texecon-66c21740.jpg",
+      "output": "205-texecon-66c21740.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1649202,
+      "output_bytes": 160676,
+      "savings_percent": 90.3
+    },
+    {
+      "source": "206-texecon-c3c4f89e.jpg",
+      "output": "206-texecon-c3c4f89e.webp",
+      "source_dimensions": [
+        2688,
+        1520
+      ],
+      "output_dimensions": [
+        1920,
+        1086
+      ],
+      "source_bytes": 1630039,
+      "output_bytes": 157398,
+      "savings_percent": 90.3
+    },
+    {
+      "source": "207-texecon-71fa6b5b.jpg",
+      "output": "207-texecon-71fa6b5b.webp",
+      "source_dimensions": [
+        2304,
+        1728
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1596307,
+      "output_bytes": 286348,
+      "savings_percent": 82.1
+    },
+    {
+      "source": "208-texecon-536cead8.jpg",
+      "output": "208-texecon-536cead8.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 1427199,
+      "output_bytes": 102794,
+      "savings_percent": 92.8
+    },
+    {
+      "source": "209-texecon-efbb1144.jpg",
+      "output": "209-texecon-efbb1144.webp",
+      "source_dimensions": [
+        1392,
+        1856
+      ],
+      "output_dimensions": [
+        1392,
+        1856
+      ],
+      "source_bytes": 1218205,
+      "output_bytes": 114024,
+      "savings_percent": 90.6
+    },
+    {
+      "source": "210-texecon-a1df41e6.jpg",
+      "output": "210-texecon-a1df41e6.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 1132520,
+      "output_bytes": 72208,
+      "savings_percent": 93.6
+    },
+    {
+      "source": "211-texecon-0a52f0fe.jpg",
+      "output": "211-texecon-0a52f0fe.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 1094632,
+      "output_bytes": 61198,
+      "savings_percent": 94.4
+    },
+    {
+      "source": "212-texecon-7005a7fc.jpg",
+      "output": "212-texecon-7005a7fc.webp",
+      "source_dimensions": [
+        3840,
+        2160
+      ],
+      "output_dimensions": [
+        1920,
+        1080
+      ],
+      "source_bytes": 769762,
+      "output_bytes": 147626,
+      "savings_percent": 80.8
+    },
+    {
+      "source": "213-texecon-0d38f6cf.jpeg",
+      "output": "213-texecon-0d38f6cf.webp",
+      "source_dimensions": [
+        2362,
+        1772
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 634280,
+      "output_bytes": 251344,
+      "savings_percent": 60.4
+    },
+    {
+      "source": "214-texecon-dded4c65.jpg",
+      "output": "214-texecon-dded4c65.webp",
+      "source_dimensions": [
+        1536,
+        2048
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 611885,
+      "output_bytes": 330206,
+      "savings_percent": 46.0
+    },
+    {
+      "source": "215-texecon-f18010a8.jpg",
+      "output": "215-texecon-f18010a8.webp",
+      "source_dimensions": [
+        2048,
+        1153
+      ],
+      "output_dimensions": [
+        1920,
+        1081
+      ],
+      "source_bytes": 484090,
+      "output_bytes": 236734,
+      "savings_percent": 51.1
+    },
+    {
+      "source": "216-texecon-a6478511.jpg",
+      "output": "216-texecon-a6478511.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 396471,
+      "output_bytes": 291726,
+      "savings_percent": 26.4
+    },
+    {
+      "source": "217-texecon-90126b5f.jpg",
+      "output": "217-texecon-90126b5f.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 377524,
+      "output_bytes": 255920,
+      "savings_percent": 32.2
+    },
+    {
+      "source": "218-texecon-eec92959.jpg",
+      "output": "218-texecon-eec92959.webp",
+      "source_dimensions": [
+        1536,
+        2048
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 375232,
+      "output_bytes": 330352,
+      "savings_percent": 12.0
+    },
+    {
+      "source": "219-texecon-6eb308f6.jpg",
+      "output": "219-texecon-6eb308f6.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 370010,
+      "output_bytes": 268888,
+      "savings_percent": 27.3
+    },
+    {
+      "source": "220-texecon-0e62b8d2.jpg",
+      "output": "220-texecon-0e62b8d2.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 363360,
+      "output_bytes": 255696,
+      "savings_percent": 29.6
+    },
+    {
+      "source": "221-texecon-09058f35.jpg",
+      "output": "221-texecon-09058f35.webp",
+      "source_dimensions": [
+        2048,
+        1152
+      ],
+      "output_dimensions": [
+        1920,
+        1080
+      ],
+      "source_bytes": 361185,
+      "output_bytes": 278802,
+      "savings_percent": 22.8
+    },
+    {
+      "source": "222-texecon-48db495f.jpg",
+      "output": "222-texecon-48db495f.webp",
+      "source_dimensions": [
+        1392,
+        1856
+      ],
+      "output_dimensions": [
+        1392,
+        1856
+      ],
+      "source_bytes": 318602,
+      "output_bytes": 267864,
+      "savings_percent": 15.9
+    },
+    {
+      "source": "223-texecon-8645c5de.jpg",
+      "output": "223-texecon-8645c5de.webp",
+      "source_dimensions": [
+        1819,
+        1984
+      ],
+      "output_dimensions": [
+        1760,
+        1920
+      ],
+      "source_bytes": 315301,
+      "output_bytes": 240706,
+      "savings_percent": 23.7
+    },
+    {
+      "source": "224-texecon-2edb3575.jpg",
+      "output": "224-texecon-2edb3575.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 303893,
+      "output_bytes": 227934,
+      "savings_percent": 25.0
+    },
+    {
+      "source": "225-texecon-ad603916.jpg",
+      "output": "225-texecon-ad603916.webp",
+      "source_dimensions": [
+        2048,
+        1274
+      ],
+      "output_dimensions": [
+        1920,
+        1194
+      ],
+      "source_bytes": 286391,
+      "output_bytes": 247660,
+      "savings_percent": 13.5
+    },
+    {
+      "source": "226-texecon-82072284.jpg",
+      "output": "226-texecon-82072284.webp",
+      "source_dimensions": [
+        1536,
+        2048
+      ],
+      "output_dimensions": [
+        1440,
+        1920
+      ],
+      "source_bytes": 255080,
+      "output_bytes": 187206,
+      "savings_percent": 26.6
+    },
+    {
+      "source": "227-texecon-4f77465b.jpg",
+      "output": "227-texecon-4f77465b.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 232089,
+      "output_bytes": 124960,
+      "savings_percent": 46.2
+    },
+    {
+      "source": "228-texecon-a050439d.jpg",
+      "output": "228-texecon-a050439d.webp",
+      "source_dimensions": [
+        1856,
+        1232
+      ],
+      "output_dimensions": [
+        1856,
+        1232
+      ],
+      "source_bytes": 200294,
+      "output_bytes": 153306,
+      "savings_percent": 23.5
+    },
+    {
+      "source": "229-texecon-cd427e6b.jpg",
+      "output": "229-texecon-cd427e6b.webp",
+      "source_dimensions": [
+        1232,
+        1856
+      ],
+      "output_dimensions": [
+        1232,
+        1856
+      ],
+      "source_bytes": 198074,
+      "output_bytes": 152598,
+      "savings_percent": 23.0
+    },
+    {
+      "source": "230-texecon-91482493.jpg",
+      "output": "230-texecon-91482493.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 194111,
+      "output_bytes": 115254,
+      "savings_percent": 40.6
+    },
+    {
+      "source": "231-texecon-ff2156d3.jpg",
+      "output": "231-texecon-ff2156d3.webp",
+      "source_dimensions": [
+        2048,
+        1152
+      ],
+      "output_dimensions": [
+        1920,
+        1080
+      ],
+      "source_bytes": 191224,
+      "output_bytes": 115264,
+      "savings_percent": 39.7
+    },
+    {
+      "source": "232-texecon-7c8134f9.jpg",
+      "output": "232-texecon-7c8134f9.webp",
+      "source_dimensions": [
+        2048,
+        1536
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 180677,
+      "output_bytes": 101316,
+      "savings_percent": 43.9
+    },
+    {
+      "source": "233-texecon-1f956633.jpg",
+      "output": "233-texecon-1f956633.webp",
+      "source_dimensions": [
+        1392,
+        1856
+      ],
+      "output_dimensions": [
+        1392,
+        1856
+      ],
+      "source_bytes": 177921,
+      "output_bytes": 122998,
+      "savings_percent": 30.9
+    },
+    {
+      "source": "234-texecon-b58fa227.jpg",
+      "output": "234-texecon-b58fa227.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 158005,
+      "output_bytes": 74728,
+      "savings_percent": 52.7
+    },
+    {
+      "source": "235-texecon-643eeead.jpg",
+      "output": "235-texecon-643eeead.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 155613,
+      "output_bytes": 71786,
+      "savings_percent": 53.9
+    },
+    {
+      "source": "236-texecon-d6f88f17.jpg",
+      "output": "236-texecon-d6f88f17.webp",
+      "source_dimensions": [
+        960,
+        512
+      ],
+      "output_dimensions": [
+        960,
+        512
+      ],
+      "source_bytes": 131257,
+      "output_bytes": 71980,
+      "savings_percent": 45.2
+    },
+    {
+      "source": "237-texecon-7acb0e2e.jpg",
+      "output": "237-texecon-7acb0e2e.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 130066,
+      "output_bytes": 127392,
+      "savings_percent": 2.1
+    },
+    {
+      "source": "238-texecon-7529a1bb.jpg",
+      "output": "238-texecon-7529a1bb.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 126586,
+      "output_bytes": 60066,
+      "savings_percent": 52.5
+    },
+    {
+      "source": "239-texecon-d7b760a7.jpg",
+      "output": "239-texecon-d7b760a7.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 106549,
+      "output_bytes": 108014,
+      "savings_percent": -1.4
+    },
+    {
+      "source": "240-texecon-adb50aee.jpg",
+      "output": "240-texecon-adb50aee.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 99512,
+      "output_bytes": 84800,
+      "savings_percent": 14.8
+    },
+    {
+      "source": "241-texecon-6bbaa0a7.jpg",
+      "output": "241-texecon-6bbaa0a7.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 99117,
+      "output_bytes": 84036,
+      "savings_percent": 15.2
+    },
+    {
+      "source": "242-texecon-cd8a55fd.jpg",
+      "output": "242-texecon-cd8a55fd.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 97076,
+      "output_bytes": 86844,
+      "savings_percent": 10.5
+    },
+    {
+      "source": "243-texecon-4e6d6659.jpg",
+      "output": "243-texecon-4e6d6659.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 95409,
+      "output_bytes": 83942,
+      "savings_percent": 12.0
+    },
+    {
+      "source": "244-texecon-9f447bf7.jpg",
+      "output": "244-texecon-9f447bf7.webp",
+      "source_dimensions": [
+        1280,
+        960
+      ],
+      "output_dimensions": [
+        1280,
+        960
+      ],
+      "source_bytes": 92701,
+      "output_bytes": 58674,
+      "savings_percent": 36.7
+    },
+    {
+      "source": "245-texecon-0272f0db.jpg",
+      "output": "245-texecon-0272f0db.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 89663,
+      "output_bytes": 77780,
+      "savings_percent": 13.3
+    },
+    {
+      "source": "246-texecon-b1a1efec.jpg",
+      "output": "246-texecon-b1a1efec.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 88982,
+      "output_bytes": 72596,
+      "savings_percent": 18.4
+    },
+    {
+      "source": "247-texecon-c138df99.jpg",
+      "output": "247-texecon-c138df99.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 88893,
+      "output_bytes": 74808,
+      "savings_percent": 15.8
+    },
+    {
+      "source": "248-texecon-3ea7865c.jpeg",
+      "output": "248-texecon-3ea7865c.webp",
+      "source_dimensions": [
+        1080,
+        672
+      ],
+      "output_dimensions": [
+        1080,
+        672
+      ],
+      "source_bytes": 89301,
+      "output_bytes": 95004,
+      "savings_percent": -6.4
+    },
+    {
+      "source": "249-texecon-8ca8e0a9.jpg",
+      "output": "249-texecon-8ca8e0a9.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 84925,
+      "output_bytes": 71418,
+      "savings_percent": 15.9
+    },
+    {
+      "source": "250-texecon-0bc3337f.jpg",
+      "output": "250-texecon-0bc3337f.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 83544,
+      "output_bytes": 69204,
+      "savings_percent": 17.2
+    },
+    {
+      "source": "251-texecon-de323cc5.jpg",
+      "output": "251-texecon-de323cc5.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 80788,
+      "output_bytes": 70484,
+      "savings_percent": 12.8
+    },
+    {
+      "source": "252-texecon-2c6fbd0b.jpg",
+      "output": "252-texecon-2c6fbd0b.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 80147,
+      "output_bytes": 61928,
+      "savings_percent": 22.7
+    },
+    {
+      "source": "253-texecon-f9243180.jpg",
+      "output": "253-texecon-f9243180.webp",
+      "source_dimensions": [
+        960,
+        512
+      ],
+      "output_dimensions": [
+        960,
+        512
+      ],
+      "source_bytes": 79877,
+      "output_bytes": 73138,
+      "savings_percent": 8.4
+    },
+    {
+      "source": "254-texecon-afec3120.jpg",
+      "output": "254-texecon-afec3120.webp",
+      "source_dimensions": [
+        960,
+        543
+      ],
+      "output_dimensions": [
+        960,
+        543
+      ],
+      "source_bytes": 76738,
+      "output_bytes": 61622,
+      "savings_percent": 19.7
+    },
+    {
+      "source": "255-texecon-26fe18d1.jpg",
+      "output": "255-texecon-26fe18d1.webp",
+      "source_dimensions": [
+        960,
+        543
+      ],
+      "output_dimensions": [
+        960,
+        543
+      ],
+      "source_bytes": 75903,
+      "output_bytes": 62252,
+      "savings_percent": 18.0
+    },
+    {
+      "source": "256-texecon-6bb376b9.jpg",
+      "output": "256-texecon-6bb376b9.webp",
+      "source_dimensions": [
+        720,
+        960
+      ],
+      "output_dimensions": [
+        720,
+        960
+      ],
+      "source_bytes": 75767,
+      "output_bytes": 58236,
+      "savings_percent": 23.1
+    },
+    {
+      "source": "257-texecon-fb082865.jpg",
+      "output": "257-texecon-fb082865.webp",
+      "source_dimensions": [
+        604,
+        450
+      ],
+      "output_dimensions": [
+        604,
+        450
+      ],
+      "source_bytes": 69577,
+      "output_bytes": 55560,
+      "savings_percent": 20.1
+    },
+    {
+      "source": "258-texecon-79601df3.jpg",
+      "output": "258-texecon-79601df3.webp",
+      "source_dimensions": [
+        960,
+        790
+      ],
+      "output_dimensions": [
+        960,
+        790
+      ],
+      "source_bytes": 66722,
+      "output_bytes": 44068,
+      "savings_percent": 34.0
+    },
+    {
+      "source": "259-texecon-ab687cdc.jpg",
+      "output": "259-texecon-ab687cdc.webp",
+      "source_dimensions": [
+        960,
+        450
+      ],
+      "output_dimensions": [
+        960,
+        450
+      ],
+      "source_bytes": 65995,
+      "output_bytes": 58042,
+      "savings_percent": 12.1
+    },
+    {
+      "source": "260-texecon-5c80b842.jpg",
+      "output": "260-texecon-5c80b842.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 64065,
+      "output_bytes": 48306,
+      "savings_percent": 24.6
+    },
+    {
+      "source": "261-texecon-3b86e977.jpg",
+      "output": "261-texecon-3b86e977.webp",
+      "source_dimensions": [
+        640,
+        480
+      ],
+      "output_dimensions": [
+        640,
+        480
+      ],
+      "source_bytes": 54411,
+      "output_bytes": 40892,
+      "savings_percent": 24.8
+    },
+    {
+      "source": "262-texecon-01156047.jpg",
+      "output": "262-texecon-01156047.webp",
+      "source_dimensions": [
+        960,
+        720
+      ],
+      "output_dimensions": [
+        960,
+        720
+      ],
+      "source_bytes": 51308,
+      "output_bytes": 37204,
+      "savings_percent": 27.5
+    },
+    {
+      "source": "263-texecon-5937f570.jpg",
+      "output": "263-texecon-5937f570.webp",
+      "source_dimensions": [
+        604,
+        453
+      ],
+      "output_dimensions": [
+        604,
+        453
+      ],
+      "source_bytes": 47868,
+      "output_bytes": 35244,
+      "savings_percent": 26.4
+    },
+    {
+      "source": "264-texecon-25b620fb.jpg",
+      "output": "264-texecon-25b620fb.webp",
+      "source_dimensions": [
+        604,
+        453
+      ],
+      "output_dimensions": [
+        604,
+        453
+      ],
+      "source_bytes": 45734,
+      "output_bytes": 32478,
+      "savings_percent": 29.0
+    },
+    {
+      "source": "265-texecon-9712c294.jpg",
+      "output": "265-texecon-9712c294.webp",
+      "source_dimensions": [
+        480,
+        603
+      ],
+      "output_dimensions": [
+        480,
+        603
+      ],
+      "source_bytes": 41146,
+      "output_bytes": 30226,
+      "savings_percent": 26.5
+    },
+    {
+      "source": "266-texecon-c89c2eb2.jpg",
+      "output": "266-texecon-c89c2eb2.webp",
+      "source_dimensions": [
+        623,
+        623
+      ],
+      "output_dimensions": [
+        623,
+        623
+      ],
+      "source_bytes": 37825,
+      "output_bytes": 26096,
+      "savings_percent": 31.0
+    },
+    {
+      "source": "267-texecon-d7c400d8.jpg",
+      "output": "267-texecon-d7c400d8.webp",
+      "source_dimensions": [
+        4608,
+        3456
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 9033736,
+      "output_bytes": 427386,
+      "savings_percent": 95.3
+    },
+    {
+      "source": "268-texecon-d951a7ea.jpg",
+      "output": "268-texecon-d951a7ea.webp",
+      "source_dimensions": [
+        4608,
+        3456
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 7718017,
+      "output_bytes": 146572,
+      "savings_percent": 98.1
+    },
+    {
+      "source": "269-texecon-fa9c65b1.jpg",
+      "output": "269-texecon-fa9c65b1.webp",
+      "source_dimensions": [
+        4608,
+        3456
+      ],
+      "output_dimensions": [
+        1920,
+        1440
+      ],
+      "source_bytes": 6049747,
+      "output_bytes": 100442,
+      "savings_percent": 98.3
+    },
+    {
+      "source": "270-texecon-23095790.jpg",
+      "output": "270-texecon-23095790.webp",
+      "source_dimensions": [
+        992,
+        1056
+      ],
+      "output_dimensions": [
+        992,
+        1056
+      ],
+      "source_bytes": 304282,
+      "output_bytes": 79234,
+      "savings_percent": 74.0
+    },
+    {
+      "source": "271-texecon-51a15b3b.jpg",
+      "output": "271-texecon-51a15b3b.webp",
+      "source_dimensions": [
+        3842,
+        2732
+      ],
+      "output_dimensions": [
+        1920,
+        1365
+      ],
+      "source_bytes": 2211073,
+      "output_bytes": 219612,
+      "savings_percent": 90.1
+    },
+    {
+      "source": "272-texecon-56be4495.jpg",
+      "output": "272-texecon-56be4495.webp",
+      "source_dimensions": [
+        3765,
+        2561
+      ],
+      "output_dimensions": [
+        1920,
+        1306
+      ],
+      "source_bytes": 1832710,
+      "output_bytes": 168852,
+      "savings_percent": 90.8
+    },
+    {
+      "source": "273-texecon-c2b8d3fa.jpg",
+      "output": "273-texecon-c2b8d3fa.webp",
+      "source_dimensions": [
+        896,
+        1152
+      ],
+      "output_dimensions": [
+        896,
+        1152
+      ],
+      "source_bytes": 337797,
+      "output_bytes": 78262,
+      "savings_percent": 76.8
+    },
+    {
+      "source": "274-texecon-53e90c2b.jpg",
+      "output": "274-texecon-53e90c2b.webp",
+      "source_dimensions": [
+        2516,
+        3908
+      ],
+      "output_dimensions": [
+        1236,
+        1920
+      ],
+      "source_bytes": 2428612,
+      "output_bytes": 263258,
+      "savings_percent": 89.2
+    },
+    {
+      "source": "275-texecon-0e50a6d4.jpg",
+      "output": "275-texecon-0e50a6d4.webp",
+      "source_dimensions": [
+        800,
+        1280
+      ],
+      "output_dimensions": [
+        800,
+        1280
+      ],
+      "source_bytes": 425690,
+      "output_bytes": 151622,
+      "savings_percent": 64.4
+    },
+    {
+      "source": "276-texecon-b8bfc6fe.jpg",
+      "output": "276-texecon-b8bfc6fe.webp",
+      "source_dimensions": [
+        2327,
+        4279
+      ],
+      "output_dimensions": [
+        1044,
+        1920
+      ],
+      "source_bytes": 1756831,
+      "output_bytes": 105596,
+      "savings_percent": 94.0
+    }
+  ]
+}

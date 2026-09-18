@@ -1,0 +1,16 @@
+# Python bytecode cache
+__pycache__/
+
+# Editor autosave history and render manifests (regenerate by saving/rendering)
+backups/
+renders/
+
+# Rendered video output and its manifests — regenerate via create-collage.py,
+# create-documentary.py, or create-slideshow.py using the tracked *.json configs
+*.mp4
+*.render.json
+
+# Leftover preview/screenshot captures, not referenced by any code
+*-preview.jpg
+examples/demo-*.jpg
+examples/editor-screenshot.png
