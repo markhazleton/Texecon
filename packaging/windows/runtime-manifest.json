@@ -1,0 +1,11 @@
+{
+  "application": "Collage Studio",
+  "platform": "windows-x64",
+  "python": "3.11",
+  "renderer": "Pillow + imageio-ffmpeg",
+  "signing": {
+    "required_for_public_release": true,
+    "private_key_source": "protected-release-environment"
+  },
+  "artifact_provenance_required": true
+}
