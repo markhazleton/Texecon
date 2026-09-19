@@ -19,7 +19,7 @@ def main() -> None:
         '--add-data', f'{ROOT / "videos" / "create-collage.py"};videos',
         '--add-data', f'{ROOT / "videos" / "collage_project.py"};videos',
         '--distpath', str(DIST), '--workpath', str(WORK),
-        str(ROOT / 'videos' / 'desktop' / '__main__.py'),
+        str(ROOT / 'videos' / 'desktop' / 'app.py'),
     ]
     subprocess.run(command, cwd=ROOT, check=True)
     executable = DIST / 'CollageStudio' / 'CollageStudio.exe'

@@ -16,8 +16,12 @@ import webbrowser
 from pathlib import Path
 from tkinter import filedialog, messagebox
 
-from .diagnostics import configure, event
-from .process_manager import EditorProcess
+try:
+    from .diagnostics import configure, event
+    from .process_manager import EditorProcess
+except ImportError:  # PyInstaller/direct-script fallback
+    from videos.desktop.diagnostics import configure, event
+    from videos.desktop.process_manager import EditorProcess
 
 
 class CollageStudioApp:
