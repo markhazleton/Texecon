@@ -16,6 +16,11 @@ must never be committed to the repository or printed in workflow logs.
 
 ## Test in the Windows VM
 
+You do not need to publish a release or update texecon.com to test the app.
+Run the **Build Collage Studio Test Installer** workflow from the GitHub Actions
+tab, then download its `CollageStudio-windows-test` artifact and copy the
+installer into the Windows VM.
+
 Install Git, Python 3.11, and Inno Setup 6 in the VM. From a PowerShell prompt
 at the repository root, run:
 
