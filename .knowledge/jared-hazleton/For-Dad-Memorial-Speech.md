@@ -6,21 +6,19 @@
 
 Before I tell you about my dad, I want to start with Mom.
 
-Mom and Dad met at the University of Oklahoma. They shared sixty-six years of marriage, raised Franci, Alan, and me, and became grandparents to Weston, Kendall, Marlis, Berit, and Ian. When I talk about my childhood — the moves, the trips, the places we called home — those are memories of the life they built together.
+Mom and Dad met at the OU and were maried after Dad graduated. They shared sixty-six years of marriage, raised Franci, Alan, and me, and became grandparents to Weston, Kendall, Marlis, Berit, and Ian. When I talk about my childhood — the moves, the trips, the places we called home — those are memories of the life they built together.
 
 Mom, thank you for that life.
 
 Lesley and I have spent thirty years building one like it. We moved our family across creation, and Marlis, Ian, and Berit grew up the way I did — in the car, on the way to somewhere new. Lesley made a home out of every place we landed.
 
-Lesley put it best. He worked to understand her, and he did not tell us he loved us nearly as often as he showed us. He backed us every time we moved, and he never once asked why. He just showed up. He visited every house we ever lived in. Łódź. Balsall Common. Grayson. Wheaton. I could keep going.
+Lesley put it best. Dad worked to understand her, and he did not tell us nearly as often as he showed us that he loved us. He backed us every time we moved, and he never once asked why. He just showed up. He visited every house we ever lived in. Łódź. Balsall Common. Grayson. Wheaton. I could keep going.
 
 ---
 
-I was born in Concord, Massachusetts. Then Austin. Then Amman, Jordan. Then Austin. Then Seattle. Then Austin. We drove to most of them.
+One time We drove Austin to Acapulco for Christmas — as a family, in a car. We camped every summer on a piece of land he'd bought outside Nederland, Colorado. And when he took the job in Seattle, we left in a caravan.
 
-We drove Austin to Acapulco for Christmas — as a family, in a car. We camped every summer on a piece of land he'd bought outside Nederland, Colorado. And when he took the job in Seattle, we left in a caravan.
-
-Those drives had music. Fraternity songs from OU. Tom Lehrer. The Mills Brothers and the Kingston Trio. Willie Nelson and Jerry Jeff Walker — as a kid I knew *Viva Terlingua!* by heart. He was a good piano player, too, and when he got to the boogie-woogie, you knew it was time to go.
+Those drives had music. Fraternity songs from OU. Tom Lehrer. The Mills Brothers and the Kingston Trio. Willie Nelson and Jerry Jeff Walker — as a kid I knew *Viva Terlingua!* by heart. 
 
 He gave me places I wanted to go back to, and music that still takes me there.
 
@@ -42,7 +40,7 @@ My father taught me to be curious. To have an opinion, and a reason for it. To g
 
 There is a poem I keep coming back to — "Ithaka," by Constantine Cavafy. It is about a man sailing home, and it says the destination was never the point. Ithaka gave him the voyage. Without her he would never have set out.
 
-So here is what I want for my kids, and for his.
+So here is what I want for his grandkids.
 
 I hope your roads are long.
 
