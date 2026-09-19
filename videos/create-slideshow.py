@@ -36,13 +36,13 @@ def run(arguments):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--seconds', type=float, default=3, help='Uninterrupted hold per photo')
+    parser.add_argument('--seconds', type=float, default=6, help='Uninterrupted hold per photo (minimum 6 seconds)')
     parser.add_argument('--transition-seconds', type=float, default=.5)
     parser.add_argument('--output', type=Path, default=ROOT / 'videos/renders/JaredHazleton-AllPhotos-Slideshow.mp4')
     parser.add_argument('--limit', type=int, help='Render only the first N photos for verification')
     args = parser.parse_args()
-    if not 1 <= args.seconds <= 120 or not 0 < args.transition_seconds <= 2:
-        parser.error('Choose a hold from 1 to 120 seconds and a transition up to 2 seconds.')
+    if not 6 <= args.seconds <= 120 or not 0 < args.transition_seconds <= 2:
+        parser.error('Choose a hold from 6 to 120 seconds and a transition up to 2 seconds.')
     if args.limit is not None and args.limit < 1:
         parser.error('--limit must be positive')
     output = args.output.resolve()

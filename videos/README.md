@@ -133,11 +133,11 @@ Run `python videos/create-slideshow.py` to make
 or WebP directly inside `unique/`. Each file appears once, sorted by filename.
 The output JSON records the complete photo order.
 
-Each photo holds for three seconds, followed by a half-second transition.
+Each photo holds for six seconds minimum, followed by a half-second transition.
 Fades, dissolves, slides, wipes, and circular reveals alternate. Portraits retain
 the entire image over a blurred full-screen background; there are no added
 headings, borders, or audio. Output is 1920 x 1080 at 30 fps.
 
-Use `--seconds 3.5`, `--transition-seconds 0.5`, and `--output videos/renders/new-name.mp4`
+Use `--seconds 6`, `--transition-seconds 0.5`, and `--output videos/renders/new-name.mp4`
 to customize a new render. Existing output files are never overwritten.
 Use `--limit 11 --output videos/renders/test-name.mp4` for a short transition check.
