@@ -8,7 +8,7 @@ type PhotoContext = (typeof photoContext)[number];
 type GalleryPhotoWithContext = GalleryPhoto &
   Pick<PhotoContext, "title" | "content" | "date" | "location">;
 
-const SLIDESHOW_INTERVAL_MS = 4000;
+const SLIDESHOW_INTERVAL_MS = 6000;
 
 const assetUrl = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 const photoContextById = new Map(photoContext.map((photo) => [photo.id, photo]));
