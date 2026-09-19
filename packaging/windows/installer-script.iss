@@ -1,5 +1,7 @@
 #define AppName "Collage Studio"
-#define AppVersion GetEnv("COLLAGE_STUDIO_VERSION")
+#ifndef AppVersion
+  #define AppVersion "0.1.0-test"
+#endif
 #define AppPublisher "TexEcon"
 #define AppExeName "CollageStudio.exe"
 
