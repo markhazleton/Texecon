@@ -1,0 +1,17 @@
+{
+  "title": "My Photo Collage",
+  "transition_seconds": 1.0,
+  "scenes": [
+    {
+      "photos": ["DSC00521.JPG"],
+      "layout": [[90, 90, 1740, 900]],
+      "duration": 6.0,
+      "transition": "fade",
+      "motion": "still",
+      "photo_motion": [],
+      "title": "My Photo Collage",
+      "caption": "",
+      "chapter": ""
+    }
+  ]
+}

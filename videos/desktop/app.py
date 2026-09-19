@@ -9,6 +9,7 @@ project and renderer boundaries.
 from __future__ import annotations
 
 import argparse
+import sys
 import threading
 import time
 import tkinter as tk
@@ -73,10 +74,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project', type=Path)
     parser.add_argument('--port', type=int, default=8765)
+    bundle_root = Path(getattr(sys, '_MEIPASS', Path(__file__).resolve().parents[2]))
     parser.add_argument('--editor-script', type=Path,
-                        default=Path(__file__).resolve().parents[1] / 'collage-editor.py')
+                        default=bundle_root / 'videos' / 'collage-editor.py')
     args = parser.parse_args()
-    project = (args.project or args.editor_script.resolve().parents[1] / 'jared-e-hazleton-collage.json').resolve()
+    project = (args.project or bundle_root / 'videos' / 'desktop' / 'default-project.json').resolve()
     configure(Path.home() / 'Collage Studio' / 'logs')
     root = tk.Tk()
     CollageStudioApp(root, args.editor_script, project, args.port)
