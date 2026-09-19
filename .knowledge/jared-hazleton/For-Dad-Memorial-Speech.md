@@ -6,23 +6,21 @@
 
 Before I tell you about my dad, I want to start with Mom.
 
-Mom and Dad met at the OU and were maried after Dad graduated. They shared sixty-six years of marriage, raised Franci, Alan, and me, and became grandparents to Weston, Kendall, Marlis, Berit, and Ian. When I talk about my childhood — the moves, the trips, the places we called home — those are memories of the life they built together.
+Mom and Dad met at OU and were married after Dad graduated. They shared sixty-six years of marriage, raised Franci, Alan, and me, and became grandparents to Weston, Kendall, Marlis, Berit, and Ian.
 
-Mom, thank you for that life.
+Mom, thank you for the life you built.
 
 Lesley and I have spent thirty years building one like it. We moved our family across creation, and Marlis, Ian, and Berit grew up the way I did — in the car, on the way to somewhere new. Lesley made a home out of every place we landed.
 
-Lesley put it best. Dad worked to understand her, and he did not tell us nearly as often as he showed us that he loved us. He backed us every time we moved, and he never once asked why. He just showed up. He visited every house we ever lived in. Łódź. Balsall Common. Grayson. Wheaton. I could keep going.
+Dad worked to understand Lesley, and he showed us he loved us, far more often than he ever had to say it. He backed us every time we moved, and he never once asked why. He just showed up. He visited every house we ever lived in. Łódź. Balsall Common. Grayson. Wheaton. I could keep going.
 
 ---
 
-One time We drove Austin to Acapulco for Christmas — as a family, in a car. We camped every summer on a piece of land he'd bought outside Nederland, Colorado. And when he took the job in Seattle, we left in a caravan.
+We drove Austin to Acapulco for Christmas — as a family, in a car. We camped every summer on a piece of land he'd bought outside Nederland, Colorado. And when he took the job in Seattle, we left in a caravan.
 
-Those drives had music. Fraternity songs from OU. Tom Lehrer. The Mills Brothers and the Kingston Trio. Willie Nelson and Jerry Jeff Walker — as a kid I knew *Viva Terlingua!* by heart. 
+Those drives had music. Fraternity songs from OU. Tom Lehrer. The Mills Brothers and the Kingston Trio. Willie Nelson and Jerry Jeff Walker — as a kid I knew *Viva Terlingua!* by heart.
 
 He gave me places I wanted to go back to, and music that still takes me there.
-
-He never stopped, either. When he and Mom marked their anniversaries, they took the whole family along — a cruise, Hawaii, Greece.
 
 He had a PhD in economics from Rice. That move to Seattle was a deanship at the University of Washington. And years after I graduated from North Texas, he became dean of its business school. But what he taught me had nothing to do with a classroom: go see the world for yourself, and then make up your own mind about it.
 
@@ -30,13 +28,11 @@ Ask my daughter Marlis. During the BLM marches, her grandfather asked her what s
 
 She became a teacher — like him, like Elaine, like Franci, like half this family. One of the last things he said to her was, "You would have made a great lawyer. But I'm glad you found teaching, and I'm glad you love what you're doing."
 
-Ask my son Ian. They disagreed often, and Ian says that's what made him proud to hold a position and defend it. In the fall of 2020, when Ian had exactly one college visit left on the calendar, my father drove him to Rapid City — then took his grandson to a rooftop bar in South Dakota for oysters. Ian says he will carry that with him: his grandfather believed he could do it.
+Ask my son Ian. They disagreed often, and Ian says that's what made him proud to hold a position and defend it. In 2020, my father drove him to a college visit in Rapid City — then took his grandson to a rooftop bar in South Dakota for oysters. Ian says he will carry that with him: his grandfather believed he could do it.
 
 Ask Berit. Chess lessons, terrible jokes, arguments for sport. A week at sea with Grandpa, Grandma, and Aunt Franci — just the four of them, for no occasion at all. And their last conversation: good luck with your show, I'm proud of you, and I hope the Rangers make the playoffs.
 
 ---
-
-My father taught me to be curious. To have an opinion, and a reason for it. To go see what was around the next corner.
 
 There is a poem I keep coming back to — "Ithaka," by Constantine Cavafy. It is about a man sailing home, and it says the destination was never the point. Ithaka gave him the voyage. Without her he would never have set out.
 
