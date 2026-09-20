@@ -1,0 +1,32 @@
+{
+  "reviewDate": "2026-09-20",
+  "scope": "Non-TypeScript dependency updates after the memorial gallery navigation review",
+  "updatesApplied": {
+    "@tanstack/react-query": "^5.103.1",
+    "@types/node": "^26.6.2",
+    "@vitest/coverage-v8": "^5.0.1",
+    "@vitest/ui": "^5.0.1",
+    "eslint": "^10.11.0",
+    "jsdom": "^30.1.0",
+    "lucide-react": "^1.47.0",
+    "prettier": "^3.9.8",
+    "vitest": "^5.0.1"
+  },
+  "held": {
+    "typescript": "^6.0.3",
+    "reason": "TypeScript 7 is a major compiler update and is being evaluated separately."
+  },
+  "validation": {
+    "npmRunTypeCheck": "passed",
+    "npmRunLint": "passed",
+    "npmRunTestRun": "passed: 22 files, 150 tests",
+    "npmAudit": "passed: 0 vulnerabilities",
+    "npmInstall": "passed; npm reported one optional pending fsevents install script"
+  },
+  "installWarning": {
+    "package": "fsevents@2.3.3",
+    "source": "optional dependency of vite@8.3.0",
+    "impact": "macOS-only file-watching optimization; not required for builds, tests, or CI",
+    "action": "no approval required"
+  }
+}
