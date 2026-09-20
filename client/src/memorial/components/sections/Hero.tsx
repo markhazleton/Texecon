@@ -40,7 +40,7 @@ export default function Hero() {
             Read Jared’s full biography →
           </a>
           <a
-            href="#gallery"
+            href={`${import.meta.env.BASE_URL}jared-hazleton/gallery/`}
             className="mt-3 inline-flex min-h-11 items-center justify-center border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-secondary hover:text-primary"
           >
             View the photo gallery →
