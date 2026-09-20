@@ -6,6 +6,8 @@ import biography from "@/data/jared-biography.json";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const isGalleryPage =
+    typeof window !== "undefined" && window.location.pathname.includes("/jared-hazleton/gallery");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +40,8 @@ export default function Navbar() {
     { label: "Published Works", id: "publications" },
   ];
 
+  const homeSectionHref = (id: string) => `${import.meta.env.BASE_URL}#${id}`;
+
   return (
     <header
       className={cn(
@@ -62,14 +66,25 @@ export default function Navbar() {
 
         <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className="text-xs xl:text-sm font-sans tracking-[0.12em] xl:tracking-widest uppercase text-foreground/70 hover:text-primary transition-colors duration-300 relative group whitespace-nowrap"
-            >
-              {item.label}
-              <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0" />
-            </button>
+            isGalleryPage ? (
+              <a
+                key={item.id}
+                href={homeSectionHref(item.id)}
+                className="text-xs xl:text-sm font-sans tracking-[0.12em] xl:tracking-widest uppercase text-foreground/70 hover:text-primary transition-colors duration-300 relative group whitespace-nowrap"
+              >
+                {item.label}
+                <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0" />
+              </a>
+            ) : (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="text-xs xl:text-sm font-sans tracking-[0.12em] xl:tracking-widest uppercase text-foreground/70 hover:text-primary transition-colors duration-300 relative group whitespace-nowrap"
+              >
+                {item.label}
+                <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0" />
+              </button>
+            )
           ))}
           <a
             href={`${import.meta.env.BASE_URL}jared-hazleton/gallery/`}
@@ -113,16 +128,30 @@ export default function Navbar() {
       >
         <div className="px-5 sm:px-6 py-3">
           {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollTo(item.id)}
-              className="flex w-full min-h-12 items-center justify-between border-b border-border/70 py-3 text-left text-sm font-sans tracking-[0.14em] uppercase text-foreground/75 last:border-b-0"
-            >
-              {item.label}
-              <span className="text-secondary" aria-hidden="true">
-                &rarr;
-              </span>
-            </button>
+            isGalleryPage ? (
+              <a
+                key={item.id}
+                href={homeSectionHref(item.id)}
+                onClick={() => setMenuOpen(false)}
+                className="flex w-full min-h-12 items-center justify-between border-b border-border/70 py-3 text-left text-sm font-sans tracking-[0.14em] uppercase text-foreground/75 last:border-b-0"
+              >
+                {item.label}
+                <span className="text-secondary" aria-hidden="true">
+                  &rarr;
+                </span>
+              </a>
+            ) : (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="flex w-full min-h-12 items-center justify-between border-b border-border/70 py-3 text-left text-sm font-sans tracking-[0.14em] uppercase text-foreground/75 last:border-b-0"
+              >
+                {item.label}
+                <span className="text-secondary" aria-hidden="true">
+                  &rarr;
+                </span>
+              </button>
+            )
           ))}
           <a
             href={`${import.meta.env.BASE_URL}jared-hazleton/gallery/`}
