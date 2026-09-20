@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://texecon.com</loc>
-    <lastmod>2026-09-18T17:38:34.152Z</lastmod>
+    <lastmod>2026-09-20T14:04:25.517Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://texecon.com/memorial/jared-earl-hazleton/</loc>
-    <lastmod>2026-09-18T17:38:34.152Z</lastmod>
+    <lastmod>2026-09-20T14:04:25.517Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -21,6 +21,12 @@
   <url>
     <loc>https://texecon.com/jared-hazleton/gallery/</loc>
     <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://texecon.com/photo-collage/</loc>
+    <lastmod>2026-09-20T14:04:25.517Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
