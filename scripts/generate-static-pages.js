@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { buildMenuHierarchy, withTrailingSlash } from '../shared/route-shape.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,50 +17,6 @@ function withBasePath(url) {
   if (/^(?:[a-z]+:)?\/\//i.test(url) || url.startsWith('#')) return url;
   const relativeUrl = url.replace(/^\/+/, '');
   return basePath === '/' ? `/${relativeUrl}` : `${basePath}${relativeUrl}`;
-}
-
-/**
- * Ensure a URL path has a trailing slash (except root).
- */
-function withTrailingSlash(url) {
-  if (!url || url === '/') return '/';
-  return url.endsWith('/') ? url : `${url}/`;
-}
-
-/**
- * Build a menu hierarchy (mirrors menu-utils.ts buildMenuHierarchy).
- * Returns { topLevel, byId, byParent }.
- */
-function buildMenuHierarchy(menuItems) {
-  const filtered = menuItems
-    .filter((item) => item.display_navigation)
-    .sort((a, b) => a.order - b.order);
-
-  const byId = {};
-  const byParent = {};
-
-  filtered.forEach((item) => {
-    byId[item.id] = { ...item, children: [] };
-    if (item.parent_page) {
-      if (!byParent[item.parent_page]) byParent[item.parent_page] = [];
-      byParent[item.parent_page].push(item.id);
-    }
-  });
-
-  filtered.forEach((item) => {
-    if (byParent[item.id]) {
-      byId[item.id].children = byParent[item.id]
-        .map((id) => byId[id])
-        .filter(Boolean)
-        .sort((a, b) => a.order - b.order);
-    }
-  });
-
-  const topLevel = filtered
-    .filter((item) => !item.parent_page || !byId[item.parent_page])
-    .map((item) => byId[item.id]);
-
-  return { topLevel, byId, byParent };
 }
 
 /**

@@ -5,8 +5,9 @@ title: Trailing-Slash Canonical URL Policy
 constrains:
 - texecon-site
 source_of_truth:
+- shared/route-shape.js
 - scripts/generate-sitemap.js
-last_verified: '2026-09-05'
+last_verified: '2026-10-21'
 ---
 
 # Trailing-Slash Canonical URL Policy
@@ -25,8 +26,10 @@ React SPA router and the static pre-render layer.
 ## Decision
 
 All non-root published URLs MUST use trailing-slash canonical form (e.g., `/texas/keller/`).
-A `withTrailingSlash()` utility enforces this at every link-generation site:
-`seo-utils.ts`, `generate-static-pages.js`, and `generate-sitemap.js`. The React router
+A single `withTrailingSlash()` implementation in `shared/route-shape.js` enforces this at
+every link-generation site: `seo-utils.ts`, `generate-static-pages.js`, and
+`generate-sitemap.js` all import it. The same module owns `buildMenuHierarchy()`, so the
+React navigation and the static pages derive their menus from identical rules. The React router
 strips trailing slashes only for internal Wouter route matching; all `href` attributes and
 canonical tags always include the trailing slash.
 
@@ -42,6 +45,8 @@ canonical tags always include the trailing slash.
 
 - Requires discipline: every new link-generation site must call `withTrailingSlash()`.
   A missed call in the home-page section articles caused a regression (fixed in commit `478b25d`).
+  New sites must import the shared helper rather than reimplementing it; the shared module
+  is the only place the rule is unit-tested.
 
 ## Source
 

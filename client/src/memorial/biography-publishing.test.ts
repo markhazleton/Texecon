@@ -17,13 +17,17 @@ describe("biography static publishing", () => {
     const tempRoot = realpathSync(tmpdir());
     const fixture = mkdtempSync(path.join(tempRoot, "texecon-biography-"));
     try {
-      for (const directory of ["scripts", "client/src/data", "client/public", "target"]) {
+      for (const directory of ["scripts", "shared", "client/src/data", "client/public", "target"]) {
         mkdirSync(path.join(fixture, directory), { recursive: true });
       }
       writeFileSync(path.join(fixture, "package.json"), JSON.stringify({ type: "module" }));
       for (const script of ["generate-static-pages.js", "generate-sitemap.js"]) {
         copyFileSync(path.resolve("scripts", script), path.join(fixture, "scripts", script));
       }
+      copyFileSync(
+        path.resolve("shared/route-shape.js"),
+        path.join(fixture, "shared/route-shape.js")
+      );
       copyFileSync(path.resolve("client/index.html"), path.join(fixture, "target/index.html"));
       writeFileSync(
         path.join(fixture, "client/src/data/jared-biography.json"),

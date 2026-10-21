@@ -4,6 +4,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { withTrailingSlash } from '../shared/route-shape.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,9 +25,7 @@ function loadContentData() {
 
 // Use the exact URL from the API data, ensuring trailing slash for GitHub Pages
 function generateSEOPath(item) {
-  const url = item.url || '/';
-  if (url === '/') return '/';
-  return url.endsWith('/') ? url : `${url}/`;
+  return withTrailingSlash(item.url);
 }
 
 function getBaseUrl() {

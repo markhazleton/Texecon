@@ -1,5 +1,6 @@
 // Utility functions for building hierarchical menu structure from WebSpark API data
 
+import { buildMenuHierarchy as buildSharedMenuHierarchy } from "@shared/route-shape";
 import { realContent } from "./data";
 
 export interface MenuItem {
@@ -28,59 +29,24 @@ export interface MenuHierarchy {
 export function buildMenuHierarchy(): MenuHierarchy {
   const rawMenuItems = realContent.pages.all;
 
-  // Convert to our MenuItem interface and sort by order
-  const menuItems: MenuItem[] = rawMenuItems
-    .filter((item) => item.display_navigation)
-    .map((item) => ({
-      id: item.id,
-      title: item.title,
-      description: item.description,
-      url: item.url,
-      argument: item.argument,
-      icon: item.icon,
-      order: item.order,
-      content: item.content,
-      display_navigation: item.display_navigation,
-      isHomePage: item.isHomePage,
-      parent_page: item.parent_page,
-      parent_title: item.parent_title,
-      children: [],
-    }))
-    .sort((a, b) => a.order - b.order);
+  // Convert to our MenuItem shape; filtering, ordering, and nesting use the shared rules
+  // so the React navigation matches the build-time static pages exactly
+  const menuItems: Omit<MenuItem, "children">[] = rawMenuItems.map((item) => ({
+    id: item.id,
+    title: item.title,
+    description: item.description,
+    url: item.url,
+    argument: item.argument,
+    icon: item.icon,
+    order: item.order,
+    content: item.content,
+    display_navigation: item.display_navigation,
+    isHomePage: item.isHomePage,
+    parent_page: item.parent_page,
+    parent_title: item.parent_title,
+  }));
 
-  // Create lookup maps
-  const byId: Record<number, MenuItem> = {};
-  const byParent: Record<number, MenuItem[]> = {};
-
-  // Build byId lookup and initialize byParent
-  menuItems.forEach((item) => {
-    byId[item.id] = item;
-
-    if (item.parent_page) {
-      if (!byParent[item.parent_page]) {
-        byParent[item.parent_page] = [];
-      }
-      byParent[item.parent_page].push(item);
-    }
-  });
-
-  // Populate children arrays
-  menuItems.forEach((item) => {
-    if (byParent[item.id]) {
-      item.children = byParent[item.id].sort((a, b) => a.order - b.order);
-    }
-  });
-
-  // Get top-level items (those without parents or whose parents aren't in the navigation)
-  const topLevel = menuItems.filter(
-    (item) => !item.parent_page || !byId[item.parent_page]?.display_navigation
-  );
-
-  return {
-    topLevel,
-    byId,
-    byParent,
-  };
+  return buildSharedMenuHierarchy(menuItems);
 }
 
 // Get navigation items formatted for the navigation component

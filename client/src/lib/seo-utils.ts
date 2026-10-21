@@ -1,5 +1,6 @@
 // SEO utilities for dynamic routing and sitemap generation
 
+import { withTrailingSlash } from "@shared/route-shape";
 import { buildMenuHierarchy, MenuItem } from "./menu-utils";
 
 export interface SitemapEntry {
@@ -7,12 +8,6 @@ export interface SitemapEntry {
   lastModified: string;
   changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
   priority: string;
-}
-
-// Ensure a path has a trailing slash (except root)
-function withTrailingSlash(url: string): string {
-  if (!url || url === "/") return "/";
-  return url.endsWith("/") ? url : `${url}/`;
 }
 
 // Generate SEO-friendly URL path for a menu item
@@ -50,9 +45,7 @@ export function generateCanonicalUrlForPath(
   // Ensure baseUrl doesn't end with slash and path starts with slash
   const cleanBaseUrl = baseUrl.replace(/\/$/, "");
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  const trailedPath =
-    cleanPath === "/" ? cleanPath : cleanPath.endsWith("/") ? cleanPath : `${cleanPath}/`;
-  return `${cleanBaseUrl}${trailedPath}`;
+  return `${cleanBaseUrl}${withTrailingSlash(cleanPath)}`;
 }
 
 // Generate dynamic sitemap entries from menu items
