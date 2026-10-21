@@ -1,7 +1,7 @@
 {
   "generated": {
     "by": "build-knowledge-index",
-    "at": "2026-10-21T03:16:30Z"
+    "at": "2026-10-21T13:22:38Z"
   },
   "roots": [
     {
@@ -109,6 +109,24 @@
       "title": "Trailing-Slash Canonical URL Policy",
       "headings": [
         "Trailing-Slash Canonical URL Policy",
+        "Status",
+        "Context",
+        "Decision",
+        "Consequences",
+        "Positive",
+        "Negative",
+        "Source"
+      ]
+    },
+    {
+      "id": "typescript-7-deferral",
+      "type": "governance-decision",
+      "form": "governance-decision",
+      "role": "governance",
+      "path": ".knowledge/governance/decisions/typescript-7-deferral.md",
+      "title": "TypeScript 7 Deferral",
+      "headings": [
+        "TypeScript 7 Deferral",
         "Status",
         "Context",
         "Decision",
@@ -687,28 +705,6 @@
       ]
     },
     {
-      "id": "npm-upgrade-plan-2026-09-12",
-      "type": "authoritative-reference",
-      "form": "flat-document",
-      "role": "authoritative-reference",
-      "path": ".knowledge/npm-upgrade-plan-2026-09-12.md",
-      "title": "npm package review and upgrade plan",
-      "headings": [
-        "npm package review and upgrade plan",
-        "Findings",
-        "Complete direct-package inventory",
-        "Implementation sequence",
-        "Phase 1: establish a compatible runtime and clean baseline",
-        "Phase 2: React and matching types",
-        "Phase 3: compatible toolchain and UI updates",
-        "Phase 4: Vitest 5 migration",
-        "Phase 5: jsdom 30",
-        "Phase 6: defer TypeScript 7 until supported",
-        "Validation and acceptance",
-        "Checks actually run for this review"
-      ]
-    },
-    {
       "id": "ontology-schema",
       "type": "authoritative-reference",
       "form": "flat-document",
@@ -1123,6 +1119,11 @@
       "rel": "constrains"
     },
     {
+      "from": "typescript-7-deferral",
+      "to": "texecon-site",
+      "rel": "constrains"
+    },
+    {
       "from": "webspark-content-pipeline",
       "to": "texecon-site",
       "rel": "supports"
@@ -1213,7 +1214,8 @@
       "constrained_by": [
         "static-site-generation",
         "trailing-slash-canonical-url",
-        "tailwind-css-first-configuration"
+        "tailwind-css-first-configuration",
+        "typescript-7-deferral"
       ]
     },
     {
