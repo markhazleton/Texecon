@@ -1,23 +1,15 @@
 <!-- SYNC IMPACT REPORT
-Version change: 1.1.1 → 1.2.0
-Bump type: MINOR — Constitution updated to reflect the repo's current role as a static-site
-  generator and publisher for GitHub Pages rather than a generic React site.
+Version change: 1.2.0 → 1.2.1
+Bump type: PATCH — Technology Stack corrected to match the repository; no principle or
+  obligation changed.
 
 What changed:
-  - Project overview rewritten around build-time generation and publishing.
-  - Technology versions updated from the current repo (`vite@8`, `typescript@6`, `react@19`).
-  - Static publishing workflow aligned to `.github/workflows/deploy.yml`.
-  - SEO section expanded to include trailing-slash canonical policy and redirect avoidance.
-  - Quality/tooling language aligned to current CI gates and current repo thresholds.
-  - Development workflow updated to match actual artifact validation and Pages deploy behavior.
+  - Runtime: Node.js 20 → Node.js 22 (CI `node-version: "22"`; jsdom 30 requires >=22.22.2).
+  - Testing: Vitest 4 → Vitest 5 (`vitest`, `@vitest/ui`, `@vitest/coverage-v8` at ^5).
 
 Source of truth used:
   - `package.json`
   - `.github/workflows/deploy.yml`
-  - `vite.config.ts`
-  - `vitest.config.ts`
-  - `eslint.config.js`
-  - `client/index.html`
 -->
 
 # Texecon Constitution
@@ -26,7 +18,7 @@ Source of truth used:
 
 **Project**: Texecon
 **Owner**: Mark Hazleton
-**Version**: 1.2.0 | **Ratified**: 2026-04-12 | **Last Amended**: 2026-05-13
+**Version**: 1.2.1 | **Ratified**: 2026-04-12 | **Last Amended**: 2026-10-21
 
 Texecon is a build-time generator for a fully static website published to GitHub Pages.
 The repository's job is not to run a server-backed web app in production; its job is to:
@@ -40,13 +32,13 @@ Every architectural decision MUST preserve that static publishing model.
 
 ## Technology Stack
 
-- **Runtime**: Node.js 20
+- **Runtime**: Node.js 22
 - **Language**: TypeScript 6 (strict mode) + JavaScript for build scripts
 - **Frontend**: React 19 + React DOM 19
 - **Bundler**: Vite 8
 - **Styling**: Tailwind CSS 4 (CSS-first) + Radix/shadcn-style UI patterns
 - **Routing**: Wouter
-- **Testing**: Vitest 4 + Testing Library + jsdom
+- **Testing**: Vitest 5 + Testing Library + jsdom
 - **Linting/Formatting**: ESLint 10 + Prettier 3
 - **Deployment Target**: GitHub Pages with optional custom domain via `CNAME`
 - **Build Output**: `target/`

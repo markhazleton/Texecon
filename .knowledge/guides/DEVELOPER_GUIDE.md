@@ -16,7 +16,7 @@ Complete guide for developers working on the TexEcon project.
 ## Quick Start
 
 ### Prerequisites
-- Node.js 20.x or later
+- Node.js 22.22.2 or later (required by jsdom 30; CI uses Node 22)
 - npm (comes with Node.js)
 - Git
 
