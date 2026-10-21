@@ -1,0 +1,1199 @@
+{
+  "latest": "9.2.0",
+  "tag": "v9.2.0",
+  "path": "dist/v9.2.0",
+  "released": "2026-10-16T13:02:57.958875Z",
+  "assets": [
+    "devspark-template-amp-ps-v9.2.0.zip",
+    "devspark-template-amp-sh-v9.2.0.zip",
+    "devspark-template-antigravity-ps-v9.2.0.zip",
+    "devspark-template-antigravity-sh-v9.2.0.zip",
+    "devspark-template-auggie-ps-v9.2.0.zip",
+    "devspark-template-auggie-sh-v9.2.0.zip",
+    "devspark-template-bob-ps-v9.2.0.zip",
+    "devspark-template-bob-sh-v9.2.0.zip",
+    "devspark-template-claude-ps-v9.2.0.zip",
+    "devspark-template-claude-sh-v9.2.0.zip",
+    "devspark-template-codebuddy-ps-v9.2.0.zip",
+    "devspark-template-codebuddy-sh-v9.2.0.zip",
+    "devspark-template-codex-ps-v9.2.0.zip",
+    "devspark-template-codex-sh-v9.2.0.zip",
+    "devspark-template-copilot-ps-v9.2.0.zip",
+    "devspark-template-copilot-sh-v9.2.0.zip",
+    "devspark-template-cursor-agent-ps-v9.2.0.zip",
+    "devspark-template-cursor-agent-sh-v9.2.0.zip",
+    "devspark-template-gemini-ps-v9.2.0.zip",
+    "devspark-template-gemini-sh-v9.2.0.zip",
+    "devspark-template-kilocode-ps-v9.2.0.zip",
+    "devspark-template-kilocode-sh-v9.2.0.zip",
+    "devspark-template-opencode-ps-v9.2.0.zip",
+    "devspark-template-opencode-sh-v9.2.0.zip",
+    "devspark-template-q-ps-v9.2.0.zip",
+    "devspark-template-q-sh-v9.2.0.zip",
+    "devspark-template-qodercli-ps-v9.2.0.zip",
+    "devspark-template-qodercli-sh-v9.2.0.zip",
+    "devspark-template-qwen-ps-v9.2.0.zip",
+    "devspark-template-qwen-sh-v9.2.0.zip",
+    "devspark-template-roo-ps-v9.2.0.zip",
+    "devspark-template-roo-sh-v9.2.0.zip",
+    "devspark-template-shai-ps-v9.2.0.zip",
+    "devspark-template-shai-sh-v9.2.0.zip",
+    "devspark-template-windsurf-ps-v9.2.0.zip",
+    "devspark-template-windsurf-sh-v9.2.0.zip"
+  ],
+  "raw_base": "https://dev.makeboldspark.com/raw",
+  "devspark_root": [
+    "VERSION",
+    "defaults",
+    "templates",
+    "scripts"
+  ],
+  "install": [
+    {
+      "source": "templates/README.md",
+      "dest": ".devspark/templates/README.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/agent-file-template.md",
+      "dest": ".devspark/templates/agent-file-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/agents-registry.schema.json",
+      "dest": ".devspark/templates/agents-registry.schema.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/assurance-contract.md",
+      "dest": ".devspark/templates/assurance-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/checklist-template.md",
+      "dest": ".devspark/templates/checklist-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/closeout-contract.md",
+      "dest": ".devspark/templates/closeout-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/command-preamble-contract.md",
+      "dest": ".devspark/templates/command-preamble-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/commands/add-application.md",
+      "dest": ".devspark/defaults/commands/devspark.add-application.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/address-pr-review.md",
+      "dest": ".devspark/defaults/commands/devspark.address-pr-review.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/analyze.md",
+      "dest": ".devspark/defaults/commands/devspark.analyze.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/checklist.md",
+      "dest": ".devspark/defaults/commands/devspark.checklist.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/clarify.md",
+      "dest": ".devspark/defaults/commands/devspark.clarify.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/closeout.md",
+      "dest": ".devspark/defaults/commands/devspark.closeout.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/commit-audit.md",
+      "dest": ".devspark/defaults/commands/devspark.commit-audit.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/constitution.md",
+      "dest": ".devspark/defaults/commands/devspark.constitution.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/context-projection.md",
+      "dest": ".devspark/defaults/commands/devspark.context-projection.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/create-pr.md",
+      "dest": ".devspark/defaults/commands/devspark.create-pr.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/critic.md",
+      "dest": ".devspark/defaults/commands/devspark.critic.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/discover-constitution.md",
+      "dest": ".devspark/defaults/commands/devspark.discover-constitution.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/discover-knowledge.md",
+      "dest": ".devspark/defaults/commands/devspark.discover-knowledge.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/evolve-constitution.md",
+      "dest": ".devspark/defaults/commands/devspark.evolve-constitution.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/explain.md",
+      "dest": ".devspark/defaults/commands/devspark.explain.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/implement.md",
+      "dest": ".devspark/defaults/commands/devspark.implement.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/list-applications.md",
+      "dest": ".devspark/defaults/commands/devspark.list-applications.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/merge-from-main.md",
+      "dest": ".devspark/defaults/commands/devspark.merge-from-main.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/migrate-knowledge-entities.md",
+      "dest": ".devspark/defaults/commands/devspark.migrate-knowledge-entities.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/migrate-registry.md",
+      "dest": ".devspark/defaults/commands/devspark.migrate-registry.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/next.md",
+      "dest": ".devspark/defaults/commands/devspark.next.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/personalize.md",
+      "dest": ".devspark/defaults/commands/devspark.personalize.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/plan.md",
+      "dest": ".devspark/defaults/commands/devspark.plan.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/planning-review.md",
+      "dest": ".devspark/defaults/commands/devspark.planning-review.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/pr-review.md",
+      "dest": ".devspark/defaults/commands/devspark.pr-review.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/quickfix.md",
+      "dest": ".devspark/defaults/commands/devspark.quickfix.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/release.md",
+      "dest": ".devspark/defaults/commands/devspark.release.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/repo-story.md",
+      "dest": ".devspark/defaults/commands/devspark.repo-story.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/site-audit.md",
+      "dest": ".devspark/defaults/commands/devspark.site-audit.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/specify.md",
+      "dest": ".devspark/defaults/commands/devspark.specify.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/tasks.md",
+      "dest": ".devspark/defaults/commands/devspark.tasks.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/taskstoissues.md",
+      "dest": ".devspark/defaults/commands/devspark.taskstoissues.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/update-pr.md",
+      "dest": ".devspark/defaults/commands/devspark.update-pr.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/upgrade.md",
+      "dest": ".devspark/defaults/commands/devspark.upgrade.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/validate-registry.md",
+      "dest": ".devspark/defaults/commands/devspark.validate-registry.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/verify.md",
+      "dest": ".devspark/defaults/commands/devspark.verify.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/workitem-create.md",
+      "dest": ".devspark/defaults/commands/devspark.workitem-create.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/commands/workitem-review.md",
+      "dest": ".devspark/defaults/commands/devspark.workitem-review.md",
+      "category": "command"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-add-application/SKILL.md",
+      "dest": ".github/skills/devspark-add-application/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-address-pr-review/SKILL.md",
+      "dest": ".github/skills/devspark-address-pr-review/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-analyze/SKILL.md",
+      "dest": ".github/skills/devspark-analyze/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-checklist/SKILL.md",
+      "dest": ".github/skills/devspark-checklist/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-clarify/SKILL.md",
+      "dest": ".github/skills/devspark-clarify/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-closeout/SKILL.md",
+      "dest": ".github/skills/devspark-closeout/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-commit-audit/SKILL.md",
+      "dest": ".github/skills/devspark-commit-audit/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-constitution/SKILL.md",
+      "dest": ".github/skills/devspark-constitution/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-context-projection/SKILL.md",
+      "dest": ".github/skills/devspark-context-projection/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-create-pr/SKILL.md",
+      "dest": ".github/skills/devspark-create-pr/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-critic/SKILL.md",
+      "dest": ".github/skills/devspark-critic/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-discover-constitution/SKILL.md",
+      "dest": ".github/skills/devspark-discover-constitution/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-discover-knowledge/SKILL.md",
+      "dest": ".github/skills/devspark-discover-knowledge/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-evolve-constitution/SKILL.md",
+      "dest": ".github/skills/devspark-evolve-constitution/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-explain/SKILL.md",
+      "dest": ".github/skills/devspark-explain/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-implement/SKILL.md",
+      "dest": ".github/skills/devspark-implement/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-list-applications/SKILL.md",
+      "dest": ".github/skills/devspark-list-applications/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-merge-from-main/SKILL.md",
+      "dest": ".github/skills/devspark-merge-from-main/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-migrate-knowledge-entities/SKILL.md",
+      "dest": ".github/skills/devspark-migrate-knowledge-entities/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-migrate-registry/SKILL.md",
+      "dest": ".github/skills/devspark-migrate-registry/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-next/SKILL.md",
+      "dest": ".github/skills/devspark-next/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-personalize/SKILL.md",
+      "dest": ".github/skills/devspark-personalize/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-plan/SKILL.md",
+      "dest": ".github/skills/devspark-plan/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-planning-review/SKILL.md",
+      "dest": ".github/skills/devspark-planning-review/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-pr-review/SKILL.md",
+      "dest": ".github/skills/devspark-pr-review/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-quickfix/SKILL.md",
+      "dest": ".github/skills/devspark-quickfix/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-release/SKILL.md",
+      "dest": ".github/skills/devspark-release/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-repo-story/SKILL.md",
+      "dest": ".github/skills/devspark-repo-story/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-site-audit/SKILL.md",
+      "dest": ".github/skills/devspark-site-audit/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-specify/SKILL.md",
+      "dest": ".github/skills/devspark-specify/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-tasks/SKILL.md",
+      "dest": ".github/skills/devspark-tasks/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-taskstoissues/SKILL.md",
+      "dest": ".github/skills/devspark-taskstoissues/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-update-pr/SKILL.md",
+      "dest": ".github/skills/devspark-update-pr/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-upgrade/SKILL.md",
+      "dest": ".github/skills/devspark-upgrade/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-validate-registry/SKILL.md",
+      "dest": ".github/skills/devspark-validate-registry/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-verify/SKILL.md",
+      "dest": ".github/skills/devspark-verify/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-workitem-create/SKILL.md",
+      "dest": ".github/skills/devspark-workitem-create/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/consumer-skills/devspark-workitem-review/SKILL.md",
+      "dest": ".github/skills/devspark-workitem-review/SKILL.md",
+      "category": "skill"
+    },
+    {
+      "source": "templates/devspark-config.schema.json",
+      "dest": ".devspark/templates/devspark-config.schema.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/devspark-registry.schema.json",
+      "dest": ".devspark/templates/devspark-registry.schema.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/future-work-plan-template.md",
+      "dest": ".devspark/templates/future-work-plan-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/intake-template.md",
+      "dest": ".devspark/templates/intake-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/judge-contract.md",
+      "dest": ".devspark/templates/judge-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/knowledge-drift/self-test/claims.yaml",
+      "dest": ".devspark/templates/knowledge-drift/self-test/claims.yaml",
+      "category": "template"
+    },
+    {
+      "source": "templates/knowledge-drift/self-test/sources/invalid-canonicalization.baseline",
+      "dest": ".devspark/templates/knowledge-drift/self-test/sources/invalid-canonicalization.baseline",
+      "category": "template"
+    },
+    {
+      "source": "templates/knowledge-drift/self-test/sources/invalid-canonicalization.txt",
+      "dest": ".devspark/templates/knowledge-drift/self-test/sources/invalid-canonicalization.txt",
+      "category": "template"
+    },
+    {
+      "source": "templates/knowledge-drift/self-test/sources/known-changed.baseline",
+      "dest": ".devspark/templates/knowledge-drift/self-test/sources/known-changed.baseline",
+      "category": "template"
+    },
+    {
+      "source": "templates/knowledge-drift/self-test/sources/known-changed.py",
+      "dest": ".devspark/templates/knowledge-drift/self-test/sources/known-changed.py",
+      "category": "template"
+    },
+    {
+      "source": "templates/knowledge-drift/self-test/sources/known-unchanged.baseline",
+      "dest": ".devspark/templates/knowledge-drift/self-test/sources/known-unchanged.baseline",
+      "category": "template"
+    },
+    {
+      "source": "templates/knowledge-drift/self-test/sources/known-unchanged.py",
+      "dest": ".devspark/templates/knowledge-drift/self-test/sources/known-unchanged.py",
+      "category": "template"
+    },
+    {
+      "source": "templates/plan-template.md",
+      "dest": ".devspark/templates/plan-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/pr-review-state-contract.md",
+      "dest": ".devspark/templates/pr-review-state-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/preamble/configuration.md",
+      "dest": ".devspark/templates/preamble/configuration.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/preamble/convergence.md",
+      "dest": ".devspark/templates/preamble/convergence.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/preamble/finding-fix.md",
+      "dest": ".devspark/templates/preamble/finding-fix.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/preamble/orchestration.md",
+      "dest": ".devspark/templates/preamble/orchestration.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/preamble/provenance.md",
+      "dest": ".devspark/templates/preamble/provenance.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/quick-spec-template.md",
+      "dest": ".devspark/templates/quick-spec-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/rationale-template.md",
+      "dest": ".devspark/templates/rationale-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/README.md",
+      "dest": ".devspark/templates/risk-checklists/README.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/browser-extension.md",
+      "dest": ".devspark/templates/risk-checklists/browser-extension.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/cli.md",
+      "dest": ".devspark/templates/risk-checklists/cli.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/data-pipeline.md",
+      "dest": ".devspark/templates/risk-checklists/data-pipeline.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/dotnet-aspnet.md",
+      "dest": ".devspark/templates/risk-checklists/dotnet-aspnet.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/embedded.md",
+      "dest": ".devspark/templates/risk-checklists/embedded.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/go-gin.md",
+      "dest": ".devspark/templates/risk-checklists/go-gin.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/infrastructure.md",
+      "dest": ".devspark/templates/risk-checklists/infrastructure.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/java-spring.md",
+      "dest": ".devspark/templates/risk-checklists/java-spring.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/library.md",
+      "dest": ".devspark/templates/risk-checklists/library.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/llm-application.md",
+      "dest": ".devspark/templates/risk-checklists/llm-application.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/ml-training.md",
+      "dest": ".devspark/templates/risk-checklists/ml-training.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/mobile-app.md",
+      "dest": ".devspark/templates/risk-checklists/mobile-app.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/node-express.md",
+      "dest": ".devspark/templates/risk-checklists/node-express.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/python-fastapi.md",
+      "dest": ".devspark/templates/risk-checklists/python-fastapi.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/risk-checklists/web-service.md",
+      "dest": ".devspark/templates/risk-checklists/web-service.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/schemas/entity-node.schema.json",
+      "dest": ".devspark/templates/schemas/entity-node.schema.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/schemas/knowledge-node.schema.json",
+      "dest": ".devspark/templates/schemas/knowledge-node.schema.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/schemas/knowledge-ontology.json",
+      "dest": ".devspark/templates/schemas/knowledge-ontology.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/schemas/okf-knowledge-document.schema.json",
+      "dest": ".devspark/templates/schemas/okf-knowledge-document.schema.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/schemas/taxonomy-registry.schema.json",
+      "dest": ".devspark/templates/schemas/taxonomy-registry.schema.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/skills/ADAPTER-contract.md",
+      "dest": ".devspark/templates/skills/ADAPTER-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/skills/README.md",
+      "dest": ".devspark/templates/skills/README.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/skills/SKILL-validation-contract.md",
+      "dest": ".devspark/templates/skills/SKILL-validation-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/skills/references/devspark-skills-guide.md",
+      "dest": ".devspark/templates/skills/references/devspark-skills-guide.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/skills/write-spec/SKILL.md",
+      "dest": ".devspark/templates/skills/write-spec/SKILL.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/skills/write-spec/references/spec-template.md",
+      "dest": ".devspark/templates/skills/write-spec/references/spec-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/skills/write-spec/scripts/gather-context.ps1",
+      "dest": ".devspark/templates/skills/write-spec/scripts/gather-context.ps1",
+      "category": "template"
+    },
+    {
+      "source": "templates/skills/write-spec/scripts/gather-context.sh",
+      "dest": ".devspark/templates/skills/write-spec/scripts/gather-context.sh",
+      "category": "template"
+    },
+    {
+      "source": "templates/spec-template.md",
+      "dest": ".devspark/templates/spec-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/spec-validation-contract.md",
+      "dest": ".devspark/templates/spec-validation-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/tasks-template.md",
+      "dest": ".devspark/templates/tasks-template.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/verification-contract.md",
+      "dest": ".devspark/templates/verification-contract.md",
+      "category": "template"
+    },
+    {
+      "source": "templates/vscode-settings.json",
+      "dest": ".devspark/templates/vscode-settings.json",
+      "category": "template"
+    },
+    {
+      "source": "templates/workitem-standard.md",
+      "dest": ".devspark/templates/workitem-standard.md",
+      "category": "template"
+    },
+    {
+      "source": "scripts/README.md",
+      "dest": ".devspark/scripts/README.md",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/address-pr-review.sh",
+      "dest": ".devspark/scripts/bash/address-pr-review.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/check-planning-references.sh",
+      "dest": ".devspark/scripts/bash/check-planning-references.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/check-prerequisites.sh",
+      "dest": ".devspark/scripts/bash/check-prerequisites.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/commit-audit.sh",
+      "dest": ".devspark/scripts/bash/commit-audit.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/common.sh",
+      "dest": ".devspark/scripts/bash/common.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/context-projection.sh",
+      "dest": ".devspark/scripts/bash/context-projection.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/create-new-feature.sh",
+      "dest": ".devspark/scripts/bash/create-new-feature.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/create-pr.sh",
+      "dest": ".devspark/scripts/bash/create-pr.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/discover-knowledge.sh",
+      "dest": ".devspark/scripts/bash/discover-knowledge.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/evolution-context.sh",
+      "dest": ".devspark/scripts/bash/evolution-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/explain-context.sh",
+      "dest": ".devspark/scripts/bash/explain-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/generate-atomic-shims.sh",
+      "dest": ".devspark/scripts/bash/generate-atomic-shims.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/generate-knowledge-index.sh",
+      "dest": ".devspark/scripts/bash/generate-knowledge-index.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/get-pr-context.sh",
+      "dest": ".devspark/scripts/bash/get-pr-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/judge.sh",
+      "dest": ".devspark/scripts/bash/judge.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/knowledge-benchmark.sh",
+      "dest": ".devspark/scripts/bash/knowledge-benchmark.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/knowledge-integrity.sh",
+      "dest": ".devspark/scripts/bash/knowledge-integrity.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/merge-from-main.sh",
+      "dest": ".devspark/scripts/bash/merge-from-main.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/new-branch.sh",
+      "dest": ".devspark/scripts/bash/new-branch.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/next-context.sh",
+      "dest": ".devspark/scripts/bash/next-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/platform.sh",
+      "dest": ".devspark/scripts/bash/platform.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/quickfix-context.sh",
+      "dest": ".devspark/scripts/bash/quickfix-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/release-archive.sh",
+      "dest": ".devspark/scripts/bash/release-archive.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/release-context.sh",
+      "dest": ".devspark/scripts/bash/release-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/release-history-context.sh",
+      "dest": ".devspark/scripts/bash/release-history-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/repo-story-context.sh",
+      "dest": ".devspark/scripts/bash/repo-story-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/setup-plan.sh",
+      "dest": ".devspark/scripts/bash/setup-plan.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/site-audit.sh",
+      "dest": ".devspark/scripts/bash/site-audit.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/update-agent-context.sh",
+      "dest": ".devspark/scripts/bash/update-agent-context.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/validate-knowledge-coverage.sh",
+      "dest": ".devspark/scripts/bash/validate-knowledge-coverage.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/bash/workitem.sh",
+      "dest": ".devspark/scripts/bash/workitem.sh",
+      "category": "script"
+    },
+    {
+      "source": "scripts/build_knowledge_index.py",
+      "dest": ".devspark/scripts/build_knowledge_index.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/context-projection.py",
+      "dest": ".devspark/scripts/context-projection.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/discover-knowledge.py",
+      "dest": ".devspark/scripts/discover-knowledge.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/explain-context.py",
+      "dest": ".devspark/scripts/explain-context.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/generate-knowledge-index.py",
+      "dest": ".devspark/scripts/generate-knowledge-index.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/judge.py",
+      "dest": ".devspark/scripts/judge.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/knowledge-benchmark.py",
+      "dest": ".devspark/scripts/knowledge-benchmark.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/knowledge-integrity.py",
+      "dest": ".devspark/scripts/knowledge-integrity.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/knowledge_findings.py",
+      "dest": ".devspark/scripts/knowledge_findings.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/migrate-knowledge-to-entities.py",
+      "dest": ".devspark/scripts/migrate-knowledge-to-entities.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/address-pr-review.ps1",
+      "dest": ".devspark/scripts/powershell/address-pr-review.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/check-planning-references.ps1",
+      "dest": ".devspark/scripts/powershell/check-planning-references.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/check-prerequisites.ps1",
+      "dest": ".devspark/scripts/powershell/check-prerequisites.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/commit-audit.ps1",
+      "dest": ".devspark/scripts/powershell/commit-audit.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/common.ps1",
+      "dest": ".devspark/scripts/powershell/common.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/context-projection.ps1",
+      "dest": ".devspark/scripts/powershell/context-projection.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/create-new-feature.ps1",
+      "dest": ".devspark/scripts/powershell/create-new-feature.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/create-pr.ps1",
+      "dest": ".devspark/scripts/powershell/create-pr.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/discover-knowledge.ps1",
+      "dest": ".devspark/scripts/powershell/discover-knowledge.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/evolution-context.ps1",
+      "dest": ".devspark/scripts/powershell/evolution-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/explain-context.ps1",
+      "dest": ".devspark/scripts/powershell/explain-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/generate-atomic-shims.ps1",
+      "dest": ".devspark/scripts/powershell/generate-atomic-shims.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/generate-knowledge-index.ps1",
+      "dest": ".devspark/scripts/powershell/generate-knowledge-index.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/get-pr-context.ps1",
+      "dest": ".devspark/scripts/powershell/get-pr-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/judge.ps1",
+      "dest": ".devspark/scripts/powershell/judge.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/knowledge-benchmark.ps1",
+      "dest": ".devspark/scripts/powershell/knowledge-benchmark.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/knowledge-integrity.ps1",
+      "dest": ".devspark/scripts/powershell/knowledge-integrity.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/merge-from-main.ps1",
+      "dest": ".devspark/scripts/powershell/merge-from-main.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/new-branch.ps1",
+      "dest": ".devspark/scripts/powershell/new-branch.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/next-context.ps1",
+      "dest": ".devspark/scripts/powershell/next-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/platform.ps1",
+      "dest": ".devspark/scripts/powershell/platform.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/quickfix-context.ps1",
+      "dest": ".devspark/scripts/powershell/quickfix-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/release-archive.ps1",
+      "dest": ".devspark/scripts/powershell/release-archive.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/release-context.ps1",
+      "dest": ".devspark/scripts/powershell/release-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/release-history-context.ps1",
+      "dest": ".devspark/scripts/powershell/release-history-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/repo-story-context.ps1",
+      "dest": ".devspark/scripts/powershell/repo-story-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/setup-plan.ps1",
+      "dest": ".devspark/scripts/powershell/setup-plan.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/site-audit.ps1",
+      "dest": ".devspark/scripts/powershell/site-audit.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/update-agent-context.ps1",
+      "dest": ".devspark/scripts/powershell/update-agent-context.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/validate-knowledge-coverage.ps1",
+      "dest": ".devspark/scripts/powershell/validate-knowledge-coverage.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/powershell/workitem.ps1",
+      "dest": ".devspark/scripts/powershell/workitem.ps1",
+      "category": "script"
+    },
+    {
+      "source": "scripts/pr-review-state.py",
+      "dest": ".devspark/scripts/pr-review-state.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/pr-review-validate.py",
+      "dest": ".devspark/scripts/pr-review-validate.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/pr-risk-calibrate.py",
+      "dest": ".devspark/scripts/pr-risk-calibrate.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/pr-risk.py",
+      "dest": ".devspark/scripts/pr-risk.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/release-archive.py",
+      "dest": ".devspark/scripts/release-archive.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/release-context.py",
+      "dest": ".devspark/scripts/release-context.py",
+      "category": "script"
+    },
+    {
+      "source": "scripts/scaffold-entity.py",
+      "dest": ".devspark/scripts/scaffold-entity.py",
+      "category": "script"
+    },
+    {
+      "source": "agents-registry.json",
+      "dest": "agents-registry.json",
+      "category": "registry"
+    }
+  ],
+  "versions": [
+    {
+      "version": "9.2.0",
+      "tag": "v9.2.0",
+      "path": "dist/v9.2.0",
+      "released": "2026-10-16T13:02:57.958875Z",
+      "assets": [
+        "devspark-template-amp-ps-v9.2.0.zip",
+        "devspark-template-amp-sh-v9.2.0.zip",
+        "devspark-template-antigravity-ps-v9.2.0.zip",
+        "devspark-template-antigravity-sh-v9.2.0.zip",
+        "devspark-template-auggie-ps-v9.2.0.zip",
+        "devspark-template-auggie-sh-v9.2.0.zip",
+        "devspark-template-bob-ps-v9.2.0.zip",
+        "devspark-template-bob-sh-v9.2.0.zip",
+        "devspark-template-claude-ps-v9.2.0.zip",
+        "devspark-template-claude-sh-v9.2.0.zip",
+        "devspark-template-codebuddy-ps-v9.2.0.zip",
+        "devspark-template-codebuddy-sh-v9.2.0.zip",
+        "devspark-template-codex-ps-v9.2.0.zip",
+        "devspark-template-codex-sh-v9.2.0.zip",
+        "devspark-template-copilot-ps-v9.2.0.zip",
+        "devspark-template-copilot-sh-v9.2.0.zip",
+        "devspark-template-cursor-agent-ps-v9.2.0.zip",
+        "devspark-template-cursor-agent-sh-v9.2.0.zip",
+        "devspark-template-gemini-ps-v9.2.0.zip",
+        "devspark-template-gemini-sh-v9.2.0.zip",
+        "devspark-template-kilocode-ps-v9.2.0.zip",
+        "devspark-template-kilocode-sh-v9.2.0.zip",
+        "devspark-template-opencode-ps-v9.2.0.zip",
+        "devspark-template-opencode-sh-v9.2.0.zip",
+        "devspark-template-q-ps-v9.2.0.zip",
+        "devspark-template-q-sh-v9.2.0.zip",
+        "devspark-template-qodercli-ps-v9.2.0.zip",
+        "devspark-template-qodercli-sh-v9.2.0.zip",
+        "devspark-template-qwen-ps-v9.2.0.zip",
+        "devspark-template-qwen-sh-v9.2.0.zip",
+        "devspark-template-roo-ps-v9.2.0.zip",
+        "devspark-template-roo-sh-v9.2.0.zip",
+        "devspark-template-shai-ps-v9.2.0.zip",
+        "devspark-template-shai-sh-v9.2.0.zip",
+        "devspark-template-windsurf-ps-v9.2.0.zip",
+        "devspark-template-windsurf-sh-v9.2.0.zip"
+      ]
+    }
+  ]
+}

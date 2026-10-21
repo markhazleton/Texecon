@@ -3,12 +3,12 @@
 ## DevSpark
 
 - DevSpark framework files live in `.devspark/`.
-- Permanent project knowledge and team overrides live in `.knowledge/`.
+- Permanent project knowledge lives in `.knowledge/`; temporary work and command overrides live in `.devspark.work/`.
 - Resolve DevSpark commands through the first existing file:
-  1. `.knowledge/overrides/{git-user}/commands/devspark.{name}.md`
-  2. `.knowledge/overrides/commands/devspark.{name}.md`
+  1. `.devspark.work/{git-user}/commands/devspark.{name}.md`
+  2. `.devspark.work/commands/devspark.{name}.md`
   3. `.devspark/defaults/commands/devspark.{name}.md`
-- Preserve user work in `.knowledge/`; upgrades refresh `.devspark/` only.
+- Preserve user work in `.devspark.work/` and `.knowledge/`; upgrades refresh `.devspark/` only.
 
 ## Project Overview
 - TexEcon is a static-first React + TypeScript site built with Vite and deployed to GitHub Pages (`texecon.com`).
@@ -32,9 +32,9 @@
 - `.github/lighthouse/lighthouserc.json`: Lighthouse assertions and URLs.
 
 ## Toolchain (Observed)
-- Node.js 20 in CI (`actions/setup-node@v6` with `node-version: "20"`).
+- Node.js 22 in CI (`actions/setup-node@v6` with `node-version: "22"`).
 - npm + lockfile (`package-lock.json`) as package manager.
-- Vite 7 + React 19 + TypeScript strict mode.
+- Vite 8 + React 19 + TypeScript strict mode.
 - Tailwind CSS v4 via `@tailwindcss/vite` and CSS-first config in `client/src/index.css`.
 - Wouter for routing, Vitest + Testing Library for tests.
 - ESLint flat config (`eslint.config.js`) + Prettier.

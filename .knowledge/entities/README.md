@@ -1,9 +1,5 @@
 # Knowledge Entities
 
-Each folder under `.knowledge/entities/` describes one current entity. Entity
-metadata lives in `_entity.yaml`; generated metadata lives in `_derived.yaml`;
-layer documents describe current behavior only.
+Each entity folder declares identity, ownership, relations and reciprocal governance pointers in `_entity.yaml`. Markdown layer documents describe current behavior and cite existing source paths with a verification date.
 
-Every entity must cite evidence. Use test evidence when practical and code
-inspection evidence with `test_attempted` and `fallback_reason` when a test is
-not practical.
+Core layers are architecture, business, integration and operations. The generated `.knowledge/index.json` contains the entity graph; `.knowledge/ontology/coverage.json` reports missing layers. Run the canonical builder under `.devspark/scripts/` to regenerate or check them. See `../ontology/schema.md` for the DevSpark 9.2 contract.

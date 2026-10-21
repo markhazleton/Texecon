@@ -119,7 +119,7 @@ Content is fetched from a headless CMS (WebSpark) during the build process. The 
 ## Repo Story
 
 An evidence-based narrative of this repository's development history, contributor patterns, and architecture:
-[Repo Story (2026-04-12)](.documentation/repo-story/repo-story-2026-04-12.md)
+[Repo Story (2026-04-12)](.devspark.work/release-candidates/documentation/repo-story/repo-story-2026-04-12.md)
 
 ## Project Structure
 
@@ -160,3 +160,15 @@ target/           # Built application (configurable via TARGET_DIR)
 - **Static Generation**: Pre-rendered HTML for all routes
 - **Core Web Vitals**: Optimized for excellent performance scores
 - **Progressive Loading**: Efficient asset delivery and caching
+
+## DevSpark workflow
+
+DevSpark 9.2 stock commands, templates and scripts live in `.devspark/`. Type `/devspark-specify` in Codex to start a specification; commands use the `/devspark-<name>` spelling.
+
+Current project knowledge lives in `.knowledge/`. Temporary work and overrides live in `.devspark.work/`. Commands resolve personal overrides, then team overrides, then stock defaults. See the [documentation guide](.knowledge/guides/documentation-guide.md) and [knowledge schema](.knowledge/ontology/schema.md).
+
+```powershell
+python .devspark/scripts/build_knowledge_index.py --repo-root . --check
+```
+
+Update stock framework files by re-running the [canonical Codex quickstart](https://dev.makeboldspark.com/raw/quickstart/devspark_quickstart_codex.md). The `.documentation/` layout and dotted command entry points are retired; preserved migration copies live under `.devspark.work/migration/9.2.0/`.

@@ -1,3 +1,14 @@
+---
+id: memorial-site-architecture
+type: entity-layer
+title: TexEcon Memorial Site Architecture
+layer: architecture
+source_of_truth:
+- client/src/App.tsx
+- client/src/memorial/MemorialHome.tsx
+last_verified: '2026-10-20'
+---
+
 # TexEcon Memorial Site
 
 The application root route (`/`) renders a dedicated memorial page for Dr. Jared

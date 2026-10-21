@@ -1,4 +1,5 @@
 #!/usr/bin/env pwsh
+# DevSpark - (c) 2026 Make Bold Solutions. Source: https://dev.makeboldspark.com
 # Quickfix context gathering script
 # Supports rapid bug fixes and small features without full spec overhead
 
@@ -10,7 +11,7 @@ param(
 
 . (Join-Path $PSScriptRoot 'common.ps1')
 
-# Multi-app support (T084)
+# Multi-app support
 if (-not (Get-Command Detect-DevSparkMode -ErrorAction SilentlyContinue)) {
     . "$PSScriptRoot/common.ps1"
 }
@@ -33,37 +34,46 @@ $descriptionText = $description -join " "
 # Get repository context
 $repoRoot = Get-RepoRoot
 $constitutionPath = Join-Path $repoRoot ".knowledge/governance/constitution.md"
-$legacyConstitutionPath = Join-Path $repoRoot ".knowledge/governance/constitution.md"
-if (-not (Test-Path $constitutionPath) -and (Test-Path $legacyConstitutionPath)) {
-    $constitutionPath = $legacyConstitutionPath
-}
 $quickfixDir = Join-Path $repoRoot ".devspark.work/quickfixes"
 $currentBranch = Get-CurrentBranch
 
 # Check constitution exists
 $constitutionExists = Test-Path $constitutionPath
 
-# Calculate next quickfix work-package ID
+# Quickfix branch and record naming flows
+# through the unified allocator + slug normalizer (same ones new-branch.ps1
+# uses), producing NNN-fix-<slug> instead of the legacy QF-YYYY-NNN. The year
+# is retained only as metadata inside the record body. Legacy QF-YYYY-NNN records remain readable via the
+# unified allocator's scan of both formats.
 $year = Get-Date -Format "yyyy"
-$nextNum = 1
+$slugSource = if ($descriptionText) { $descriptionText } else { 'quickfix' }
+$slug = ConvertTo-CleanBranchName -Name $slugSource
+$slugParts = @($slug -split '-' | Where-Object { $_ } | Select-Object -First 4)
+$slug = ($slugParts -join '-')
+if (-not $slug) { $slug = 'quickfix' }
 
-if (Test-Path $quickfixDir) {
-    $existingFiles = Get-ChildItem -Path $quickfixDir -Directory -Filter "qf-$year-*" -ErrorAction SilentlyContinue |
-        Sort-Object Name -Descending |
-        Select-Object -First 1
+$nextNumber = Get-NextUnifiedIndex
+$featureNum = ('{0:000}' -f $nextNumber)
+$branchName = "$featureNum-fix-$slug"
+$nextId = $branchName
 
-    if ($existingFiles) {
-        if ($existingFiles.Name -match "qf-$year-(\d+)") {
-            $currentNum = [int]$matches[1]
-            $nextNum = $currentNum + 1
-        }
+# Detect git availability (needed to create the branch and commit the record)
+$hasGit = [bool](Test-HasGit)
+
+# Detect a push target so the branch can be published for team visibility
+$hasRemote = $false
+if ($hasGit) {
+    try {
+        $remotes = git remote 2>$null
+        $hasRemote = [bool]($remotes | Where-Object { $_ -and $_.Trim() })
+    } catch {
+        $hasRemote = $false
     }
 }
-$nextId = "qf-{0}-{1:D3}" -f $year, $nextNum
 
 # Get git user for attribution
 $gitUser = "unknown"
-if (Test-HasGit) {
+if ($hasGit) {
     try {
         $gitUser = git config user.name 2>$null
         if (-not $gitUser) { $gitUser = "unknown" }
@@ -105,11 +115,11 @@ if ($descriptionText) {
     }
 }
 
-# List existing quickfix work packages
+# List existing quickfixes
 $quickfixes = @()
 if (Test-Path $quickfixDir) {
-    $quickfixes = Get-ChildItem -Path $quickfixDir -Directory -ErrorAction SilentlyContinue |
-        ForEach-Object { $_.Name }
+    $quickfixes = Get-ChildItem -Path $quickfixDir -Filter "*.md" -ErrorAction SilentlyContinue |
+        ForEach-Object { $_.BaseName }
 }
 
 # Output
@@ -118,10 +128,14 @@ if ($Json) {
         REPO_ROOT           = $repoRoot
         CONSTITUTION_PATH   = $constitutionPath
         CONSTITUTION_EXISTS = $constitutionExists
-        WORK_PACKAGE_DIR    = (Join-Path $quickfixDir $nextId)
         QUICKFIX_DIR        = $quickfixDir
         CURRENT_BRANCH      = $currentBranch
         NEXT_ID             = $nextId
+        BRANCH_NAME         = $branchName
+        NUMBER              = $featureNum
+        SLUG                = $slug
+        HAS_GIT             = $hasGit
+        HAS_REMOTE          = $hasRemote
         GIT_USER            = $gitUser
         TIMESTAMP           = $timestamp
         ACTION              = $action
@@ -138,10 +152,12 @@ else {
     Write-Output "================"
     Write-Output "Repository: $repoRoot"
     Write-Output "Constitution: $constitutionPath (exists: $constitutionExists)"
-    Write-Output "Quickfix Work Root: $quickfixDir"
-    Write-Output "Work Package: $(Join-Path $quickfixDir $nextId)"
+    Write-Output "Quickfix Directory: $quickfixDir"
     Write-Output "Current Branch: $currentBranch"
     Write-Output "Next ID: $nextId"
+    Write-Output "Branch Name: $branchName"
+    Write-Output "Number: $featureNum"
+    Write-Output "Slug: $slug"
     Write-Output "Action: $action"
     if ($descriptionText) {
         Write-Output "Description: $descriptionText"

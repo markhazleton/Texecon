@@ -1,0 +1,25 @@
+id: texecon-site
+name: Texecon Site
+kind: knowledge-site
+summary: Texecon is a static-first React and TypeScript site generated at build time and published to GitHub Pages.
+owner: Mark Hazleton
+lifecycle: current
+root: .
+managed_by: mixed
+required_layers:
+  - architecture.md
+relations: []
+evidence:
+  - type: code
+    ref: package.json
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Repository metadata inspection
+  - type: code
+    ref: .github/workflows/deploy.yml
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Deployment workflow inspection
+  - type: doc
+    ref: .knowledge/governance/constitution.md
+    verified_by: inspection

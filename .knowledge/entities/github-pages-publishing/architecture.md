@@ -1,6 +1,17 @@
+---
+id: github-pages-publishing-architecture
+type: entity-layer
+title: GitHub Pages Publishing Architecture
+layer: architecture
+source_of_truth:
+- .github/workflows/deploy.yml
+- vite.config.ts
+last_verified: '2026-10-20'
+---
+
 # GitHub Pages Publishing
 
-GitHub Actions runs the Texecon publishing workflow on `main` pushes, pull requests targeting `main`, and manual dispatches. The build job installs Node.js 20, fetches content, runs quality checks, builds the site, generates static route pages, and validates the required files in `target/`.
+GitHub Actions runs the Texecon publishing workflow on `main` pushes, pull requests targeting `main`, and manual dispatches. The build job installs Node.js 22, fetches content, runs quality checks, builds the site, generates static route pages, and validates the required files in `target/`.
 
 Pull requests validate project-pages paths using `/<repository>/` and `https://<owner>.github.io/<repository>`. Non-PR builds with `CUSTOM_DOMAIN=texecon.com` use `/`, generate `client/public/CNAME`, upload `target/` as the Pages artifact, run Lighthouse, and deploy from `main`.
 

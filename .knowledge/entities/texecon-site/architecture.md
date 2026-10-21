@@ -1,3 +1,15 @@
+---
+id: texecon-site-architecture
+type: entity-layer
+title: Texecon Site Architecture
+layer: architecture
+source_of_truth:
+- package.json
+- .github/workflows/deploy.yml
+- .knowledge/governance/constitution.md
+last_verified: '2026-10-20'
+---
+
 # Texecon Site Architecture
 
 Texecon is a static-first React and TypeScript site. Build scripts fetch WebSpark content, generate navigation and SEO artifacts, Vite bundles the application, and static route pages are emitted into `target/` for GitHub Pages deployment.

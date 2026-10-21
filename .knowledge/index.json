@@ -1,0 +1,1242 @@
+{
+  "generated": {
+    "by": "build-knowledge-index",
+    "at": "2026-10-21T03:16:30Z"
+  },
+  "roots": [
+    {
+      "path": ".devspark/",
+      "owner": "framework",
+      "purpose": "framework payload"
+    },
+    {
+      "path": ".devspark.work/",
+      "owner": "repo",
+      "purpose": "work products"
+    },
+    {
+      "path": ".knowledge/",
+      "owner": "repo",
+      "purpose": "current authoritative knowledge and published user-facing guidance"
+    },
+    {
+      "path": ".archive/",
+      "owner": "repo",
+      "purpose": "landing place for old work products, grouped by release"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "governance-constitution",
+      "type": "governance",
+      "form": "flat-document",
+      "role": "governance",
+      "path": ".knowledge/governance/constitution.md",
+      "title": "Texecon Constitution",
+      "headings": [
+        "Texecon Constitution",
+        "Project Overview",
+        "Technology Stack",
+        "Core Principles",
+        "I. Static Output First (NON-NEGOTIABLE)",
+        "II. API Data Drives Published Routes (NON-NEGOTIABLE)",
+        "III. One Canonical Route Shape Everywhere (NON-NEGOTIABLE)",
+        "IV. Build Pipeline Is Product Logic (MANDATORY)",
+        "V. Type Safety and Explicitness (MANDATORY)",
+        "VI. Fully Crawlable Static HTML (MANDATORY)",
+        "VII. SEO and Metadata Are First-Class Output (MANDATORY)",
+        "VIII. GitHub Pages Compatibility Is A Hard Requirement (MANDATORY)",
+        "IX. Quality Gates Must Reflect Published Reality (MANDATORY)",
+        "X. Generated Assets Must Be Reproducible (MANDATORY)",
+        "Development Workflow",
+        "Current Enforcement Notes",
+        "Governance"
+      ]
+    },
+    {
+      "id": "governance-decisions-README",
+      "type": "governance",
+      "form": "flat-document",
+      "role": "governance",
+      "path": ".knowledge/governance/decisions/README.md",
+      "title": "Decisions",
+      "headings": [
+        "Decisions"
+      ]
+    },
+    {
+      "id": "static-site-generation",
+      "type": "governance-decision",
+      "form": "governance-decision",
+      "role": "governance",
+      "path": ".knowledge/governance/decisions/static-site-generation.md",
+      "title": "Static-Site Generation via Vite + GitHub Pages",
+      "headings": [
+        "Static-Site Generation via Vite + GitHub Pages",
+        "Status",
+        "Context",
+        "Decision",
+        "Consequences",
+        "Positive",
+        "Negative",
+        "Source"
+      ]
+    },
+    {
+      "id": "tailwind-css-first-configuration",
+      "type": "governance-decision",
+      "form": "governance-decision",
+      "role": "governance",
+      "path": ".knowledge/governance/decisions/tailwind-css-first-configuration.md",
+      "title": "Tailwind CSS v4 CSS-First Configuration",
+      "headings": [
+        "Tailwind CSS v4 CSS-First Configuration",
+        "Status",
+        "Context",
+        "Decision",
+        "Consequences",
+        "Positive",
+        "Negative",
+        "Source"
+      ]
+    },
+    {
+      "id": "trailing-slash-canonical-url",
+      "type": "governance-decision",
+      "form": "governance-decision",
+      "role": "governance",
+      "path": ".knowledge/governance/decisions/trailing-slash-canonical-url.md",
+      "title": "Trailing-Slash Canonical URL Policy",
+      "headings": [
+        "Trailing-Slash Canonical URL Policy",
+        "Status",
+        "Context",
+        "Decision",
+        "Consequences",
+        "Positive",
+        "Negative",
+        "Source"
+      ]
+    },
+    {
+      "id": "guides-DEVELOPER_GUIDE",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/guides/DEVELOPER_GUIDE.md",
+      "title": "TexEcon Developer Guide",
+      "headings": [
+        "TexEcon Developer Guide",
+        "Table of Contents",
+        "Quick Start",
+        "Prerequisites",
+        "Initial Setup",
+        "Development Workflow",
+        "Available Scripts",
+        "Pre-commit Hooks",
+        "Testing",
+        "Running Tests",
+        "Writing Tests",
+        "Coverage Targets",
+        "Test Files Location",
+        "Code Quality",
+        "ESLint",
+        "Prettier",
+        "Type Safety",
+        "Build Process",
+        "Build Pipeline",
+        "Build Scripts",
+        "Environment Variables",
+        "Build Output",
+        "Performance Budgets",
+        "Deployment",
+        "GitHub Actions Pipeline",
+        "Deployment Checklist",
+        "Manual Deployment",
+        "Deployment Status",
+        "Troubleshooting",
+        "Common Issues",
+        "\"Module not found\" errors",
+        "Type errors after pulling changes",
+        "Tests failing",
+        "Linting errors",
+        "Build fails",
+        "Pre-commit checks",
+        "Debug Mode",
+        "Getting Help",
+        "Project Structure",
+        "Best Practices",
+        "Component Development",
+        "Accessibility",
+        "Performance",
+        "SEO",
+        "Additional Resources"
+      ]
+    },
+    {
+      "id": "guides-QUICK_START",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/guides/QUICK_START.md",
+      "title": "TexEcon Quick Start Guide",
+      "headings": [
+        "TexEcon Quick Start Guide",
+        "Prerequisites",
+        "Installation",
+        "Development",
+        "Essential Commands",
+        "Testing",
+        "Quality Checks",
+        "Building",
+        "Git Workflow",
+        "Committing Code",
+        "Before Pushing",
+        "Project Structure",
+        "Common Tasks",
+        "Add a New Component",
+        "Add a New Route",
+        "Update Dependencies",
+        "Troubleshooting",
+        "\"Module not found\"",
+        "Tests failing",
+        "Linting errors",
+        "Build fails",
+        "Pre-commit checks",
+        "CI/CD Pipeline",
+        "Performance Budgets",
+        "Getting Help",
+        "Next Steps",
+        "Live Site"
+      ]
+    },
+    {
+      "id": "guides-documentation-guide",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/guides/documentation-guide.md",
+      "title": "Documentation Guide",
+      "headings": [
+        "Documentation Guide",
+        "Directory map",
+        "Key files",
+        "How to use",
+        "Constitution location",
+        "Archive policy",
+        "DevSpark 9.2 commands"
+      ]
+    },
+    {
+      "id": "guides-github-pages-deployment",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/guides/github-pages-deployment.md",
+      "title": "GitHub Pages Deployment Guide",
+      "headings": [
+        "GitHub Pages Deployment Guide",
+        "🚀 Complete Site Review & GitHub Pages Optimization",
+        "✅ Current Status: READY FOR DEPLOYMENT",
+        "🔧 Fixes Applied",
+        "1. SPA Routing Configuration",
+        "2. Production Optimizations",
+        "3. SEO & Performance",
+        "📋 Deployment Checklist",
+        "GitHub Repository Setup",
+        "Domain Configuration",
+        "Option A: Custom Domain (texecon.com)",
+        "Option B: GitHub Pages Subdirectory",
+        "🏗️ Build Process",
+        "Current Build Pipeline",
+        "Build Command",
+        "Build Outputs",
+        "🎯 Technical Stack Advantages",
+        "Modern React Setup",
+        "Performance Features",
+        "SEO Optimization",
+        "🔍 Quality Metrics",
+        "Build Performance",
+        "SEO Score",
+        "🚨 Important Notes",
+        "Content Management",
+        "Routing Considerations",
+        "Environment Variables",
+        "🔗 Links and Resources",
+        "Repository Structure",
+        "Key Files",
+        "✨ Next Steps"
+      ]
+    },
+    {
+      "id": "guides-observability",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/guides/observability.md",
+      "title": "Runtime Observability",
+      "headings": [
+        "Runtime Observability",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "jared-hazleton-Anthropic-Claude-JaredEarlHazletonResearch",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/Anthropic-Claude-JaredEarlHazletonResearch.md",
+      "title": "Jared Earl Hazleton (1937–2026): Comprehensive Research Profile",
+      "headings": [
+        "Jared Earl Hazleton (1937–2026): Comprehensive Research Profile",
+        "TL;DR",
+        "Key Findings",
+        "Details",
+        "Biography",
+        "Education",
+        "Career timeline",
+        "Publications",
+        "Media, testimony, and public appearances",
+        "Affiliations, honors, and memberships",
+        "The texecon.com website",
+        "Complete list of URLs referencing Jared Earl Hazleton",
+        "Recommendations",
+        "Caveats",
+        "Consolidated Genealogical Report: The Ancestry of Jared Earl Hazleton (1937–2026)",
+        "(a) Hazleton paternal line",
+        "(b) Larson (Swedish) line",
+        "(c) Smith maternal line — album-caption testimony, not yet corroborated by record",
+        "(d) Goode line — album-caption testimony",
+        "The Elizabeth Goode question (Part C)",
+        "Jared's own record and career",
+        "Verification Table (album-caption claims)",
+        "Descendants (present-day family)",
+        "Corrections Log (where this report supersedes earlier ones)",
+        "Recommendations / Gaps and Next Steps (ordered by likely payoff)",
+        "Standards note"
+      ]
+    },
+    {
+      "id": "jared-hazleton-ChatGPT-JaredHazletonGeneology",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/ChatGPT-JaredHazletonGeneology.md",
+      "title": "The Family of Dr. Jared Earl Hazleton",
+      "headings": [
+        "The Family of Dr. Jared Earl Hazleton",
+        "A Documented Family History",
+        "September 12, 1937 – September 3, 2026",
+        "Introduction",
+        "The family at a glance",
+        "Generation One of the documented Hazleton line",
+        "Alfred Larson Hazleton and Myrtle Frances Smith Hazleton",
+        "Alfred and Myrtle in Oklahoma City",
+        "The Smith family",
+        "O.E. Smith Sr. and Besse M. Goode Smith",
+        "The Smith family business",
+        "Thanksgiving with the Smith and Hazleton families",
+        "O.E. Smith Sr.'s siblings",
+        "Mills Smith",
+        "Kirby Smith",
+        "The \"infamous Smith Brothers\"",
+        "Benjamin Tillman Smith and Sarah Frances \"Frankie\" Byrnes Smith",
+        "The Goode family",
+        "Besse M. Goode Smith",
+        "John and Susan A. Goode",
+        "Susan A. Goode's maiden name",
+        "W.H. Goode",
+        "Besse's sisters",
+        "Lola Goode Livingston",
+        "Gladys",
+        "Elizabeth Goode: an unresolved relationship",
+        "The pioneer cemetery near Edmond",
+        "Jared Earl Hazleton",
+        "Birth and childhood",
+        "The University of Oklahoma",
+        "Jared meets Elaine Upton",
+        "The Upton family",
+        "Jared and Elaine's marriage",
+        "Naval service and young married life",
+        "Rice University",
+        "Jared and Elaine in Massachusetts",
+        "The children of Jared and Elaine",
+        "The grandchildren",
+        "Susan Hazleton Swingen",
+        "Jared and Jackie Smith Devore",
+        "Texas: the family returns south",
+        "The Hazleton family in Jordan",
+        "The University of Washington",
+        "Return to Texas",
+        "Jared and Elaine: the central family story",
+        "The Smith photographs and the importance of family memory",
+        "Name variations that matter",
+        "Hazleton / Hazelton",
+        "Frances / Francis",
+        "Besse / Bessie",
+        "Susan A.",
+        "A working multi-generational family tree",
+        "The currently documented ancestral depth",
+        "Smith branch",
+        "Goode branch",
+        "Alfred Larson Hazleton: the major unresolved branch",
+        "Records most likely to extend the genealogy",
+        "Alfred and Myrtle Hazleton",
+        "O.E. and Besse Smith",
+        "Benjamin Tillman and Sarah Frances Smith",
+        "John and Susan Goode",
+        "Jared and Elaine",
+        "A family story across generations",
+        "The importance of Elaine",
+        "What the family photographs contribute",
+        "Questions still unanswered",
+        "Who were Alfred Larson Hazleton's parents?",
+        "What was Alfred's birth date and birthplace?",
+        "What was Myrtle's exact legal middle name?",
+        "What do O.E. Smith's initials stand for?",
+        "What does W.H. Goode stand for?",
+        "Was Susan A. Goode born Eperson?",
+        "Are the Waterloo Cemetery John and Susan definitely Besse's grandparents?",
+        "Who was Elizabeth Goode?",
+        "Who were all of Besse's siblings?",
+        "Was Mills R. Smith of Blackwell the Mills Smith in the family photographs?",
+        "What was the exact Jared–Elaine wedding date?",
+        "What was the exact wedding depicted in photographs 026–027?",
+        "Current conclusions",
+        "The family legacy",
+        "Research status as of September 14, 2026",
+        "The next major objective"
+      ]
+    },
+    {
+      "id": "jared-hazleton-ChatGPT-Research-JaredHazleton",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/ChatGPT-Research-JaredHazleton.md",
+      "title": "Jared Earl Hazleton: Education and Professional Milestone Validation Report",
+      "headings": [
+        "Jared Earl Hazleton: Education and Professional Milestone Validation Report",
+        "Executive summary",
+        "Education and military record",
+        "Birth and death",
+        "University of Oklahoma degree",
+        "Rice doctorate and dissertation",
+        "John W. Gardner Award",
+        "ROTC and Navy service",
+        "Professional chronology",
+        "Federal Reserve Bank of Boston and fisheries economics",
+        "University of Texas at Austin and the LBJ School",
+        "University of Washington",
+        "Texas Research League and Mesa Petroleum",
+        "Texas A&M University",
+        "University of North Texas",
+        "TexEcon",
+        "Public-policy roles and publications",
+        "Advice to Bob Bullock and the Texas House",
+        "Fisheries economics publication",
+        "*The Economics of the Sulphur Industry*",
+        "Consolidated timeline and source assessment",
+        "Methods, unresolved items, and recommended archival actions",
+        "Research method and databases",
+        "Highest-value primary documents located",
+        "Items that remain unconfirmed at primary-record level",
+        "Recommended corrections to the memorial biography"
+      ]
+    },
+    {
+      "id": "jared-hazleton-ChatGPT-Research-Web",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/ChatGPT-Research-Web.md",
+      "title": "Jared Earl Hazleton",
+      "headings": [
+        "Jared Earl Hazleton",
+        "Economist, Educator, Public-Policy Scholar, Business Leader, and Institutional Builder",
+        "A researched biographical profile, 1937–2026",
+        "Research note",
+        "A life spent moving between ideas and their consequences",
+        "Early life and the University of Oklahoma",
+        "Naval service",
+        "Rice University and the beginnings of an economist",
+        "The unresolved Ph.D. date",
+        "Federal Reserve Bank of Boston, 1964–1968",
+        "The University of Texas at Austin, 1968–1980",
+        "Natural resources, environment, and public policy",
+        "The Ford Foundation and the Middle East, 1973–1975",
+        "The LBJ School and public-affairs leadership",
+        "Dean at the University of Washington, 1980–1982",
+        "President of the Texas Research League, 1982–1987",
+        "*Managing Macroeconomic Policy: The Johnson Presidency*",
+        "Mesa Petroleum, 1987–1989",
+        "Texas A&M University, 1989–1999",
+        "Education policy and year-round schooling",
+        "NAFTA, energy, and regional economics",
+        "Adviser on Texas tax policy",
+        "Dean of Business at the University of North Texas, 1999–2004",
+        "Professor after the deanship",
+        "TexEcon and later economic work",
+        "Climate change and the Texas economy",
+        "The shape of his scholarship",
+        "Civic leadership and service",
+        "Family and personal life",
+        "Final years and death",
+        "Reconstructed professional chronology",
+        "Corrections I would make to the current TexEcon biography",
+        "Assessment of his professional legacy"
+      ]
+    },
+    {
+      "id": "jared-hazleton-For-Dad-Memorial-Speech",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/For-Dad-Memorial-Speech.md",
+      "title": "For Dad",
+      "headings": [
+        "For Dad",
+        "Remarks for the Celebration of Life — September 19, 2026"
+      ]
+    },
+    {
+      "id": "jared-hazleton-README",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/README.md",
+      "title": "Jared Hazleton biography and supporting documents",
+      "headings": [
+        "Jared Hazleton biography and supporting documents",
+        "Available collections",
+        "Adding materials",
+        "Relationship to website content",
+        "Evidence and verification"
+      ]
+    },
+    {
+      "id": "jared-hazleton-Smith-Hazleton-Family-Summary",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/Smith-Hazleton-Family-Summary.md",
+      "title": "What we have learned about the Smith and Hazleton family",
+      "headings": [
+        "What we have learned about the Smith and Hazleton family",
+        "The most significant new finding",
+        "The family outline",
+        "The Smith family: relatives, businesses, and gatherings",
+        "The Goode family and earlier generations",
+        "Jared and Elaine's family story",
+        "Questions and contradictions to resolve",
+        "Materials behind this summary"
+      ]
+    },
+    {
+      "id": "jared-hazleton-genealogy-README",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/genealogy/README.md",
+      "title": "Family research workspace",
+      "headings": [
+        "Family research workspace",
+        "Evidence conventions",
+        "Next work in order"
+      ]
+    },
+    {
+      "id": "jared-hazleton-genealogy-family-groups",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/genealogy/family-groups.md",
+      "title": "Working family groups",
+      "headings": [
+        "Working family groups",
+        "Alfred and Myrtle Hazleton",
+        "O.E. and Besse Smith",
+        "The Goode and Livingston connections",
+        "Jared and Elaine, and collateral relatives"
+      ]
+    },
+    {
+      "id": "jared-hazleton-genealogy-gravestone-review",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/genealogy/gravestone-review.md",
+      "title": "Gravestone evidence review",
+      "headings": [
+        "Gravestone evidence review",
+        "Photo 035 — John and Susan A. Goode",
+        "Photo 024 — child's marker",
+        "Photo 023 — woman beside a grave",
+        "Additional cemetery evidence"
+      ]
+    },
+    {
+      "id": "jared-hazleton-genealogy-photo-document-transcriptions",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/genealogy/photo-document-transcriptions.md",
+      "title": "Newly read documents and image clues",
+      "headings": [
+        "Newly read documents and image clues",
+        "Photo 032 — James Louis Allan funeral notice",
+        "Photo 036 — Stanley Lee Haggard marker",
+        "Photo 006 — business name",
+        "Photo 034 — unidentified pair"
+      ]
+    },
+    {
+      "id": "jared-hazleton-genealogy-public-records-findings",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/genealogy/public-records-findings.md",
+      "title": "Public-record research findings — September 14, 2026",
+      "headings": [
+        "Public-record research findings — September 14, 2026",
+        "Oklahoma Historical Society marriage index",
+        "New obituary lead: Myrtle Hazelton",
+        "Census and newspaper access outcomes",
+        "What this changes"
+      ]
+    },
+    {
+      "id": "jared-hazleton-genealogy-research-log",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/genealogy/research-log.md",
+      "title": "Research log",
+      "headings": [
+        "Research log",
+        "September 14, 2026 — Python public-record searches",
+        "September 14, 2026 — second pass: uncaptioned documents",
+        "September 14, 2026 — records and cemetery follow-up",
+        "Sources examined",
+        "Searches performed",
+        "Follow-up record targets"
+      ]
+    },
+    {
+      "id": "jared-hazleton-photomyne-smith-history-README",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/photomyne-smith-history/README.md",
+      "title": "Smith History Photos — Photomyne archive",
+      "headings": [
+        "Smith History Photos — Photomyne archive",
+        "Open the collection",
+        "Family-history leads",
+        "Refresh and verification"
+      ]
+    },
+    {
+      "id": "jared-hazleton-photomyne-smith-history-catalog",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/jared-hazleton/photomyne-smith-history/catalog.md",
+      "title": "Smith History Photos — caption catalog",
+      "headings": [
+        "Smith History Photos — caption catalog",
+        "Photo 001",
+        "Photo 002",
+        "Photo 003",
+        "Photo 004",
+        "Photo 005",
+        "Photo 006",
+        "Photo 007",
+        "Photo 008",
+        "Photo 009",
+        "Photo 010",
+        "Photo 011",
+        "Photo 012",
+        "Photo 013",
+        "Photo 014",
+        "Photo 015",
+        "Photo 016",
+        "Photo 017",
+        "Photo 018",
+        "Photo 019",
+        "Photo 020",
+        "Photo 021",
+        "Photo 022",
+        "Photo 023",
+        "Photo 024",
+        "Photo 025",
+        "Photo 026",
+        "Photo 027",
+        "Photo 028",
+        "Photo 029",
+        "Photo 030",
+        "Photo 031",
+        "Photo 032",
+        "Photo 033",
+        "Photo 034",
+        "Photo 035",
+        "Photo 036",
+        "Photo 037",
+        "Photo 038",
+        "Photo 039"
+      ]
+    },
+    {
+      "id": "npm-upgrade-plan-2026-09-12",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/npm-upgrade-plan-2026-09-12.md",
+      "title": "npm package review and upgrade plan",
+      "headings": [
+        "npm package review and upgrade plan",
+        "Findings",
+        "Complete direct-package inventory",
+        "Implementation sequence",
+        "Phase 1: establish a compatible runtime and clean baseline",
+        "Phase 2: React and matching types",
+        "Phase 3: compatible toolchain and UI updates",
+        "Phase 4: Vitest 5 migration",
+        "Phase 5: jsdom 30",
+        "Phase 6: defer TypeScript 7 until supported",
+        "Validation and acceptance",
+        "Checks actually run for this review"
+      ]
+    },
+    {
+      "id": "ontology-schema",
+      "type": "authoritative-reference",
+      "form": "flat-document",
+      "role": "authoritative-reference",
+      "path": ".knowledge/ontology/schema.md",
+      "title": "DevSpark 9.2 Knowledge Layout",
+      "headings": [
+        "DevSpark 9.2 Knowledge Layout",
+        "Entities and layers",
+        "Governance",
+        "Generated output"
+      ]
+    },
+    {
+      "id": "github-pages-publishing-architecture",
+      "entity": "github-pages-publishing",
+      "layer": "architecture",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "architecture",
+      "path": ".knowledge/entities/github-pages-publishing/architecture.md",
+      "title": "GitHub Pages Publishing Architecture",
+      "source_of_truth": [
+        ".github/workflows/deploy.yml",
+        "vite.config.ts"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "GitHub Pages Publishing",
+        "Required artifact contract",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "github-pages-publishing-business",
+      "entity": "github-pages-publishing",
+      "layer": "business",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "business",
+      "path": ".knowledge/entities/github-pages-publishing/business.md",
+      "title": "Github Pages Publishing Business",
+      "source_of_truth": [
+        ".github/workflows/deploy.yml",
+        ".knowledge/governance/constitution.md"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Github Pages Publishing Business"
+      ]
+    },
+    {
+      "id": "github-pages-publishing-integration",
+      "entity": "github-pages-publishing",
+      "layer": "integration",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "integration",
+      "path": ".knowledge/entities/github-pages-publishing/integration.md",
+      "title": "Github Pages Publishing Integration",
+      "source_of_truth": [
+        ".github/workflows/deploy.yml",
+        "vite.config.ts"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Github Pages Publishing Integration"
+      ]
+    },
+    {
+      "id": "github-pages-publishing-operations",
+      "entity": "github-pages-publishing",
+      "layer": "operations",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "operations",
+      "path": ".knowledge/entities/github-pages-publishing/operations.md",
+      "title": "Github Pages Publishing Operations",
+      "source_of_truth": [
+        ".github/workflows/deploy.yml",
+        "package.json"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Github Pages Publishing Operations"
+      ]
+    },
+    {
+      "id": "memorial-site-architecture",
+      "entity": "memorial-site",
+      "layer": "architecture",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "architecture",
+      "path": ".knowledge/entities/memorial-site/architecture.md",
+      "title": "TexEcon Memorial Site Architecture",
+      "source_of_truth": [
+        "client/src/App.tsx",
+        "client/src/memorial/MemorialHome.tsx"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "TexEcon Memorial Site",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "memorial-site-business",
+      "entity": "memorial-site",
+      "layer": "business",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "business",
+      "path": ".knowledge/entities/memorial-site/business.md",
+      "title": "Memorial Site Business",
+      "source_of_truth": [
+        "client/src/memorial/MemorialHome.tsx",
+        "client/src/memorial/PhotoGalleryPage.tsx"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Memorial Site Business"
+      ]
+    },
+    {
+      "id": "memorial-site-integration",
+      "entity": "memorial-site",
+      "layer": "integration",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "integration",
+      "path": ".knowledge/entities/memorial-site/integration.md",
+      "title": "Memorial Site Integration",
+      "source_of_truth": [
+        "client/src/App.tsx",
+        "client/src/memorial/MemorialHome.tsx",
+        "client/src/memorial/components/layout/Navbar.tsx"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Memorial Site Integration"
+      ]
+    },
+    {
+      "id": "memorial-site-operations",
+      "entity": "memorial-site",
+      "layer": "operations",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "operations",
+      "path": ".knowledge/entities/memorial-site/operations.md",
+      "title": "Memorial Site Operations",
+      "source_of_truth": [
+        "package.json",
+        "client/src/memorial/MemorialHome.tsx",
+        "scripts/generate-static-pages.js"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Memorial Site Operations"
+      ]
+    },
+    {
+      "id": "texecon-site-architecture",
+      "entity": "texecon-site",
+      "layer": "architecture",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "architecture",
+      "path": ".knowledge/entities/texecon-site/architecture.md",
+      "title": "Texecon Site Architecture",
+      "source_of_truth": [
+        "package.json",
+        ".github/workflows/deploy.yml",
+        ".knowledge/governance/constitution.md"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Texecon Site Architecture",
+        "Owned paths",
+        "Current validation",
+        "Publishing boundaries",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "texecon-site-business",
+      "entity": "texecon-site",
+      "layer": "business",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "business",
+      "path": ".knowledge/entities/texecon-site/business.md",
+      "title": "Texecon Site Business",
+      "source_of_truth": [
+        ".knowledge/governance/constitution.md",
+        "client/src/App.tsx"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Texecon Site Business"
+      ]
+    },
+    {
+      "id": "texecon-site-integration",
+      "entity": "texecon-site",
+      "layer": "integration",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "integration",
+      "path": ".knowledge/entities/texecon-site/integration.md",
+      "title": "Texecon Site Integration",
+      "source_of_truth": [
+        "client/src/App.tsx",
+        "vite.config.ts",
+        "scripts/generate-static-pages.js"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Texecon Site Integration"
+      ]
+    },
+    {
+      "id": "texecon-site-operations",
+      "entity": "texecon-site",
+      "layer": "operations",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "operations",
+      "path": ".knowledge/entities/texecon-site/operations.md",
+      "title": "Texecon Site Operations",
+      "source_of_truth": [
+        "package.json",
+        ".github/workflows/deploy.yml",
+        "AGENTS.md"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Texecon Site Operations"
+      ]
+    },
+    {
+      "id": "webspark-content-pipeline-architecture",
+      "entity": "webspark-content-pipeline",
+      "layer": "architecture",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "architecture",
+      "path": ".knowledge/entities/webspark-content-pipeline/architecture.md",
+      "title": "WebSpark Content Pipeline Architecture",
+      "source_of_truth": [
+        "scripts/fetch-content.js",
+        "scripts/refresh-content.js",
+        "client/src/lib/data.ts"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "WebSpark Content Pipeline",
+        "Boundaries",
+        "Security boundary",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "webspark-content-pipeline-business",
+      "entity": "webspark-content-pipeline",
+      "layer": "business",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "business",
+      "path": ".knowledge/entities/webspark-content-pipeline/business.md",
+      "title": "Webspark Content Pipeline Business",
+      "source_of_truth": [
+        "scripts/fetch-content.js",
+        "scripts/generate-sitemap.js"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Webspark Content Pipeline Business"
+      ]
+    },
+    {
+      "id": "webspark-content-pipeline-integration",
+      "entity": "webspark-content-pipeline",
+      "layer": "integration",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "integration",
+      "path": ".knowledge/entities/webspark-content-pipeline/integration.md",
+      "title": "Webspark Content Pipeline Integration",
+      "source_of_truth": [
+        "scripts/fetch-content.js",
+        "scripts/refresh-content.js",
+        "client/src/lib/data.ts",
+        "client/src/lib/api-client.ts"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Webspark Content Pipeline Integration"
+      ]
+    },
+    {
+      "id": "webspark-content-pipeline-operations",
+      "entity": "webspark-content-pipeline",
+      "layer": "operations",
+      "type": "entity-layer",
+      "form": "entity-layer",
+      "role": "operations",
+      "path": ".knowledge/entities/webspark-content-pipeline/operations.md",
+      "title": "Webspark Content Pipeline Operations",
+      "source_of_truth": [
+        "package.json",
+        "scripts/fetch-content.js",
+        "scripts/generate-sitemap.js",
+        "scripts/generate-static-pages.js"
+      ],
+      "last_verified": "2026-10-20",
+      "headings": [
+        "Webspark Content Pipeline Operations"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "github-pages-publishing",
+      "to": "github-pages-publishing-architecture",
+      "rel": "has-layer"
+    },
+    {
+      "from": "github-pages-publishing",
+      "to": "github-pages-publishing-business",
+      "rel": "has-layer"
+    },
+    {
+      "from": "github-pages-publishing",
+      "to": "github-pages-publishing-integration",
+      "rel": "has-layer"
+    },
+    {
+      "from": "github-pages-publishing",
+      "to": "github-pages-publishing-operations",
+      "rel": "has-layer"
+    },
+    {
+      "from": "github-pages-publishing",
+      "to": "texecon-site",
+      "rel": "supports"
+    },
+    {
+      "from": "github-pages-publishing",
+      "to": "webspark-content-pipeline",
+      "rel": "uses"
+    },
+    {
+      "from": "memorial-site",
+      "to": "memorial-site-architecture",
+      "rel": "has-layer"
+    },
+    {
+      "from": "memorial-site",
+      "to": "memorial-site-business",
+      "rel": "has-layer"
+    },
+    {
+      "from": "memorial-site",
+      "to": "memorial-site-integration",
+      "rel": "has-layer"
+    },
+    {
+      "from": "memorial-site",
+      "to": "memorial-site-operations",
+      "rel": "has-layer"
+    },
+    {
+      "from": "memorial-site",
+      "to": "texecon-site",
+      "rel": "supports"
+    },
+    {
+      "from": "static-site-generation",
+      "to": "texecon-site",
+      "rel": "constrains"
+    },
+    {
+      "from": "tailwind-css-first-configuration",
+      "to": "texecon-site",
+      "rel": "constrains"
+    },
+    {
+      "from": "texecon-site",
+      "to": "texecon-site-architecture",
+      "rel": "has-layer"
+    },
+    {
+      "from": "texecon-site",
+      "to": "texecon-site-business",
+      "rel": "has-layer"
+    },
+    {
+      "from": "texecon-site",
+      "to": "texecon-site-integration",
+      "rel": "has-layer"
+    },
+    {
+      "from": "texecon-site",
+      "to": "texecon-site-operations",
+      "rel": "has-layer"
+    },
+    {
+      "from": "trailing-slash-canonical-url",
+      "to": "texecon-site",
+      "rel": "constrains"
+    },
+    {
+      "from": "webspark-content-pipeline",
+      "to": "texecon-site",
+      "rel": "supports"
+    },
+    {
+      "from": "webspark-content-pipeline",
+      "to": "webspark-content-pipeline-architecture",
+      "rel": "has-layer"
+    },
+    {
+      "from": "webspark-content-pipeline",
+      "to": "webspark-content-pipeline-business",
+      "rel": "has-layer"
+    },
+    {
+      "from": "webspark-content-pipeline",
+      "to": "webspark-content-pipeline-integration",
+      "rel": "has-layer"
+    },
+    {
+      "from": "webspark-content-pipeline",
+      "to": "webspark-content-pipeline-operations",
+      "rel": "has-layer"
+    }
+  ],
+  "dangling_references": [],
+  "entities": [
+    {
+      "id": "github-pages-publishing",
+      "type": "tooling",
+      "owner": "Mark Hazleton",
+      "path": ".knowledge/entities/github-pages-publishing",
+      "relations": [
+        {
+          "predicate": "supports",
+          "object": "texecon-site"
+        },
+        {
+          "predicate": "uses",
+          "object": "webspark-content-pipeline"
+        }
+      ],
+      "layers": [
+        "architecture",
+        "business",
+        "integration",
+        "operations"
+      ],
+      "missing_layers": [],
+      "coverage_overrides": [],
+      "constrained_by": []
+    },
+    {
+      "id": "memorial-site",
+      "type": "subsystem",
+      "owner": "Mark Hazleton",
+      "path": ".knowledge/entities/memorial-site",
+      "relations": [
+        {
+          "predicate": "supports",
+          "object": "texecon-site"
+        }
+      ],
+      "layers": [
+        "architecture",
+        "business",
+        "integration",
+        "operations"
+      ],
+      "missing_layers": [],
+      "coverage_overrides": [],
+      "constrained_by": []
+    },
+    {
+      "id": "texecon-site",
+      "type": "subsystem",
+      "owner": "Mark Hazleton",
+      "path": ".knowledge/entities/texecon-site",
+      "relations": [],
+      "layers": [
+        "architecture",
+        "business",
+        "integration",
+        "operations"
+      ],
+      "missing_layers": [],
+      "coverage_overrides": [],
+      "constrained_by": [
+        "static-site-generation",
+        "trailing-slash-canonical-url",
+        "tailwind-css-first-configuration"
+      ]
+    },
+    {
+      "id": "webspark-content-pipeline",
+      "type": "integration",
+      "owner": "Mark Hazleton",
+      "path": ".knowledge/entities/webspark-content-pipeline",
+      "relations": [
+        {
+          "predicate": "supports",
+          "object": "texecon-site"
+        }
+      ],
+      "layers": [
+        "architecture",
+        "business",
+        "integration",
+        "operations"
+      ],
+      "missing_layers": [],
+      "coverage_overrides": [],
+      "constrained_by": []
+    }
+  ],
+  "stale_entities": []
+}

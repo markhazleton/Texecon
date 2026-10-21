@@ -53,4 +53,4 @@ scripts/**/.venv/
 .image-dedupe/
 
 # DevSpark — personal overrides (never commit)
-.documentation/*/commands/
+.devspark.work/*/commands/

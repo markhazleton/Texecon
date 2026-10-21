@@ -1,0 +1,24 @@
+id: memorial-site
+name: TexEcon Memorial Site
+kind: knowledge-site
+summary: The root route serves a static memorial experience for Dr. Jared Earl Hazleton with dedicated sections, assets, and SEO metadata.
+owner: Mark Hazleton
+lifecycle: current
+root: client/src/memorial
+managed_by: mixed
+required_layers:
+  - architecture.md
+relations:
+  - type: supports
+    object: texecon-site
+evidence:
+  - type: code
+    ref: client/src/App.tsx
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Route and application inspection
+  - type: code
+    ref: client/src/memorial/MemorialHome.tsx
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Memorial page inspection

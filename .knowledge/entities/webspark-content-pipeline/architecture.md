@@ -1,3 +1,15 @@
+---
+id: webspark-content-pipeline-architecture
+type: entity-layer
+title: WebSpark Content Pipeline Architecture
+layer: architecture
+source_of_truth:
+- scripts/fetch-content.js
+- scripts/refresh-content.js
+- client/src/lib/data.ts
+last_verified: '2026-10-20'
+---
+
 # WebSpark Content Pipeline
 
 The WebSpark CMS integration has two paths. The build-time pipeline fetches the Texecon website payload, writes raw and processed JSON plus generated TypeScript content types under `client/src/data/`, and supplies those cached files to the application and publishing scripts. The application also contains a runtime API client for cache-backed access and fallback behavior.
