@@ -65,7 +65,7 @@ export default function Navbar() {
         </button>
 
         <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
-          {navItems.map((item) => (
+          {navItems.map((item) =>
             isGalleryPage ? (
               <a
                 key={item.id}
@@ -85,7 +85,7 @@ export default function Navbar() {
                 <span className="absolute -bottom-2 left-1/2 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0" />
               </button>
             )
-          ))}
+          )}
           <a
             href={`${import.meta.env.BASE_URL}jared-hazleton/gallery/`}
             className="text-xs xl:text-sm font-sans uppercase tracking-[0.12em] text-primary hover:text-secondary whitespace-nowrap"
@@ -127,7 +127,7 @@ export default function Navbar() {
         aria-hidden={!menuOpen}
       >
         <div className="px-5 sm:px-6 py-3">
-          {navItems.map((item) => (
+          {navItems.map((item) =>
             isGalleryPage ? (
               <a
                 key={item.id}
@@ -152,7 +152,7 @@ export default function Navbar() {
                 </span>
               </button>
             )
-          ))}
+          )}
           <a
             href={`${import.meta.env.BASE_URL}jared-hazleton/gallery/`}
             onClick={() => setMenuOpen(false)}

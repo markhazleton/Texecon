@@ -247,7 +247,7 @@ function createTypesFile(dir, apiData) {
 export interface CachedContent {
   metadata: {
     title: string;
-    description: string; 
+    description: string;
     lastUpdated: string;
     sourcePages: number;
   };
@@ -278,12 +278,15 @@ export interface CachedContent {
     image: string;
     slug: string;
   }>;
-  economicMetrics: Record<string, {
-    value: number;
-    unit: string;
-    change: string;
-    label: string;
-  }>;
+  economicMetrics: Record<
+    string,
+    {
+      value: number;
+      unit: string;
+      change: string;
+      label: string;
+    }
+  >;
   pages: {
     home: any;
     about: any;
