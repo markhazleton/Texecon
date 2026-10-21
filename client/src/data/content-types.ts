@@ -1,4 +1,30 @@
 // Auto-generated types from WebSpark API
+export interface WebSparkPage {
+  id: number;
+  title: string;
+  description: string;
+  keywords: string;
+  url: string;
+  argument: string | null;
+  action: string;
+  controller: string;
+  virtual_path: string;
+  icon: string;
+  order: number;
+  content: string;
+  display_navigation: boolean;
+  isHomePage: boolean;
+  parent: string;
+  parent_page: number | null;
+  parent_title: string;
+  domain_id: number;
+  domain_name: string | null;
+  domain_url: string | null;
+  api_url: string | null;
+  modified: string | null;
+  modified_w3c: string;
+}
+
 export interface CachedContent {
   metadata: {
     title: string;
@@ -43,9 +69,9 @@ export interface CachedContent {
     }
   >;
   pages: {
-    home: any;
-    about: any;
-    analysis: any[];
-    all: any[];
+    home: WebSparkPage;
+    about?: WebSparkPage;
+    analysis: WebSparkPage[];
+    all: WebSparkPage[];
   };
 }
