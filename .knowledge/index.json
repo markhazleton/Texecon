@@ -1,7 +1,7 @@
 {
   "generated": {
     "by": "build-knowledge-index",
-    "at": "2026-10-21T13:22:38Z"
+    "at": "2026-10-21T18:50:50Z"
   },
   "roots": [
     {
@@ -731,7 +731,7 @@
         ".github/workflows/deploy.yml",
         "vite.config.ts"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "GitHub Pages Publishing",
         "Required artifact contract",
@@ -751,7 +751,7 @@
         ".github/workflows/deploy.yml",
         ".knowledge/governance/constitution.md"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Github Pages Publishing Business"
       ]
@@ -769,7 +769,7 @@
         ".github/workflows/deploy.yml",
         "vite.config.ts"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Github Pages Publishing Integration"
       ]
@@ -862,7 +862,7 @@
         "client/src/memorial/MemorialHome.tsx",
         "scripts/generate-static-pages.js"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Memorial Site Operations"
       ]
@@ -881,7 +881,7 @@
         ".github/workflows/deploy.yml",
         ".knowledge/governance/constitution.md"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Texecon Site Architecture",
         "Owned paths",
@@ -903,7 +903,7 @@
         ".knowledge/governance/constitution.md",
         "client/src/App.tsx"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Texecon Site Business"
       ]
@@ -922,7 +922,7 @@
         "vite.config.ts",
         "scripts/generate-static-pages.js"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Texecon Site Integration"
       ]
@@ -960,7 +960,7 @@
         "scripts/refresh-content.js",
         "client/src/lib/data.ts"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "WebSpark Content Pipeline",
         "Boundaries",
@@ -981,7 +981,7 @@
         "scripts/fetch-content.js",
         "scripts/generate-sitemap.js"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Webspark Content Pipeline Business"
       ]
@@ -998,10 +998,9 @@
       "source_of_truth": [
         "scripts/fetch-content.js",
         "scripts/refresh-content.js",
-        "client/src/lib/data.ts",
-        "client/src/lib/api-client.ts"
+        "client/src/lib/data.ts"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Webspark Content Pipeline Integration"
       ]
@@ -1021,7 +1020,7 @@
         "scripts/generate-sitemap.js",
         "scripts/generate-static-pages.js"
       ],
-      "last_verified": "2026-10-20",
+      "last_verified": "2026-10-21",
       "headings": [
         "Webspark Content Pipeline Operations"
       ]

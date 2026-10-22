@@ -6,7 +6,7 @@ layer: integration
 source_of_truth:
 - .github/workflows/deploy.yml
 - vite.config.ts
-last_verified: '2026-10-20'
+last_verified: '2026-10-21'
 ---
 
 # Github Pages Publishing Integration

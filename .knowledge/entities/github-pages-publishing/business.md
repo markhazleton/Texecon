@@ -6,7 +6,7 @@ layer: business
 source_of_truth:
 - .github/workflows/deploy.yml
 - .knowledge/governance/constitution.md
-last_verified: '2026-10-20'
+last_verified: '2026-10-21'
 ---
 
 # Github Pages Publishing Business

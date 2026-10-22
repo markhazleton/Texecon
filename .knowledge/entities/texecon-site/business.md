@@ -6,7 +6,7 @@ layer: business
 source_of_truth:
 - .knowledge/governance/constitution.md
 - client/src/App.tsx
-last_verified: '2026-10-20'
+last_verified: '2026-10-21'
 ---
 
 # Texecon Site Business

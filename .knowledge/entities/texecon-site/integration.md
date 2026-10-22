@@ -7,7 +7,7 @@ source_of_truth:
 - client/src/App.tsx
 - vite.config.ts
 - scripts/generate-static-pages.js
-last_verified: '2026-10-20'
+last_verified: '2026-10-21'
 ---
 
 # Texecon Site Integration

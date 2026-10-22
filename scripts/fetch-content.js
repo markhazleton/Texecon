@@ -13,11 +13,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function fetchTexEconContent() {
   const apiUrl = 'https://web.makeboldspark.com/api/WebCMS/websites/1';
-  const headers = {
-    'Accept': 'application/json',
-    'Authorization': 'Bearer MARKHAZLETON-WEB',
-    'Cookie': '.AspNetCore.Antiforgery.DlpvxuBJxZo=CfDJ8C3wmONpH_FLphaqQtDLGRYuZc_a6WnqAFCJfLk5gXJrPIrBzDAeMRGaHM4nB5VvGscxdzWEpjSr7P-E-0av185InEN6AE2QazEDzVNGLwOv1YYKrBVcpf6eBMIlbj9VeHo13fpOQv8sQ8wfTdIPSVs; .AspNetCore.Antiforgery.tvaVAstoha0=CfDJ8Nbddi0GFelFlLbYOyee0tfWE9b5PkLjyFJg97tQfv-GWRusAl0d4PL5WAOjzXx995KePx9GIyNblQkMqphqPReqakafy-zTGGoKK0ElSDzofhH2vROOsgNY4bmQkupPlUEXTG8CCxs5Am0CjkGfjiA'
-  };
+  // The website endpoint is public; send a bearer token only when one is configured.
+  const headers = { 'Accept': 'application/json' };
+  if (process.env.WEBSPARK_API_TOKEN) {
+    headers['Authorization'] = `Bearer ${process.env.WEBSPARK_API_TOKEN}`;
+  }
 
   try {
     console.log('🔄 Fetching TexEcon content from WebSpark API...');

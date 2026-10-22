@@ -7,7 +7,7 @@ source_of_truth:
 - package.json
 - client/src/memorial/MemorialHome.tsx
 - scripts/generate-static-pages.js
-last_verified: '2026-10-20'
+last_verified: '2026-10-21'
 ---
 
 # Memorial Site Operations

@@ -8,7 +8,7 @@ source_of_truth:
 - scripts/fetch-content.js
 - scripts/generate-sitemap.js
 - scripts/generate-static-pages.js
-last_verified: '2026-10-20'
+last_verified: '2026-10-21'
 ---
 
 # Webspark Content Pipeline Operations

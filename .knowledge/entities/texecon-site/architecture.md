@@ -7,7 +7,7 @@ source_of_truth:
 - package.json
 - .github/workflows/deploy.yml
 - .knowledge/governance/constitution.md
-last_verified: '2026-10-20'
+last_verified: '2026-10-21'
 ---
 
 # Texecon Site Architecture
@@ -18,6 +18,7 @@ Texecon is a static-first React and TypeScript site. Build scripts fetch WebSpar
 
 - `client/` — Vite React application and public assets.
 - `scripts/` — content fetch, sitemap, static-page, and cleanup pipeline.
+- `shared/` — dependency-free route-shape module (`withTrailingSlash`, `buildMenuHierarchy`) imported by both the build scripts and the client.
 - `.github/workflows/deploy.yml` — CI and GitHub Pages publishing.
 - `package.json` — Node, Vite, TypeScript, test, lint, and build commands.
 

@@ -26,11 +26,11 @@ async function refreshContent() {
   try {
     // Try to fetch from the WebSpark API
     const apiUrl = 'https://web.makeboldspark.com/api/WebCMS/websites/1';
-    const headers = {
-      'Accept': 'application/json',
-      'Authorization': 'Bearer MARKHAZLETON-WEB',
-      'Cookie': '.AspNetCore.Antiforgery.DlpvxuBJxZo=CfDJ8C3wmONpH_FLphaqQtDLGRYuZc_a6WnqAFCJfLk5gXJrPIrBzDAeMRGaHM4nB5VvGscxdzWEpjSr7P-E-0av185InEN6AE2QazEDzVNGLwOv1YYKrBVcpf6eBMIlbj9VeHo13fpOQv8sQ8wfTdIPSVs'
-    };
+    // The website endpoint is public; send a bearer token only when one is configured.
+    const headers = { 'Accept': 'application/json' };
+    if (process.env.WEBSPARK_API_TOKEN) {
+      headers['Authorization'] = `Bearer ${process.env.WEBSPARK_API_TOKEN}`;
+    }
     
     console.log('📡 Attempting to fetch fresh content from API...');
     // Use a simple timeout without AbortController to avoid a libuv assertion on Windows
