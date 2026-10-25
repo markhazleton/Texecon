@@ -74,7 +74,7 @@ jobs:
         run: Get-FileHash packaging/windows/dist/CollageStudioSetup.exe -Algorithm SHA256 | ForEach-Object Hash | Set-Content packaging/windows/dist/CollageStudioSetup.exe.sha256
 
       - name: Publish GitHub release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: v${{ env.COLLAGE_STUDIO_VERSION }}
           name: Collage Studio v${{ env.COLLAGE_STUDIO_VERSION }}
